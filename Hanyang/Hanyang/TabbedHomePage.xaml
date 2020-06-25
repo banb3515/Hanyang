@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             xmlns:extended="clr-namespace:Hanyang.Extend"
+             x:Class="Hanyang.TabbedHomePage">
+    <Grid VerticalOptions="FillAndExpand">
+        <!--#region 행 나누기-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--#region 뒷배경-->
+        <Label HeightRequest="220" 
+               BackgroundColor="#73E3F5"/>
+        <!--#endregion-->
+        
+        <!--#region 나의 정보-->
+        <StackLayout Orientation="Horizontal" 
+                     Margin="0,0,0,60" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Image x:Name="HanyangIcon" 
+                   Source="hanyang.png"
+                   WidthRequest="100" 
+                   HeightRequest="100" 
+                   VerticalOptions="Center"
+                   Margin="0,10,30,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="HanyangIcon_Tapped"
+                                          NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <StackLayout Orientation="Vertical" 
+                         HorizontalOptions="Center">
+                <Label Text="나의 정보" 
+                       TextColor="White"
+                       FontSize="38" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="Center"/>
+                <Label x:Name="MyInfoText" 
+                       Text="2학년 12반 1번, 최정원" 
+                       TextColor="White" 
+                       FontSize="16" 
+                       HorizontalOptions="Center"/>
+                <Label x:Name="MyDepartment" 
+                       Text="컴퓨터네트워크과" 
+                       TextColor="White" 
+                       FontSize="16" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <!--#endregion-->
+
+        <!--#region 웹사이트 바로가기-->
+        <Frame Grid.Row="1" 
+               HasShadow="True"
+               CornerRadius="10" 
+               Margin="20,-70,20,0"
+               Padding="0" 
+               HeightRequest="120" 
+               VerticalOptions="Start">
+            <Grid HorizontalOptions="Center"
+                  VerticalOptions="CenterAndExpand">
+                <!--#region 열 나누기-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--#endregion-->
+
+                <!--#region 학교 홈페이지-->
+                <StackLayout Orientation="Vertical" 
+                             Spacing="10" 
+                             Margin="10,0"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton x:Name="HomepageButton" 
+                                 Source="hanyang_homepage.png"
+                                 HeightRequest="50" 
+                                 Clicked="HomepageButton_Clicked"
+                                 HorizontalOptions="Center"/>
+                    <Label Text="홈페이지" 
+                           TextColor="Black" 
+                           FontSize="14"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 한양뉴스-->
+                <StackLayout Grid.Column="1" 
+                             Orientation="Vertical"
+                             Spacing="10"
+                             Margin="10,0"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton x:Name="NewsButton"
+                                 Source="hanyang_news.png" 
+                                 HeightRequest="50"
+                                 Clicked="NewsButton_Clicked"
+                                 HorizontalOptions="Center"/>
+                    <Label Text="한양뉴스" 
+                           TextColor="Black" 
+                           FontSize="14"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 코로나맵-->
+                <StackLayout Grid.Column="2" 
+                             Orientation="Vertical"
+                             Spacing="10"
+                             Margin="10,0"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton x:Name="CoronamapButton"
+                                 Source="coronamap.png" 
+                                 HeightRequest="50" 
+                                 Clicked="CoronamapButton_Clicked"
+                                 HorizontalOptions="Center"/>
+                    <Label Text="코로나맵" 
+                           TextColor="Black" 
+                           FontSize="14"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+                <!--#endregion-->
+            </Grid>
+        </Frame>
+        <!--#endregion-->
+        
+        <!--#region 게시판-->
+        <StackLayout Grid.Row="2"
+                     HorizontalOptions="Center"
+                     Margin="20, 10"
+                     VerticalOptions="Start">
+            <BoxView BackgroundColor="Black" 
+                     HeightRequest="2" 
+                     HorizontalOptions="FillAndExpand"/>
+            <!--#region 네비게이션 버튼-->
+            <Grid HorizontalOptions="Center"
+                  Margin="10,0"
+                  HeightRequest="120">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ViewNoticeButton" 
+                            Text="공지사항"
+                            TextColor="White"
+                            BackgroundColor="#4E4E4E"
+                            CornerRadius="10"
+                            Clicked="ViewNoticeButton_Clicked"
+                            FontSize="16"/>
+                <Button x:Name="ViewSNButton" 
+                            Text="가정통신문"
+                            Grid.Column="1"
+                            TextColor="#2B2B2B"
+                            FontSize="16"
+                            Clicked="ViewSNButton_Clicked"
+                            CornerRadius="10"
+                            BackgroundColor="#F8F8FF"
+                            WidthRequest="100"/>
+                <Button x:Name="ViewAppNoticeButton" 
+                            Text="앱 공지사항"
+                            Grid.Column="2"
+                            TextColor="#2B2B2B"
+                            FontSize="16"
+                            Clicked="ViewAppNoticeButton_Clicked"
+                            CornerRadius="10"
+                            BackgroundColor="#F8F8FF"/>
+                <ImageButton x:Name="RefreshButton" 
+                             Grid.Column="3"
+                             Source="refresh.png"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             Clicked="RefreshButton_Clicked"
+                             BackgroundColor="White"
+                             Margin="10,0,0,0"
+                             HorizontalOptions="End"/>
+            </Grid>
+            <!--#endregion-->
+            
+            <BoxView BackgroundColor="Black" HeightRequest="2"  HorizontalOptions="FillAndExpand"/>
+            
+            <!--#region 공지사항 목록-->
+            <ListView x:Name="NoticeList"
+                      Margin="0,-5,0,0"
+                      ItemsSource="{Binding Article}"
+                      ItemTapped="NoticeList_ItemTapped"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <Grid VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.RowSpan="2"
+                                       Source="notice.png"
+                                       WidthRequest="30"
+                                       HeightRequest="30"
+                                       Margin="5,5,0,0"
+                                       VerticalOptions="Start"/>
+                                <BoxView Grid.Column="1" 
+                                         Grid.RowSpan="2"
+                                         BackgroundColor="Black" 
+                                         Margin="0,5,0,0"
+                                         WidthRequest="1"
+                                         HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding Title}"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Info}"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       FontSize="11"
+                                       Margin="0,-5,0,0"
+                                       TextColor="#2E2E2E"/>
+                                <BoxView Grid.Row="2" 
+                                         Grid.ColumnSpan="3" 
+                                         BackgroundColor="Black" 
+                                         HeightRequest="1" 
+                                         HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                        </extended:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--#endregion-->
+
+            <!--#region 가정통신문 목록-->
+            <ListView x:Name="SNList"
+                      Margin="0,-5,0,0"
+                      ItemsSource="{Binding Article}"
+                      ItemTapped="SNList_ItemTapped"
+                      IsVisible="False"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <Grid VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.RowSpan="2"
+                                       Source="school_newsletter.png"
+                                       WidthRequest="30"
+                                       HeightRequest="30"
+                                       Margin="5,5,0,0"
+                                       VerticalOptions="Start"/>
+                                <BoxView Grid.Column="1" 
+                                         Grid.RowSpan="2"
+                                         Margin="0,5,0,0"
+                                         BackgroundColor="Black" 
+                                         WidthRequest="1"
+                                         HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding Title}"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Info}"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       FontSize="11"
+                                       Margin="0,-5,0,0"
+                                       TextColor="#2E2E2E"/>
+                                <BoxView Grid.Row="2" 
+                                         Grid.ColumnSpan="3" 
+                                         BackgroundColor="Black" 
+                                         HeightRequest="1" 
+                                         HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                        </extended:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--#endregion-->
+
+            <!--#region 앱 공지사항 목록-->
+            <ListView x:Name="AppNoticeList"
+                      Margin="0,-5,0,0"
+                      ItemsSource="{Binding Article}"
+                      ItemTapped="AppNoticeList_ItemTapped"
+                      IsVisible="False"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                            <Grid VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.RowSpan="2"
+                                       Source="info.png"
+                                       WidthRequest="30"
+                                       HeightRequest="30"
+                                       Margin="5,5,0,0"
+                                       VerticalOptions="Start"/>
+                                <BoxView Grid.Column="1" 
+                                         Grid.RowSpan="2"
+                                         Margin="0,5,0,0"
+                                         BackgroundColor="Black" 
+                                         WidthRequest="1"
+                                         HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding Title}"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Info}"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       FontSize="11"
+                                       Margin="0,-5,0,0"
+                                       TextColor="#2E2E2E"/>
+                                <BoxView Grid.Row="2" 
+                                         Grid.ColumnSpan="3" 
+                                         BackgroundColor="Black" 
+                                         HeightRequest="1" 
+                                         HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                        </extended:ExtendedViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--#endregion-->
+        </StackLayout>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:pages="clr-namespace:Hanyang"
+            mc:Ignorable="d"
+            BarBackgroundColor="AliceBlue"
+            x:Class="Hanyang.MainPage">
+    
+    <!--#endregion-->
+    <TabbedPage.Children>
+        <!--#region 홈-->
+        <NavigationPage Title="홈"
+                        IconImageSource="home.png">
+            <x:Arguments>
+                <pages:TabbedHomePage Title="홈"/>
+            </x:Arguments>
+        </NavigationPage>
+        <!--#endregion-->
+
+        <!--#region 일정-->
+        <NavigationPage Title="일정"
+                        IconImageSource="schedule.png">
+            <x:Arguments>
+                <pages:TabbedSchedulePage Title="일정"/>
+            </x:Arguments>
+        </NavigationPage>
+        <!--#endregion-->
+
+        <!--#region 설정-->
+        <NavigationPage Title="설정"
+                        IconImageSource="setting.png">
+            <x:Arguments>
+                <pages:TabbedSettingPage Title="설정"/>
+            </x:Arguments>
+        </NavigationPage>
+        <!--#endregion-->
+    </TabbedPage.Children>
+</TabbedPage>

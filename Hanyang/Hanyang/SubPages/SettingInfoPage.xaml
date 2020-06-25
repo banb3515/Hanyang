@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="앱 정보"
+             BackgroundColor="White"
+             x:Class="Hanyang.SubPages.SettingInfoPage">
+    <ScrollView x:Name="Scroll">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region 앱 정보-->
+            <Image x:Name="AppIconImage"
+                   Source="icon.png"
+                   Opacity="0"
+                   HeightRequest="200"
+                   Margin="20,20,20,0"/>
+            <Grid Grid.Row="1"
+                  HorizontalOptions="Center"
+                  Margin="0,0,0,7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="AppVersionText"
+                       Grid.Column="1"
+                       Text="v1.0"
+                       Opacity="0"
+                       FontSize="18"
+                       TextColor="#484848"
+                       Padding="0,7,0,0"/>
+                <Label x:Name="AppNameText" 
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       Text="한양이"
+                       Opacity="0"
+                       BackgroundColor="White"
+                       TextColor="Black" 
+                       Padding="50,0,0,0"/>
+            </Grid>
+            <!--#endregion-->
+
+            <BoxView x:Name="Line1" 
+                     BackgroundColor="Black" 
+                     HeightRequest="1"
+                     Margin="10,0"
+                     Opacity="0"
+                     Grid.Row="2"
+                     HorizontalOptions="FillAndExpand"/>
+
+            <!--#region 사용 된 프레임워크-->
+            <Label x:Name="FrameworkText" 
+                   Text="사용 된 프레임워크"
+                   Grid.Row="3"
+                   Opacity="0"
+                   Margin="10,0,10,0"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="26"
+                   TextColor="#353535"/>
+            <Image x:Name="TextLogoImage"
+                   Grid.Row="4"
+                   Opacity="0"
+                   Source="xamarin_text_logo.png"
+                   HeightRequest="203"
+                   WidthRequest="856"
+                   Margin="20,-50,25,-45"/>
+            <Image x:Name="LogoImage" 
+                   Grid.Row="4"
+                   Opacity="0"
+                   Source="xamarin_logo.png"
+                   HeightRequest="203"
+                   WidthRequest="226"
+                   Margin="25,-50,20,-45"/>
+            <!--#endregion-->
+
+            <BoxView x:Name="Line2" 
+                     BackgroundColor="Black" 
+                     HeightRequest="1"
+                     Margin="10,0,10,0"
+                     Opacity="0"
+                     Grid.Row="5"
+                     HorizontalOptions="FillAndExpand"/>
+
+            <!--#region 개발자-->
+            <Label x:Name="DevelopmentText"
+                   Grid.Row="6"
+                   TextColor="Black"
+                   Opacity="0"
+                   FontAttributes="Bold"
+                   FontSize="26"
+                   HorizontalOptions="Center"
+                   Text="개발"/>
+            
+            <StackLayout Grid.Row="6"
+                         HorizontalOptions="Center"
+                         Margin="0,60,0,0">
+                <!--#region 개발자 1-->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Margin="10,0">
+                    <Label x:Name="Developer1LText"
+                           Text="⊙"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Opacity="0"
+                           HorizontalOptions="Center"
+                           TextColor="#00F200"/>
+                    <Label x:Name="Developer1Text"
+                           Text="컴퓨터네트워크과, 최정원"
+                           FontSize="18"
+                           Opacity="0"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 개발자 2-->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Margin="10,0">
+                    <Label x:Name="Developer2LText"
+                           Text="⊙"
+                           FontSize="18"
+                           Opacity="0"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="#00DDEB"/>
+                    <Label x:Name="Developer2Text"
+                           Text="컴퓨터네트워크과, 전준혁"
+                           FontSize="18"
+                           Opacity="0"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 개발자 3-->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Margin="10,0">
+                    <Label x:Name="Developer3LText"
+                           Text="⊙"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Opacity="0"
+                           HorizontalOptions="Center"
+                           TextColor="#941BF7"/>
+                    <Label x:Name="Developer3Text"
+                           Text="컴퓨터네트워크과, 김정태"
+                           Opacity="0"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+                </StackLayout>
+                <!--#endregion-->
+            </StackLayout>
+            <!--#endregion-->
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             
+             x:Class="Hanyang.TabbedSettingPage">
+    <Grid VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical">
+            <!--#region 상단 가로줄-->
+            <BoxView BackgroundColor="#3C3C3C" 
+                 HeightRequest="16"
+                 Margin="5,10,5,0"
+                 HorizontalOptions="FillAndExpand"/>
+            <BoxView BackgroundColor="#8EF3FF" 
+                 HeightRequest="10"
+                 Margin="5,-16,5,0"
+                 HorizontalOptions="FillAndExpand"/>
+            <!--#endregion-->
+
+            <!--#region 버튼 목록-->
+            <ScrollView>
+                <StackLayout>
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             Margin="5,0"
+                             HorizontalOptions="FillAndExpand"/>
+
+                    <!--#region 앱 정보-->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="StartAndExpand">
+                        <Image Source="info.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               BackgroundColor="White"
+                               Margin="20,0,0,0"/>
+                        <Button x:Name="AppInfoButton" 
+                                Text="앱 정보"
+                                Clicked="AppInfoButton_Clicked"
+                                WidthRequest="325"
+                                Margin="0,0,20,0"
+                                Padding="-20,0,0,0"
+                                FontSize="18"
+                                TextColor="Black"
+                                BackgroundColor="White"/>
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             Margin="5,0"
+                             HorizontalOptions="FillAndExpand"/>
+
+                    <!--#region 오픈소스 라이센스-->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="StartAndExpand">
+                        <Image Source="open_source.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               BackgroundColor="White"
+                               Margin="20,0,0,0"/>
+                        <Button x:Name="OSLButton" 
+                                Text="오픈소스 라이센스"
+                                Clicked="OSLButton_Clicked"
+                                WidthRequest="325"
+                                Margin="0,0,20,0"
+                                Padding="-20,0,0,0"
+                                FontSize="18"
+                                TextColor="Black"
+                                BackgroundColor="White"/>
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             Margin="5,0"
+                             HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <!--#endregion-->
+        </StackLayout>
+    </Grid>
+</ContentPage>
