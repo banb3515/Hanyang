@@ -1,6 +1,7 @@
 ﻿#region API 참조
 using System.Threading.Tasks;
 using System.Timers;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
@@ -36,10 +37,10 @@ namespace Hanyang.SubPages
             Device.BeginInvokeOnMainThread(() =>
             {
                 AppVersionText.Text = "v" + App.VERSION;
+                AppVersionText.TranslationX -= 60;
+                AppVersionText.Opacity = 1;
             });
-            AppVersionText.TranslationX -= 60;
-            AppVersionText.Opacity = 1;
-            await AppVersionText.TranslateTo(0, 0, 1000, Easing.BounceOut);
+            await AppVersionText.TranslateTo(1, 0, 1000, Easing.BounceOut);
             #endregion
 
             await Task.Delay(100);
@@ -53,17 +54,23 @@ namespace Hanyang.SubPages
             await Task.Delay(500);
 
             #region Xamarin 텍스트 로고
-            TextLogoImage.Opacity = 1;
-            TextLogoImage.TranslationX += 250;
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                TextLogoImage.Opacity = 1;
+                TextLogoImage.TranslationX += 250;
+            });
             _ = TextLogoImage.TranslateTo(-50, 0, 1500, Easing.BounceIn);
-            _ = TextLogoImage.TranslateTo(0, 0, 500, Easing.BounceOut);
+            _ = TextLogoImage.TranslateTo(1, 0, 500, Easing.BounceOut);
             #endregion
 
             #region Xamarin 로고
-            LogoImage.Opacity = 1;
-            LogoImage.TranslationX -= 100;
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                LogoImage.Opacity = 1;
+                LogoImage.TranslationX -= 100;
+            });
             _ = LogoImage.TranslateTo(100, 0, 1500, Easing.BounceIn);
-            _ = LogoImage.TranslateTo(0, 0, 500, Easing.BounceOut);
+            _ = LogoImage.TranslateTo(1, 0, 500, Easing.BounceOut);
             #endregion
 
             await Task.Delay(1000);

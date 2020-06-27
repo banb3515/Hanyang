@@ -11,27 +11,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.1.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.1.0.59" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="TabbedSchedulePage.xaml.cs">
+    <Compile Update="Pages\TabbedSchedulePage.xaml.cs">
       <DependentUpon>TabbedSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\TabbedViewMorePage.xaml.cs">
+      <DependentUpon>TabbedViewMorePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Syncfusion.SfCalendar.XForms.ko.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SubPages\ArticlePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="SubPages\SettingInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TabbedHomePage.xaml">
+    <EmbeddedResource Update="Pages\TabbedHomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TabbedSettingPage.xaml">
+    <EmbeddedResource Update="Pages\TabbedViewMorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TabbedSchedulePage.xaml">
+    <EmbeddedResource Update="Pages\TabbedSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

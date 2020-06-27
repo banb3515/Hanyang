@@ -8,25 +8,14 @@
              BackgroundColor="White"
              x:Class="Hanyang.SubPages.SettingInfoPage">
     <ScrollView x:Name="Scroll">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
+        <StackLayout>
             <!--#region 앱 정보-->
             <Image x:Name="AppIconImage"
                    Source="icon.png"
                    Opacity="0"
                    HeightRequest="200"
                    Margin="20,20,20,0"/>
-            <Grid Grid.Row="1"
-                  HorizontalOptions="Center"
+            <Grid HorizontalOptions="Center"
                   Margin="0,0,0,7">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -56,33 +45,31 @@
                      HeightRequest="1"
                      Margin="10,0"
                      Opacity="0"
-                     Grid.Row="2"
                      HorizontalOptions="FillAndExpand"/>
 
             <!--#region 사용 된 프레임워크-->
             <Label x:Name="FrameworkText" 
                    Text="사용 된 프레임워크"
-                   Grid.Row="3"
                    Opacity="0"
                    Margin="10,0,10,0"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
                    FontSize="26"
                    TextColor="#353535"/>
-            <Image x:Name="TextLogoImage"
-                   Grid.Row="4"
+            <Grid>
+                <Image x:Name="TextLogoImage"
                    Opacity="0"
                    Source="xamarin_text_logo.png"
                    HeightRequest="203"
                    WidthRequest="856"
                    Margin="20,-50,25,-45"/>
-            <Image x:Name="LogoImage" 
-                   Grid.Row="4"
+                <Image x:Name="LogoImage" 
                    Opacity="0"
                    Source="xamarin_logo.png"
                    HeightRequest="203"
                    WidthRequest="226"
                    Margin="25,-50,20,-45"/>
+            </Grid>
             <!--#endregion-->
 
             <BoxView x:Name="Line2" 
@@ -90,12 +77,10 @@
                      HeightRequest="1"
                      Margin="10,0,10,0"
                      Opacity="0"
-                     Grid.Row="5"
                      HorizontalOptions="FillAndExpand"/>
 
             <!--#region 개발자-->
             <Label x:Name="DevelopmentText"
-                   Grid.Row="6"
                    TextColor="Black"
                    Opacity="0"
                    FontAttributes="Bold"
@@ -103,8 +88,7 @@
                    HorizontalOptions="Center"
                    Text="개발"/>
             
-            <StackLayout Grid.Row="6"
-                         HorizontalOptions="Center"
+            <StackLayout HorizontalOptions="Center"
                          Margin="0,60,0,0">
                 <!--#region 개발자 1-->
                 <StackLayout Orientation="Horizontal"
@@ -167,6 +151,6 @@
                 <!--#endregion-->
             </StackLayout>
             <!--#endregion-->
-        </Grid>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

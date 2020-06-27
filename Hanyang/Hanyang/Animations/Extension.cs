@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿#region API 참조
+using System;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+#endregion
 
 namespace Hanyang.Animations
 {
     public static class Extension
     {
+        #region 색상 변경 애니메이션
         public static Task<bool> ColorTo(this VisualElement self, Color fromColor, Color toColor, Action<Color> callback, uint length = 250, Easing easing = null)
         {
             Func<double, Color> transform = (t) =>
@@ -19,11 +21,6 @@ namespace Hanyang.Animations
             return ColorAnimation(self, "ColorTo", transform, callback, length, easing);
         }
 
-        public static void CancelAnimation(this VisualElement self)
-        {
-            self.AbortAnimation("ColorTo");
-        }
-
         static Task<bool> ColorAnimation(VisualElement element, string name, Func<double, Color> transform, Action<Color> callback, uint length, Easing easing)
         {
             easing = easing ?? Easing.Linear;
@@ -33,5 +30,13 @@ namespace Hanyang.Animations
 
             return taskCompletionSource.Task;
         }
+        #endregion
+
+        #region 애니메이션 취소
+        public static void CancelAnimation(this VisualElement self)
+        {
+            self.AbortAnimation("ColorTo");
+        }
+        #endregion
     }
 }

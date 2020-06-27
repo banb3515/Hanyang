@@ -29,10 +29,10 @@
         <!--#endregion-->
 
         <!--#region 설정-->
-        <NavigationPage Title="설정"
-                        IconImageSource="setting.png">
+        <NavigationPage Title="더 보기"
+                        IconImageSource="more.png">
             <x:Arguments>
-                <pages:TabbedSettingPage Title="설정"/>
+                <pages:TabbedViewMorePage Title="더 보기"/>
             </x:Arguments>
         </NavigationPage>
         <!--#endregion-->

@@ -1,23 +1,32 @@
-﻿using Hanyang.Extension;
-using System;
-using Xamarin.Forms;
+﻿#region API 참조
+using Hanyang.Extension;
 
-namespace Hanyang.Container
+using System;
+
+using Xamarin.Forms;
+#endregion
+
+namespace Hanyang.Others
 {
 	public class ZoomInOutContainer : ContentView
 	{
-		double currentScale = 1;
+        #region 변수
+        double currentScale = 1;
 		double startScale = 1;
 		double xOffset = 0;
 		double yOffset = 0;
+        #endregion
 
-		public ZoomInOutContainer()
+        #region 생성자
+        public ZoomInOutContainer()
 		{
 			var pinchGesture = new PinchGestureRecognizer();
 			pinchGesture.PinchUpdated += OnPinchUpdated;
 			GestureRecognizers.Add(pinchGesture);
 		}
+		#endregion
 
+		#region OnPinchUpdated
 		void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
 		{
 			if (e.Status == GestureStatus.Started)
@@ -55,5 +64,6 @@ namespace Hanyang.Container
 				yOffset = Content.TranslationY;
 			}
 		}
+		#endregion
 	}
 }

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:extended="clr-namespace:Hanyang.Extend"
-             xmlns:container="clr-namespace:Hanyang.Container"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:others="clr-namespace:Hanyang.Others"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              mc:Ignorable="d"
              BackgroundColor="White"
              x:Class="Hanyang.TabbedSchedulePage">
@@ -71,6 +72,7 @@
 
         <!--#region 시간표-->
         <StackLayout x:Name="Schedule" 
+                     IsVisible="False"
                      Grid.Row="3">
             <!--#region 요일 선택-->
             <StackLayout Orientation="Horizontal" 
@@ -1600,7 +1602,7 @@
                 <Frame HasShadow="True"
                        CornerRadius="10"
                        Padding="0"
-                       HeightRequest="300"
+                       HeightRequest="1075"
                        Margin='10,0'
                        HorizontalOptions="FillAndExpand"
                        BackgroundColor="#434343">
@@ -1609,20 +1611,28 @@
                        Padding="0"
                        Margin="12,2"
                        BackgroundColor="#EBEBEB"
-                       HeightRequest="800"
+                       HeightRequest="1075"
                        HorizontalOptions="FillAndExpand"
                        IsClippedToBounds="True">
-                    <container:ZoomInOutContainer>
-                        <container:ZoomInOutContainer.Content>
+                    <others:ZoomInOutContainer>
+                        <others:ZoomInOutContainer.Content>
                             <Image x:Name="LunchMenuImage"
                                    Source="tmp.jpg"
                                    Opacity="0"
                                    HorizontalOptions="Center"/>
-                        </container:ZoomInOutContainer.Content>
-                    </container:ZoomInOutContainer>
+                        </others:ZoomInOutContainer.Content>
+                    </others:ZoomInOutContainer>
                 </Frame>
             </Grid>
             <!--#endregion-->
+
+            <Label x:Name="GestureDescription"
+                   Text="제스처를 사용하여 사진을 확대/축소할 수 있습니다."
+                   FontSize="12"
+                   TextColor="SlateGray"
+                   Opacity="0"
+                   Margin="0,-5,0,-8"
+                   HorizontalOptions="Center"/>
             
             <BoxView x:Name="LunchMenuLine" 
                      BackgroundColor="Black" 
@@ -1635,11 +1645,12 @@
             <ListView x:Name="LunchMenuList"
                       Margin="0,-9,0,0"
                       Opacity="0"
+                      SelectionMode="None"
                       ItemsSource="{Binding LunchMenu}"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell>
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal"
                                          Margin="20,0"
@@ -1657,11 +1668,48 @@
                                          Margin="10,1.5,10,0"
                                          HorizontalOptions="FillAndExpand"/>
                             </StackLayout>
-                        </extended:ExtendedViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <!--#endregion-->
+        </StackLayout>
+        <!--#endregion-->
+        
+        <!--#region 학사 일정-->
+        <StackLayout x:Name="AcademicSchedule"
+                     IsVisible="False"
+                     Grid.Row="3"
+                     Margin="0,-7,0,0">
+            <syncfusion:SfCalendar x:Name="ASCalendar"
+                                   Margin="10,0"
+                                   ShowNavigationButtons="True"
+                                   ViewMode="MonthView"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   DataSource="{Binding Appointments}"
+                                   ShowInlineEvents="True"
+                                   NavigateToMonthOnInActiveDatesSelection="True"
+                                   InlineViewMode="Agenda">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings CellGridOptions="HorizontalLines"
+                                                  SelectionShape="Fill"
+                                                  DateSelectionColor="#81D8E8"
+                                                  SelectedDayTextColor="White"
+                                                  TodaySelectionBackgroundColor="#66CDDF"
+                                                  DayHeaderTextColor="Black"
+                                                  DayHeaderFontAttributes="Bold"
+                                                  HeaderFontAttributes="Bold"
+                                                  HeaderTextColor="Black"
+                                                  BorderColor="Black"/>
+                </syncfusion:SfCalendar.MonthViewSettings>
+                <syncfusion:SfCalendar.Behaviors>
+                    <others:CalendarBehavior/>
+                </syncfusion:SfCalendar.Behaviors>
+                <syncfusion:SfCalendar.BindingContext>
+                    <others:CalendarContainer/>
+                </syncfusion:SfCalendar.BindingContext>
+            </syncfusion:SfCalendar>
         </StackLayout>
         <!--#endregion-->
     </Grid>

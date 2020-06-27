@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hanyang.Interface
+﻿namespace Hanyang.Interface
 {
     public interface IBrowser
     {

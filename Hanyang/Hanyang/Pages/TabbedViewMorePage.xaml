@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BackgroundColor="White"
-             
-             x:Class="Hanyang.TabbedSettingPage">
+             x:Class="Hanyang.TabbedViewMorePage">
     <Grid VerticalOptions="FillAndExpand">
         <StackLayout Orientation="Vertical">
             <!--#region 상단 가로줄-->
@@ -23,6 +22,31 @@
             <!--#region 버튼 목록-->
             <ScrollView>
                 <StackLayout>
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             Margin="5,0"
+                             HorizontalOptions="FillAndExpand"/>
+
+                    <!--#region 설정-->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="StartAndExpand">
+                        <Image Source="setting.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               BackgroundColor="White"
+                               Margin="20,0,0,0"/>
+                        <Button x:Name="SettingButton" 
+                                Text="설정"
+                                Clicked="SettingButton_Clicked"
+                                WidthRequest="325"
+                                Margin="0,0,20,0"
+                                Padding="-20,0,0,0"
+                                FontSize="18"
+                                TextColor="Black"
+                                BackgroundColor="White"/>
+                    </StackLayout>
+                    <!--#endregion-->
+
                     <BoxView BackgroundColor="Black" 
                              HeightRequest="1"
                              Margin="5,0"

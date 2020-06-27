@@ -1,13 +1,16 @@
 ﻿#region API 참조
-using System;
-using Android.Content;
-using Hanyang.Droid;
 using Hanyang.Interface;
+using Hanyang.Droid.Request;
+
+using System;
+
+using Android.Content;
+
 using Xamarin.Forms;
 #endregion
 
 [assembly: Dependency(typeof(Browser))]
-namespace Hanyang.Droid
+namespace Hanyang.Droid.Request
 {
     class Browser : IBrowser
     {

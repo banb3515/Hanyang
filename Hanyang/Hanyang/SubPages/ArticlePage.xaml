@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="Hanyang.SubPages.ArticlePage">
+    <Grid>
+        <ScrollView x:Name="Scroll">
+            <StackLayout Margin="5,5">
+                <BoxView BackgroundColor="Black" 
+                         HeightRequest="2"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <!--#region 글 번호, 제목-->
+                <StackLayout Orientation="Horizontal"
+                             Margin="10,0">
+                    <Label x:Name="ArticleId" 
+                           FontSize="24"
+                           TextColor="Black"/>
+                    <Label x:Name="ArticleTitle" 
+                           FontSize="24"
+                           TextColor="Black"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 작성자, 작성 날짜-->
+                <Grid Margin="10,-2,10,0">
+                    <Label x:Name="ArticleWriter"
+                           FontSize="14"
+                           TextColor="Black"/>
+                    <Label x:Name="ArticleDate" 
+                           FontSize="14"
+                           HorizontalOptions="End"
+                           TextColor="#323232"/>
+                </Grid>
+                <!--#endregion-->
+
+                <BoxView BackgroundColor="Black" 
+                         HeightRequest="2"
+                         HorizontalOptions="FillAndExpand"/>
+                
+                <!--#region 첨부파일-->
+                <StackLayout x:Name="Attachment"
+                             IsVisible="False">
+                    <Label Text="첨부파일"
+                           FontSize="18"
+                           Margin="10,0"
+                           TextColor="Black"/>
+
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             Margin="5,0"
+                             HorizontalOptions="FillAndExpand"/>
+
+                    <ListView x:Name="AttachmentList"
+                              Margin="10,-5,10,0"
+                              SelectionMode="None"
+                              HeightRequest="45"
+                              ItemsSource="{Binding Attachment}"
+                              SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
+                                                   FontSize="14"
+                                                   TextColor="Black"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Format, StringFormat='파일 형식: {0}'}"
+                                               Grid.Row="1"
+                                               FontSize="11"
+                                               Margin="0,-5,0,0"
+                                               TextColor="#2E2E2E"/>
+                                        <Label Text="{Binding Size, StringFormat='파일 크기: {0}'}"
+                                               Grid.Row="1"
+                                               FontSize="11"
+                                               Margin="0,-5,0,0"
+                                               HorizontalOptions="End"
+                                               TextColor="#2E2E2E"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <BoxView BackgroundColor="Black" 
+                             HeightRequest="1"
+                             HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion-->
+                
+                <!--#region 내용-->
+                <Label Text="내용"
+                       FontSize="18"
+                       Margin="10,0"
+                       TextColor="Black"/>
+
+                <BoxView BackgroundColor="Black" 
+                         HeightRequest="1"
+                         Margin="5,0"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Label x:Name="ArticleContents"
+                       Margin="10,0"
+                       FontSize="16"
+                       TextColor="Black"/>
+                <!--#endregion-->
+            </StackLayout>
+        </ScrollView>
+        
+        <ImageButton x:Name="TopButton"
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Margin="0,0,10,10"
+                     Clicked="TopButton_Clicked"
+                     BackgroundColor="Transparent"
+                     Source="arrow_top.png"/>
+    </Grid>
+</ContentPage>

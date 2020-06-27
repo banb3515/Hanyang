@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BackgroundColor="White"
-             xmlns:extended="clr-namespace:Hanyang.Extend"
              x:Class="Hanyang.TabbedHomePage">
     <Grid VerticalOptions="FillAndExpand">
         <!--#region 행 나누기-->
@@ -191,12 +190,13 @@
             <!--#region 공지사항 목록-->
             <ListView x:Name="NoticeList"
                       Margin="0,-5,0,0"
+                      SelectionMode="None"
                       ItemsSource="{Binding Article}"
                       ItemTapped="NoticeList_ItemTapped"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell>
                             <Grid VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -221,10 +221,16 @@
                                          Margin="0,5,0,0"
                                          WidthRequest="1"
                                          HorizontalOptions="FillAndExpand"/>
-                                <Label Text="{Binding Title}"
-                                       Grid.Column="2"
-                                       FontSize="16"
-                                       TextColor="Black"/>
+                                <StackLayout Grid.Column="2"
+                                             Orientation="Horizontal">
+                                    <Label Text="{Binding Id, StringFormat='[{0}]'}"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Title}"
+                                           Margin="-5,0,0,0"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                </StackLayout>
                                 <Label Text="{Binding Info}"
                                        Grid.Column="2"
                                        Grid.Row="1"
@@ -237,7 +243,7 @@
                                          HeightRequest="1" 
                                          HorizontalOptions="FillAndExpand"/>
                             </Grid>
-                        </extended:ExtendedViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -247,12 +253,13 @@
             <ListView x:Name="SNList"
                       Margin="0,-5,0,0"
                       ItemsSource="{Binding Article}"
+                      SelectionMode="None"
                       ItemTapped="SNList_ItemTapped"
                       IsVisible="False"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell>
                             <Grid VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -277,10 +284,16 @@
                                          BackgroundColor="Black" 
                                          WidthRequest="1"
                                          HorizontalOptions="FillAndExpand"/>
-                                <Label Text="{Binding Title}"
-                                       Grid.Column="2"
-                                       FontSize="16"
-                                       TextColor="Black"/>
+                                <StackLayout Grid.Column="2"
+                                             Orientation="Horizontal">
+                                    <Label Text="{Binding Id, StringFormat='[{0}]'}"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Title}"
+                                           Margin="-5,0,0,0"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                </StackLayout>
                                 <Label Text="{Binding Info}"
                                        Grid.Column="2"
                                        Grid.Row="1"
@@ -293,7 +306,7 @@
                                          HeightRequest="1" 
                                          HorizontalOptions="FillAndExpand"/>
                             </Grid>
-                        </extended:ExtendedViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -304,11 +317,12 @@
                       Margin="0,-5,0,0"
                       ItemsSource="{Binding Article}"
                       ItemTapped="AppNoticeList_ItemTapped"
+                      SelectionMode="None"
                       IsVisible="False"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <extended:ExtendedViewCell SelectedBackgroundColor="LightGray">
+                        <ViewCell>
                             <Grid VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -333,10 +347,16 @@
                                          BackgroundColor="Black" 
                                          WidthRequest="1"
                                          HorizontalOptions="FillAndExpand"/>
-                                <Label Text="{Binding Title}"
-                                       Grid.Column="2"
-                                       FontSize="16"
-                                       TextColor="Black"/>
+                                <StackLayout Grid.Column="2"
+                                             Orientation="Horizontal">
+                                    <Label Text="{Binding Id, StringFormat='[{0}]'}"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Title}"
+                                           Margin="-5,0,0,0"
+                                           FontSize="16"
+                                           TextColor="Black"/>
+                                </StackLayout>
                                 <Label Text="{Binding Info}"
                                        Grid.Column="2"
                                        Grid.Row="1"
@@ -349,7 +369,7 @@
                                          HeightRequest="1" 
                                          HorizontalOptions="FillAndExpand"/>
                             </Grid>
-                        </extended:ExtendedViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

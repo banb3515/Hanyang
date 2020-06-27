@@ -1,23 +1,29 @@
-﻿using System.ComponentModel;
+﻿#region API 참조
+using Hanyang.Others;
+
+using System.ComponentModel;
 
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Views;
-using Hanyang.Droid.Extend;
-using Hanyang.Extend;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Hanyang.Droid.Others;
+#endregion
 
 [assembly: ExportRenderer(typeof(ExtendedViewCell), typeof(ExtendedViewCellRenderer))]
-namespace Hanyang.Droid.Extend
+namespace Hanyang.Droid.Others
 {
     class ExtendedViewCellRenderer : ViewCellRenderer
     {
+        #region 변수
         private Android.Views.View cellCoreView;
         private Drawable unSelectedBackground;
         private bool isSelected;
+        #endregion
 
+        #region GetCellCore
         protected override Android.Views.View GetCellCore(Cell item, Android.Views.View convertView, ViewGroup parent, Context context)
         {
             this.cellCoreView = base.GetCellCore(item, convertView, parent, context);
@@ -27,7 +33,9 @@ namespace Hanyang.Droid.Extend
 
             return cellCoreView;
         }
+        #endregion
 
+        #region OnCellPropertyChanged
         protected override void OnCellPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             base.OnCellPropertyChanged(sender, args);
@@ -45,5 +53,6 @@ namespace Hanyang.Droid.Extend
                     this.cellCoreView.SetBackground(this.unSelectedBackground);
             }
         }
+        #endregion
     }
 }

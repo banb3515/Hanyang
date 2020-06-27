@@ -1,14 +1,10 @@
-﻿namespace Hanyang.BindingData
+﻿namespace Hanyang.Model
 {
     public class LunchMenu
     {
+        #region 변수
         public string Symbol { get; set; } // 글머리 기호 색상 (HEX)
         public string Food { get; set; } // 음식 이름
-
-        public LunchMenu(string symbol, string food)
-        {
-            Symbol = symbol;
-            Food = food;
-        }
+        #endregion
     }
 }

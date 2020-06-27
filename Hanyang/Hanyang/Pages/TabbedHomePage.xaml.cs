@@ -1,14 +1,15 @@
 ﻿#region API 참조
 using Hanyang.Animations;
-using Hanyang.BindingData;
+using Hanyang.Model;
 using Hanyang.Interface;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Hanyang.SubPages;
 #endregion
 
 namespace Hanyang
@@ -17,9 +18,9 @@ namespace Hanyang
     public partial class TabbedHomePage : ContentPage
     {
         #region 변수
-        private bool task;
-        private string view;
-        private bool homepageButtonRotate;
+        private bool task; // 다른 작업 중인지 확인
+        private string view; // 현재 보고있는 레이아웃
+        private bool hanyangLogoRotate; // 한양공고 로고 애니메이션 작동중인지 확인
         #endregion
 
         #region 생성자
@@ -28,83 +29,21 @@ namespace Hanyang
             #region 변수 초기화
             task = false;
             view = "notice";
-            homepageButtonRotate = false;
+            hanyangLogoRotate = false;
             #endregion
 
             InitializeComponent();
 
             #region 글 목록 임시 생성
-            List<Article> notices = new List<Article>();
-            notices.Add(new Article("테스트 공지", "최정원 | 2020.06.23"));
-            notices.Add(new Article("아아아아", "전준혁 | 2020.06.23"));
-            notices.Add(new Article("ㅋㅋㅋ", "김정태 | 2020.06.23"));
-            notices.Add(new Article("abcd", "ㅇㅇㅇ | 2020.06.23"));
-            notices.Add(new Article("뭐지용", "? ? ? | 2020.06.23"));
-            notices.Add(new Article("테스트 공지", "최정원 | 2020.06.23"));
-            notices.Add(new Article("아아아아", "전준혁 | 2020.06.23"));
-            notices.Add(new Article("ㅋㅋㅋ", "김정태 | 2020.06.23"));
-            notices.Add(new Article("abcd", "ㅇㅇㅇ | 2020.06.23"));
-            notices.Add(new Article("뭐지용", "? ? ? | 2020.06.23"));
-            notices.Add(new Article("테스트 공지", "최정원 | 2020.06.23"));
-            notices.Add(new Article("아아아아", "전준혁 | 2020.06.23"));
-            notices.Add(new Article("ㅋㅋㅋ", "김정태 | 2020.06.23"));
-            notices.Add(new Article("abcd", "ㅇㅇㅇ | 2020.06.23"));
-            notices.Add(new Article("뭐지용", "? ? ? | 2020.06.23"));
-            notices.Add(new Article("테스트 공지", "최정원 | 2020.06.23"));
-            notices.Add(new Article("아아아아", "전준혁 | 2020.06.23"));
-            notices.Add(new Article("ㅋㅋㅋ", "김정태 | 2020.06.23"));
-            notices.Add(new Article("abcd", "ㅇㅇㅇ | 2020.06.23"));
-            notices.Add(new Article("뭐지용", "? ? ? | 2020.06.23"));
-            notices.Add(new Article("테스트 공지", "최정원 | 2020.06.23"));
-            notices.Add(new Article("아아아아", "전준혁 | 2020.06.23"));
+            var notices = new List<Article>(App.notices.Values);
+            notices.Reverse();
+            var sns = new List<Article>(App.sns.Values);
+            sns.Reverse();
+            var appNotices = new List<Article>(App.appNotices.Values);
+            appNotices.Reverse();
+
             NoticeList.ItemsSource = notices;
-
-            List<Article> sns = new List<Article>();
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
-            sns.Add(new Article("테스트 가정통신문", "최정원 | 2020.06.23"));
-            sns.Add(new Article("알립니다요", "김정태 | 2020.06.23"));
-            sns.Add(new Article("가정통신문이요", "전준혁 | 2020.06.23"));
             SNList.ItemsSource = sns;
-
-            List<Article> appNotices = new List<Article>();
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 버전 1.0.0", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("앱 개발중", "관리자 | 2020.06.23"));
-            appNotices.Add(new Article("테스트테스트", "관리자 | 2020.06.23"));
             AppNoticeList.ItemsSource = appNotices;
             #endregion
         }
@@ -116,6 +55,13 @@ namespace Hanyang
         {
             var browser = DependencyService.Get<IBrowser>();
             browser.Open(url);
+        }
+        #endregion
+
+        #region 새 페이지 열기
+        private async void NewPage(Page page)
+        {
+            await Navigation.PushAsync(page);
         }
         #endregion
         #endregion
@@ -151,12 +97,12 @@ namespace Hanyang
         #region 한양 아이콘 탭
         private async void HanyangIcon_Tapped(object sender, EventArgs e)
         {
-            if (!homepageButtonRotate)
+            if (!hanyangLogoRotate)
             {
-                homepageButtonRotate = true;
+                hanyangLogoRotate = true;
                 await HanyangIcon.RotateTo(360, 500, Easing.SinOut);
                 await HanyangIcon.RotateTo(0, 400, Easing.SinIn);
-                homepageButtonRotate = false;
+                hanyangLogoRotate = false;
             }
         }
         #endregion
@@ -259,29 +205,39 @@ namespace Hanyang
         }
         #endregion
 
-        #region 새로고침 버튼
+        #region 글 목록 새로고침 버튼
         private async void RefreshButton_Clicked(object sender, EventArgs e)
         {
+            // 글 목록 새로고침
             await ImageButtonAnimation(sender as ImageButton);
         }
         #endregion
         #endregion
 
         #region ListView 아이템 탭
+        #region 공지사항 목록 글 탭
         private void NoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            var article = e.Item as Article;
+            NewPage(new ArticlePage("공지사항", article.Id));
         }
+        #endregion
 
+        #region 가정통신문 목록 글 탭
         private void SNList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            var article = e.Item as Article;
+            NewPage(new ArticlePage("가정통신문", article.Id));
         }
+        #endregion
 
+        #region 앱 공지사항 목록 글 탭
         private void AppNoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            var article = e.Item as Article;
+            NewPage(new ArticlePage("앱 공지사항", article.Id));
         }
+        #endregion
         #endregion
     }
 }

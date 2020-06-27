@@ -1,19 +1,24 @@
-﻿using System.IO;
+﻿#region API 참조
+using System.IO;
 using System.Timers;
+
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
-using Felipecsl.GifImageViewLib;
 
-namespace Hanyang.Droid
+using Felipecsl.GifImageViewLib;
+#endregion
+
+namespace Hanyang.Droid.Activity
 {
     [Activity(Label = "한양이", Icon = "@drawable/icon", NoHistory = true, Theme = "@style/Theme.AppCompat.Light.NoActionBar", 
         MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class SplashActivity : AppCompatActivity
     {
+        #region OnCreate
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,13 +37,17 @@ namespace Hanyang.Droid
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
+        #endregion
 
+        #region 이벤트
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             StartActivity(new Intent(this, typeof(MainActivity)));
             Finish();
         }
+        #endregion
 
+        #region ConvertFileToByteArray
         private byte[] ConvertFileToByteArray(Stream stream)
         {
             byte[] buffer = new byte[16 * 1024];
@@ -50,5 +59,6 @@ namespace Hanyang.Droid
                 return ms.ToArray();
             }
         }
+        #endregion
     }
 }

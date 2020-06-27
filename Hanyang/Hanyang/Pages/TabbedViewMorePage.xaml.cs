@@ -9,23 +9,32 @@ using Xamarin.Forms.Xaml;
 namespace Hanyang
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TabbedSettingPage : ContentPage
+    public partial class TabbedViewMorePage : ContentPage
     {
         #region 생성자
-        public TabbedSettingPage()
+        public TabbedViewMorePage()
         {
             InitializeComponent();
         }
         #endregion
 
         #region 함수
+        #region 새 페이지 열기
         private async void NewPage(Page page)
         {
             await Navigation.PushAsync(page);
         }
         #endregion
+        #endregion
 
         #region 버튼 클릭
+        #region 설정 버튼
+        private void SettingButton_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+        #endregion
+
         #region 앱 정보 버튼
         private void AppInfoButton_Clicked(object sender, EventArgs e)
         {

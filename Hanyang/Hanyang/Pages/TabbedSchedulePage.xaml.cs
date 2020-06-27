@@ -1,7 +1,7 @@
 ﻿#region API 참조
 using Hanyang.Animations;
-using Hanyang.BindingData;
-using Hanyang.Extension;
+using Hanyang.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,17 +17,10 @@ namespace Hanyang
     public partial class TabbedSchedulePage : ContentPage
     {
         #region 변수
-        private string view;
-        private int viewDOW;
-        private bool task;
-        private List<string> rainbowColors;
-
-        #region 급식 사진
-        double startScale;
-        double currentScale;
-        double xOffset;
-        double yOffset;
-        #endregion
+        private string view; // 현재 보고있는 레이아웃
+        private int viewDOW; // 현재 보고있는 요일 레이아웃
+        private bool task; // 다른 작업 중인지 확인
+        private List<string> rainbowColors; // 여러 색상
         #endregion
 
         #region 생성자
@@ -36,11 +29,6 @@ namespace Hanyang
             #region 변수 초기화
             view = string.Empty;
             task = false;
-
-            startScale = 1;
-            currentScale = 1;
-            xOffset = 0;
-            yOffset = 0;
 
             rainbowColors = new List<string>
             {
@@ -106,6 +94,10 @@ namespace Hanyang
                 viewDOW = 1;
 
             _ = ViewScheduleAnimation();
+            #endregion
+
+            #region 학사 일정 시작 날짜 초기화
+            
             #endregion
 
             #region 임시
@@ -192,15 +184,15 @@ namespace Hanyang
             Schedule5Time6.Text = "[14:20 - 15:10]";
             Schedule5Time7.Text = "[15:20 - 16:10]";
             #endregion
-            
+
             List<LunchMenu> lunches = new List<LunchMenu>
             {
-                new LunchMenu(rainbowColors[0], "쌀밥"),
-                new LunchMenu(rainbowColors[1], "소고기고추장찌개"),
-                new LunchMenu(rainbowColors[2], "생선튀김&청초D"),
-                new LunchMenu(rainbowColors[3], "찐만두"),
-                new LunchMenu(rainbowColors[4], "부지깽이나물"),
-                new LunchMenu(rainbowColors[5], "깍두기")
+                new LunchMenu() { Symbol = rainbowColors[0], Food = "쌀밥"},
+                new LunchMenu() { Symbol = rainbowColors[1], Food = "소고기고추장찌개"},
+                new LunchMenu() { Symbol = rainbowColors[2], Food = "생선튀김&청초D"},
+                new LunchMenu() { Symbol = rainbowColors[3], Food = "찐만두"},
+                new LunchMenu() { Symbol = rainbowColors[4], Food = "부지깽이나물"},
+                new LunchMenu() { Symbol = rainbowColors[5], Food = "깍두기"},
             };
 
             LunchMenuList.ItemsSource = lunches;
@@ -299,7 +291,7 @@ namespace Hanyang
             layout.IsVisible = true;
             Schedule.IsVisible = true;
 
-            await Task.Delay(250);
+            await Task.Delay(100);
 
             foreach (Grid grid in grids)
             {
@@ -321,30 +313,48 @@ namespace Hanyang
         #region 급식 메뉴 보기
         private async Task ViewLunchMenuAnimation()
         {
-            await Task.Delay(500);
+            await Task.Delay(250);
+
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                LunchMenuDate.Opacity = 0;
+                LunchMenuBackground.Opacity = 0;
+                LunchMenuLine.Opacity = 0;
+                LunchMenuImage.Opacity = 0;
+                LunchMenuList.Opacity = 0;
+                GestureDescription.Opacity = 0;
+                LunchMenu.IsVisible = true;
+            });
             
-            LunchMenuDate.Opacity = 0;
-            LunchMenuBackground.Opacity = 0;
-            LunchMenuLine.Opacity = 0;
-            LunchMenuImage.Opacity = 0;
-            LunchMenuList.Opacity = 0;
-            LunchMenu.IsVisible = true;
-            
-            await LunchMenuDate.FadeTo(1, 1000, Easing.SpringOut);
+            await LunchMenuDate.FadeTo(1, 750, Easing.SpringOut);
             _ = LunchMenuBackground.FadeTo(1, 1500, Easing.SpringOut);
-            await Task.Delay(750); 
+            await Task.Delay(150);
 
-            LunchMenuImage.Opacity = 1;
-            LunchMenuImage.TranslationY -= 50;
-            await LunchMenuImage.TranslateTo(0, 0, 1500, Easing.BounceOut);
+            await LunchMenuImage.FadeTo(1, 750, Easing.SpringIn);
+            await Task.Delay(100);
+            await GestureDescription.FadeTo(1, 500, Easing.SpringOut);
+            await Task.Delay(100);
 
-            LunchMenuLine.ScaleX = 0;
-            LunchMenuLine.Opacity = 1;
-            await LunchMenuLine.ScaleXTo(1, 1500, Easing.SpringOut);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                LunchMenuLine.ScaleX = 0;
+                LunchMenuLine.Opacity = 1;
+            });
+            await LunchMenuLine.ScaleXTo(1, 500, Easing.SpringIn);
 
             await LunchMenuList.TranslateTo(300, 0, 1, Easing.SpringOut);
             LunchMenuList.Opacity = 1;
             await LunchMenuList.TranslateTo(0, 0, 500, Easing.SpringOut);
+        }
+        #endregion
+
+        #region 학사 일정 보기
+        private async Task ViewAcademicScheduleAnimation()
+        {
+            AcademicSchedule.IsVisible = true;
+            AcademicSchedule.Opacity = 0;
+
+            await AcademicSchedule.FadeTo(1, 750, Easing.SpringIn);
         }
         #endregion
         #endregion
@@ -365,6 +375,8 @@ namespace Hanyang
                 ViewAcademicScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
 
                 LunchMenu.IsVisible = false;
+                AcademicSchedule.IsVisible = false;
+
                 ViewButtonAnimation(sender as Button);
                 await ViewScheduleAnimation();
                 task = false;
@@ -385,9 +397,11 @@ namespace Hanyang
 
                 ViewScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
                 ViewAcademicScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
-                ViewButtonAnimation(sender as Button);
 
                 Schedule.IsVisible = false;
+                AcademicSchedule.IsVisible = false;
+
+                ViewButtonAnimation(sender as Button);
                 await ViewLunchMenuAnimation();
                 task = false;
             }
@@ -395,22 +409,24 @@ namespace Hanyang
         #endregion
 
         #region 학사 일정 보기 버튼
-        private void ViewAcademicScheduleButton_Clicked(object sender, System.EventArgs e)
+        private async void ViewAcademicScheduleButton_Clicked(object sender, System.EventArgs e)
         {
             if (!task && view != "academic_schedule")
             {
                 task = true;
                 view = "academic_schedule";
-                //SNList.IsVisible = false;
-                //AppNoticeList.IsVisible = false;
-                ViewButtonAnimation(sender as Button);
-                //ViewBoardAnimation(NoticeList);
 
                 ViewScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
                 ViewLunchMenuButton.BackgroundColor = Color.FromRgb(248, 248, 255);
 
                 ViewScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
                 ViewLunchMenuButton.TextColor = Color.FromRgb(43, 43, 43);
+
+                Schedule.IsVisible = false;
+                LunchMenu.IsVisible = false;
+
+                ViewButtonAnimation(sender as Button);
+                await ViewAcademicScheduleAnimation();
                 task = false;
             }
         }
@@ -560,7 +576,6 @@ namespace Hanyang
             }
         }
         #endregion
-
         #endregion
     }
 }
