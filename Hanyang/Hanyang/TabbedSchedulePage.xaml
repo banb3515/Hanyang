@@ -1609,7 +1609,7 @@
                        Padding="0"
                        Margin="12,2"
                        BackgroundColor="#EBEBEB"
-                       HeightRequest="750"
+                       HeightRequest="800"
                        HorizontalOptions="FillAndExpand"
                        IsClippedToBounds="True">
                     <container:ZoomInOutContainer>
