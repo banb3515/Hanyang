@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Syncfusion.Licensing" Version="18.1.0.59" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.1.0.59" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -28,13 +30,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Popup\ProfileSettingPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Syncfusion.SfCalendar.XForms.ko.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SubPages\ArticlePage.xaml">
+    <EmbeddedResource Update="SubPages\AppInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SubPages\SettingInfoPage.xaml">
+    <EmbeddedResource Update="SubPages\ArticlePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\TabbedHomePage.xaml">
@@ -44,6 +49,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\TabbedSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SubPages\SettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

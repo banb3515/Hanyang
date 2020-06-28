@@ -22,6 +22,7 @@ namespace Hanyang.Droid.Activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
             SetContentView(Resource.Layout.SplashScreen);
             var gifImageView = FindViewById<GifImageView>(Resource.Id.splash);
             var progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);

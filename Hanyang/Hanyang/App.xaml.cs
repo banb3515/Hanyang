@@ -12,9 +12,10 @@ namespace Hanyang
     {
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
-        public static Dictionary<int, Article> notices;
-        public static Dictionary<int, Article> sns;
-        public static Dictionary<int, Article> appNotices;
+
+        private static Dictionary<int, Article> notices; // 공지사항 글 목록
+        private static Dictionary<int, Article> sns; // 가정통신문 글 목록
+        private static Dictionary<int, Article> appNotices; // 앱 공지사항 글 목록
         #endregion
 
         #region 생성자
@@ -86,6 +87,12 @@ namespace Hanyang
 
             MainPage = new MainPage();
         }
+        #endregion
+
+        #region GET
+        public static Dictionary<int, Article> GetNotices() { return notices; }
+        public static Dictionary<int, Article> GetSchoolNewsletters() { return sns; }
+        public static Dictionary<int, Article> GetAppNotices() { return appNotices; }
         #endregion
 
         #region 앱 시작

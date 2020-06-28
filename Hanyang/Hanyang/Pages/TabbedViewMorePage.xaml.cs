@@ -1,5 +1,7 @@
 ﻿#region API 참조
+using Hanyang.Popup;
 using Hanyang.SubPages;
+using Rg.Plugins.Popup.Extensions;
 using System;
 
 using Xamarin.Forms;
@@ -31,14 +33,14 @@ namespace Hanyang
         #region 설정 버튼
         private void SettingButton_Clicked(object sender, EventArgs e)
         {
-            
+            NewPage(new SettingPage());
         }
         #endregion
 
         #region 앱 정보 버튼
         private void AppInfoButton_Clicked(object sender, EventArgs e)
         {
-            NewPage(new SettingInfoPage());
+            NewPage(new AppInfoPage());
         }
         #endregion
 

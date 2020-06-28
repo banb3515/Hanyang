@@ -9,10 +9,10 @@ using Xamarin.Forms.Xaml;
 namespace Hanyang.SubPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SettingInfoPage : ContentPage
+    public partial class AppInfoPage : ContentPage
     {
         #region 생성자
-        public SettingInfoPage()
+        public AppInfoPage()
         {
             InitializeComponent();
 

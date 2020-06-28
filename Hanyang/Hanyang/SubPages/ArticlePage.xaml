@@ -111,6 +111,7 @@
                 <Label x:Name="ArticleContents"
                        Margin="10,0"
                        FontSize="16"
+                       TextType="Html"
                        TextColor="Black"/>
                 <!--#endregion-->
             </StackLayout>

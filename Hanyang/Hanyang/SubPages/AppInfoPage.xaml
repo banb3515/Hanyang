@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              Title="앱 정보"
              BackgroundColor="White"
-             x:Class="Hanyang.SubPages.SettingInfoPage">
+             x:Class="Hanyang.SubPages.AppInfoPage">
     <ScrollView x:Name="Scroll">
         <StackLayout>
             <!--#region 앱 정보-->
@@ -87,7 +87,7 @@
                    FontSize="26"
                    HorizontalOptions="Center"
                    Text="개발"/>
-            
+
             <StackLayout HorizontalOptions="Center"
                          Margin="0,60,0,0">
                 <!--#region 개발자 1-->

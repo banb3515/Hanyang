@@ -29,13 +29,13 @@ namespace Hanyang.SubPages
             switch (title)
             {
                 case "공지사항":
-                    article = App.notices[id];
+                    article = App.GetNotices()[id];
                     break;
                 case "가정통신문":
-                    article = App.sns[id];
+                    article = App.GetSchoolNewsletters()[id];
                     break;
                 case "앱 공지사항":
-                    article = App.appNotices[id];
+                    article = App.GetAppNotices()[id];
                     break;
             }
             #endregion

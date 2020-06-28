@@ -44,12 +44,10 @@
                        FontAttributes="Bold" 
                        VerticalOptions="Center"/>
                 <Label x:Name="MyInfoText" 
-                       Text="2학년 12반 1번, 최정원" 
                        TextColor="White" 
                        FontSize="16" 
                        HorizontalOptions="Center"/>
                 <Label x:Name="MyDepartment" 
-                       Text="컴퓨터네트워크과" 
                        TextColor="White" 
                        FontSize="16" 
                        HorizontalOptions="Center"/>

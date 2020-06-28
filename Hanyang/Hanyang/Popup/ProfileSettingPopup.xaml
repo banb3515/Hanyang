@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 mc:Ignorable="d"
+                 x:Class="Hanyang.Popup.ProfileSettingPopup">
+
+    <Grid HeightRequest="300"
+          VerticalOptions="End"
+          Margin="5,0,5,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--#region 내용-->
+        <Frame Grid.Row="1" Grid.RowSpan="2"
+               HeightRequest="250"
+               VerticalOptions="End"
+               CornerRadius="10"
+               Padding="20,0"
+               BackgroundColor="White">
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="학년/반/번호"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="16"/>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Picker x:Name="Grade"
+                                    TitleColor="Black"
+                                    Title="학년"/>
+                            <Picker x:Name="Class"
+                                    TitleColor="Black"
+                                    Title="반"
+                                    Grid.Column="1"/>
+                            <Picker x:Name="Number"
+                                    TitleColor="Black"
+                                    Title="번호"
+                                    Grid.Column="2"/>
+                        </Grid>
+
+                        <Label Text="이름"
+                               Grid.Row="1"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="16"/>
+                        <Entry x:Name="Name"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               FontSize="16"
+                               MaxLength="5"
+                               ClearButtonVisibility="WhileEditing"
+                               Keyboard="Text"
+                               ReturnType="Done"
+                               IsSpellCheckEnabled="False"
+                               IsTextPredictionEnabled="False"
+                               Placeholder="이름을 입력해주세요."/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </Frame>
+        <!--#endregion-->
+
+        <!--#region 아이콘-->
+        <Frame BackgroundColor="White"
+               HeightRequest="59"
+               WidthRequest="80"
+               CornerRadius="250"
+               HasShadow="True"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Margin="0,0,0,-60">
+            <Image Source="profile.png"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Aspect="Fill" />
+        </Frame>
+        <!--#endregion-->
+
+        <!--#region 버튼-->
+        <Grid Grid.Row="2"
+              Margin="5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancleButton" 
+                    Text="취소"
+                    FontSize="16"
+                    CornerRadius="10"
+                    Clicked="CancleButton_Clicked"
+                    TextColor="White"
+                    HeightRequest="45"
+                    BackgroundColor="#66E3F0"/>
+            <Button x:Name="SaveButton"
+                    Grid.Column="1" 
+                    Text="저장"
+                    FontSize="16"
+                    CornerRadius="10"
+                    TextColor="White"
+                    Clicked="SaveButton_Clicked"
+                    HeightRequest="45"
+                    BackgroundColor="#03B8CB"/>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</pages:PopupPage>

@@ -21,6 +21,7 @@ namespace Hanyang
         private bool task; // 다른 작업 중인지 확인
         private string view; // 현재 보고있는 레이아웃
         private bool hanyangLogoRotate; // 한양공고 로고 애니메이션 작동중인지 확인
+        public static TabbedHomePage ins;
         #endregion
 
         #region 생성자
@@ -32,14 +33,18 @@ namespace Hanyang
             hanyangLogoRotate = false;
             #endregion
 
+            ins = this;
+
             InitializeComponent();
 
+            //MyInfoUpdate(setting.Grade, setting.Class, setting.Number, setting.Name);
+
             #region 글 목록 임시 생성
-            var notices = new List<Article>(App.notices.Values);
+            var notices = new List<Article>(App.GetNotices().Values);
             notices.Reverse();
-            var sns = new List<Article>(App.sns.Values);
+            var sns = new List<Article>(App.GetSchoolNewsletters().Values);
             sns.Reverse();
-            var appNotices = new List<Article>(App.appNotices.Values);
+            var appNotices = new List<Article>(App.GetAppNotices().Values);
             appNotices.Reverse();
 
             NoticeList.ItemsSource = notices;
@@ -64,6 +69,30 @@ namespace Hanyang
             await Navigation.PushAsync(page);
         }
         #endregion
+
+        public void MyInfoUpdate(int grade, int _class, int number, string name)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                MyInfoText.Text = grade + "학년 " + _class + "반 " + number + "번, " + name;
+
+                string dep = "NONE";
+
+                if (_class >= 1 && _class <= 2)
+                    dep = "건설정보";
+                else if (_class >= 3 && _class <= 4)
+                    dep = "건축";
+                else if (_class >= 5 && _class <= 6)
+                    dep = "자동화기계";
+                else if (_class >= 7 && _class <= 8)
+                    dep = "디지털전자";
+                else if (_class >= 9 && _class <= 10)
+                    dep = "자동차";
+                else if (_class >= 11 && _class <= 12)
+                    dep = "컴퓨터네트워크";
+                MyDepartment.Text = dep + "과";
+            });
+        }
         #endregion
 
         #region 애니메이션
