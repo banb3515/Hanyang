@@ -37,7 +37,7 @@ namespace Hanyang
 
             InitializeComponent();
 
-            //MyInfoUpdate(setting.Grade, setting.Class, setting.Number, setting.Name);
+            // MyInfoUpdate(setting.Grade, setting.Class, setting.Number, setting.Name);
 
             #region 글 목록 임시 생성
             var notices = new List<Article>(App.GetNotices().Values);
