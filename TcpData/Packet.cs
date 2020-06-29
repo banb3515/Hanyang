@@ -76,7 +76,8 @@ namespace TcpData
     #region PacketType
     public enum PacketType
     {
-        Registration
+        Registration, // senderID 할당
+        Test,
     }
     #endregion
 }

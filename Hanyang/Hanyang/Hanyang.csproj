@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TcpData\TcpData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Pages\TabbedSchedulePage.xaml.cs">
       <DependentUpon>TabbedSchedulePage.xaml</DependentUpon>
     </Compile>

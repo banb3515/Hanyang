@@ -1,10 +1,13 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Model;
+using Hanyang.Server;
+
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 
 using Xamarin.Forms;
 #endregion
@@ -15,8 +18,11 @@ namespace Hanyang
     {
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
+        
+        public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
+        public static Client Client { get; set; }
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록

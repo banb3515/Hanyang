@@ -41,6 +41,7 @@ namespace Server
         {
             Packet packet = new Packet(PacketType.Registration, "server");
             packet.data.Add("ID", id);
+            packet.data.Add("Version", Program.VERSION);
             client.Send(packet.ToBytes());
         }
         #endregion

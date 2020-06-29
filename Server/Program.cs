@@ -9,7 +9,7 @@ namespace Server
     class Program
     {
         #region 변수
-        public const string VERSION = "1.0"; // 버전
+        public const string VERSION = "1.1"; // 버전
 
         public static Server server; // 서버
 
@@ -61,11 +61,12 @@ namespace Server
                 {
                     string input;
 
-                    do
+                    while(true)
                     {
                         input = Console.ReadLine().ToLower();
-                        new Command(input);
-                    } while (!string.IsNullOrWhiteSpace(input));
+                        if(!string.IsNullOrWhiteSpace(input))
+                            new Command(input);
+                    }
                 });
 
                 commandThread.Start();
