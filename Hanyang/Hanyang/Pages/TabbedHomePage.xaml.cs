@@ -2,6 +2,8 @@
 using Hanyang.Animations;
 using Hanyang.Model;
 using Hanyang.Interface;
+using Hanyang.SubPages;
+using Hanyang.Controller;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Hanyang.SubPages;
 #endregion
 
 namespace Hanyang
@@ -37,7 +38,7 @@ namespace Hanyang
 
             InitializeComponent();
 
-            // MyInfoUpdate(setting.Grade, setting.Class, setting.Number, setting.Name);
+            GetSetting();
 
             #region 글 목록 임시 생성
             var notices = new List<Article>(App.GetNotices().Values);
@@ -55,6 +56,33 @@ namespace Hanyang
         #endregion
 
         #region 함수
+        #region 설정 가져오기
+        private async void GetSetting()
+        {
+            var controller = new JsonController("setting");
+            var read = controller.Read();
+            var resettingMsg = "더 보기 -> 설정에서 다시 설정을 해주세요.\n! 설정을 하지 않을 시 UI표시에 문제가 생길 수 있습니다.";
+
+            try
+            {
+                if (read != null)
+                {
+                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number"))
+                        await DisplayAlert("설정되지 않음", "* 프로필이 설정되지 않았습니다.\n" + resettingMsg, "확인");
+                    else
+                        MyInfoUpdate(Convert.ToInt32(read["Grade"]), Convert.ToInt32(read["Class"]),
+                            Convert.ToInt32(read["Number"]), read["Name"].ToString());
+                }
+                else
+                    await DisplayAlert("오류", "* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg, "확인");
+            }
+            catch(Exception e)
+            {
+                await DisplayAlert("오류", "TabbedHomePage - GetSetting\n" + e.Message, "확인");
+            }
+        }
+        #endregion
+
         #region 브라우저 열기
         private void OpenBrowser(string url)
         {
@@ -70,6 +98,7 @@ namespace Hanyang
         }
         #endregion
 
+        #region 나의 정보 UI 업데이트
         public void MyInfoUpdate(int grade, int _class, int number, string name)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -94,6 +123,7 @@ namespace Hanyang
             });
         }
         #endregion
+        #endregion
 
         #region 애니메이션
         #region 웹사이트 바로가기 버튼 클릭
@@ -107,17 +137,30 @@ namespace Hanyang
         #region 보기 버튼 클릭
         private async void ViewButtonAnimation(Button b)
         {
-            await b.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => b.BackgroundColor = c, 75);
-            await b.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => b.TextColor = c, 50);
+            if (App.Animation)
+            {
+                await b.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => b.BackgroundColor = c, 75);
+                await b.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => b.TextColor = c, 50);
+            }
+            else
+            {
+                b.BackgroundColor = Color.FromRgb(78, 78, 78);
+                b.TextColor = Color.White;
+            }
         }
         #endregion
 
         #region 게시판 글 보이기
         private async Task ViewArticleAnimation(ListView lv)
         {
-            await lv.TranslateTo(300, 0, 1, Easing.SpringOut);
-            lv.IsVisible = true;
-            await lv.TranslateTo(0, 0, 500, Easing.SpringOut);
+            if (App.Animation)
+            {
+                await lv.TranslateTo(300, 0, 1, Easing.SpringOut);
+                lv.IsVisible = true;
+                await lv.TranslateTo(0, 0, 500, Easing.SpringOut);
+            }
+            else
+                lv.IsVisible = true;
         }
         #endregion
         #endregion

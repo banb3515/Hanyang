@@ -17,7 +17,8 @@
         </Grid.RowDefinitions>
 
         <!--#region 내용-->
-        <Frame Grid.Row="1" Grid.RowSpan="2"
+        <Frame Grid.Row="1" 
+               Grid.RowSpan="2"
                HeightRequest="250"
                VerticalOptions="End"
                CornerRadius="10"

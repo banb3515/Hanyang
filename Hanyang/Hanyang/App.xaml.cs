@@ -1,7 +1,10 @@
 ﻿#region API 참조
+using Hanyang.Controller;
 using Hanyang.Model;
-
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 using Xamarin.Forms;
 #endregion
@@ -13,9 +16,48 @@ namespace Hanyang
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
 
+        public static bool Animation { get; set; } // 애니메이션 On/Off
+
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록
         private static Dictionary<int, Article> appNotices; // 앱 공지사항 글 목록
+        #endregion
+
+        #region 앱 종료 확인
+        public bool PromptToConfirmExit
+        {
+            get
+            {
+                bool promptToConfirmExit = false;
+                if (MainPage is ContentPage)
+                {
+                    promptToConfirmExit = true;
+                }
+                else if (MainPage is Xamarin.Forms.MasterDetailPage masterDetailPage
+                    && masterDetailPage.Detail is NavigationPage detailNavigationPage)
+                {
+                    promptToConfirmExit = detailNavigationPage.Navigation.NavigationStack.Count <= 1;
+                }
+                else if (MainPage is NavigationPage mainPage)
+                {
+                    if (mainPage.CurrentPage is TabbedPage tabbedPage
+                        && tabbedPage.CurrentPage is NavigationPage navigationPage)
+                    {
+                        promptToConfirmExit = navigationPage.Navigation.NavigationStack.Count <= 1;
+                    }
+                    else
+                    {
+                        promptToConfirmExit = mainPage.Navigation.NavigationStack.Count <= 1;
+                    }
+                }
+                else if (MainPage is TabbedPage tabbedPage
+                    && tabbedPage.CurrentPage is NavigationPage navigationPage)
+                {
+                    promptToConfirmExit = navigationPage.Navigation.NavigationStack.Count <= 1;
+                }
+                return promptToConfirmExit;
+            }
+        }
         #endregion
 
         #region 생성자
@@ -83,10 +125,53 @@ namespace Hanyang
             }
             #endregion
 
+            GetSetting();
+
             InitializeComponent();
 
             MainPage = new MainPage();
         }
+        #endregion
+
+        #region 함수
+        #region 설정 가져오기 또는 초기화
+        private async void GetSetting()
+        {
+            try
+            {
+                var controller = new JsonController("setting");
+                var read = controller.Read();
+
+                // 애니메이션이 설정되지 않았을 때
+                if (read != null)
+                {
+                    if (!read.ContainsKey("Animation"))
+                    {
+                        // 애니메이션 On으로 초기화
+                        try
+                        {
+                            var dict = new Dictionary<string, object>();
+                            dict.Add("Animation", true);
+                            controller.Add(dict);
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine(e.Message);
+                        }
+                    }
+                }
+                else
+                    await controller.Write(new JObject(new JProperty("Animation", true)));
+                read = controller.Read();
+
+                App.Animation = Convert.ToBoolean(read["Animation"]);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
+        #endregion
         #endregion
 
         #region GET

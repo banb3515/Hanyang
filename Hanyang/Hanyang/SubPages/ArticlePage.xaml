@@ -47,6 +47,7 @@
                     <Label Text="첨부파일"
                            FontSize="18"
                            Margin="10,0"
+                           HorizontalOptions="End"
                            TextColor="Black"/>
 
                     <BoxView BackgroundColor="Black" 

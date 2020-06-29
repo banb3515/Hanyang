@@ -12,6 +12,10 @@ namespace Hanyang.Popup
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileSettingPopup : PopupPage
     {
+        #region 이벤트 핸들러
+        public EventHandler<PopupResult> OnPopupSaved;
+        #endregion
+
         #region 생성자
         public ProfileSettingPopup()
         {
@@ -33,8 +37,6 @@ namespace Hanyang.Popup
         }
         #endregion
 
-        public EventHandler<PopupResult> OnPopupSaved;
-
         #region 버튼 클릭
         #region 취소 버튼
         private async void CancleButton_Clicked(object sender, System.EventArgs e)
@@ -46,6 +48,8 @@ namespace Hanyang.Popup
 
         #endregion
 
+        #region 버튼 클릭
+        #region 저장 버튼
         private async void SaveButton_Clicked(object sender, System.EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Name.Text))
@@ -58,7 +62,7 @@ namespace Hanyang.Popup
                     Number = Convert.ToInt32(Number.SelectedItem.ToString().Replace("번", "")),
                     Name = Name.Text
                 });
-                await PopupNavigation.Instance.PopAsync(true);
+                await PopupNavigation.Instance.PopAsync(App.Animation);
             }
             else
             {
@@ -66,8 +70,11 @@ namespace Hanyang.Popup
                 Name.Focus();
             }
         }
+        #endregion
+        #endregion
     }
 
+    #region 값 전달
     public class PopupResult
     {
         public bool Result { get; set; }
@@ -76,4 +83,5 @@ namespace Hanyang.Popup
         public int Number { get; set; }
         public string Name { get; set; }
     }
+    #endregion
 }

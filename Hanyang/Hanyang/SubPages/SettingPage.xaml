@@ -33,8 +33,12 @@
                            CornerRadius="3"
                            BackgroundColor="White"
                            VerticalOptions="Start">
-                        <StackLayout Orientation="Horizontal"
-                                     HorizontalOptions="StartAndExpand">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
                             <Image Source="profile.png"
                                    WidthRequest="40"
                                    HeightRequest="40"
@@ -42,14 +46,68 @@
                                    Margin="20,0,0,0"/>
                             <Button x:Name="ProfileButton" 
                                     Text="프로필"
+                                    Grid.Column="1"
                                     WidthRequest="325"
                                     Margin="0,0,20,0"
-                                    Padding="-20,0,0,0"
                                     FontSize="18"
                                     Clicked="ProfileButton_Clicked"
                                     BackgroundColor="White"
                                     TextColor="Black"/>
-                        </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+                    <!--#endregion-->
+
+                    <!--#region 카테고리 - 앱 설정-->
+                    <Frame Grid.Row="1" 
+                           Margin="5,10,5,-15"
+                           Padding="0" 
+                           CornerRadius="3"
+                           BackgroundColor="#E9E9E9"
+                           VerticalOptions="Start">
+                        <Label Text="앱 설정"
+                               FontSize="16"
+                               Margin="10,0"
+                               TextColor="Black"/>
+                    </Frame>
+
+                    <!--#region 애니메이션-->
+                    <Frame Grid.Row="1" 
+                           Margin="5,10,5,0"
+                           Padding="0" 
+                           CornerRadius="3"
+                           BackgroundColor="White"
+                           VerticalOptions="Start">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Image Source="animation.png"
+                                   WidthRequest="35"
+                                   HeightRequest="35"
+                                   BackgroundColor="Transparent"
+                                   Margin="22.5,2.5,2.5,2.5"/>
+                            <Button x:Name="AnimationButton"
+                                    Grid.Column="1"
+                                    Text="애니메이션"
+                                    WidthRequest="248"
+                                    FontSize="18"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    BackgroundColor="White"
+                                    Clicked="AnimationButton_Clicked"
+                                    TextColor="Black"/>
+                            <Switch x:Name="AnimationSwitch" 
+                                    OnColor="#81CCE1"
+                                    Grid.Column="2"
+                                    Margin="0,0,20,0"
+                                    VerticalOptions="Center"
+                                    Toggled="AnimationSwitch_Toggled"
+                                    ThumbColor="#04B4E4"/>
+                        </Grid>
                     </Frame>
                     <!--#endregion-->
                     <!--#endregion-->

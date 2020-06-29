@@ -89,7 +89,7 @@
                    Text="개발"/>
 
             <StackLayout HorizontalOptions="Center"
-                         Margin="0,60,0,0">
+                         Margin="0,10,0,0">
                 <!--#region 개발자 1-->
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center"

@@ -3,6 +3,8 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Xamarin.Forms.Platform.Android;
+using Rg.Plugins.Popup.Services;
 #endregion
 
 namespace Hanyang.Droid.Activity
@@ -34,5 +36,40 @@ namespace Hanyang.Droid.Activity
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
         #endregion
+
+        #region 디바이스 Back 버튼
+        public override async void OnBackPressed()
+        {
+            if (((App)Xamarin.Forms.Application.Current).PromptToConfirmExit)
+            {
+                using (var alert = new AlertDialog.Builder(this))
+                {
+                    alert.SetTitle("한양이");
+                    alert.SetMessage("앱을 종료하시겠습니까?");
+                    alert.SetPositiveButton("예", (sender, args) => { FinishAffinity(); });
+                    alert.SetNegativeButton("아니요", (sender, args) => { });
+
+                    var dialog = alert.Create();
+                    dialog.Show();
+                }
+                return;
+            }
+
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                await PopupNavigation.Instance.PopAsync();
+                return;
+            }
+
+            base.OnBackPressed();
+        }
+        #endregion
     }
+
+    #region Back 버튼 핸들러
+    public interface IBackButtonHandler
+    {
+        bool HandleBackButton();
+    }
+    #endregion
 }

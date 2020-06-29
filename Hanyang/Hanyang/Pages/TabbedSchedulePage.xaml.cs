@@ -203,8 +203,16 @@ namespace Hanyang
         #region 보기 버튼 클릭
         private async void ViewButtonAnimation(Button b)
         {
-            await b.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => b.BackgroundColor = c, 75);
-            await b.ColorTo(Color.FromRgb(78, 78, 78), Color.FromRgb(248, 248, 255), c => b.TextColor = c, 50);
+            if (App.Animation)
+            {
+                await b.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => b.BackgroundColor = c, 75);
+                await b.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => b.TextColor = c, 50);
+            }
+            else
+            {
+                b.BackgroundColor = Color.FromRgb(78, 78, 78);
+                b.TextColor = Color.White;
+            }
         }
         #endregion
 
@@ -283,68 +291,102 @@ namespace Hanyang
             }
             #endregion
 
-            await button.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => button.BackgroundColor = c, 75);
-            await button.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => button.TextColor = c, 50);
+            if (App.Animation)
+            {
+                await button.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => button.BackgroundColor = c, 75);
+                await button.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => button.TextColor = c, 50);
+            }
+            else
+            {
+                button.BackgroundColor = Color.FromRgb(78, 78, 78);
+                button.TextColor = Color.White;
+            }
 
             foreach (Grid grid in grids)
                 grid.IsVisible = false;
             layout.IsVisible = true;
             Schedule.IsVisible = true;
 
-            await Task.Delay(100);
+            if (App.Animation)
+                await Task.Delay(100);
 
             foreach (Grid grid in grids)
             {
-                await grid.TranslateTo(300, 0, 1, Easing.SpringOut);
                 grid.IsVisible = true;
-                _ = grid.TranslateTo(0, 0, 500, Easing.SpringOut);
-                await Task.Delay(150);
+                if (App.Animation)
+                {
+                    await grid.TranslateTo(300, 0, 1, Easing.SpringOut);
+                    _ = grid.TranslateTo(0, 0, 500, Easing.SpringOut);
+                    await Task.Delay(150);
+                }
             }
 
-            await Description1.TranslateTo(300, 0, 1, Easing.SpringOut);
-            Description1.Opacity = 1;
-            _ = Description1.TranslateTo(0, 0, 500, Easing.SpringOut);
-            await Description2.TranslateTo(300, 0, 1, Easing.SpringOut);
-            Description2.Opacity = 1;
-            _ = Description2.TranslateTo(0, 0, 500, Easing.SpringOut);
+            if (App.Animation)
+            {
+                await Description1.TranslateTo(300, 0, 1, Easing.SpringOut);
+                Description1.Opacity = 1;
+                _ = Description1.TranslateTo(0, 0, 500, Easing.SpringOut);
+                await Description2.TranslateTo(300, 0, 1, Easing.SpringOut);
+                Description2.Opacity = 1;
+                _ = Description2.TranslateTo(0, 0, 500, Easing.SpringOut);
+            }
+            else
+            {
+                Description1.Opacity = 1;
+                Description2.Opacity = 1;
+            }
         }
         #endregion
 
         #region 급식 메뉴 보기
         private async Task ViewLunchMenuAnimation()
         {
-            await Task.Delay(250);
-
-            Device.BeginInvokeOnMainThread(() =>
+            if (App.Animation)
             {
-                LunchMenuDate.Opacity = 0;
-                LunchMenuBackground.Opacity = 0;
-                LunchMenuLine.Opacity = 0;
-                LunchMenuImage.Opacity = 0;
-                LunchMenuList.Opacity = 0;
-                GestureDescription.Opacity = 0;
-                LunchMenu.IsVisible = true;
-            });
-            
-            await LunchMenuDate.FadeTo(1, 750, Easing.SpringOut);
-            _ = LunchMenuBackground.FadeTo(1, 1500, Easing.SpringOut);
-            await Task.Delay(150);
+                await Task.Delay(250);
 
-            await LunchMenuImage.FadeTo(1, 750, Easing.SpringIn);
-            await Task.Delay(100);
-            await GestureDescription.FadeTo(1, 500, Easing.SpringOut);
-            await Task.Delay(100);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    LunchMenuDate.Opacity = 0;
+                    LunchMenuBackground.Opacity = 0;
+                    LunchMenuLine.Opacity = 0;
+                    LunchMenuImage.Opacity = 0;
+                    LunchMenuList.Opacity = 0;
+                    GestureDescription.Opacity = 0;
+                    LunchMenu.IsVisible = true;
+                });
 
-            Device.BeginInvokeOnMainThread(() =>
+                await LunchMenuDate.FadeTo(1, 750, Easing.SpringOut);
+                _ = LunchMenuBackground.FadeTo(1, 1500, Easing.SpringOut);
+                await Task.Delay(150);
+
+                await LunchMenuImage.FadeTo(1, 750, Easing.SpringIn);
+                await Task.Delay(100);
+                await GestureDescription.FadeTo(1, 500, Easing.SpringOut);
+                await Task.Delay(100);
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    if (App.Animation)
+                        LunchMenuLine.ScaleX = 0;
+                    LunchMenuLine.Opacity = 1;
+                });
+
+                await LunchMenuLine.ScaleXTo(1, 500, Easing.SpringIn);
+                await LunchMenuList.TranslateTo(300, 0, 1, Easing.SpringOut);
+                LunchMenuList.Opacity = 1;
+                await LunchMenuList.TranslateTo(0, 0, 500, Easing.SpringOut);
+            }
+            else
             {
-                LunchMenuLine.ScaleX = 0;
+                LunchMenuDate.Opacity = 1;
+                LunchMenuBackground.Opacity = 1;
                 LunchMenuLine.Opacity = 1;
-            });
-            await LunchMenuLine.ScaleXTo(1, 500, Easing.SpringIn);
-
-            await LunchMenuList.TranslateTo(300, 0, 1, Easing.SpringOut);
-            LunchMenuList.Opacity = 1;
-            await LunchMenuList.TranslateTo(0, 0, 500, Easing.SpringOut);
+                LunchMenuImage.Opacity = 1;
+                LunchMenuList.Opacity = 1;
+                GestureDescription.Opacity = 1;
+                LunchMenu.IsVisible = true;
+            }
         }
         #endregion
 
@@ -352,9 +394,11 @@ namespace Hanyang
         private async Task ViewAcademicScheduleAnimation()
         {
             AcademicSchedule.IsVisible = true;
-            AcademicSchedule.Opacity = 0;
-
-            await AcademicSchedule.FadeTo(1, 750, Easing.SpringIn);
+            if (App.Animation)
+            {
+                AcademicSchedule.Opacity = 0;
+                await AcademicSchedule.FadeTo(1, 750, Easing.SpringIn);
+            }
         }
         #endregion
         #endregion
