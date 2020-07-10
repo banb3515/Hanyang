@@ -162,20 +162,48 @@ namespace Server
 
             while (true)
             {
+                Program.Log("시간표 가져오기: 데이터를 받아옵니다.");
                 // 데이터, 1 string = 반 이름, 2 string = 요일, 3 string = 교시, 4 string = 과목
                 var datas = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
+                var c = 1;
                 // 학년만큼 반복
                 for(int grade = 1; grade <= 3; grade ++)
                 {
                     // 학과만큼 반복
                     foreach (string dep in deps)
                     {
+                        int day = 0;
+                        switch(DateTime.Now.DayOfWeek)
+                        {
+                            case DayOfWeek.Monday:
+                                day = 4;
+                                break;
+                            case DayOfWeek.Tuesday:
+                                day = 3;
+                                break;
+                            case DayOfWeek.Wednesday:
+                                day = 2;
+                                break;
+                            case DayOfWeek.Thursday:
+                                day = 1;
+                                break;
+                            case DayOfWeek.Friday:
+                                day = 0;
+                                break;
+                            case DayOfWeek.Saturday:
+                                day = -1;
+                                break;
+                            case DayOfWeek.Sunday:
+                                day = -2;
+                                break;
+                        }
                         // API URL 지정
                         string url = "https://open.neis.go.kr/hub/hisTimetable?KEY=" + KEY +
                             "&Type=" + Type + "&pIndex=" + pIndex + "&pSize=" + pSize + "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE +
                             "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + "&DDDEP_NM=" +
-                            dep + "&GRADE=" + grade + "&AY=" + AY + "&TI_FROM_YMD=" + DateTime.Now.AddDays(-5).ToString("yyyyMMdd");
+                            dep + "&GRADE=" + grade + "&AY=" + AY + "&TI_TO_YMD=" + DateTime.Now.AddDays(day).ToString("yyyyMMdd") +
+                            "&TI_FROM_YMD=" + DateTime.Now.AddMonths(-1).ToString("yyyyMMdd");
 
                         // json 데이터 가져오기
                         var jsonStr = new WebClient().DownloadString(url).ToString();
@@ -266,8 +294,10 @@ namespace Server
                 var jObj = JObject.Parse(jObjStr);
                 await controller.Write(jObj);
 
+                Program.Log("시간표 가져오기: 데이터를 받아왔습니다.");
+
                 // 1시간 뒤 재실행
-                await Task.Delay(3600000);
+                await Task.Delay(3600000); // 1000 = 1초
             }
         }
         #endregion
