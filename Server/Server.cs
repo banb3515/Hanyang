@@ -255,9 +255,9 @@ namespace Server
                     }
                 }
 
-                var b = JsonConvert.SerializeObject(datas, Formatting.Indented);
+                var jObjStr = JsonConvert.SerializeObject(datas);
                 var controller = new JsonController("Timetable", dirPath: "GetData");
-                var jObj = JObject.Parse(b);
+                var jObj = JObject.Parse(jObjStr);
                 await controller.Write(jObj);
 
                 await Task.Delay(600000);
