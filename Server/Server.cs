@@ -1,4 +1,5 @@
 ﻿#region API 참조
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using System;
@@ -137,102 +138,128 @@ namespace Server
         }
         #endregion
 
-        #region 이벤트
+        #region 스레드 이벤트
         #region GetData
         private async void GetData()
         {
-            string KEY = "762281280e4943e58669a6b02991a67c";
-            string Type = "json";
-            string pIndex = "1";
-            string pSize = "1000";
-            string ATPT_OFCDC_SC_CODE = "B10";
-            string SD_SCHUL_CODE = "7010377";
-            string AY = DateTime.Now.Year.ToString();
+            string KEY = "762281280e4943e58669a6b02991a67c"; // NEIS API 키
+            string Type = "json"; // 가져오는 데이터 타입
+            string pIndex = "1"; // 시작 페이지
+            string pSize = "1000"; // 페이지 사이즈
+            string ATPT_OFCDC_SC_CODE = "B10"; // 교육청코드
+            string SD_SCHUL_CODE = "7010377"; // 학교코드
+            string AY = DateTime.Now.Year.ToString(); // 현재 년도
 
-            List<string> deps = new List<string>();
-            deps.Add("건설정보과");
-            deps.Add("건축과");
-            deps.Add("자동화기계과");
-            deps.Add("디지털전자과");
-            deps.Add("자동차과");
-            deps.Add("컴퓨터네트워크과");
+            List<string> deps = new List<string>
+            {
+                "건설정보과",
+                "건축과",
+                "자동화기계과",
+                "디지털전자과",
+                "자동차과",
+                "컴퓨터네트워크과"
+            };
 
             while (true)
             {
                 int c = 1;
-                foreach (string dep in deps)
+
+                // 데이터, 1 string = 반 이름, 2 string = 요일, 3 string = 교시, 4 string = 과목
+                var datas = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+
+                for(int grade = 1; grade <= 3; grade ++)
                 {
-                    string url = "https://open.neis.go.kr/hub/hisTimetable?KEY=" + KEY +
-                        "&Type=" + Type + "&pIndex=" + pIndex + "&pSize=" + pSize + "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE +
-                        "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + "&DDDEP_NM=" +
-                        "건축과" + "&GRADE=" + 2 + "&AY=" + AY;
-
-                    var jsonStr = new WebClient().DownloadString(url).ToString();
-                    var jsonObj = JObject.Parse(jsonStr);
-                    var jsonTimetable = jsonObj["hisTimetable"];
-
-                    string resultCode = "";
-                    string resultMsg = "";
-
-
-                    var result = jsonObj["RESULT"];
-                    if (result != null)
+                    foreach (string dep in deps)
                     {
-                        resultCode = result["CODE"].ToString();
-                        resultMsg = result["MESSAGE"].ToString();
-                    }
-                    else
-                    {
-                        result = jsonTimetable.First["head"].Last["RESULT"];
-                        resultCode = result["CODE"].ToString();
-                        resultMsg = result["MESSAGE"].ToString();
-                    }
+                        string url = "https://open.neis.go.kr/hub/hisTimetable?KEY=" + KEY +
+                            "&Type=" + Type + "&pIndex=" + pIndex + "&pSize=" + pSize + "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE +
+                            "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + "&DDDEP_NM=" +
+                            dep + "&GRADE=" + grade + "&AY=" + AY + "&TI_FROM_YMD=" + DateTime.Now.AddDays(-5).ToString("yyyyMMdd");
 
-                    if (resultCode == "INFO-000")
-                    {
-                        int length = Convert.ToInt32(jsonTimetable.First["head"].First["list_total_count"]);
-                        var row = jsonTimetable[1]["row"];
-                        for (int i = length - 68; i < length; i++)
+                        var jsonStr = new WebClient().DownloadString(url).ToString();
+                        var jsonObj = JObject.Parse(jsonStr);
+                        var jsonTimetable = jsonObj["hisTimetable"];
+
+                        string resultCode = "";
+                        string resultMsg = "";
+
+                        var result = jsonObj["RESULT"];
+                        if (result != null)
                         {
-                            var date = row[i]["ALL_TI_YMD"].ToString();
-                            date = date.Substring(0, 4) + "/" + date.Substring(4, 2) + "/" + date.Substring(6, 2);
-
-                            if (DateTime.Compare(DateTime.Now, Convert.ToDateTime(date)) < 0)
-                                continue;
-                            string dow = "";
-                            switch (Convert.ToDateTime(date).DayOfWeek)
-                            {
-                                case DayOfWeek.Monday:
-                                    dow = "Monday";
-                                    break;
-                                case DayOfWeek.Tuesday:
-                                    dow = "Tuesday";
-                                    break;
-                                case DayOfWeek.Wednesday:
-                                    dow = "Wednesday";
-                                    break;
-                                case DayOfWeek.Thursday:
-                                    dow = "Thursday";
-                                    break;
-                                case DayOfWeek.Friday:
-                                    dow = "Friday";
-                                    break;
-                            }
-                            var grade = row[i]["GRADE"].ToString();
-                            var className = row[i]["CLRM_NM"].ToString();
-                            var perio = row[i]["PERIO"].ToString();
-                            var subject = row[i]["ITRT_CNTNT"].ToString();
-                            if (subject.Contains("*"))
-                                subject = subject.Replace("* ", "");
-                            Console.WriteLine(c++ + " - " + date + ", 학년: " + row[i]["GRADE"] + ", 반: " + row[i]["CLRM_NM"] + ", " + dow + ", 교시: " + row[i]["PERIO"] + ", 과목: " + subject);
+                            resultCode = result["CODE"].ToString();
+                            resultMsg = result["MESSAGE"].ToString();
                         }
-                    }
-                    else
-                        Program.Log("시간표 가져오기 오류: " + resultCode + " - " + resultMsg, "error");
+                        else
+                        {
+                            result = jsonTimetable.First["head"].Last["RESULT"];
+                            resultCode = result["CODE"].ToString();
+                            resultMsg = result["MESSAGE"].ToString();
+                        }
 
-                    break;
+                        // 정상 작동
+                        if (resultCode == "INFO-000")
+                        {
+                            int length = Convert.ToInt32(jsonTimetable.First["head"].First["list_total_count"]); // 가져온 데이터 길이
+                            var row = jsonTimetable[1]["row"]; // 데이터
+
+                            #region dep 학과 데이터 가져오기
+                            for (int i = 0; i < length; i++)
+                            {
+                                var date = row[i]["ALL_TI_YMD"].ToString();
+                                date = date.Substring(0, 4) + "/" + date.Substring(4, 2) + "/" + date.Substring(6, 2);
+
+                                if (!(DateTime.Compare(DateTime.Now, Convert.ToDateTime(date)) > 0))
+                                    continue;
+
+                                string dow = ""; // 요일
+                                switch (Convert.ToDateTime(date).DayOfWeek)
+                                {
+                                    case DayOfWeek.Monday:
+                                        dow = "Monday";
+                                        break;
+                                    case DayOfWeek.Tuesday:
+                                        dow = "Tuesday";
+                                        break;
+                                    case DayOfWeek.Wednesday:
+                                        dow = "Wednesday";
+                                        break;
+                                    case DayOfWeek.Thursday:
+                                        dow = "Thursday";
+                                        break;
+                                    case DayOfWeek.Friday:
+                                        dow = "Friday";
+                                        break;
+                                }
+                                string className = row[i]["CLRM_NM"].ToString(); // 반 이름
+                                if (!className.Contains("건설") && !className.Contains("건축") &&
+                                    !className.Contains("기계") && !className.Contains("전자") &&
+                                    !className.Contains("자동차") && !className.Contains("컴넷"))
+                                    continue;
+
+                                var perio = row[i]["PERIO"].ToString(); // 교시
+                                var subject = row[i]["ITRT_CNTNT"].ToString(); // 과목
+                                if (subject.Contains("*"))
+                                    subject = subject.Replace("* ", ""); // 불필요한 문자 제거
+
+                                if (!datas.ContainsKey(className))
+                                    datas.Add(className, new Dictionary<string, Dictionary<string, string>>());
+                                if (!datas[className].ContainsKey(dow))
+                                    datas[className].Add(dow, new Dictionary<string, string>());
+                                if (!datas[className][dow].ContainsKey(perio))
+                                    datas[className][dow].Add(perio, subject);
+                            }
+                            #endregion
+                        }
+                        else
+                            Program.Log("시간표 가져오기 오류: " + resultCode + " - " + resultMsg, "error");
+                    }
                 }
-                Console.WriteLine("끝");
+
+                var b = JsonConvert.SerializeObject(datas, Formatting.Indented);
+                var controller = new JsonController("Timetable", dirPath: "GetData");
+                var jObj = JObject.Parse(b);
+                await controller.Write(jObj);
+
                 await Task.Delay(600000);
             }
         }
