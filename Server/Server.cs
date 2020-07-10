@@ -4,7 +4,6 @@ using Newtonsoft.Json.Linq;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -48,8 +47,9 @@ namespace Server
                 Program.Log("Server 생성자: " + e.Message, state: "error");
             }
 
-            Thread getDataThread = new Thread(GetData);
-            getDataThread.Start();
+            // 시간표 가져오기 스레드 생성
+            Thread getTimetableThread = new Thread(GetTimetable);
+            getTimetableThread.Start();
             #endregion
         }
         #endregion
@@ -139,8 +139,8 @@ namespace Server
         #endregion
 
         #region 스레드 이벤트
-        #region GetData
-        private async void GetData()
+        #region 시간표 가져오기
+        private async void GetTimetable()
         {
             string KEY = "762281280e4943e58669a6b02991a67c"; // NEIS API 키
             string Type = "json"; // 가져오는 데이터 타입
@@ -150,7 +150,7 @@ namespace Server
             string SD_SCHUL_CODE = "7010377"; // 학교코드
             string AY = DateTime.Now.Year.ToString(); // 현재 년도
 
-            List<string> deps = new List<string>
+            List<string> deps = new List<string> // 학과
             {
                 "건설정보과",
                 "건축과",
@@ -162,26 +162,28 @@ namespace Server
 
             while (true)
             {
-                int c = 1;
-
                 // 데이터, 1 string = 반 이름, 2 string = 요일, 3 string = 교시, 4 string = 과목
                 var datas = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
+                // 학년만큼 반복
                 for(int grade = 1; grade <= 3; grade ++)
                 {
+                    // 학과만큼 반복
                     foreach (string dep in deps)
                     {
+                        // API URL 지정
                         string url = "https://open.neis.go.kr/hub/hisTimetable?KEY=" + KEY +
                             "&Type=" + Type + "&pIndex=" + pIndex + "&pSize=" + pSize + "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE +
                             "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + "&DDDEP_NM=" +
                             dep + "&GRADE=" + grade + "&AY=" + AY + "&TI_FROM_YMD=" + DateTime.Now.AddDays(-5).ToString("yyyyMMdd");
 
+                        // json 데이터 가져오기
                         var jsonStr = new WebClient().DownloadString(url).ToString();
                         var jsonObj = JObject.Parse(jsonStr);
                         var jsonTimetable = jsonObj["hisTimetable"];
 
-                        string resultCode = "";
-                        string resultMsg = "";
+                        string resultCode = ""; // 결과 코드
+                        string resultMsg = ""; // 결과 메세지
 
                         var result = jsonObj["RESULT"];
                         if (result != null)
@@ -202,12 +204,13 @@ namespace Server
                             int length = Convert.ToInt32(jsonTimetable.First["head"].First["list_total_count"]); // 가져온 데이터 길이
                             var row = jsonTimetable[1]["row"]; // 데이터
 
-                            #region dep 학과 데이터 가져오기
+                            // dep 학과 데이터 가져오기
                             for (int i = 0; i < length; i++)
                             {
-                                var date = row[i]["ALL_TI_YMD"].ToString();
-                                date = date.Substring(0, 4) + "/" + date.Substring(4, 2) + "/" + date.Substring(6, 2);
+                                var date = row[i]["ALL_TI_YMD"].ToString(); // 시간표 날짜
+                                date = date.Substring(0, 4) + "/" + date.Substring(4, 2) + "/" + date.Substring(6, 2); // 20200620 -> 2020/06/20 포맷
 
+                                // 시간표 날짜가 현재 날짜보다 클 경우 아래 구문 취소
                                 if (!(DateTime.Compare(DateTime.Now, Convert.ToDateTime(date)) > 0))
                                     continue;
 
@@ -231,6 +234,7 @@ namespace Server
                                         break;
                                 }
                                 string className = row[i]["CLRM_NM"].ToString(); // 반 이름
+                                // 정상적인 데이터를 가져오기 위해 데이터 정제
                                 if (!className.Contains("건설") && !className.Contains("건축") &&
                                     !className.Contains("기계") && !className.Contains("전자") &&
                                     !className.Contains("자동차") && !className.Contains("컴넷"))
@@ -238,9 +242,11 @@ namespace Server
 
                                 var perio = row[i]["PERIO"].ToString(); // 교시
                                 var subject = row[i]["ITRT_CNTNT"].ToString(); // 과목
+                                // 불필요한 문자 제거
                                 if (subject.Contains("*"))
-                                    subject = subject.Replace("* ", ""); // 불필요한 문자 제거
+                                    subject = subject.Replace("* ", "");
 
+                                // 데이터 추가
                                 if (!datas.ContainsKey(className))
                                     datas.Add(className, new Dictionary<string, Dictionary<string, string>>());
                                 if (!datas[className].ContainsKey(dow))
@@ -248,19 +254,20 @@ namespace Server
                                 if (!datas[className][dow].ContainsKey(perio))
                                     datas[className][dow].Add(perio, subject);
                             }
-                            #endregion
                         }
                         else
                             Program.Log("시간표 가져오기 오류: " + resultCode + " - " + resultMsg, "error");
                     }
                 }
 
+                // json 파일 생성
                 var jObjStr = JsonConvert.SerializeObject(datas);
-                var controller = new JsonController("Timetable", dirPath: "GetData");
+                var controller = new JsonController("Timetable", dirPath: "Data");
                 var jObj = JObject.Parse(jObjStr);
                 await controller.Write(jObj);
 
-                await Task.Delay(600000);
+                // 1시간 뒤 재실행
+                await Task.Delay(3600000);
             }
         }
         #endregion
