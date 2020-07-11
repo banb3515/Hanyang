@@ -7,6 +7,8 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
 using System.Threading;
 
 using Xamarin.Forms;
@@ -18,10 +20,13 @@ namespace Hanyang
     {
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
-        
+        public const string SERVER_IP = "218.152.143.27"; // 서버 IP
+        public const int SERVER_PORT = 35155; // 서버 포트
+
         public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
+
         public static Client Client { get; set; }
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
@@ -72,7 +77,7 @@ namespace Hanyang
             // Syncfusion 라이선스 키
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc3NDE2QDMxMzgyZTMxMmUzMGJiT2Jic1N1ZUVzZHh6U2dLU0RMWDkxbW11VUo2VDY0MnU5bG5mOW1MZW89");
 
-            #region 임시 생성
+            #region 글 임시 생성
             notices = new Dictionary<int, Article>();
             sns = new Dictionary<int, Article>();
             appNotices = new Dictionary<int, Article>();

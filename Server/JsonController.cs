@@ -24,7 +24,7 @@ namespace Server
                 dir = Path.Combine(Environment.CurrentDirectory) + "\\" + dirPath + "\\";
             path = dir + fileName + ".json";
             var di = new DirectoryInfo(dir);
-            if (di.Exists == false)
+            if (!di.Exists)
                 di.Create();
         }
         #endregion
@@ -43,48 +43,25 @@ namespace Server
         #endregion
 
         #region 읽기
-        public Dictionary<string, object> Read()
+        public string Read()
         {
             try
             {
+                var di = new FileInfo(path);
+                if (!di.Exists)
+                    return null;
+
                 File.ReadAllText(path);
 
                 using (StreamReader reader = File.OpenText(path))
                 {
                     string read = reader.ReadToEnd();
-                    Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(read);
-                    return dict;
+                    return read;
                 }
             }
             catch
             {
                 return null;
-            }
-        }
-        #endregion
-
-        #region 추가
-        public async void Add(Dictionary<string, object> addDict)
-        {
-            try
-            {
-                var dict = Read();
-                var obj = new JObject();
-
-                foreach (var kv in dict)
-                    obj.Add(new JProperty(kv.Key, kv.Value));
-
-                foreach (var kv in addDict)
-                {
-                    if (dict.ContainsKey(kv.Key))
-                        obj.Remove(kv.Key);
-                    obj.Add(new JProperty(kv.Key, kv.Value));
-                }
-                await Write(obj);
-            }
-            catch (Exception e)
-            {
-                new Exception("JsonController - Add\n" + e.Message);
             }
         }
         #endregion

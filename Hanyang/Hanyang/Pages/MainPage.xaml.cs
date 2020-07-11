@@ -5,11 +5,14 @@ using Hanyang.Server;
 
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+
+using TcpData;
 
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -52,11 +55,12 @@ namespace Hanyang
             {
                 try
                 {
-                    App.Client = new Client("172.30.1.18", 35155);
+                    var a = new Client(App.SERVER_IP, App.SERVER_PORT);
+                    a.GetTimetable();
                 }
                 catch (Exception e)
                 {
-                    await DisplayAlert("서버 연결", e.Message, "확인");
+                    await DisplayAlert("서버 연결 오류", e.Message, "확인");
                 }
             });
 

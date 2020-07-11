@@ -4,8 +4,10 @@ using Newtonsoft.Json.Linq;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,9 +48,11 @@ namespace Server
             {
                 Program.Log("Server 생성자: " + e.Message, state: "error");
             }
+            #endregion
 
+            #region 스레드 생성
             // 시간표 가져오기 스레드 생성
-            Thread getTimetableThread = new Thread(GetTimetable);
+            Thread getTimetableThread = new Thread(GetData);
             getTimetableThread.Start();
             #endregion
         }
@@ -93,16 +97,17 @@ namespace Server
 
                     if (readBytes > 0)
                     {
+                        Program.Log(Buffer + "");
                         Packet packet = new Packet(Buffer);
                         DataManager(packet, clientSocket);
                     }
                 }
-                catch 
+                catch (Exception e)
                 {
                     var ep = (clientSocket.RemoteEndPoint as IPEndPoint);
 
                     Program.Log("연결 해제: " + ep.ToString() + "/" + ids[ep.ToString()]);
-
+                    Program.Log(e.Message, state: "warning");
                     #region 데이터 삭제
                     if (clients.ContainsKey(ids[ep.ToString()]))
                         clients.Remove(ids[ep.ToString()]);
@@ -122,14 +127,25 @@ namespace Server
         {
             try
             {
+                Program.Log("TEST");
                 IPEndPoint ep = (IPEndPoint)client.RemoteEndPoint;
+                Packet serverPacket = new Packet(PacketType.GetData, "server");
 
-                switch (packet.packetType)
-                {
-                    case PacketType.Test:
-                        
-                        break;
-                }
+                //switch (packet.packetType)
+                //{
+                //    #region 데이터 가져오기
+                //    case PacketType.GetData:
+                //        Program.Log(ep.ToString() + ": 데이터 요청");
+                //        if(packet.data.ContainsKey("Timetable"))
+                //        {
+                //            var controller = new JsonController("Timetable", dirPath: "Data");
+                //            var json = controller.Read();
+                //            serverPacket.data.Add("Timetable", json);
+                //        }
+                //        client.Send(serverPacket.ToBytes());
+                //        break;
+                //    #endregion
+                //}
             }
             catch (Exception e)
             {
@@ -139,34 +155,35 @@ namespace Server
         #endregion
 
         #region 스레드 이벤트
-        #region 시간표 가져오기
-        private async void GetTimetable()
+        #region 데이터 가져오기
+        private async void GetData()
         {
-            string KEY = "762281280e4943e58669a6b02991a67c"; // NEIS API 키
-            string Type = "json"; // 가져오는 데이터 타입
-            string pIndex = "1"; // 시작 페이지
-            string pSize = "1000"; // 페이지 사이즈
-            string ATPT_OFCDC_SC_CODE = "B10"; // 교육청코드
-            string SD_SCHUL_CODE = "7010377"; // 학교코드
-            string AY = DateTime.Now.Year.ToString(); // 현재 년도
-
-            List<string> deps = new List<string> // 학과
-            {
-                "건설정보과",
-                "건축과",
-                "자동화기계과",
-                "디지털전자과",
-                "자동차과",
-                "컴퓨터네트워크과"
-            };
-
             while (true)
             {
+                #region 시간표
                 Program.Log("시간표 가져오기: 데이터를 받아옵니다.");
+
+                string KEY = "762281280e4943e58669a6b02991a67c"; // NEIS API 키
+                string Type = "json"; // 가져오는 데이터 타입
+                string pIndex = "1"; // 시작 페이지
+                string pSize = "1000"; // 페이지 사이즈
+                string ATPT_OFCDC_SC_CODE = "B10"; // 교육청코드
+                string SD_SCHUL_CODE = "7010377"; // 학교코드
+                string AY = DateTime.Now.Year.ToString(); // 현재 년도
+
+                List<string> deps = new List<string> // 학과
+                {
+                    "건설정보과",
+                    "건축과",
+                    "자동화기계과",
+                    "디지털전자과",
+                    "자동차과",
+                    "컴퓨터네트워크과"
+                };
+
                 // 데이터, 1 string = 반 이름, 2 string = 요일, 3 string = 교시, 4 string = 과목
                 var datas = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
-                var c = 1;
                 // 학년만큼 반복
                 for(int grade = 1; grade <= 3; grade ++)
                 {
@@ -199,11 +216,18 @@ namespace Server
                                 break;
                         }
                         // API URL 지정
-                        string url = "https://open.neis.go.kr/hub/hisTimetable?KEY=" + KEY +
-                            "&Type=" + Type + "&pIndex=" + pIndex + "&pSize=" + pSize + "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE +
-                            "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + "&DDDEP_NM=" +
-                            dep + "&GRADE=" + grade + "&AY=" + AY + "&TI_TO_YMD=" + DateTime.Now.AddDays(day).ToString("yyyyMMdd") +
-                            "&TI_FROM_YMD=" + DateTime.Now.AddMonths(-1).ToString("yyyyMMdd");
+                        string url = "https://open.neis.go.kr/hub/hisTimetable?" + 
+                            "KEY=" + KEY + // API 키
+                            "&Type=" + Type + // 파일 타입
+                            "&pIndex=" + pIndex + // 시작 페이지
+                            "&pSize=" + pSize + // 페이지 사이즈
+                            "&ATPT_OFCDC_SC_CODE=" + ATPT_OFCDC_SC_CODE + // 교육청 코드
+                            "&SD_SCHUL_CODE=" + SD_SCHUL_CODE + // 학교 코드
+                            "&DDDEP_NM=" + dep + // 학과
+                            "&GRADE=" + grade + // 학년
+                            "&AY=" + AY + // 년도
+                            "&TI_TO_YMD=" + DateTime.Now.AddDays(day).ToString("yyyyMMdd") + // 시간표 마지막 날짜
+                            "&TI_FROM_YMD=" + DateTime.Now.AddMonths(-1).ToString("yyyyMMdd"); // 시간표 시작 날짜
 
                         // json 데이터 가져오기
                         var jsonStr = new WebClient().DownloadString(url).ToString();
@@ -295,6 +319,13 @@ namespace Server
                 await controller.Write(jObj);
 
                 Program.Log("시간표 가져오기: 데이터를 받아왔습니다.");
+                #endregion
+
+                #region 급식
+                #endregion
+
+                #region 학사일정
+                #endregion
 
                 // 1시간 뒤 재실행
                 await Task.Delay(3600000); // 1000 = 1초

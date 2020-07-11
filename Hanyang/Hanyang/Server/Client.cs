@@ -1,10 +1,13 @@
-﻿using System;
+﻿#region API 참조
+using System;
+using System.Collections;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
 using TcpData;
+#endregion
 
 namespace Hanyang.Server
 {
@@ -74,6 +77,7 @@ namespace Hanyang.Server
             {
                 switch (packet.packetType)
                 {
+                    #region ID 할당
                     case PacketType.Registration:
                         senderID = packet.data["ID"].ToString();
                         App.NewestVersion = packet.data["Version"].ToString();
@@ -81,11 +85,34 @@ namespace Hanyang.Server
                             await MainPage.GetInstance().DisplayAlert("업데이트", "* 한양이 앱을 업데이트할 수 있습니다.\n" + 
                                 "- 현재 버전: v" + App.VERSION + "\n- 최신버전: v" + App.NewestVersion, "확인");
                         break;
+                    #endregion
+
+                    #region 데이터 가져오기
+                    case PacketType.GetData:
+                        Debug.WriteLine(packet.data["Timetable"].ToString());
+                        break;
+                    #endregion
                 }
             }
             catch (Exception e)
             {
                 await MainPage.GetInstance().DisplayAlert("오류", "* DataManager\n- 오류 내용\n" + e.Message, "확인");
+            }
+        }
+        #endregion
+
+        #region 서버로부터 요청
+        public async void GetTimetable()
+        {
+            try
+            {
+                Packet packet = new Packet(PacketType.GetData, senderID);
+                packet.data.Add("Timetable", "");
+                server.Send(packet.ToBytes());
+            }
+            catch (Exception e)
+            {
+                await MainPage.GetInstance().DisplayAlert("오류", "* Request\n- 오류 내용\n" + e.Message, "확인");
             }
         }
         #endregion
