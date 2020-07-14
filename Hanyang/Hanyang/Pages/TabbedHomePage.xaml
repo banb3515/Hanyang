@@ -49,7 +49,7 @@
                        FontSize="16" 
                        HorizontalOptions="Center"/>
                 <Label x:Name="MyDepartment" 
-                       Text="프로필 설정가기"
+                       Text="프로필 설정하기"
                        TextColor="Blue" 
                        FontSize="16" 
                        HorizontalOptions="Center">
