@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Hanyang.Popup;
+using Newtonsoft.Json.Linq;
+using Rg.Plugins.Popup.Services;
 #endregion
 
 namespace Hanyang
@@ -22,6 +25,7 @@ namespace Hanyang
         private bool task; // 다른 작업 중인지 확인
         private string view; // 현재 보고있는 레이아웃
         private bool hanyangLogoRotate; // 한양공고 로고 애니메이션 작동중인지 확인
+        private bool myInfoSet; // 나의 정보가 설정되어있는지 확인
         public static TabbedHomePage ins;
         #endregion
 
@@ -32,6 +36,7 @@ namespace Hanyang
             task = false;
             view = "notice";
             hanyangLogoRotate = false;
+            myInfoSet = false;
             #endregion
 
             ins = this;
@@ -120,6 +125,8 @@ namespace Hanyang
                 else if (_class >= 11 && _class <= 12)
                     dep = "컴퓨터네트워크";
                 MyDepartment.Text = dep + "과";
+                MyDepartment.TextColor = Color.White;
+                myInfoSet = true;
             });
         }
         #endregion
@@ -310,6 +317,62 @@ namespace Hanyang
             NewPage(new ArticlePage("앱 공지사항", article.Id));
         }
         #endregion
+
         #endregion
+
+        private async void GoSetting_Tapped(object sender, EventArgs e)
+        {
+            if(!myInfoSet && !task)
+            {
+                task = true;
+
+                var popup = new ProfileSettingPopup();
+
+                popup.OnPopupSaved += async (s, arg) =>
+                {
+                    if (arg.Result)
+                    {
+                        var controller = new JsonController("setting");
+                        var read = controller.Read();
+
+                        if (read != null)
+                        {
+                            try
+                            {
+                                var dict = new Dictionary<string, object>
+                                {
+                                { "Grade", arg.Grade },
+                                { "Class", arg.Class },
+                                { "Number", arg.Number },
+                                { "Name", arg.Name }
+                                };
+                                controller.Add(dict);
+                            }
+                            catch (Exception ex)
+                            {
+                                await DisplayAlert("오류", ex.Message, "확인");
+                            }
+                        }
+                        else
+                        {
+                            var jsonObj = new JObject(
+                                new JProperty("Grade", arg.Grade),
+                                new JProperty("Class", arg.Class),
+                                new JProperty("Number", arg.Number),
+                                new JProperty("Name", arg.Name)
+                                );
+                            await controller.Write(jsonObj);
+                        }
+
+                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
+
+                        TabbedHomePage.ins.MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
+                    }
+                };
+
+                await PopupNavigation.Instance.PushAsync(popup, App.Animation);
+                task = false;
+            }
+        }
     }
 }

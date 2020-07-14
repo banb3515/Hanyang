@@ -44,13 +44,20 @@
                        FontAttributes="Bold" 
                        VerticalOptions="Center"/>
                 <Label x:Name="MyInfoText" 
+                       Text="설정되지 않음"
                        TextColor="White" 
                        FontSize="16" 
                        HorizontalOptions="Center"/>
                 <Label x:Name="MyDepartment" 
-                       TextColor="White" 
+                       Text="프로필 설정가기"
+                       TextColor="Blue" 
                        FontSize="16" 
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoSetting_Tapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </StackLayout>
         <!--#endregion-->
