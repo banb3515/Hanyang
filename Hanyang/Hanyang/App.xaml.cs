@@ -1,7 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Model;
-using Hanyang.Server;
 
 using Newtonsoft.Json.Linq;
 using System;
@@ -20,14 +19,14 @@ namespace Hanyang
     {
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
-        public const string SERVER_IP = "218.152.143.27"; // 서버 IP
+        public const string SERVER_IP = "59.6.17.104"; // 서버 IP
         public const int SERVER_PORT = 35155; // 서버 포트
 
         public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
 
-        public static Client Client { get; set; }
+        public static Server Server { get; set; }
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록

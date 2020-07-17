@@ -53,6 +53,7 @@ namespace Server
                 serverThread = new Thread(() =>
                 {
                     server = new Server(port);
+                    //server.Start();
                 });
 
                 serverThread.Start();

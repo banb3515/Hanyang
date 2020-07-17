@@ -1,19 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<com.felipecsl.gifimageview.library.GifImageView
-	  android:id="@+id/splash"
-	  android:scaleType="fitCenter"
-	  android:layout_width="match_parent"
-	  android:layout_height="match_parent"/>
+	<ImageView 
+		android:scaleType="fitXY"
+		android:src="@drawable/splash_screen_bg"
+		android:contentDescription="@android:string/ok"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
 
-	<ProgressBar
-	  android:id="@+id/progressBar"
-	  android:layout_alignParentBottom="true"
-	  android:layout_centerHorizontal="true"
-	  android:layout_marginBottom="100dp"
-	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="fitCenter"
+            android:src="@drawable/splash_screen_logo"
+            android:contentDescription="@android:string/ok"
+            android:layout_marginHorizontal="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:progress="0"
+            android:max="150"
+            android:progressDrawable="@drawable/my_progress_bar"
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"/>
+    </LinearLayout>
 </RelativeLayout>

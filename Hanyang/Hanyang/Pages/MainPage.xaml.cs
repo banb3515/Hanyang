@@ -1,8 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Interface;
-using Hanyang.Server;
-
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -55,8 +53,7 @@ namespace Hanyang
             {
                 try
                 {
-                    var a = new Client(App.SERVER_IP, App.SERVER_PORT);
-                    a.GetTimetable();
+                    App.Server = new Server(App.SERVER_IP, App.SERVER_PORT);
                 }
                 catch (Exception e)
                 {

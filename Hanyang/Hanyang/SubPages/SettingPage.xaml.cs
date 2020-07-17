@@ -77,9 +77,9 @@ namespace Hanyang.SubPages
                             await controller.Write(jsonObj);
                         }
 
-                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
-
                         TabbedHomePage.ins.MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
+
+                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
                     }
                 };
 

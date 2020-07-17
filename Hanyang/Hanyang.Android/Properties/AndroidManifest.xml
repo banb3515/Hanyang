@@ -3,4 +3,5 @@
 	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="28" />
 	<application android:label="한양이" android:icon="@drawable/icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

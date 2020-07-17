@@ -1,61 +1,49 @@
 ﻿#region API 참조
+using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
+
+using ProtoBuf;
+
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 #endregion
 
 namespace TcpData
 {
-    [Serializable]
     public class Packet
     {
         #region 변수
-        public Dictionary<string, object> data;
-        public string senderID;
-        public PacketType packetType;
+        public Dictionary<string, object> Data { get; set; } // 데이터
         #endregion
+
+        public Packet() { }
 
         #region 생성자 - PacketType
         public Packet(PacketType type, string senderID)
         {
-            data = new Dictionary<string, object>();
-            this.packetType = type;
-            this.senderID = senderID;
+            Data = new Dictionary<string, object>();
+            Data.Add("Type", type);
+            Data.Add("SenderID", senderID);
         }
         #endregion
 
-        #region 생성자 - PacketBytes
-        public Packet(byte[] packetBytes)
+        #region Bytes to Packet
+        public Packet(byte[] bytes)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            MemoryStream stream = new MemoryStream(packetBytes);
-            formatter.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
-            formatter.AssemblyFormat = FormatterAssemblyStyle.Simple;
-            Packet packet = (Packet)formatter.Deserialize(stream);
-
-            stream.Close();
-
-            this.data = packet.data;
-            this.senderID = packet.senderID;
-            this.packetType = packet.packetType;
+            var str = Encoding.Unicode.GetString(bytes);
+            Data = JsonConvert.DeserializeObject<Dictionary<string, object>>(str);
         }
         #endregion
 
         #region Packet To Bytes
         public byte[] ToBytes()
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            MemoryStream stream = new MemoryStream();
-            formatter.AssemblyFormat = FormatterAssemblyStyle.Simple;
-            formatter.Serialize(stream, this);
-            byte[] bytes = stream.ToArray();
-            stream.Close();
-
-            return bytes;
+            return Encoding.Unicode.GetBytes(JsonConvert.SerializeObject(Data, Formatting.Indented));
         }
         #endregion
 
@@ -72,12 +60,4 @@ namespace TcpData
         }
         #endregion
     }
-
-    #region PacketType
-    public enum PacketType
-    {
-        Registration, // senderID 할당
-        GetData
-    }
-    #endregion
 }

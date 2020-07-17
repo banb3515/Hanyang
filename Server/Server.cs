@@ -4,7 +4,6 @@ using Newtonsoft.Json.Linq;
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -66,11 +65,14 @@ namespace Server
                 for (; ; )
                 {
                     listenerSocket.Listen(0);
+
                     Client client = new Client(listenerSocket.Accept());
                     IPEndPoint ep = (IPEndPoint)client.client.RemoteEndPoint;
+
                     ids.Add(ep.ToString(), client.id);
                     clients.Add(client.id, client);
-                    Program.Log("연결: " + ep.ToString() + "/" + client.id);
+
+                    Program.Log(GetIdString(ep.ToString()) + ": 연결됨");
                 }
             }
             catch (Exception e)
@@ -97,7 +99,6 @@ namespace Server
 
                     if (readBytes > 0)
                     {
-                        Program.Log(Buffer + "");
                         Packet packet = new Packet(Buffer);
                         DataManager(packet, clientSocket);
                     }
@@ -127,25 +128,30 @@ namespace Server
         {
             try
             {
-                Program.Log("TEST");
-                IPEndPoint ep = (IPEndPoint)client.RemoteEndPoint;
-                Packet serverPacket = new Packet(PacketType.GetData, "server");
+                var ep = (IPEndPoint)client.RemoteEndPoint;
+                var serverPacket = new Packet(PacketType.GetData, "server");
+                var type = (PacketType)Enum.Parse(typeof(PacketType), packet.Data["Type"].ToString());
+                Program.Log("Type: " + type);
 
-                //switch (packet.packetType)
-                //{
-                //    #region 데이터 가져오기
-                //    case PacketType.GetData:
-                //        Program.Log(ep.ToString() + ": 데이터 요청");
-                //        if(packet.data.ContainsKey("Timetable"))
-                //        {
-                //            var controller = new JsonController("Timetable", dirPath: "Data");
-                //            var json = controller.Read();
-                //            serverPacket.data.Add("Timetable", json);
-                //        }
-                //        client.Send(serverPacket.ToBytes());
-                //        break;
-                //    #endregion
-                //}
+                switch (type)
+                {
+                    #region 데이터 가져오기
+                    case PacketType.GetData:
+                        Program.Log(GetIdString(ep.ToString()) + ": 데이터 요청");
+
+                        if (packet.Data.ContainsKey("Timetable"))
+                        {
+                            var controller = new JsonController("Timetable", dirPath: "Data");
+                            var json = controller.Read();
+
+                            serverPacket.Data.Add("Timetable", json);
+                            client.Send(serverPacket.ToBytes());
+
+                            Program.Log(GetIdString(ep.ToString()) + ": 데이터 전송 완료 (" + serverPacket.ToBytes().Length + " Byte)");
+                        }
+                        break;
+                    #endregion
+                }
             }
             catch (Exception e)
             {
@@ -185,13 +191,13 @@ namespace Server
                 var datas = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
                 // 학년만큼 반복
-                for(int grade = 1; grade <= 3; grade ++)
+                for (int grade = 1; grade <= 3; grade++)
                 {
                     // 학과만큼 반복
                     foreach (string dep in deps)
                     {
                         int day = 0;
-                        switch(DateTime.Now.DayOfWeek)
+                        switch (DateTime.Now.DayOfWeek)
                         {
                             case DayOfWeek.Monday:
                                 day = 4;
@@ -216,7 +222,7 @@ namespace Server
                                 break;
                         }
                         // API URL 지정
-                        string url = "https://open.neis.go.kr/hub/hisTimetable?" + 
+                        string url = "https://open.neis.go.kr/hub/hisTimetable?" +
                             "KEY=" + KEY + // API 키
                             "&Type=" + Type + // 파일 타입
                             "&pIndex=" + pIndex + // 시작 페이지
@@ -335,6 +341,10 @@ namespace Server
         #endregion
 
         #region 함수
+        private string GetIdString(string ipAddress)
+        {
+            return "[" + ipAddress + "/" + ids[ipAddress] + "]";
+        }
         #endregion
     }
 }

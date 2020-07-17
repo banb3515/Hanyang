@@ -2,6 +2,7 @@
 using System;
 using System.Net.Sockets;
 using System.Threading;
+
 using TcpData;
 #endregion
 
@@ -40,8 +41,8 @@ namespace Server
         public void SendRegistrationPacket()
         {
             Packet packet = new Packet(PacketType.Registration, "server");
-            packet.data.Add("ID", id);
-            packet.data.Add("Version", Program.VERSION);
+            packet.Data.Add("ID", id);
+            packet.Data.Add("Version", Program.VERSION);
             client.Send(packet.ToBytes());
         }
         #endregion
