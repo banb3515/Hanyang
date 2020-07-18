@@ -1,6 +1,7 @@
 ﻿#region API 참조
+using System;
 using System.IO;
-using System.Timers;
+using System.Threading;
 
 using Android.App;
 using Android.Content;
@@ -9,7 +10,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 
-using Felipecsl.GifImageViewLib;
+using Java.Lang;
 #endregion
 
 namespace Hanyang.Droid.Activity
@@ -24,27 +25,26 @@ namespace Hanyang.Droid.Activity
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.SplashScreen);
-            var gifImageView = FindViewById<GifImageView>(Resource.Id.splash);
+
             var progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);
+            int progressBarStatus = 0;
 
-            Stream stream = Assets.Open("splash_screen.gif");
-            byte[] bytes = ConvertFileToByteArray(stream);
-            gifImageView.SetBytes(bytes);
-            gifImageView.StartAnimation();
+            var intent = new Intent(this, typeof(MainActivity));
 
-            Timer timer = new Timer();
-            timer.Interval = 3000;
-            timer.AutoReset = false;
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-        }
-        #endregion
+            new System.Threading.Thread(new ThreadStart(delegate
+            {
+                System.Threading.Thread.Sleep(500);
 
-        #region 이벤트
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            StartActivity(new Intent(this, typeof(MainActivity)));
-            Finish();
+                while (progressBarStatus < 150)
+                {
+                    progressBarStatus += 1;
+                    progressBar.Progress = progressBarStatus;
+                    System.Threading.Thread.Sleep(10);
+                }
+
+                StartActivity(intent);
+                Finish();
+            })).Start();
         }
         #endregion
 

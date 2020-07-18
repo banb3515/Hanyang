@@ -50,6 +50,7 @@
                        HorizontalOptions="Center"/>
                 <Label x:Name="MyDepartment" 
                        Text="프로필 설정하기"
+                       TextDecorations="Underline"
                        TextColor="Blue" 
                        FontSize="16" 
                        HorizontalOptions="Center">

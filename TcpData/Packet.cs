@@ -1,52 +1,49 @@
 ﻿#region API 참조
+using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
+
+using ProtoBuf;
+
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
 #endregion
 
 namespace TcpData
 {
     public class Packet
     {
-        public PacketXML xml;
+        #region 변수
+        public Dictionary<string, object> Data { get; set; } // 데이터
+        #endregion
+
+        public Packet() { }
 
         #region 생성자 - PacketType
-        public Packet(PacketType type)
+        public Packet(PacketType type, string senderID)
         {
-            xml = new PacketXML();
-            xml.Data = new Dictionary<string, object>();
-            xml.Type = type;
+            Data = new Dictionary<string, object>();
+            Data.Add("Type", type);
+            Data.Add("SenderID", senderID);
         }
         #endregion
 
-        #region 생성자 - PacketBytes
-        public Packet(byte[] packetBytes)
+        #region Bytes to Packet
+        public Packet(byte[] bytes)
         {
-            XmlSerializer xmlS = new XmlSerializer(typeof(PacketXML));
-            MemoryStream ms = new MemoryStream(packetBytes);
-            XmlTextWriter xmlTW = new XmlTextWriter(ms, Encoding.UTF8);
-            xml = (PacketXML)xmlS.Deserialize(ms);
+            var str = Encoding.Unicode.GetString(bytes);
+            Data = JsonConvert.DeserializeObject<Dictionary<string, object>>(str);
         }
         #endregion
 
         #region Packet To Bytes
         public byte[] ToBytes()
         {
-            MemoryStream ms = new MemoryStream();
-            XmlSerializer xmlS = new XmlSerializer(typeof(PacketXML));
-            XmlTextWriter xmlTW = new XmlTextWriter(ms, Encoding.UTF8);
-
-            xmlS.Serialize(xmlTW, xml);
-            ms = (MemoryStream)xmlTW.BaseStream;
-
-            return ms.ToArray();
+            return Encoding.Unicode.GetBytes(JsonConvert.SerializeObject(Data, Formatting.Indented));
         }
         #endregion
 
@@ -63,12 +60,4 @@ namespace TcpData
         }
         #endregion
     }
-
-    #region PacketType
-    public enum PacketType
-    {
-        Registration,
-        GetData
-    }
-    #endregion
 }

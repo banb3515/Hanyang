@@ -1,8 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Interface;
-using Hanyang.Server;
-
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -28,7 +26,7 @@ namespace Hanyang
         public static bool versionCheckResponse; // 버전 확인
         #endregion
 
-        private static MainPage ins;
+        public static MainPage ins;
         #endregion
 
         #region 생성자
@@ -53,15 +51,14 @@ namespace Hanyang
         {
             Thread clientThread = new Thread(async () =>
             {
-                //try
-                //{
-                    App.Client = new Client(App.SERVER_IP, App.SERVER_PORT);
-                    App.Client.GetTimetable();
-                //}
-                //catch (Exception e)
-                //{
-                //    await DisplayAlert("서버 연결 오류", e.Message, "확인");
-                //}
+                try
+                {
+                    App.Server = new Server(App.SERVER_IP, App.SERVER_PORT);
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("서버 연결 오류", e.Message, "확인");
+                }
             });
 
             clientThread.Start();

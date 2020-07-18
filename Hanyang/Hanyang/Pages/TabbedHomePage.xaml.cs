@@ -126,6 +126,7 @@ namespace Hanyang
                     dep = "컴퓨터네트워크";
                 MyDepartment.Text = dep + "과";
                 MyDepartment.TextColor = Color.White;
+                MyDepartment.TextDecorations = TextDecorations.None;
                 myInfoSet = true;
             });
         }
@@ -191,7 +192,7 @@ namespace Hanyang
         #region 학교 홈페이지 바로가기 버튼
         private async void HomepageButton_Clicked(object sender, EventArgs e)
         {
-            App.Client.GetTimetable();
+            App.Server.GetTimetable();
             //await ImageButtonAnimation(sender as ImageButton);
             //OpenBrowser("http://hanyang.sen.hs.kr/index.do");
         }
@@ -318,13 +319,12 @@ namespace Hanyang
             NewPage(new ArticlePage("앱 공지사항", article.Id));
         }
         #endregion
+
         #endregion
 
-        #region 탭
-        #region 프로필 설정하기 탭
         private async void GoSetting_Tapped(object sender, EventArgs e)
         {
-            if (!myInfoSet && !task)
+            if(!myInfoSet && !task)
             {
                 task = true;
 
@@ -366,9 +366,9 @@ namespace Hanyang
                             await controller.Write(jsonObj);
                         }
 
-                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
+                        MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
 
-                        TabbedHomePage.ins.MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
+                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
                     }
                 };
 
@@ -376,7 +376,5 @@ namespace Hanyang
                 task = false;
             }
         }
-        #endregion
-        #endregion
     }
 }
