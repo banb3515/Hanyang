@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
@@ -14,10 +14,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Syncfusion.Licensing" Version="18.1.0.59" />
-    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.1.0.59" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.44" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1080" />
   </ItemGroup>
 
   <ItemGroup>

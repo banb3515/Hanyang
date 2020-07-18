@@ -20,7 +20,7 @@ namespace Hanyang
     {
         #region 변수
         public const string VERSION = "1.0"; // 앱 버전
-        public const string SERVER_IP = "218.152.143.27"; // 서버 IP
+        public const string SERVER_IP = "172.30.1.8"; // 서버 IP
         public const int SERVER_PORT = 35155; // 서버 포트
 
         public static string NewestVersion { get; set; } // 최신 버전

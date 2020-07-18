@@ -191,8 +191,9 @@ namespace Hanyang
         #region 학교 홈페이지 바로가기 버튼
         private async void HomepageButton_Clicked(object sender, EventArgs e)
         {
-            await ImageButtonAnimation(sender as ImageButton);
-            OpenBrowser("http://hanyang.sen.hs.kr/index.do");
+            App.Client.GetTimetable();
+            //await ImageButtonAnimation(sender as ImageButton);
+            //OpenBrowser("http://hanyang.sen.hs.kr/index.do");
         }
         #endregion
 
@@ -317,12 +318,13 @@ namespace Hanyang
             NewPage(new ArticlePage("앱 공지사항", article.Id));
         }
         #endregion
-
         #endregion
 
+        #region 탭
+        #region 프로필 설정하기 탭
         private async void GoSetting_Tapped(object sender, EventArgs e)
         {
-            if(!myInfoSet && !task)
+            if (!myInfoSet && !task)
             {
                 task = true;
 
@@ -374,5 +376,7 @@ namespace Hanyang
                 task = false;
             }
         }
+        #endregion
+        #endregion
     }
 }

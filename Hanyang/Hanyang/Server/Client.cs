@@ -32,7 +32,7 @@ namespace Hanyang.Server
             }
             catch
             {
-                throw new Exception("서버에 연결할 수 없습니다.\n프로그램을 종료합니다.");
+                throw new Exception("서버에 연결할 수 없습니다.\nWiFi/LTE/5G 상태를 확인해주세요.\n! 서버와 연결되어야 최신 데이터로 업데이트됩니다.");
             }
 
             try
@@ -75,12 +75,12 @@ namespace Hanyang.Server
         {
             try
             {
-                switch (packet.packetType)
+                switch (packet.xml.Type)
                 {
                     #region ID 할당
                     case PacketType.Registration:
-                        senderID = packet.data["ID"].ToString();
-                        App.NewestVersion = packet.data["Version"].ToString();
+                        senderID = packet.xml.Data["ID"].ToString();
+                        App.NewestVersion = packet.xml.Data["Version"].ToString();
                         if (App.VERSION != App.NewestVersion)
                             await MainPage.GetInstance().DisplayAlert("업데이트", "* 한양이 앱을 업데이트할 수 있습니다.\n" + 
                                 "- 현재 버전: v" + App.VERSION + "\n- 최신버전: v" + App.NewestVersion, "확인");
@@ -89,7 +89,7 @@ namespace Hanyang.Server
 
                     #region 데이터 가져오기
                     case PacketType.GetData:
-                        Debug.WriteLine(packet.data["Timetable"].ToString());
+                        Debug.WriteLine(packet.xml.Data["Timetable"].ToString());
                         break;
                     #endregion
                 }
@@ -106,13 +106,13 @@ namespace Hanyang.Server
         {
             try
             {
-                Packet packet = new Packet(PacketType.GetData, senderID);
-                packet.data.Add("Timetable", "");
+                Packet packet = new Packet(PacketType.GetData);
+                packet.xml.Data.Add("Timetable", "");
                 server.Send(packet.ToBytes());
             }
             catch (Exception e)
             {
-                await MainPage.GetInstance().DisplayAlert("오류", "* Request\n- 오류 내용\n" + e.Message, "확인");
+                await MainPage.GetInstance().DisplayAlert("오류", "* Request\n- 오류 내용:\n" + e.Message, "확인");
             }
         }
         #endregion

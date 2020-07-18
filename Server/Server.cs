@@ -70,7 +70,7 @@ namespace Server
                     IPEndPoint ep = (IPEndPoint)client.client.RemoteEndPoint;
                     ids.Add(ep.ToString(), client.id);
                     clients.Add(client.id, client);
-                    Program.Log("연결: " + ep.ToString() + "/" + client.id);
+                    Program.Log("연결됨: " + ep.ToString() + "/" + client.id);
                 }
             }
             catch (Exception e)
@@ -90,8 +90,8 @@ namespace Server
 
             for (; ; )
             {
-                try
-                {
+                //try
+                //{
                     Buffer = new byte[clientSocket.SendBufferSize];
                     readBytes = clientSocket.Receive(Buffer);
 
@@ -101,23 +101,23 @@ namespace Server
                         Packet packet = new Packet(Buffer);
                         DataManager(packet, clientSocket);
                     }
-                }
-                catch (Exception e)
-                {
-                    var ep = (clientSocket.RemoteEndPoint as IPEndPoint);
+                //}
+                //catch (Exception e)
+                //{
+                //    var ep = (clientSocket.RemoteEndPoint as IPEndPoint);
 
-                    Program.Log("연결 해제: " + ep.ToString() + "/" + ids[ep.ToString()]);
-                    Program.Log(e.Message, state: "warning");
-                    #region 데이터 삭제
-                    if (clients.ContainsKey(ids[ep.ToString()]))
-                        clients.Remove(ids[ep.ToString()]);
+                //    Program.Log("연결 해제됨: " + ep.ToString() + "/" + ids[ep.ToString()]);
+                //    Program.Log(e.Message, state: "warning");
+                //    #region 데이터 삭제
+                //    if (clients.ContainsKey(ids[ep.ToString()]))
+                //        clients.Remove(ids[ep.ToString()]);
 
-                    if (ids.ContainsKey(ep.ToString()))
-                        ids.Remove(ep.ToString());
-                    #endregion
+                //    if (ids.ContainsKey(ep.ToString()))
+                //        ids.Remove(ep.ToString());
+                //    #endregion
 
-                    break;
-                }
+                //    break;
+                //}
             }
         }
         #endregion
@@ -129,7 +129,7 @@ namespace Server
             {
                 Program.Log("TEST");
                 IPEndPoint ep = (IPEndPoint)client.RemoteEndPoint;
-                Packet serverPacket = new Packet(PacketType.GetData, "server");
+                Packet serverPacket = new Packet(PacketType.GetData);
 
                 //switch (packet.packetType)
                 //{

@@ -39,9 +39,9 @@ namespace Server
         #region 패킷 등록
         public void SendRegistrationPacket()
         {
-            Packet packet = new Packet(PacketType.Registration, "server");
-            packet.data.Add("ID", id);
-            packet.data.Add("Version", Program.VERSION);
+            Packet packet = new Packet(PacketType.Registration);
+            packet.xml.Data.Add("ID", id);
+            packet.xml.Data.Add("Version", Program.VERSION);
             client.Send(packet.ToBytes());
         }
         #endregion

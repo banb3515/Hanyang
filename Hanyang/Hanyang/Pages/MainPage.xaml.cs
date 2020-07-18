@@ -28,7 +28,7 @@ namespace Hanyang
         public static bool versionCheckResponse; // 버전 확인
         #endregion
 
-        public static MainPage ins;
+        private static MainPage ins;
         #endregion
 
         #region 생성자
@@ -53,15 +53,15 @@ namespace Hanyang
         {
             Thread clientThread = new Thread(async () =>
             {
-                try
-                {
-                    var a = new Client(App.SERVER_IP, App.SERVER_PORT);
-                    a.GetTimetable();
-                }
-                catch (Exception e)
-                {
-                    await DisplayAlert("서버 연결 오류", e.Message, "확인");
-                }
+                //try
+                //{
+                    App.Client = new Client(App.SERVER_IP, App.SERVER_PORT);
+                    App.Client.GetTimetable();
+                //}
+                //catch (Exception e)
+                //{
+                //    await DisplayAlert("서버 연결 오류", e.Message, "확인");
+                //}
             });
 
             clientThread.Start();
