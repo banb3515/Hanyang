@@ -18,15 +18,15 @@ namespace Hanyang
     public partial class App : Application
     {
         #region 변수
-        public const string VERSION = "1.0"; // 앱 버전
-        public const string SERVER_IP = "59.6.17.104"; // 서버 IP
-        public const int SERVER_PORT = 35155; // 서버 포트
+        public static string Version { get; } = "1.0"; // 앱 버전
+
+        public static string ServerUrl { get; } = "http://172.30.1.8:53374/mainhub"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
 
-        public static Server Server { get; set; }
+        public static Hub Hub { get; set; }
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록
@@ -74,7 +74,7 @@ namespace Hanyang
         public App()
         {
             // Syncfusion 라이선스 키
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc3NDE2QDMxMzgyZTMxMmUzMGJiT2Jic1N1ZUVzZHh6U2dLU0RMWDkxbW11VUo2VDY0MnU5bG5mOW1MZW89");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg5MzIwQDMxMzgyZTMyMmUzMG1rdm93cVY1UXUxZDlPS0dESmh5dFBrNmlNenBGYS9pU0RUN3VKV3JwOEE9");
 
             #region 글 임시 생성
             notices = new Dictionary<int, Article>();

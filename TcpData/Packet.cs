@@ -19,16 +19,23 @@ namespace TcpData
     {
         #region 변수
         public Dictionary<string, object> Data { get; set; } // 데이터
+
+        public string Title { get; } // 패킷 제목
+
+        public string IPAddress { get; } // 발신자 IP 주소
+
+        public PacketType Type { get; } // 패킷 타입
         #endregion
 
         public Packet() { }
 
         #region 생성자 - PacketType
-        public Packet(PacketType type, string senderID)
+        public Packet(PacketType type, string title)
         {
             Data = new Dictionary<string, object>();
-            Data.Add("Type", type);
-            Data.Add("SenderID", senderID);
+            Title = title;
+            IPAddress = GetIP4Address();
+            Type = type;
         }
         #endregion
 
@@ -56,7 +63,7 @@ namespace TcpData
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                     return ip.ToString();
 
-            return IPAddress.Loopback.ToString();
+            return System.Net.IPAddress.Loopback.ToString();
         }
         #endregion
     }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 using TcpData;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 #endregion
@@ -22,46 +23,60 @@ namespace Hanyang
     public partial class MainPage : Xamarin.Forms.TabbedPage
     {
         #region 변수
-        #region Response
-        public static bool versionCheckResponse; // 버전 확인
-        #endregion
-
-        public static MainPage ins;
+        public static MainPage ins; // Instance
         #endregion
 
         #region 생성자
         public MainPage()
         {
             #region 변수 초기화
-            versionCheckResponse = false;
-
             ins = this;
             #endregion
 
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
 
-            ServerConnection();
+            ServerConnect();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
         #endregion
 
         #region 함수
         #region 서버 접속
-        private void ServerConnection()
+        private async void ServerConnect()
         {
-            Thread clientThread = new Thread(async () =>
-            {
-                try
-                {
-                    App.Server = new Server(App.SERVER_IP, App.SERVER_PORT);
-                }
-                catch (Exception e)
-                {
-                    await DisplayAlert("서버 연결 오류", e.Message, "확인");
-                }
-            });
+            if(Connectivity.NetworkAccess != NetworkAccess.Internet)
+                await DisplayAlert("인터넷에 연결되지 않음", 
+                    "※ WiFi/LTE/5G 상태를 확인해주세요.\n\n" + 
+                    "로컬 저장소에 있는 정보를 가져옵니다.\n\n" + 
+                    "! 인터넷에 연결되면 자동으로 최신 정보를 가져옵니다.", "확인");
 
-            clientThread.Start();
+            var serverThread = new Thread(() =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    do
+                    {
+                        Debug.WriteLine("서버 연결 시도");
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            try
+                            {
+                                App.Hub = new Hub();
+                                App.Hub.Start();
+                                break;
+                            }
+                            catch (Exception e)
+                            {
+                                await DisplayAlert("서버 연결 오류", e.Message, "확인");
+                            }
+                        }
+
+                        await Task.Delay(1000); // 1초마다 서버와 연결 시도
+                    } while (true);
+                });
+            });
+            serverThread.Start();
         }
         #endregion
 
@@ -69,6 +84,16 @@ namespace Hanyang
         public static MainPage GetInstance()
         {
             return ins;
+        }
+        #endregion
+        #endregion
+
+        #region 이벤트
+        #region 인터넷 상태 변경
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess != NetworkAccess.Internet)
+                ServerConnect();
         }
         #endregion
         #endregion

@@ -14,6 +14,7 @@ using Xamarin.Forms.Xaml;
 using Hanyang.Popup;
 using Newtonsoft.Json.Linq;
 using Rg.Plugins.Popup.Services;
+using TcpData;
 #endregion
 
 namespace Hanyang
@@ -192,7 +193,9 @@ namespace Hanyang
         #region 학교 홈페이지 바로가기 버튼
         private async void HomepageButton_Clicked(object sender, EventArgs e)
         {
-            App.Server.GetTimetable();
+            var packet = new Packet(PacketType.Registration, "테스트입니다.");
+            packet.Data.Add("AA", "A입니다.");
+            App.Hub.Request(packet);
             //await ImageButtonAnimation(sender as ImageButton);
             //OpenBrowser("http://hanyang.sen.hs.kr/index.do");
         }
@@ -322,6 +325,8 @@ namespace Hanyang
 
         #endregion
 
+        #region 탭
+        #region 프로필 설정하기 탭
         private async void GoSetting_Tapped(object sender, EventArgs e)
         {
             if(!myInfoSet && !task)
@@ -376,5 +381,7 @@ namespace Hanyang
                 task = false;
             }
         }
+        #endregion
+        #endregion
     }
 }

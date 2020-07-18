@@ -38,7 +38,7 @@ namespace Hanyang.SubPages
                 await AppNameText.FadeTo(1, 1000, Easing.SpringIn);
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    AppVersionText.Text = "v" + App.VERSION;
+                    AppVersionText.Text = "v" + App.Version;
                     AppVersionText.TranslationX -= 60;
                     AppVersionText.Opacity = 1;
                 });
@@ -105,7 +105,7 @@ namespace Hanyang.SubPages
             {
                 AppIconImage.Opacity = 1;
                 AppNameText.Opacity = 1;
-                AppVersionText.Text = "v" + App.VERSION;
+                AppVersionText.Text = "v" + App.Version;
                 AppVersionText.Opacity = 1;
                 Line1.Opacity = 1;
                 FrameworkText.Opacity = 1;

@@ -85,6 +85,7 @@
     <Compile Include="Request\Browser.cs" />
     <Compile Include="Others\ExtendedViewCellRenderer.cs" />
     <Compile Include="Activity\MainActivity.cs" />
+    <Compile Include="Request\ToastMessage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activity\SplashActivity.cs" />
