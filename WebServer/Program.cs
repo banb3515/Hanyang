@@ -113,6 +113,7 @@ namespace WebServer
                     // 학과 수 만큼 반복: 건설정보과, 건축과, 자동화기계과, 디지털전자과, 자동차과, 컴퓨터네트워크과
                     foreach (var dep in departments)
                     {
+                        // REST API 이용해서 Json 데이터 가져오기
                         var json = new WebClient().DownloadString(
                             BASE_URL +
                             API_KEY + 
@@ -126,6 +127,7 @@ namespace WebServer
                             TI_TO_YMD + 
                             "GRADE=" + grade.ToString() + "&" +
                             "DDDEP_NM=" + dep);
+
                         Logger.LogInformation(json);
                         Console.WriteLine(json);
                     }
