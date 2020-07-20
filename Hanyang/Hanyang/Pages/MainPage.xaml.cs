@@ -10,7 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-using TcpData;
+using Models;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -45,38 +45,53 @@ namespace Hanyang
         #region 서버 접속
         private async void ServerConnect()
         {
-            if(Connectivity.NetworkAccess != NetworkAccess.Internet)
-                await DisplayAlert("인터넷에 연결되지 않음", 
-                    "※ WiFi/LTE/5G 상태를 확인해주세요.\n\n" + 
-                    "로컬 저장소에 있는 정보를 가져옵니다.\n\n" + 
-                    "! 인터넷에 연결되면 자동으로 최신 정보를 가져옵니다.", "확인");
+            try
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    //await App.Hub.Stop();
+                    await DisplayAlert("인터넷에 연결되지 않음",
+                        "※ WiFi/LTE/5G 상태를 확인해주세요.\n\n" +
+                        "로컬 저장소에 있는 정보를 가져옵니다.\n\n" +
+                        "! 인터넷에 연결되면 자동으로 최신 정보를 가져옵니다.", "확인");
+                }
 
-            var serverThread = new Thread(() =>
+                var serverThread = new Thread(() =>
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        do
+                        {
+                            Debug.WriteLine("서버 연결 시도");
+                            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                            {
+                                try
+                                {
+                                    var json = new System.Net.WebClient()
+                                        .DownloadString("https://hanyang.azurewebsites.net/api/timetable/" + App.API_KEY);
+                                    DependencyService.Get<IToastMessage>().Longtime("JSON: " + json.Substring(0, 20));
+                                    await DisplayAlert("GET", "성공적으로 데이터를 가져왔습니다.\n" + json, "확인");
+                                    break;
+                                }
+                                catch (Exception e)
+                                {
+                                    await DisplayAlert("서버 연결 오류", e.Message, "확인");
+                                }
+                            }
+
+                            await Task.Delay(1000); // 1초마다 서버와 연결 시도
+                        } while (true);
+                    });
+                });
+                serverThread.Start();
+            }
+            catch (Exception e)
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    do
-                    {
-                        Debug.WriteLine("서버 연결 시도");
-                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                        {
-                            try
-                            {
-                                App.Hub = new Hub();
-                                App.Hub.Start();
-                                break;
-                            }
-                            catch (Exception e)
-                            {
-                                await DisplayAlert("서버 연결 오류", e.Message, "확인");
-                            }
-                        }
-
-                        await Task.Delay(1000); // 1초마다 서버와 연결 시도
-                    } while (true);
+                    await DisplayAlert("서버 연결 오류 - 인터넷 상태", e.Message, "확인");
                 });
-            });
-            serverThread.Start();
+            }
         }
         #endregion
 

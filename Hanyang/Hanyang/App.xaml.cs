@@ -17,16 +17,18 @@ namespace Hanyang
 {
     public partial class App : Application
     {
+        public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
+
         #region 변수
         public static string Version { get; } = "1.0"; // 앱 버전
 
-        public static string ServerUrl { get; } = "http://172.30.1.8:53374/mainhub"; // 서버 URL
+        public static string ServerUrl { get; } = "http://172.30.1.54:59367"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
 
-        public static Hub Hub { get; set; }
+        public static ClientHub Hub { get; set; }
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록
