@@ -14,11 +14,6 @@ namespace WebServer.Controllers
     [ApiController]
     public class TimetableController : ControllerBase
     {
-        #region 변수
-        // API KEY 값
-        private const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
-        #endregion
-
         #region GET - API Key
         [HttpGet("{apiKey}")]
         public Dictionary<string, Timetable> Get(string apiKey)
@@ -27,7 +22,7 @@ namespace WebServer.Controllers
 
             try
             {
-                if (apiKey != API_KEY)
+                if (apiKey != Program.API_KEY)
                 {
                     var errorDict = new Dictionary<string, Timetable>();
                     errorDict.Add("Error",
@@ -43,10 +38,24 @@ namespace WebServer.Controllers
                     return errorDict;
                 }
 
+                if(Program.Timetable == null)
+                {
+                    var errorDict = new Dictionary<string, Timetable>();
+                    errorDict.Add("Error",
+                        new Timetable
+                        {
+                            ResultCode = "003",
+                            ResultMsg = "데이터가 로드되지 않았습니다.",
+                            Data = null,
+                            Date = null
+                        });
 
+                    Program.Logger.LogInformation("<" + clientInfo + "> 시간표 요청: 결과 - " + errorDict["Error"].ResultCode + " (" + errorDict["Error"].ResultMsg + ")");
+                    return errorDict;
+                }
 
                 Program.Logger.LogInformation("<" + clientInfo + "> 시간표 요청: 결과 - 000 (정상적으로 요청되었습니다.)");
-                return null;
+                return Program.Timetable;
             }
             catch (Exception e)
             {

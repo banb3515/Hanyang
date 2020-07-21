@@ -4,6 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using Models;
+
+using Newtonsoft.Json.Linq;
+
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -16,18 +20,25 @@ namespace WebServer
     public class Program
     {
         #region 변수
-        // Logger - 로그 기록
-        public static ILogger Logger { get; set; }
+        public static ILogger Logger { get; set; } // Logger - 로그 기록
+
+        // API KEY 값
+        public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
+
+        #region API 요청 값
+        public static Dictionary<string, Timetable> Timetable { get; set; } // 시간표
+        #endregion
 
         #region NEIS API
         private const string BASE_URL = "https://open.neis.go.kr/hub/hisTimetable?"; // API URL
-        private const string API_KEY = "KEY=762281280e4943e58669a6b02991a67c&"; // API 키
+        private const string NEIS_API_KEY = "KEY=762281280e4943e58669a6b02991a67c&"; // API 키
         private const string TYPE = "Type=json&"; // 데이터 타입
         private const string P_INDEX = "pIndex=1&"; // 페이지 위치
         private const string P_SIZE = "pSize=1000&"; // 페이지 당 신청 수
         private const string ATPT_OFCDC_SC_CODE = "ATPT_OFCDC_SC_CODE=B10&"; // 시도교육청코드: 서울시 교육청
         private const string SD_SCHUL_CODE = "SD_SCHUL_CODE=7010377&"; // 표준학교코드: 한양공업고등학교
 
+        // 학과 목록
         private static readonly string[] departments = new string[]
         { 
             "건설정보과", 
@@ -36,6 +47,17 @@ namespace WebServer
             "디지털전자과",
             "자동차과",
             "컴퓨터네트워크과"
+        };
+
+        // 유효한 반 이름
+        private static readonly string[] validClassNames = new string[]
+        {
+            "건설",
+            "건축",
+            "기계",
+            "전자",
+            "자동차",
+            "컴넷"
         };
         #endregion
         #endregion
@@ -77,11 +99,14 @@ namespace WebServer
 
             while(true)
             {
-                await GetTimetable();
+                Logger.LogInformation("<Server> 데이터 가져오기: 시간표를 가져옵니다.");
+                GetTimetable(); // 시간표 가져오기
 
-                await GetLunchMenu();
+                Logger.LogInformation("<Server> 데이터 가져오기: 급식 메뉴를 가져옵니다.");
+                GetLunchMenu(); // 급식 메뉴 가져오기
 
-                await GetAcademicSchedule();
+                Logger.LogInformation("<Server> 데이터 가져오기: 학사 일정을 가져옵니다.");
+                GetAcademicSchedule(); // 학사 일정 가져오기
 
                 await Task.Delay(1800000); // 1000 = 1초, 기본: 30분
             }
@@ -89,7 +114,7 @@ namespace WebServer
         #endregion
 
         #region 시간표 가져오기
-        private static async Task GetTimetable()
+        private static void GetTimetable()
         {
             try
             {
@@ -104,34 +129,128 @@ namespace WebServer
                     TI_TO_YMD += DateTime.Today.AddDays(7 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 else
                     // 다음 주
-                    TI_TO_YMD += DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
+                    TI_TO_YMD += DateTime.Today.AddDays(-5 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 TI_TO_YMD += "&";
 
+                // 가져온 시간표 데이터: string = 반
+                var datas = new Dictionary<string, Timetable>();
+                
                 // 학년 수 만큼 반복: 1, 2, 3학년
-                for(var grade = 1; grade <= 3; grade ++)
+                for(int grade = 1; grade <= 3; grade ++)
                 {
                     // 학과 수 만큼 반복: 건설정보과, 건축과, 자동화기계과, 디지털전자과, 자동차과, 컴퓨터네트워크과
                     foreach (var dep in departments)
                     {
                         var json = new WebClient().DownloadString(
                             BASE_URL +
-                            API_KEY + 
-                            TYPE + 
-                            P_INDEX + 
+                            NEIS_API_KEY +
+                            TYPE +
+                            P_INDEX +
                             P_SIZE +
-                            ATPT_OFCDC_SC_CODE + 
-                            SD_SCHUL_CODE + 
-                            AY + 
-                            TI_FROM_YMD + 
-                            TI_TO_YMD + 
+                            ATPT_OFCDC_SC_CODE +
+                            SD_SCHUL_CODE +
+                            AY +
+                            TI_FROM_YMD +
+                            TI_TO_YMD +
                             "GRADE=" + grade.ToString() + "&" +
                             "DDDEP_NM=" + dep);
-                        Logger.LogInformation(json);
-                        Console.WriteLine(json);
+                        var timetable = JObject.Parse(json)["hisTimetable"];
+                        var head = timetable.First["head"];
+                        var row = timetable.Last["row"];
+
+                        var dataSize = Convert.ToInt32(head.First["list_total_count"]);
+                        var resultCode = head.Last["RESULT"]["CODE"].ToString();
+                        var resultMsg = head.Last["RESULT"]["MESSAGE"].ToString();
+
+                        if (resultCode == "INFO-000")
+                        {
+                            // ALL_TI_YMD 날짜
+                            DateTime mondayDate = DateTime.Now; // 마지막(최신) 시간표 월요일 날짜
+
+                            for(int i = dataSize - 1; i >= 0; i --)
+                            {
+                                var datetime = DateTime.ParseExact(row[i]["ALL_TI_YMD"].ToString(), "yyyyMMdd", null); // 날짜 DateTime 객체 형식
+
+                                // 가져온 날짜가 금요일인 경우
+                                if (datetime.DayOfWeek == DayOfWeek.Friday)
+                                {
+                                    mondayDate = datetime.AddDays(-4);
+                                    dataSize = i + 1;
+                                    break;
+                                }
+                            }
+
+                            // 임시 딕셔너리: 1 string = 반, 2 string = 요일, 3 string = 교시, 4 string = 과목
+                            var dict = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+                            // 임시 날짜 딕셔너리: 1 string = 반, 2 string = 요일, 3 string = 날짜
+                            var dateDict = new Dictionary<string, Dictionary<string, string>>();
+
+                            for(int i = 0; i < dataSize; i ++)
+                            {
+                                var data = row[i];
+                                var date = data["ALL_TI_YMD"].ToString(); // 날짜 문자열 형식
+                                var datetime = DateTime.ParseExact(date, "yyyyMMdd", null); // 날짜 DateTime 객체 형식
+
+                                // 마지막 시간표 월요일보다 날짜가 같거나 클 경우
+                                if (DateTime.Compare(datetime, mondayDate) >= 0)
+                                {
+                                    var className = data["CLRM_NM"].ToString(); // 반 이름: ex) 2컴넷B
+                                    var dow = datetime.DayOfWeek.ToString(); // 요일
+
+                                    // 수준별반 등 기타 반은 제외
+                                    if (Array.FindIndex(validClassNames, x => className.Contains(x)) == -1)
+                                        continue;
+
+                                    // 임시 딕셔너리 초기화
+                                    if (!dict.ContainsKey(className))
+                                    {
+                                        dict.Add(className, new Dictionary<string, Dictionary<string, string>>());
+                                        dict[className].Add("Monday", new Dictionary<string, string>());
+                                        dict[className].Add("Tuesday", new Dictionary<string, string>());
+                                        dict[className].Add("Wednesday", new Dictionary<string, string>());
+                                        dict[className].Add("Thursday", new Dictionary<string, string>());
+                                        dict[className].Add("Friday", new Dictionary<string, string>());
+                                    }
+
+                                    // 임시 날짜 딕셔너리 초기화
+                                    if (!dateDict.ContainsKey(className))
+                                        dateDict.Add(className, new Dictionary<string, string>());
+
+                                    // 날짜 추가
+                                    if (!dateDict[className].ContainsKey(dow))
+                                        dateDict[className].Add(dow, date);
+
+                                    var perio = data["PERIO"].ToString(); // 교시
+                                    var subject = data["ITRT_CNTNT"].ToString(); // 과목
+
+                                    // 과목 문자열에서 불필요한 문자 제거
+                                    if (subject.Contains("* "))
+                                        subject = subject.Replace("* ", "");
+
+                                    // 중복되지 않은 값을 임시 딕셔너리에 추가
+                                    if (!dict[className][dow].ContainsKey(perio))
+                                        dict[className][dow].Add(perio, subject);
+                                }
+                            }
+
+                            foreach(var className in dict.Keys)
+                            {
+                                datas.Add(className, new Timetable
+                                {
+                                    ResultCode = "000",
+                                    ResultMsg = "정상 처리되었습니다.",
+                                    Date = dateDict[className],
+                                    Data = dict[className]
+                                });
+                            }
+
+                            Logger.LogInformation("<Server> " + grade + "학년 " + dep + " 시간표 가져오기: 성공");
+                        }
+                        else
+                            Logger.LogInformation("<Server> " + grade + "학년 " + dep + " 시간표 가져오기: 실패 - " + resultCode + " (" + resultMsg + ")");
                     }
                 }
-
-                Logger.LogInformation("<Server> 시간표 가져오기: 성공");
+                Timetable = datas;
             }
             catch (Exception e)
             {
@@ -141,14 +260,14 @@ namespace WebServer
         #endregion
 
         #region 급식 메뉴 가져오기
-        private static async Task GetLunchMenu()
+        private static void GetLunchMenu()
         {
 
         }
         #endregion
 
         #region 학사 일정 가져오기
-        private static async Task GetAcademicSchedule()
+        private static void GetAcademicSchedule()
         {
 
         }
