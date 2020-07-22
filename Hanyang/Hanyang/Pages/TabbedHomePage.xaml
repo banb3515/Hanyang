@@ -147,8 +147,10 @@
                      HorizontalOptions="FillAndExpand"/>
             <!--#region 네비게이션 버튼-->
             <Grid HorizontalOptions="Center"
-                  Margin="10,0"
-                  HeightRequest="120">
+                  Margin="10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>

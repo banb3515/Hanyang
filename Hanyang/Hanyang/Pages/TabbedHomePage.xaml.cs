@@ -43,7 +43,7 @@ namespace Hanyang
 
             InitializeComponent();
 
-            GetSetting();
+            MyInfoUpdate();
 
             #region 글 목록 임시 생성
             var notices = new List<Article>(App.GetNotices().Values);
@@ -61,33 +61,6 @@ namespace Hanyang
         #endregion
 
         #region 함수
-        #region 설정 가져오기
-        private async void GetSetting()
-        {
-            var controller = new JsonController("setting");
-            var read = controller.Read();
-            var resettingMsg = "더 보기 -> 설정에서 다시 설정을 해주세요.\n! 설정을 하지 않을 시 UI표시에 문제가 생길 수 있습니다.";
-
-            try
-            {
-                if (read != null)
-                {
-                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number"))
-                        await DisplayAlert("설정되지 않음", "* 프로필이 설정되지 않았습니다.\n" + resettingMsg, "확인");
-                    else
-                        MyInfoUpdate(Convert.ToInt32(read["Grade"]), Convert.ToInt32(read["Class"]),
-                            Convert.ToInt32(read["Number"]), read["Name"].ToString());
-                }
-                else
-                    await DisplayAlert("오류", "* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg, "확인");
-            }
-            catch(Exception e)
-            {
-                await DisplayAlert("오류", "TabbedHomePage - GetSetting\n" + e.Message, "확인");
-            }
-        }
-        #endregion
-
         #region 브라우저 열기
         private void OpenBrowser(string url)
         {
@@ -104,8 +77,13 @@ namespace Hanyang
         #endregion
 
         #region 나의 정보 UI 업데이트
-        public void MyInfoUpdate(int grade, int _class, int number, string name)
+        public void MyInfoUpdate()
         {
+            var grade = App.Grade;
+            var _class = App.Class;
+            var number = App.Number;
+            var name = App.Name;
+
             Device.BeginInvokeOnMainThread(() =>
             {
                 MyInfoText.Text = grade + "학년 " + _class + "반 " + number + "번, " + name;
@@ -344,10 +322,10 @@ namespace Hanyang
                             {
                                 var dict = new Dictionary<string, object>
                                 {
-                                { "Grade", arg.Grade },
-                                { "Class", arg.Class },
-                                { "Number", arg.Number },
-                                { "Name", arg.Name }
+                                    { "Grade", arg.Grade },
+                                    { "Class", arg.Class },
+                                    { "Number", arg.Number },
+                                    { "Name", arg.Name }
                                 };
                                 controller.Add(dict);
                             }
@@ -367,7 +345,13 @@ namespace Hanyang
                             await controller.Write(jsonObj);
                         }
 
-                        MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
+                        App.Grade = arg.Grade;
+                        App.Class = arg.Class;
+                        App.Number = arg.Number;
+                        App.Name = arg.Name;
+
+                        MyInfoUpdate();
+                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
                         await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
                     }

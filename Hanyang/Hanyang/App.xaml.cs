@@ -31,6 +31,16 @@ namespace Hanyang
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
 
+        public static int Grade { get; set; } // 학년
+
+        public static int Class { get; set; } // 반
+
+        public static int Number { get; set; } // 출석 번호
+
+        public static string Name { get; set; } // 이름
+
+        public static string ErrorMsg { get; set; } // 에러 메세지
+
         public static Dictionary<string, Timetable> Timetable { get; set; } // 시간표
 
         private static Dictionary<int, Article> notices; // 공지사항 글 목록
@@ -80,6 +90,7 @@ namespace Hanyang
         {
             // Syncfusion 라이선스 키
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg5MzIwQDMxMzgyZTMyMmUzMG1rdm93cVY1UXUxZDlPS0dESmh5dFBrNmlNenBGYS9pU0RUN3VKV3JwOEE9");
+            ErrorMsg = "";
 
             #region 글 임시 생성
             notices = new Dictionary<int, Article>();
@@ -140,6 +151,7 @@ namespace Hanyang
             }
             #endregion
 
+            InitSetting();
             GetSetting();
 
             InitializeComponent();
@@ -150,7 +162,7 @@ namespace Hanyang
 
         #region 함수
         #region 설정 가져오기 또는 초기화
-        private async void GetSetting()
+        private async void InitSetting()
         {
             try
             {
@@ -184,6 +196,67 @@ namespace Hanyang
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
+            }
+        }
+        #endregion
+
+        #region 반 이름 얻기
+        public static string GetClassName()
+        {
+            var grade = App.Grade;
+            var _class = App.Class;
+            var dep = "";
+            var classAlphabet = "";
+
+            if (_class >= 1 && _class <= 2)
+                dep = "건설";
+            else if (_class >= 3 && _class <= 4)
+                dep = "건축";
+            else if (_class >= 5 && _class <= 6)
+                dep = "기계";
+            else if (_class >= 7 && _class <= 8)
+                dep = "전자";
+            else if (_class >= 9 && _class <= 10)
+                dep = "자동차";
+            else if (_class >= 11 && _class <= 12)
+                dep = "컴넷";
+
+            if (_class % 2 == 0)
+                classAlphabet = "B";
+            else
+                classAlphabet = "A";
+
+            return App.Grade + dep + classAlphabet;
+        }
+        #endregion
+
+        #region 설정 가져오기
+        private void GetSetting()
+        {
+            var controller = new JsonController("setting");
+            var read = controller.Read();
+            var resettingMsg = "더 보기 -> 설정에서 다시 설정을 해주세요.\n! 설정을 하지 않을 시 UI표시에 문제가 생길 수 있습니다.";
+
+            try
+            {
+                if (read != null)
+                {
+                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number"))
+                        ErrorMsg = "* 프로필이 설정되지 않았습니다.\n" + resettingMsg;
+                    else
+                    {
+                        Grade = Convert.ToInt32(read["Grade"]);
+                        Class = Convert.ToInt32(read["Class"]);
+                        Number = Convert.ToInt32(read["Number"]);
+                        Name = read["Name"].ToString();
+                    }
+                }
+                else
+                    ErrorMsg = "* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg;
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = "TabbedHomePage - GetSetting\n" + e.Message;
             }
         }
         #endregion

@@ -77,7 +77,13 @@ namespace Hanyang.SubPages
                             await controller.Write(jsonObj);
                         }
 
-                        TabbedHomePage.ins.MyInfoUpdate(arg.Grade, arg.Class, arg.Number, arg.Name);
+                        App.Grade = arg.Grade;
+                        App.Class = arg.Class;
+                        App.Number = arg.Number;
+                        App.Name = arg.Name;
+
+                        TabbedHomePage.ins.MyInfoUpdate();
+                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
                         await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
                     }

@@ -1,10 +1,11 @@
 ﻿#region API 참조
 using Hanyang.Animations;
 using Hanyang.Model;
-
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -21,6 +22,9 @@ namespace Hanyang
         private int viewDOW; // 현재 보고있는 요일 레이아웃
         private bool task; // 다른 작업 중인지 확인
         private List<string> rainbowColors; // 여러 색상
+        private static TabbedSchedulePage instance;
+
+        public static bool InitDataBool { get; set; } = false; // 데이터 초기화
         #endregion
 
         #region 생성자
@@ -43,6 +47,8 @@ namespace Hanyang
                 "#FF007F",
                 "#CC723D"
             };
+
+            instance = this;
             #endregion
 
             InitializeComponent();
@@ -82,107 +88,18 @@ namespace Hanyang
             {
                 if (Int16.Parse(now.ToString("HH")) >= 18 && viewDOW < 6)
                     viewDOW += 1;
-                Debug.WriteLine(now.ToString("HH"));
             }
             catch (Exception e)
             {
-                Debug.WriteLine("ERROR");
-                Debug.WriteLine(e.Message);
+                DisplayAlert("시간표 오류", e.Message, "확인");
             }
 
             if (viewDOW == 6)
                 viewDOW = 1;
-
-            _ = ViewScheduleAnimation();
             #endregion
 
             #region 학사 일정 시작 날짜 초기화
-            
-            #endregion
 
-            #region 임시
-            Schedule1Subject1.Text = "과학";
-            Schedule1Subject2.Text = "수학";
-            Schedule1Subject3.Text = "영어";
-            Schedule1Subject4.Text = "일본어";
-            Schedule1Subject5.Text = "프로그래밍";
-            Schedule1Subject6.Text = "프로그래밍";
-            Schedule1Subject7.Text = "프로그래밍";
-
-            Schedule2Subject1.Text = "화면구현";
-            Schedule2Subject2.Text = "화면구현";
-            Schedule2Subject3.Text = "과학";
-            Schedule2Subject4.Text = "체육";
-            Schedule2Subject5.Text = "미술";
-            Schedule2Subject6.Text = "한국사";
-            Schedule2Subject7.Text = "수학";
-
-            Schedule3Subject1.Text = "영어";
-            Schedule3Subject2.Text = "일본어";
-            Schedule3Subject3.Text = "진로";
-            Schedule3Subject4.Text = "국어";
-            Schedule3Subject5.Text = "봉사활동";
-            Schedule3Subject6.Text = "동아리";
-
-            Schedule4Subject1.Text = "공업";
-            Schedule4Subject2.Text = "자료구조";
-            Schedule4Subject3.Text = "자료구조";
-            Schedule4Subject4.Text = "한국사";
-            Schedule4Subject5.Text = "체육";
-            Schedule4Subject6.Text = "프로그래밍";
-            Schedule4Subject7.Text = "프로그래밍";
-
-            Schedule5Subject1.Text = "수학";
-            Schedule5Subject2.Text = "과학";
-            Schedule5Subject3.Text = "공업";
-            Schedule5Subject4.Text = "일본어";
-            Schedule5Subject5.Text = "국어";
-            Schedule5Subject6.Text = "체육";
-            Schedule5Subject7.Text = "자율";
-
-            Schedule1Time1.Text = "[8:30 - 9:20]";
-            Schedule1Time2.Text = "[9:30 - 10:20]";
-            Schedule1Time3.Text = "[10:30 - 11:20]";
-            Schedule1Time4.Text = "[11:30 - 12:20]";
-            Schedule1TimeLunch.Text = "[12:20 - 13:20]";
-            Schedule1Time5.Text = "[13:20 - 14:10]";
-            Schedule1Time6.Text = "[14:20 - 15:10]";
-            Schedule1Time7.Text = "[15:20 - 16:10]";
-
-            Schedule2Time1.Text = "[8:30 - 9:20]";
-            Schedule2Time2.Text = "[9:30 - 10:20]";
-            Schedule2Time3.Text = "[10:30 - 11:20]";
-            Schedule2Time4.Text = "[11:30 - 12:20]";
-            Schedule2TimeLunch.Text = "[12:20 - 13:20]";
-            Schedule2Time5.Text = "[13:20 - 14:10]";
-            Schedule2Time6.Text = "[14:20 - 15:10]";
-            Schedule2Time7.Text = "[15:20 - 16:10]";
-
-            Schedule3Time1.Text = "[8:30 - 9:20]";
-            Schedule3Time2.Text = "[9:30 - 10:20]";
-            Schedule3Time3.Text = "[10:30 - 11:20]";
-            Schedule3Time4.Text = "[11:30 - 12:20]";
-            Schedule3TimeLunch.Text = "[12:20 - 13:20]";
-            Schedule3Time5.Text = "[13:20 - 14:10]";
-            Schedule3Time6.Text = "[14:20 - 15:10]";
-
-            Schedule4Time1.Text = "[8:30 - 9:20]";
-            Schedule4Time2.Text = "[9:30 - 10:20]";
-            Schedule4Time3.Text = "[10:30 - 11:20]";
-            Schedule4Time4.Text = "[11:30 - 12:20]";
-            Schedule4TimeLunch.Text = "[12:20 - 13:20]";
-            Schedule4Time5.Text = "[13:20 - 14:10]";
-            Schedule4Time6.Text = "[14:20 - 15:10]";
-            Schedule4Time7.Text = "[15:20 - 16:10]";
-
-            Schedule5Time1.Text = "[8:30 - 9:20]";
-            Schedule5Time2.Text = "[9:30 - 10:20]";
-            Schedule5Time3.Text = "[10:30 - 11:20]";
-            Schedule5Time4.Text = "[11:30 - 12:20]";
-            Schedule5TimeLunch.Text = "[12:20 - 13:20]";
-            Schedule5Time5.Text = "[13:20 - 14:10]";
-            Schedule5Time6.Text = "[14:20 - 15:10]";
-            Schedule5Time7.Text = "[15:20 - 16:10]";
             #endregion
 
             List<LunchMenu> lunches = new List<LunchMenu>
@@ -217,79 +134,72 @@ namespace Hanyang
         #endregion
 
         #region viewDOW 요일 시간표 보기
-        private async Task ViewScheduleAnimation()
+        public async Task ViewScheduleAnimation(Dictionary<string, Timetable> arg = null)
         {
-            Description1.Opacity = 0;
-            Description2.Opacity = 0;
+            Dictionary<string, Timetable> timetable = App.Timetable;
+
+            if (arg != null)
+                timetable = arg;
 
             Button button = null;
-            StackLayout layout = null;
             List<Grid> grids = new List<Grid>();
 
-            #region 변수 추가
+            var className = App.GetClassName();
+
+            // 변수 추가
             switch (viewDOW)
             {
                 case 1:
                     button = ViewSchedule1Button;
-                    layout = Schedule1;
-                    grids.Add(Schedule1Period1);
-                    grids.Add(Schedule1Period2);
-                    grids.Add(Schedule1Period3);
-                    grids.Add(Schedule1Period4);
-                    grids.Add(Schedule1Lunch);
-                    grids.Add(Schedule1Period5);
-                    grids.Add(Schedule1Period6);
-                    grids.Add(Schedule1Period7);
                     break;
                 case 2:
                     button = ViewSchedule2Button;
-                    layout = Schedule2;
-                    grids.Add(Schedule2Period1);
-                    grids.Add(Schedule2Period2);
-                    grids.Add(Schedule2Period3);
-                    grids.Add(Schedule2Period4);
-                    grids.Add(Schedule2Lunch);
-                    grids.Add(Schedule2Period5);
-                    grids.Add(Schedule2Period6);
-                    grids.Add(Schedule2Period7);
                     break;
                 case 3:
                     button = ViewSchedule3Button;
-                    layout = Schedule3;
-                    grids.Add(Schedule3Period1);
-                    grids.Add(Schedule3Period2);
-                    grids.Add(Schedule3Period3);
-                    grids.Add(Schedule3Period4);
-                    grids.Add(Schedule3Lunch);
-                    grids.Add(Schedule3Period5);
-                    grids.Add(Schedule3Period6);
                     break;
                 case 4:
                     button = ViewSchedule4Button;
-                    layout = Schedule4;
-                    grids.Add(Schedule4Period1);
-                    grids.Add(Schedule4Period2);
-                    grids.Add(Schedule4Period3);
-                    grids.Add(Schedule4Period4);
-                    grids.Add(Schedule4Lunch);
-                    grids.Add(Schedule4Period5);
-                    grids.Add(Schedule4Period6);
-                    grids.Add(Schedule4Period7);
                     break;
                 case 5:
                     button = ViewSchedule5Button;
-                    layout = Schedule5;
-                    grids.Add(Schedule5Period1);
-                    grids.Add(Schedule5Period2);
-                    grids.Add(Schedule5Period3);
-                    grids.Add(Schedule5Period4);
-                    grids.Add(Schedule5Lunch);
-                    grids.Add(Schedule5Period5);
-                    grids.Add(Schedule5Period6);
-                    grids.Add(Schedule5Period7);
                     break;
             }
-            #endregion
+
+            ScheduleView.IsVisible = true;
+            Schedule.IsVisible = true;
+            grids.Add(SchedulePeriod1);
+            grids.Add(SchedulePeriod2);
+            grids.Add(SchedulePeriod3);
+            grids.Add(SchedulePeriod4);
+            grids.Add(ScheduleLunch);
+            grids.Add(SchedulePeriod5);
+            grids.Add(SchedulePeriod6);
+            grids.Add(SchedulePeriod7);
+
+            foreach (Grid grid in grids)
+                grid.IsVisible = false;
+            Date.Opacity = 0;
+
+            var dow = "";
+            switch (viewDOW)
+            {
+                case 1:
+                    dow = "Monday";
+                    break;
+                case 2:
+                    dow = "Tuesday";
+                    break;
+                case 3:
+                    dow = "Wednesday";
+                    break;
+                case 4:
+                    dow = "Thursday";
+                    break;
+                case 5:
+                    dow = "Friday";
+                    break;
+            }
 
             if (App.Animation)
             {
@@ -302,39 +212,45 @@ namespace Hanyang
                 button.TextColor = Color.White;
             }
 
-            foreach (Grid grid in grids)
-                grid.IsVisible = false;
-            layout.IsVisible = true;
-            Schedule.IsVisible = true;
-
             if (App.Animation)
                 await Task.Delay(100);
 
+            // 시간표 초기화
+            ScheduleSubject1.Text = timetable[className].Data[dow]["1"];
+            ScheduleSubject2.Text = timetable[className].Data[dow]["2"];
+            ScheduleSubject3.Text = timetable[className].Data[dow]["3"];
+            ScheduleSubject4.Text = timetable[className].Data[dow]["4"];
+            ScheduleSubject5.Text = timetable[className].Data[dow]["5"];
+            ScheduleSubject6.Text = timetable[className].Data[dow]["6"];
+            if (timetable[className].Data[dow].ContainsKey("7"))
+                ScheduleSubject7.Text = timetable[className].Data[dow]["7"];
+            else
+                grids.Remove(SchedulePeriod7);
+
             foreach (Grid grid in grids)
             {
-                grid.IsVisible = true;
                 if (App.Animation)
                 {
                     await grid.TranslateTo(300, 0, 1, Easing.SpringOut);
+                    grid.IsVisible = true;
                     _ = grid.TranslateTo(0, 0, 500, Easing.SpringOut);
                     await Task.Delay(150);
                 }
             }
 
+            if (timetable[className].Date != null)
+                Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 시간표";
+            else
+                Date.Text = DateTime.Now.ToString("yyyy년 M월 d일") + " 시간표";
+
             if (App.Animation)
             {
-                await Description1.TranslateTo(300, 0, 1, Easing.SpringOut);
-                Description1.Opacity = 1;
-                _ = Description1.TranslateTo(0, 0, 500, Easing.SpringOut);
-                await Description2.TranslateTo(300, 0, 1, Easing.SpringOut);
-                Description2.Opacity = 1;
-                _ = Description2.TranslateTo(0, 0, 500, Easing.SpringOut);
+                await Date.TranslateTo(300, 0, 1, Easing.SpringOut);
+                Date.Opacity = 1;
+                _ = Date.TranslateTo(0, 0, 500, Easing.SpringOut);
             }
             else
-            {
-                Description1.Opacity = 1;
-                Description2.Opacity = 1;
-            }
+                Date.Opacity = 1;
         }
         #endregion
 
@@ -479,7 +395,7 @@ namespace Hanyang
         #region 월요일 보기 버튼
         private async void ViewSchedule1Button_Clicked(object sender, System.EventArgs e)
         {
-            if(!task && viewDOW != 1)
+            if (!task && viewDOW != 1)
             {
                 task = true;
                 viewDOW = 1;
@@ -495,10 +411,6 @@ namespace Hanyang
                 ViewSchedule4Button.TextColor = Color.FromRgb(43, 43, 43);
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
-                Schedule2.IsVisible = false;
-                Schedule3.IsVisible = false;
-                Schedule4.IsVisible = false;
-                Schedule5.IsVisible = false;
                 await ViewScheduleAnimation();
                 task = false;
             }
@@ -524,10 +436,6 @@ namespace Hanyang
                 ViewSchedule4Button.TextColor = Color.FromRgb(43, 43, 43);
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
-                Schedule1.IsVisible = false;
-                Schedule3.IsVisible = false;
-                Schedule4.IsVisible = false;
-                Schedule5.IsVisible = false;
                 await ViewScheduleAnimation();
                 task = false;
             }
@@ -553,10 +461,6 @@ namespace Hanyang
                 ViewSchedule4Button.TextColor = Color.FromRgb(43, 43, 43);
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
-                Schedule1.IsVisible = false;
-                Schedule2.IsVisible = false;
-                Schedule4.IsVisible = false;
-                Schedule5.IsVisible = false;
                 await ViewScheduleAnimation();
                 task = false;
             }
@@ -582,10 +486,6 @@ namespace Hanyang
                 ViewSchedule3Button.TextColor = Color.FromRgb(43, 43, 43);
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
-                Schedule1.IsVisible = false;
-                Schedule2.IsVisible = false;
-                Schedule3.IsVisible = false;
-                Schedule5.IsVisible = false;
                 await ViewScheduleAnimation();
                 task = false;
             }
@@ -611,13 +511,18 @@ namespace Hanyang
                 ViewSchedule3Button.TextColor = Color.FromRgb(43, 43, 43);
                 ViewSchedule4Button.TextColor = Color.FromRgb(43, 43, 43);
 
-                Schedule1.IsVisible = false;
-                Schedule2.IsVisible = false;
-                Schedule3.IsVisible = false;
-                Schedule4.IsVisible = false;
                 await ViewScheduleAnimation();
                 task = false;
             }
+        }
+        #endregion
+        #endregion
+
+        #region 함수
+        #region 인스턴스 가져오기
+        public static TabbedSchedulePage GetInstance()
+        {
+            return instance;
         }
         #endregion
         #endregion
