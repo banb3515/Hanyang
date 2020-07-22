@@ -384,10 +384,16 @@
             <!--#endregion-->
 
             <!--#region 날짜-->
-            <Label x:Name="Date"
+            <Label x:Name="Description"
                    FontSize="16"
                    TextColor="SlateGray"
                    Margin="0,15,0,0"
+                   HorizontalOptions="Center"/>
+            
+            <!--#region 날짜-->
+            <Label x:Name="Date"
+                   FontSize="16"
+                   TextColor="SlateGray"
                    HorizontalOptions="Center"/>
             <!--#endregion-->
         </StackLayout>

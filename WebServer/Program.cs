@@ -124,12 +124,12 @@ namespace WebServer
                 string TI_TO_YMD = "TI_TO_YMD="; // 시간표종료일자
 
                 // 이번 주 금요일 날짜 가져오기, 토/일요일일 때 다음 주 금요일 날짜 가져오기
-                if (Convert.ToInt32(DateTime.Now.DayOfWeek) >= Convert.ToInt32(DayOfWeek.Saturday))
+                if (Convert.ToInt32(DateTime.Now.DayOfWeek) < Convert.ToInt32(DayOfWeek.Saturday))
                     // 이번 주
-                    TI_TO_YMD += DateTime.Today.AddDays(7 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
+                    TI_TO_YMD += DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 else
                     // 다음 주
-                    TI_TO_YMD += DateTime.Today.AddDays(-5 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
+                    TI_TO_YMD += DateTime.Today.AddDays(7 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 TI_TO_YMD += "&";
 
                 // 가져온 시간표 데이터: string = 반
@@ -164,21 +164,13 @@ namespace WebServer
 
                         if (resultCode == "INFO-000")
                         {
-                            // ALL_TI_YMD 날짜
-                            DateTime mondayDate = DateTime.Now; // 마지막(최신) 시간표 월요일 날짜
+                            DateTime firstDate = DateTime.ParseExact(row[dataSize - 1]["ALL_TI_YMD"].ToString(), "yyyyMMdd", null); // 마지막(최신) 시간표 처음 날짜
+                            Logger.LogInformation(firstDate.ToString("yyyyMMdd"));
 
-                            for(int i = dataSize - 1; i >= 0; i --)
-                            {
-                                var datetime = DateTime.ParseExact(row[i]["ALL_TI_YMD"].ToString(), "yyyyMMdd", null); // 날짜 DateTime 객체 형식
-
-                                // 가져온 날짜가 금요일인 경우
-                                if (datetime.DayOfWeek == DayOfWeek.Friday)
-                                {
-                                    mondayDate = datetime.AddDays(-4);
-                                    dataSize = i + 1;
-                                    break;
-                                }
-                            }
+                            if (firstDate.DayOfWeek == DayOfWeek.Friday)
+                                firstDate = firstDate.AddDays(-4);
+                            else
+                                firstDate = firstDate.AddDays(-6);
 
                             // 임시 딕셔너리: 1 string = 반, 2 string = 요일, 3 string = 교시, 4 string = 과목
                             var dict = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
@@ -191,8 +183,8 @@ namespace WebServer
                                 var date = data["ALL_TI_YMD"].ToString(); // 날짜 문자열 형식
                                 var datetime = DateTime.ParseExact(date, "yyyyMMdd", null); // 날짜 DateTime 객체 형식
 
-                                // 마지막 시간표 월요일보다 날짜가 같거나 클 경우
-                                if (DateTime.Compare(datetime, mondayDate) >= 0)
+                                // 가져온 날짜가 마지막 시간표 처음 날짜와 같거나 클 경우
+                                if (DateTime.Compare(datetime, firstDate) >= 0)
                                 {
                                     var className = data["CLRM_NM"].ToString(); // 반 이름: ex) 2컴넷B
                                     var dow = datetime.DayOfWeek.ToString(); // 요일

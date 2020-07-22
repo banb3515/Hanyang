@@ -136,13 +136,29 @@ namespace Hanyang
         #region viewDOW 요일 시간표 보기
         public async Task ViewScheduleAnimation(Dictionary<string, Timetable> arg = null)
         {
+            Button button = null;
+            List<Grid> grids = new List<Grid>();
+
+            ScheduleView.IsVisible = true;
+            Schedule.IsVisible = true;
+            grids.Add(SchedulePeriod1);
+            grids.Add(SchedulePeriod2);
+            grids.Add(SchedulePeriod3);
+            grids.Add(SchedulePeriod4);
+            grids.Add(ScheduleLunch);
+            grids.Add(SchedulePeriod5);
+            grids.Add(SchedulePeriod6);
+            grids.Add(SchedulePeriod7);
+
+            foreach (Grid grid in grids)
+                grid.IsVisible = false;
+            Date.Opacity = 0;
+            Description.Opacity = 0;
+
             Dictionary<string, Timetable> timetable = App.Timetable;
 
             if (arg != null)
                 timetable = arg;
-
-            Button button = null;
-            List<Grid> grids = new List<Grid>();
 
             var className = App.GetClassName();
 
@@ -165,21 +181,6 @@ namespace Hanyang
                     button = ViewSchedule5Button;
                     break;
             }
-
-            ScheduleView.IsVisible = true;
-            Schedule.IsVisible = true;
-            grids.Add(SchedulePeriod1);
-            grids.Add(SchedulePeriod2);
-            grids.Add(SchedulePeriod3);
-            grids.Add(SchedulePeriod4);
-            grids.Add(ScheduleLunch);
-            grids.Add(SchedulePeriod5);
-            grids.Add(SchedulePeriod6);
-            grids.Add(SchedulePeriod7);
-
-            foreach (Grid grid in grids)
-                grid.IsVisible = false;
-            Date.Opacity = 0;
 
             var dow = "";
             switch (viewDOW)
@@ -229,28 +230,32 @@ namespace Hanyang
 
             foreach (Grid grid in grids)
             {
+                grid.IsVisible = true;
                 if (App.Animation)
                 {
                     await grid.TranslateTo(300, 0, 1, Easing.SpringOut);
-                    grid.IsVisible = true;
                     _ = grid.TranslateTo(0, 0, 500, Easing.SpringOut);
                     await Task.Delay(150);
                 }
             }
 
-            if (timetable[className].Date != null)
-                Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 시간표";
-            else
-                Date.Text = DateTime.Now.ToString("yyyy년 M월 d일") + " 시간표";
+            Description.Text = "[" + className + "반 시간표]";
+            Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 이후 시간표입니다.";
 
             if (App.Animation)
             {
                 await Date.TranslateTo(300, 0, 1, Easing.SpringOut);
                 Date.Opacity = 1;
                 _ = Date.TranslateTo(0, 0, 500, Easing.SpringOut);
+                await Description.TranslateTo(300, 0, 1, Easing.SpringOut);
+                Description.Opacity = 1;
+                _ = Description.TranslateTo(0, 0, 500, Easing.SpringOut);
             }
             else
+            {
+                Description.Opacity = 1;
                 Date.Opacity = 1;
+            }
         }
         #endregion
 
