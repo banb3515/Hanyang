@@ -21,7 +21,7 @@ namespace Hanyang
         #region 변수
         private string view; // 현재 보고있는 레이아웃
         private int viewDOW; // 현재 보고있는 요일 레이아웃
-        private bool task; // 다른 작업 중인지 확인
+        public bool task; // 다른 작업 중인지 확인
         private List<string> rainbowColors; // 여러 색상
         private static TabbedSchedulePage instance;
 

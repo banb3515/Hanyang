@@ -102,6 +102,7 @@ namespace Hanyang
             App.Timetable = tempDict;
 
             // 시간표 초기화
+            TabbedSchedulePage.GetInstance().task = true;
             _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
         }
         #endregion
