@@ -58,6 +58,7 @@
                          Source="refresh.png"
                          HeightRequest="30"
                          WidthRequest="30"
+                         Clicked="RefreshButton_Clicked"
                          BackgroundColor="White"
                          Margin="40,0,0,0"
                          HorizontalOptions="Center"/>
@@ -131,270 +132,336 @@
                      HorizontalOptions="FillAndExpand"/>
 
             <!--#region 시간표-->
-            <StackLayout x:Name="ScheduleView" 
-                         IsVisible="False"
-                         Margin="30,0">
-                <!--#region 1교시-->
-                <Grid x:Name="SchedulePeriod1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="1교시"
+            <ScrollView x:Name="ScheduleView"
+                        IsVisible="False"
+                        Margin="0,0,0,10">
+                <StackLayout>
+                    <!--#region 1교시-->
+                    <Grid x:Name="SchedulePeriod1"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="1교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject1" 
+                            <Label x:Name="ScheduleSubject1" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                                   HorizontalTextAlignment="Center"
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 2교시-->
-                <Grid x:Name="SchedulePeriod2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="2교시"
+                    <!--#region 2교시-->
+                    <Grid x:Name="SchedulePeriod2"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="2교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject2" 
+                            <Label x:Name="ScheduleSubject2" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                                   HorizontalTextAlignment="Center"
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 3교시-->
-                <Grid x:Name="SchedulePeriod3">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="3교시"
+                    <!--#region 3교시-->
+                    <Grid x:Name="SchedulePeriod3"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="3교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject3" 
+                            <Label x:Name="ScheduleSubject3" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                                   HorizontalTextAlignment="Center"
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 4교시-->
-                <Grid x:Name="SchedulePeriod4">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="4교시"
+                    <!--#region 4교시-->
+                    <Grid x:Name="SchedulePeriod4"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="4교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject4" 
+                            <Label x:Name="ScheduleSubject4" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                                   HorizontalTextAlignment="Center"
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 점심시간-->
-                <Grid x:Name="ScheduleLunch">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <BoxView BackgroundColor="Gray" 
+                    <!--#region 점심시간-->
+                    <Grid x:Name="ScheduleLunch"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Horizontal">
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label Text="점심시간"
+                            <Label Text="점심시간"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 5교시-->
-                <Grid x:Name="SchedulePeriod5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="5교시"
+                    <!--#region 5교시-->
+                    <Grid x:Name="SchedulePeriod5"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="5교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject5" 
+                            <Label x:Name="ScheduleSubject5" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 6교시-->
-                <Grid x:Name="SchedulePeriod6">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="6교시"
+                    <!--#region 6교시-->
+                    <Grid x:Name="SchedulePeriod6"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="6교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject6" 
+                            <Label x:Name="ScheduleSubject6" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-                <!--#region 7교시-->
-                <Grid x:Name="SchedulePeriod7">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="7교시"
+                    <!--#region 7교시-->
+                    <Grid x:Name="SchedulePeriod7"
+                          Margin="20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="7교시"
                                TextColor="Black"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                FontSize="24"/>
-                        <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="Gray" 
                                  HeightRequest="1"
+                                 Grid.Column="1"
                                  Margin="10,22"
                                  HorizontalOptions="FillAndExpand"/>
-                        <Label x:Name="ScheduleSubject7" 
+                            <Label x:Name="ScheduleSubject7" 
                                TextColor="Black"
+                               Grid.Column="2"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               FontSize="24"/>
-                    </StackLayout>
+                                   HorizontalTextAlignment="Center"
+                               FontSize="18"/>
+                        </Grid>
 
-                    <BoxView BackgroundColor="DimGray"
+                        <BoxView BackgroundColor="DimGray"
                              HeightRequest="1" 
                              Grid.Row="1"
                              Margin="-10,0"
                              HorizontalOptions="FillAndExpand"/>
-                </Grid>
-                <!--#endregion-->
-            </StackLayout>
-            <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
 
-            <!--#region 날짜-->
-            <Label x:Name="Description"
+                    <!--#region 설명-->
+                    <Label x:Name="Description"
                    FontSize="16"
                    TextColor="SlateGray"
-                   Margin="0,15,0,0"
+                   Margin="0,5,0,0"
                    HorizontalOptions="Center"/>
-            
-            <!--#region 날짜-->
-            <Label x:Name="Date"
+
+                    <!--#region 날짜-->
+                    <Label x:Name="Date"
                    FontSize="16"
                    TextColor="SlateGray"
                    HorizontalOptions="Center"/>
+                    <!--#endregion-->
+                </StackLayout>
+            </ScrollView>
             <!--#endregion-->
         </StackLayout>
         <!--#endregion-->

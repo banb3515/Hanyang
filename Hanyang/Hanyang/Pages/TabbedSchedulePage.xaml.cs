@@ -1,5 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Animations;
+using Hanyang.Interface;
 using Hanyang.Model;
 using Models;
 using System;
@@ -133,9 +134,16 @@ namespace Hanyang
         }
         #endregion
 
-        #region viewDOW 요일 시간표 보기
+        #region 시간표 보기
         public async Task ViewScheduleAnimation(Dictionary<string, Timetable> arg = null)
         {
+            if (App.Grade == 0 || App.Class == 0)
+            {
+                DependencyService.Get<IToastMessage>().Shorttime("데이터를 가져올 수 없습니다.\n" +
+                    "프로필 설정을 완료해주세요.");
+                task = false;
+                return;
+            }
             Button button = null;
             List<Grid> grids = new List<Grid>();
 
@@ -162,7 +170,6 @@ namespace Hanyang
 
             var className = App.GetClassName();
 
-            // 변수 추가
             switch (viewDOW)
             {
                 case 1:
@@ -182,25 +189,7 @@ namespace Hanyang
                     break;
             }
 
-            var dow = "";
-            switch (viewDOW)
-            {
-                case 1:
-                    dow = "Monday";
-                    break;
-                case 2:
-                    dow = "Tuesday";
-                    break;
-                case 3:
-                    dow = "Wednesday";
-                    break;
-                case 4:
-                    dow = "Thursday";
-                    break;
-                case 5:
-                    dow = "Friday";
-                    break;
-            }
+            var dow = ((DayOfWeek)viewDOW).ToString();
 
             if (App.Animation)
             {
@@ -217,16 +206,65 @@ namespace Hanyang
                 await Task.Delay(100);
 
             // 시간표 초기화
-            ScheduleSubject1.Text = timetable[className].Data[dow]["1"];
-            ScheduleSubject2.Text = timetable[className].Data[dow]["2"];
-            ScheduleSubject3.Text = timetable[className].Data[dow]["3"];
-            ScheduleSubject4.Text = timetable[className].Data[dow]["4"];
-            ScheduleSubject5.Text = timetable[className].Data[dow]["5"];
-            ScheduleSubject6.Text = timetable[className].Data[dow]["6"];
-            if (timetable[className].Data[dow].ContainsKey("7"))
-                ScheduleSubject7.Text = timetable[className].Data[dow]["7"];
+            if (timetable[className].Data[dow].ContainsKey("1"))
+            {
+                ScheduleSubject1.Text = timetable[className].Data[dow]["1"];
+                if (ScheduleSubject1.Text.Length > 15)
+                    ScheduleSubject1.Text = ScheduleSubject1.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject1.Text.Substring(15).Trim();
+                if (timetable[className].Data[dow].ContainsKey("2"))
+                {
+                    ScheduleSubject2.Text = timetable[className].Data[dow]["2"];
+                    if (ScheduleSubject2.Text.Length > 15)
+                        ScheduleSubject2.Text = ScheduleSubject2.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject2.Text.Substring(15).Trim();
+                    if (timetable[className].Data[dow].ContainsKey("3"))
+                    {
+                        ScheduleSubject3.Text = timetable[className].Data[dow]["3"];
+                        if (ScheduleSubject3.Text.Length > 15)
+                            ScheduleSubject3.Text = ScheduleSubject3.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject3.Text.Substring(15).Trim();
+                        if (timetable[className].Data[dow].ContainsKey("4"))
+                        {
+                            ScheduleSubject4.Text = timetable[className].Data[dow]["4"];
+                            if (ScheduleSubject4.Text.Length > 15)
+                                ScheduleSubject4.Text = ScheduleSubject4.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject4.Text.Substring(15).Trim();
+                            if (timetable[className].Data[dow].ContainsKey("5"))
+                            {
+                                ScheduleSubject5.Text = timetable[className].Data[dow]["5"];
+                                if (ScheduleSubject5.Text.Length > 15)
+                                    ScheduleSubject5.Text = ScheduleSubject5.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject5.Text.Substring(15).Trim();
+                                if (timetable[className].Data[dow].ContainsKey("6"))
+                                {
+                                    ScheduleSubject6.Text = timetable[className].Data[dow]["6"];
+                                    if (ScheduleSubject6.Text.Length > 15)
+                                        ScheduleSubject6.Text = ScheduleSubject6.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject6.Text.Substring(15).Trim();
+                                    if (timetable[className].Data[dow].ContainsKey("7"))
+                                    {
+                                        ScheduleSubject7.Text = timetable[className].Data[dow]["7"];
+                                        if (ScheduleSubject7.Text.Length > 15)
+                                            ScheduleSubject7.Text = ScheduleSubject7.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject7.Text.Substring(15).Trim();
+                                    }
+                                    else
+                                        grids.Remove(SchedulePeriod7);
+                                }
+                                else
+                                    grids.Remove(SchedulePeriod6);
+                            }
+                            else
+                                grids.Remove(SchedulePeriod5);
+                        }
+                        else
+                        {
+                            grids.Remove(SchedulePeriod4);
+                            grids.Remove(ScheduleLunch);
+                        }
+                    }
+                    else
+                        grids.Remove(SchedulePeriod3);
+                }
+                else
+                    grids.Remove(SchedulePeriod2);
+            }
             else
-                grids.Remove(SchedulePeriod7);
+                grids.Remove(SchedulePeriod1);
 
             foreach (Grid grid in grids)
             {
@@ -240,8 +278,8 @@ namespace Hanyang
             }
 
             Description.Text = "[" + className + "반 시간표]";
-            Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 이후 시간표입니다.";
-
+            Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 시간표입니다.";
+            
             if (App.Animation)
             {
                 await Date.TranslateTo(300, 0, 1, Easing.SpringOut);
@@ -256,6 +294,7 @@ namespace Hanyang
                 Description.Opacity = 1;
                 Date.Opacity = 1;
             }
+            task = false;
         }
         #endregion
 
@@ -417,7 +456,6 @@ namespace Hanyang
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
                 await ViewScheduleAnimation();
-                task = false;
             }
         }
         #endregion
@@ -442,7 +480,6 @@ namespace Hanyang
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
                 await ViewScheduleAnimation();
-                task = false;
             }
         }
         #endregion
@@ -467,7 +504,6 @@ namespace Hanyang
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
                 await ViewScheduleAnimation();
-                task = false;
             }
         }
         #endregion
@@ -492,7 +528,6 @@ namespace Hanyang
                 ViewSchedule5Button.TextColor = Color.FromRgb(43, 43, 43);
 
                 await ViewScheduleAnimation();
-                task = false;
             }
         }
         #endregion
@@ -517,7 +552,18 @@ namespace Hanyang
                 ViewSchedule4Button.TextColor = Color.FromRgb(43, 43, 43);
 
                 await ViewScheduleAnimation();
-                task = false;
+            }
+        }
+        #endregion
+
+        #region 새로고침 버튼
+        private async void RefreshButton_Clicked(object sender, EventArgs e)
+        {
+            if(!task)
+            {
+                task = true;
+
+                await MainPage.GetInstance().GetData();
             }
         }
         #endregion
@@ -530,6 +576,7 @@ namespace Hanyang
             return instance;
         }
         #endregion
+
         #endregion
     }
 }

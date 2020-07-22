@@ -1,5 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Controller;
+using Hanyang.Interface;
 using Hanyang.Model;
 
 using Models;
@@ -31,15 +32,13 @@ namespace Hanyang
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
 
-        public static int Grade { get; set; } // 학년
+        public static int Grade { get; set; } = 0; // 학년
 
-        public static int Class { get; set; } // 반
+        public static int Class { get; set; } = 0; // 반
 
-        public static int Number { get; set; } // 출석 번호
+        public static int Number { get; set; } = 0; // 출석 번호
 
-        public static string Name { get; set; } // 이름
-
-        public static string ErrorMsg { get; set; } // 에러 메세지
+        public static string Name { get; set; } = "NONE"; // 이름
 
         public static Dictionary<string, Timetable> Timetable { get; set; } // 시간표
 
@@ -90,7 +89,6 @@ namespace Hanyang
         {
             // Syncfusion 라이선스 키
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg5MzIwQDMxMzgyZTMyMmUzMG1rdm93cVY1UXUxZDlPS0dESmh5dFBrNmlNenBGYS9pU0RUN3VKV3JwOEE9");
-            ErrorMsg = "";
 
             #region 글 임시 생성
             notices = new Dictionary<int, Article>();
@@ -161,7 +159,7 @@ namespace Hanyang
         #endregion
 
         #region 함수
-        #region 설정 가져오기 또는 초기화
+        #region 설정 초기화
         private async void InitSetting()
         {
             try
@@ -241,8 +239,8 @@ namespace Hanyang
             {
                 if (read != null)
                 {
-                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number"))
-                        ErrorMsg = "* 프로필이 설정되지 않았습니다.\n" + resettingMsg;
+                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number") || !read.ContainsKey("Name"))
+                        DependencyService.Get<IToastMessage>().Shorttime("* 프로필이 설정되지 않았습니다.\n" + resettingMsg);
                     else
                     {
                         Grade = Convert.ToInt32(read["Grade"]);
@@ -252,11 +250,11 @@ namespace Hanyang
                     }
                 }
                 else
-                    ErrorMsg = "* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg;
+                    DependencyService.Get<IToastMessage>().Shorttime("* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg);
             }
             catch (Exception e)
             {
-                ErrorMsg = "TabbedHomePage - GetSetting\n" + e.Message;
+                DependencyService.Get<IToastMessage>().Shorttime("※ 설정 가져오기 오류\n" + e.Message);
             }
         }
         #endregion

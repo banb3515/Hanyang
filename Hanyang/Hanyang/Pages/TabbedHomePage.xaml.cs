@@ -90,22 +90,29 @@ namespace Hanyang
 
                 string dep = "NONE";
 
-                if (_class >= 1 && _class <= 2)
-                    dep = "건설정보";
-                else if (_class >= 3 && _class <= 4)
-                    dep = "건축";
-                else if (_class >= 5 && _class <= 6)
-                    dep = "자동화기계";
-                else if (_class >= 7 && _class <= 8)
-                    dep = "디지털전자";
-                else if (_class >= 9 && _class <= 10)
-                    dep = "자동차";
-                else if (_class >= 11 && _class <= 12)
-                    dep = "컴퓨터네트워크";
-                MyDepartment.Text = dep + "과";
-                MyDepartment.TextColor = Color.White;
-                MyDepartment.TextDecorations = TextDecorations.None;
-                myInfoSet = true;
+                if (_class != 0)
+                {
+                    if (_class >= 1 && _class <= 2)
+                        dep = "건설정보";
+                    else if (_class >= 3 && _class <= 4)
+                        dep = "건축";
+                    else if (_class >= 5 && _class <= 6)
+                        dep = "자동화기계";
+                    else if (_class >= 7 && _class <= 8)
+                        dep = "디지털전자";
+                    else if (_class >= 9 && _class <= 10)
+                        dep = "자동차";
+                    else if (_class >= 11 && _class <= 12)
+                        dep = "컴퓨터네트워크";
+                }
+
+                if (dep != "NONE")
+                {
+                    MyDepartment.Text = dep + "과";
+                    MyDepartment.TextColor = Color.White;
+                    MyDepartment.TextDecorations = TextDecorations.None;
+                    myInfoSet = true;
+                }
             });
         }
         #endregion

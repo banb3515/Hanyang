@@ -34,10 +34,10 @@ namespace Hanyang
             ins = this;
             #endregion
 
-            GetData();
-
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
+
+            _ = GetData();
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
@@ -45,41 +45,28 @@ namespace Hanyang
 
         #region 함수
         #region 데이터 가져오기
-        private async void GetData()
+        public async Task GetData()
         {
             try
             {
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                    await DisplayAlert("인터넷에 연결되지 않음",
-                        "※ 인터넷 상태를 확인해주세요.\n\n" +
-                        "로컬 저장소에 있는 정보를 가져옵니다.\n\n" +
-                        "! 인터넷에 연결되면 자동으로 최신 정보를 가져옵니다.", "확인");
-
-                var serverThread = new Thread(() =>
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    Device.BeginInvokeOnMainThread(async () =>
+                    try
                     {
-                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                        {
-                            try
-                            {
-                                GetTimetable();
-                            }
-                            catch (Exception e)
-                            {
-                                await DisplayAlert("데이터 가져오기 오류", e.Message, "확인");
-                            }
-                        }
-                    });
-                });
-                serverThread.Start();
+                        GetTimetable();
+                    }
+                    catch (Exception e)
+                    {
+                        await DisplayAlert("데이터 가져오기 오류", e.Message, "확인");
+                    }
+                }
+                else
+                    DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
+                        "인터넷 상태를 확인해주세요.");
             }
             catch (Exception e)
             {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await DisplayAlert("데이터 가져오기 오류 - 인터넷 상태", e.Message, "확인");
-                });
+                await DisplayAlert("데이터 가져오기 오류 - 인터넷 상태", e.Message, "확인");
             }
         }
         #endregion
@@ -124,6 +111,7 @@ namespace Hanyang
 
         #region 학사 일정 가져오기
         #endregion
+
         #region 인스턴스 가져오기
         public static MainPage GetInstance()
         {
@@ -134,10 +122,15 @@ namespace Hanyang
 
         #region 이벤트
         #region 인터넷 상태 변경
-        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            if (e.NetworkAccess != NetworkAccess.Internet)
-                GetData();
+            if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                DependencyService.Get<IToastMessage>().Longtime("인터넷에 연결되었습니다.");
+                await GetData();
+            }
+            else
+                DependencyService.Get<IToastMessage>().Longtime("인터넷 연결이 해제되었습니다.");
         }
         #endregion
         #endregion
