@@ -1,7 +1,6 @@
 ﻿#region API 참조
-using Hanyang.Popup;
 using Hanyang.SubPages;
-using Rg.Plugins.Popup.Extensions;
+
 using System;
 
 using Xamarin.Forms;

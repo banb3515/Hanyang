@@ -1,17 +1,15 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Interface;
-using Hanyang.Model;
+using Hanyang.Models;
 
 using Models;
 
 using Newtonsoft.Json.Linq;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Threading;
 
 using Xamarin.Forms;
 #endregion
@@ -39,6 +37,10 @@ namespace Hanyang
         public static int Number { get; set; } = 0; // 출석 번호
 
         public static string Name { get; set; } = "NONE"; // 이름
+
+        public static int BirthMonth { get; set; } = 0; // 생일 - 월
+
+        public static int BirthDay { get; set; } = 0; // 생일 - 일
 
         public static Dictionary<string, Timetable> Timetable { get; set; } // 시간표
 
@@ -247,6 +249,8 @@ namespace Hanyang
                         Class = Convert.ToInt32(read["Class"]);
                         Number = Convert.ToInt32(read["Number"]);
                         Name = read["Name"].ToString();
+                        BirthMonth = Convert.ToInt32(read["BirthMonth"]);
+                        BirthDay = Convert.ToInt32(read["BirthDay"]);
                     }
                 }
                 else

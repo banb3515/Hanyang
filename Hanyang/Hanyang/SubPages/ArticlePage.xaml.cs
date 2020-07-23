@@ -1,5 +1,5 @@
 ﻿#region API 참조
-using Hanyang.Model;
+using Hanyang.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

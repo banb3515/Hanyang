@@ -16,10 +16,10 @@
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
     <PackageReference Include="SocketLite.PCL" Version="5.1.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.45" />
-    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.45" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.46" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1142" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1179" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +32,11 @@
     </Compile>
     <Compile Update="Pages\TabbedViewMorePage.xaml.cs">
       <DependentUpon>TabbedViewMorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Syncfusion - 복사.SfCalendar.XForms.ko.Designer.cs">
+      <DependentUpon>Syncfusion.SfCalendar.XForms.ko.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
 
@@ -55,6 +60,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\TabbedSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SubPages\SelfDiagnosisPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="SubPages\SettingPage.xaml">

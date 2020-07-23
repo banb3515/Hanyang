@@ -1,6 +1,6 @@
-﻿namespace Hanyang.Model
+﻿namespace Hanyang.Models
 {
-    public class JSONData
+    public class JsonData
     {
         #region 변수
         public string Subject { get; set; }

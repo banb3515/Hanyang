@@ -1,14 +1,15 @@
 ﻿#region API 참조
 using Hanyang.Animations;
 using Hanyang.Interface;
-using Hanyang.Model;
+using Hanyang.Models;
+
 using Models;
+
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
@@ -32,7 +33,7 @@ namespace Hanyang
         public TabbedSchedulePage()
         {
             #region 변수 초기화
-            view = string.Empty;
+            view = "schedule";
             task = false;
 
             rainbowColors = new List<string>
@@ -53,6 +54,8 @@ namespace Hanyang
             #endregion
 
             InitializeComponent();
+
+            LunchMenuCalendar.EnableSwiping = false;
 
             #region 현재 요일을 가져와 해당요일 시간표 보여주기
             var now = DateTime.Now;
@@ -92,32 +95,24 @@ namespace Hanyang
             }
             catch (Exception e)
             {
-                DisplayAlert("시간표 오류", e.Message, "확인");
+                _ = MainPage.GetInstance().ErrorAlert("시간 정수 변환", "시간을 정수형으로 변환하는 도중 오류가 발생했습니다.\n" + e.Message);
             }
 
             if (viewDOW == 6)
                 viewDOW = 1;
             #endregion
-
-            #region 학사 일정 시작 날짜 초기화
-
-            #endregion
-
-            List<LunchMenu> lunches = new List<LunchMenu>
-            {
-                new LunchMenu() { Symbol = rainbowColors[0], Food = "쌀밥"},
-                new LunchMenu() { Symbol = rainbowColors[1], Food = "소고기고추장찌개"},
-                new LunchMenu() { Symbol = rainbowColors[2], Food = "생선튀김&청초D"},
-                new LunchMenu() { Symbol = rainbowColors[3], Food = "찐만두"},
-                new LunchMenu() { Symbol = rainbowColors[4], Food = "부지깽이나물"},
-                new LunchMenu() { Symbol = rainbowColors[5], Food = "깍두기"},
-            };
-
-            LunchMenuList.ItemsSource = lunches;
         }
         #endregion
 
         #region 애니메이션
+        #region 이미지 버튼 클릭
+        private async Task ImageButtonAnimation(ImageButton b)
+        {
+            await b.ScaleTo(0.8, 150, Easing.SinOut);
+            await b.ScaleTo(1, 100, Easing.SinIn);
+        }
+        #endregion
+
         #region 보기 버튼 클릭
         private async void ViewButtonAnimation(Button b)
         {
@@ -137,6 +132,12 @@ namespace Hanyang
         #region 시간표 보기
         public async Task ViewScheduleAnimation(Dictionary<string, Timetable> arg = null)
         {
+            if (view != "schedule")
+            {
+                task = false;
+                return;
+            }
+
             if (App.Grade == 0 || App.Class == 0)
             {
                 DependencyService.Get<IToastMessage>().Shorttime("데이터를 가져올 수 없습니다.\n" +
@@ -246,25 +247,59 @@ namespace Hanyang
                                         grids.Remove(SchedulePeriod7);
                                 }
                                 else
+                                {
                                     grids.Remove(SchedulePeriod6);
+                                    grids.Remove(SchedulePeriod7);
+                                }
                             }
                             else
+                            {
                                 grids.Remove(SchedulePeriod5);
+                                grids.Remove(SchedulePeriod6);
+                                grids.Remove(SchedulePeriod7);
+                            }
                         }
                         else
                         {
                             grids.Remove(SchedulePeriod4);
                             grids.Remove(ScheduleLunch);
+                            grids.Remove(SchedulePeriod5);
+                            grids.Remove(SchedulePeriod6);
+                            grids.Remove(SchedulePeriod7);
                         }
                     }
                     else
+                    {
                         grids.Remove(SchedulePeriod3);
+                        grids.Remove(SchedulePeriod4);
+                        grids.Remove(ScheduleLunch);
+                        grids.Remove(SchedulePeriod5);
+                        grids.Remove(SchedulePeriod6);
+                        grids.Remove(SchedulePeriod7);
+                    }
                 }
                 else
+                {
                     grids.Remove(SchedulePeriod2);
+                    grids.Remove(SchedulePeriod3);
+                    grids.Remove(SchedulePeriod4);
+                    grids.Remove(ScheduleLunch);
+                    grids.Remove(SchedulePeriod5);
+                    grids.Remove(SchedulePeriod6);
+                    grids.Remove(SchedulePeriod7);
+                }
             }
             else
+            {
                 grids.Remove(SchedulePeriod1);
+                grids.Remove(SchedulePeriod2);
+                grids.Remove(SchedulePeriod3);
+                grids.Remove(SchedulePeriod4);
+                grids.Remove(ScheduleLunch);
+                grids.Remove(SchedulePeriod5);
+                grids.Remove(SchedulePeriod6);
+                grids.Remove(SchedulePeriod7);
+            }
 
             foreach (Grid grid in grids)
             {
@@ -301,51 +336,11 @@ namespace Hanyang
         #region 급식 메뉴 보기
         private async Task ViewLunchMenuAnimation()
         {
+            LunchMenu.IsVisible = true;
             if (App.Animation)
             {
-                await Task.Delay(250);
-
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    LunchMenuDate.Opacity = 0;
-                    LunchMenuBackground.Opacity = 0;
-                    LunchMenuLine.Opacity = 0;
-                    LunchMenuImage.Opacity = 0;
-                    LunchMenuList.Opacity = 0;
-                    GestureDescription.Opacity = 0;
-                    LunchMenu.IsVisible = true;
-                });
-
-                await LunchMenuDate.FadeTo(1, 750, Easing.SpringOut);
-                _ = LunchMenuBackground.FadeTo(1, 1500, Easing.SpringOut);
-                await Task.Delay(150);
-
-                await LunchMenuImage.FadeTo(1, 750, Easing.SpringIn);
-                await Task.Delay(100);
-                await GestureDescription.FadeTo(1, 500, Easing.SpringOut);
-                await Task.Delay(100);
-
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    if (App.Animation)
-                        LunchMenuLine.ScaleX = 0;
-                    LunchMenuLine.Opacity = 1;
-                });
-
-                await LunchMenuLine.ScaleXTo(1, 500, Easing.SpringIn);
-                await LunchMenuList.TranslateTo(300, 0, 1, Easing.SpringOut);
-                LunchMenuList.Opacity = 1;
-                await LunchMenuList.TranslateTo(0, 0, 500, Easing.SpringOut);
-            }
-            else
-            {
-                LunchMenuDate.Opacity = 1;
-                LunchMenuBackground.Opacity = 1;
-                LunchMenuLine.Opacity = 1;
-                LunchMenuImage.Opacity = 1;
-                LunchMenuList.Opacity = 1;
-                GestureDescription.Opacity = 1;
-                LunchMenu.IsVisible = true;
+                LunchMenu.Opacity = 0;
+                await LunchMenu.FadeTo(1, 750, Easing.SpringIn);
             }
         }
         #endregion
@@ -559,11 +554,20 @@ namespace Hanyang
         #region 새로고침 버튼
         private async void RefreshButton_Clicked(object sender, EventArgs e)
         {
+            await ImageButtonAnimation(sender as ImageButton);
+
             if(!task)
             {
                 task = true;
 
-                await MainPage.GetInstance().GetData();
+                if(Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    await MainPage.GetInstance().GetData();
+                else
+                {
+                    DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
+                        "인터넷 상태를 확인해주세요.");
+                    task = false;
+                }
             }
         }
         #endregion

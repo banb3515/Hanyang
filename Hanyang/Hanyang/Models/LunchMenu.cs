@@ -1,4 +1,4 @@
-﻿namespace Hanyang.Model
+﻿namespace Hanyang.Models
 {
     public class LunchMenu
     {

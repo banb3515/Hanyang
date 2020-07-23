@@ -1,9 +1,10 @@
 ﻿#region API 참조
 using Hanyang.Animations;
-using Hanyang.Model;
+using Hanyang.Models;
 using Hanyang.Interface;
 using Hanyang.SubPages;
 using Hanyang.Controller;
+using Hanyang.Popup;
 
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Hanyang.Popup;
+
 using Newtonsoft.Json.Linq;
+
 using Rg.Plugins.Popup.Services;
+using Xamarin.Essentials;
 #endregion
 
 namespace Hanyang
@@ -119,7 +122,7 @@ namespace Hanyang
         #endregion
 
         #region 애니메이션
-        #region 웹사이트 바로가기 버튼 클릭
+        #region 이미지 버튼 클릭
         private async Task ImageButtonAnimation(ImageButton b)
         {
             await b.ScaleTo(0.8, 150, Easing.SinOut);
@@ -177,8 +180,9 @@ namespace Hanyang
         #region 학교 홈페이지 바로가기 버튼
         private async void HomepageButton_Clicked(object sender, EventArgs e)
         {
-            await ImageButtonAnimation(sender as ImageButton);
-            OpenBrowser("http://hanyang.sen.hs.kr/index.do");
+            await MainPage.GetInstance().ErrorAlert("테스트", "에러 메시지입니다.");
+            //await ImageButtonAnimation(sender as ImageButton);
+            //OpenBrowser("http://hanyang.sen.hs.kr/index.do");
         }
         #endregion
 
@@ -195,6 +199,19 @@ namespace Hanyang
         {
             await ImageButtonAnimation(sender as ImageButton);
             OpenBrowser("https://coronamap.site/");
+        }
+        #endregion
+
+        #region 자가 진단 바로가기 버튼
+        private async void SelfDiagnosisButton_Clicked(object sender, EventArgs e)
+        {
+            await ImageButtonAnimation(sender as ImageButton);
+            if(App.Name == "NONE")
+            {
+                await DisplayAlert("자가 진단 바로가기", "프로필 설정 후 이용 가능합니다.", "확인");
+                return;
+            }
+            NewPage(new SelfDiagnosisPage());
         }
         #endregion
 
@@ -332,13 +349,15 @@ namespace Hanyang
                                     { "Grade", arg.Grade },
                                     { "Class", arg.Class },
                                     { "Number", arg.Number },
-                                    { "Name", arg.Name }
+                                    { "Name", arg.Name },
+                                    { "BirthMonth", arg.BirthMonth },
+                                    { "BirthDay", arg.BirthDay }
                                 };
                                 controller.Add(dict);
                             }
                             catch (Exception ex)
                             {
-                                await DisplayAlert("오류", ex.Message, "확인");
+                                await MainPage.GetInstance().ErrorAlert("설정", "설정을 완료하는 도중 오류가 발생했습니다.\n" + ex.Message);
                             }
                         }
                         else
@@ -347,8 +366,9 @@ namespace Hanyang
                                 new JProperty("Grade", arg.Grade),
                                 new JProperty("Class", arg.Class),
                                 new JProperty("Number", arg.Number),
-                                new JProperty("Name", arg.Name)
-                                );
+                                new JProperty("Name", arg.Name),
+                                new JProperty("BirthMonth", arg.BirthMonth),
+                                new JProperty("BirthDay", arg.BirthDay));
                             await controller.Write(jsonObj);
                         }
 
@@ -356,11 +376,13 @@ namespace Hanyang
                         App.Class = arg.Class;
                         App.Number = arg.Number;
                         App.Name = arg.Name;
+                        App.BirthMonth = arg.BirthMonth;
+                        App.BirthDay = arg.BirthDay;
 
                         MyInfoUpdate();
                         _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
-                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
+                        DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");
                     }
                 };
 

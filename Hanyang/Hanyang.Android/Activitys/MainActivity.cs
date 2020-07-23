@@ -7,11 +7,13 @@ using Xamarin.Forms.Platform.Android;
 using Rg.Plugins.Popup.Services;
 #endregion
 
-namespace Hanyang.Droid.Activity
+namespace Hanyang.Droid.Activitys
 {
     [Activity(Theme = "@style/MainTheme", ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private static MainActivity instance;
+
         #region OnCreate
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -25,6 +27,8 @@ namespace Hanyang.Droid.Activity
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            instance = this;
         }
         #endregion
 
@@ -62,6 +66,13 @@ namespace Hanyang.Droid.Activity
             }
 
             base.OnBackPressed();
+        }
+        #endregion
+
+        #region 인스턴스 가져오기
+        public static MainActivity GetInstance()
+        {
+            return instance;
         }
         #endregion
     }

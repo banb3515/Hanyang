@@ -78,6 +78,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--#endregion-->
 
@@ -109,7 +110,7 @@
                                  HeightRequest="50"
                                  Clicked="NewsButton_Clicked"
                                  HorizontalOptions="Center"/>
-                    <Label Text="한양뉴스" 
+                    <Label Text="한양 뉴스" 
                            TextColor="Black" 
                            FontSize="14"
                            HorizontalOptions="Center"/>
@@ -128,6 +129,24 @@
                                  Clicked="CoronamapButton_Clicked"
                                  HorizontalOptions="Center"/>
                     <Label Text="코로나맵" 
+                           TextColor="Black" 
+                           FontSize="14"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region 자가 진단-->
+                <StackLayout Grid.Column="3" 
+                             Orientation="Vertical"
+                             Spacing="10"
+                             Margin="10,0"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton x:Name="SelfDiagnosisButton"
+                                 Source="self_diagnosis.png" 
+                                 HeightRequest="50" 
+                                 Clicked="SelfDiagnosisButton_Clicked"
+                                 HorizontalOptions="Center"/>
+                    <Label Text="자가 진단" 
                            TextColor="Black" 
                            FontSize="14"
                            HorizontalOptions="Center"/>

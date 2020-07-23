@@ -13,7 +13,7 @@ using Android.Widget;
 using Java.Lang;
 #endregion
 
-namespace Hanyang.Droid.Activity
+namespace Hanyang.Droid.Activitys
 {
     [Activity(Label = "한양이", Icon = "@drawable/icon", NoHistory = true, Theme = "@style/Theme.AppCompat.Light.NoActionBar", 
         MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

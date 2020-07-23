@@ -1,5 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Controller;
+using Hanyang.Interface;
 using Hanyang.Popup;
 
 using Newtonsoft.Json.Linq;
@@ -54,16 +55,18 @@ namespace Hanyang.SubPages
                             {
                                 var dict = new Dictionary<string, object>
                                 {
-                                { "Grade", arg.Grade },
-                                { "Class", arg.Class },
-                                { "Number", arg.Number },
-                                { "Name", arg.Name }
+                                    { "Grade", arg.Grade },
+                                    { "Class", arg.Class },
+                                    { "Number", arg.Number },
+                                    { "Name", arg.Name },
+                                    { "BirthMonth", arg.BirthMonth },
+                                    { "BirthDay", arg.BirthDay }
                                 };
                                 controller.Add(dict);
                             }
                             catch (Exception ex)
                             {
-                                await DisplayAlert("오류", ex.Message, "확인");
+                                await MainPage.GetInstance().ErrorAlert("설정", "설정을 완료하는 도중 오류가 발생했습니다.\n" + ex.Message);
                             }
                         }
                         else
@@ -72,8 +75,9 @@ namespace Hanyang.SubPages
                                 new JProperty("Grade", arg.Grade),
                                 new JProperty("Class", arg.Class),
                                 new JProperty("Number", arg.Number),
-                                new JProperty("Name", arg.Name)
-                                );
+                                new JProperty("Name", arg.Name),
+                                new JProperty("BirthMonth", arg.BirthMonth),
+                                new JProperty("BirthDay", arg.BirthDay));
                             await controller.Write(jsonObj);
                         }
 
@@ -81,11 +85,13 @@ namespace Hanyang.SubPages
                         App.Class = arg.Class;
                         App.Number = arg.Number;
                         App.Name = arg.Name;
+                        App.BirthMonth = arg.BirthMonth;
+                        App.BirthDay = arg.BirthDay;
 
                         TabbedHomePage.ins.MyInfoUpdate();
                         _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
-                        await DisplayAlert("프로필 설정", "입력된 정보가 저장되었습니다.", "확인");
+                        DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");
                     }
                 };
 
@@ -111,29 +117,23 @@ namespace Hanyang.SubPages
             {
                 task = true;
 
+                var controller = new JsonController("setting");
+
                 try
                 {
-                    var controller = new JsonController("setting");
-
-                    try
-                    {
-                        var dict = new Dictionary<string, object>();
-                        dict.Add("Animation", AnimationSwitch.IsToggled);
-                        controller.Add(dict);
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlert("오류", ex.Message, "확인");
-                    }
-
-                    var read = controller.Read();
-
-                    App.Animation = Convert.ToBoolean(read["Animation"]);
+                    var dict = new Dictionary<string, object>();
+                    dict.Add("Animation", AnimationSwitch.IsToggled);
+                    controller.Add(dict);
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("오류", "MainPage - GetSetting\n" + ex.Message, "확인");
+                    await MainPage.GetInstance().ErrorAlert("설정 변경", "애니메이션 설정을 변경하는 도중 오류가 발생했습니다.\n" + ex.Message);
                 }
+
+                var read = controller.Read();
+
+                App.Animation = Convert.ToBoolean(read["Animation"]);
+
                 task = false;
             }
         }

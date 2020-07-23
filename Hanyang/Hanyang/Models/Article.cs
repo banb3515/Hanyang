@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 #endregion
 
-namespace Hanyang.Model
+namespace Hanyang.Models
 {
     public class Article
     {

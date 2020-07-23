@@ -468,94 +468,38 @@
 
         <!--#region 급식 메뉴-->
         <StackLayout x:Name="LunchMenu"
-                     Grid.Row="3"
                      IsVisible="False"
+                     Grid.Row="3"
                      Margin="0,-7,0,0">
-            <!--#region 급식 사진-->
-            <Label x:Name="LunchMenuDate"
-                   Text="2020.06.25"
-                   HorizontalOptions="Center"
-                   TextColor="#171717"
-                   Opacity="0"
-                   FontSize="28"
-                   FontAttributes="Bold"/>
-
-            <Grid x:Name="LunchMenuBackground"
-                  Opacity="0">
-                <Frame HasShadow="True"
-                       CornerRadius="10"
-                       Padding="0"
-                       HeightRequest="1075"
-                       Margin='10,0'
-                       HorizontalOptions="FillAndExpand"
-                       BackgroundColor="#434343">
-                </Frame>
-                <Frame CornerRadius="10"
-                       Padding="0"
-                       Margin="12,2"
-                       BackgroundColor="#EBEBEB"
-                       HeightRequest="1075"
-                       HorizontalOptions="FillAndExpand"
-                       IsClippedToBounds="True">
-                    <others:ZoomInOutContainer>
-                        <others:ZoomInOutContainer.Content>
-                            <Image x:Name="LunchMenuImage"
-                                   Source="tmp.jpg"
-                                   Opacity="0"
-                                   HorizontalOptions="Center"/>
-                        </others:ZoomInOutContainer.Content>
-                    </others:ZoomInOutContainer>
-                </Frame>
-            </Grid>
-            <!--#endregion-->
-
-            <Label x:Name="GestureDescription"
-                   Text="제스처를 사용하여 사진을 확대/축소할 수 있습니다."
-                   FontSize="12"
-                   TextColor="SlateGray"
-                   Opacity="0"
-                   Margin="0,-5,0,-8"
-                   HorizontalOptions="Center"/>
-            
-            <BoxView x:Name="LunchMenuLine" 
-                     BackgroundColor="Black" 
-                     HeightRequest="2" 
-                     Opacity="0"
-                     Margin="10,5"
-                     HorizontalOptions="FillAndExpand"/>
-            
-            <!--#region 급식 목록-->
-            <ListView x:Name="LunchMenuList"
-                      Margin="0,-9,0,0"
-                      Opacity="0"
-                      SelectionMode="None"
-                      ItemsSource="{Binding LunchMenu}"
-                      SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal"
-                                         Margin="20,0"
-                                         VerticalOptions="Center">
-                                    <Label Text="⊙"
-                                           FontSize="24"
-                                           FontAttributes="Bold"
-                                           TextColor="{Binding Symbol}"/>
-                                    <Label Text="{Binding Food}"
-                                           FontSize="24"
-                                           TextColor="Black"/>
-                                </StackLayout>
-                                <BoxView BackgroundColor="Black" 
-                                         HeightRequest="1" 
-                                         Margin="10,1.5,10,0"
-                                         HorizontalOptions="FillAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--#endregion-->
+            <syncfusion:SfCalendar x:Name="LunchMenuCalendar"
+                                   Margin="10,0"
+                                   ViewMode="MonthView"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   DataSource="{Binding Appointments}"
+                                   ShowLeadingAndTrailingDays="False"
+                                   ShowYearView="false"
+                                   ShowInlineEvents="True"
+                                   InlineViewMode="Agenda">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings CellGridOptions="HorizontalLines"
+                                                  SelectionShape="Fill"
+                                                  DateSelectionColor="#81D8E8"
+                                                  SelectedDayTextColor="White"
+                                                  TodaySelectionBackgroundColor="#66CDDF"
+                                                  DayHeaderTextColor="Black"
+                                                  DayHeaderFontAttributes="Bold"
+                                                  HeaderFontAttributes="Bold"
+                                                  HeaderTextColor="Black"
+                                                  BorderColor="Black"/>
+                </syncfusion:SfCalendar.MonthViewSettings>
+                <syncfusion:SfCalendar.Behaviors>
+                    <others:CalendarBehavior/>
+                </syncfusion:SfCalendar.Behaviors>
+                <syncfusion:SfCalendar.BindingContext>
+                    <others:CalendarContainer/>
+                </syncfusion:SfCalendar.BindingContext>
+            </syncfusion:SfCalendar>
         </StackLayout>
         <!--#endregion-->
         

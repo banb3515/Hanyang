@@ -1,5 +1,5 @@
 ﻿#region API 참조
-using Hanyang.Model;
+using Hanyang.Models;
 
 using Newtonsoft.Json;
 
@@ -50,7 +50,7 @@ namespace Hanyang.Others
         {
             this.Appointments = new CalendarEventCollection();
 
-            List<JSONData> jsonDataCollection = JsonConvert.DeserializeObject<List<JSONData>>(JsonData);
+            List<JsonData> jsonDataCollection = JsonConvert.DeserializeObject<List<JsonData>>(JsonData);
 
             foreach (var data in jsonDataCollection)
             {

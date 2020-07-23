@@ -45,7 +45,7 @@ namespace WebServer.Controllers
                         new Timetable
                         {
                             ResultCode = "003",
-                            ResultMsg = "데이터가 로드되지 않았습니다.",
+                            ResultMsg = "데이터가 로드되지 않았습니다.\n잠시 후 다시 시도해 주시기 바랍니다.",
                             Data = null,
                             Date = null
                         });
