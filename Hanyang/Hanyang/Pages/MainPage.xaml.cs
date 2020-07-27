@@ -35,12 +35,8 @@ namespace Hanyang
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
 
-            var signalR = new SignalR("Timetable");
-            signalR.Start();
-            signalR.Send("TimetableFromServer", "Hello, Server!");
-
-            //_ = GetData();
-            //_ = GetCrawling();
+            _ = GetData();
+            _ = GetCrawling();
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }

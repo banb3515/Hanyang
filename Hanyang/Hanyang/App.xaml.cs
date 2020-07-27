@@ -24,7 +24,7 @@ namespace Hanyang
         // 한양이 WebServer API 키
         public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
 
-        public static string ServerUrl { get; } = "http://121.130.234.8:5000/"; // 서버 URL
+        public static string ServerUrl { get; } = "http://hanyang.azurewebsite.com/"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 

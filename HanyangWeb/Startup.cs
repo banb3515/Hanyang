@@ -32,7 +32,6 @@ namespace HanyangWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,14 +53,11 @@ namespace HanyangWeb
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<TimetableHub>("/hubs/timetable");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<TimetableHub>("/hub/timetable");
             });
         }
     }
