@@ -1,5 +1,4 @@
 ﻿#region API 참조
-using System;
 using System.Collections.Generic;
 #endregion
 

@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ByteSize" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.6" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
@@ -18,6 +19,7 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.46" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.46" />
+    <PackageReference Include="Xam.Plugin.HtmlLabel" Version="4.1.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.7.0.1179" />
   </ItemGroup>
@@ -37,6 +39,9 @@
       <DependentUpon>Syncfusion.SfCalendar.XForms.ko.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="SubPages\WebViewPage.xaml.cs">
+      <DependentUpon>WebViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -62,7 +67,7 @@
     <EmbeddedResource Update="Pages\TabbedSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SubPages\SelfDiagnosisPage.xaml">
+    <EmbeddedResource Update="SubPages\WebViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="SubPages\SettingPage.xaml">

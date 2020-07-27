@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:htmlLabel="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
              mc:Ignorable="d"
              BackgroundColor="White"
              x:Class="Hanyang.SubPages.ArticlePage">
@@ -109,11 +110,8 @@
                          Margin="5,0"
                          HorizontalOptions="FillAndExpand"/>
 
-                <Label x:Name="ArticleContents"
-                       Margin="10,0"
-                       FontSize="16"
-                       TextType="Html"
-                       TextColor="Black"/>
+                <htmlLabel:HtmlLabel x:Name="ArticleContents"
+                                     Margin="10,0"/>
                 <!--#endregion-->
             </StackLayout>
         </ScrollView>
@@ -126,6 +124,6 @@
                      Margin="0,0,10,10"
                      Clicked="TopButton_Clicked"
                      BackgroundColor="Transparent"
-                     Source="arrow_top.png"/>
+                     Source="arrow_up.png"/>
     </Grid>
 </ContentPage>

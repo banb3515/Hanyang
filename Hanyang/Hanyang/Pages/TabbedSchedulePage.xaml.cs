@@ -1,12 +1,15 @@
 ﻿#region API 참조
+using ByteSizeLib;
 using Hanyang.Animations;
 using Hanyang.Interface;
 using Hanyang.Models;
-
+using Hanyang.Others;
 using Models;
-
+using Newtonsoft.Json;
+using Syncfusion.SfCalendar.XForms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Xamarin.Essentials;
@@ -54,8 +57,6 @@ namespace Hanyang
             #endregion
 
             InitializeComponent();
-
-            LunchMenuCalendar.EnableSwiping = false;
 
             #region 현재 요일을 가져와 해당요일 시간표 보여주기
             var now = DateTime.Now;
@@ -130,7 +131,7 @@ namespace Hanyang
         #endregion
 
         #region 시간표 보기
-        public async Task ViewScheduleAnimation(Dictionary<string, Timetable> arg = null)
+        public async Task ViewScheduleAnimation(Timetable arg = null)
         {
             if (view != "schedule")
             {
@@ -164,7 +165,7 @@ namespace Hanyang
             Date.Opacity = 0;
             Description.Opacity = 0;
 
-            Dictionary<string, Timetable> timetable = App.Timetable;
+            Timetable timetable = App.Timetable;
 
             if (arg != null)
                 timetable = arg;
@@ -207,39 +208,39 @@ namespace Hanyang
                 await Task.Delay(100);
 
             // 시간표 초기화
-            if (timetable[className].Data[dow].ContainsKey("1"))
+            if (timetable.Data[dow].ContainsKey("1"))
             {
-                ScheduleSubject1.Text = timetable[className].Data[dow]["1"];
+                ScheduleSubject1.Text = timetable.Data[dow]["1"];
                 if (ScheduleSubject1.Text.Length > 15)
                     ScheduleSubject1.Text = ScheduleSubject1.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject1.Text.Substring(15).Trim();
-                if (timetable[className].Data[dow].ContainsKey("2"))
+                if (timetable.Data[dow].ContainsKey("2"))
                 {
-                    ScheduleSubject2.Text = timetable[className].Data[dow]["2"];
+                    ScheduleSubject2.Text = timetable.Data[dow]["2"];
                     if (ScheduleSubject2.Text.Length > 15)
                         ScheduleSubject2.Text = ScheduleSubject2.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject2.Text.Substring(15).Trim();
-                    if (timetable[className].Data[dow].ContainsKey("3"))
+                    if (timetable.Data[dow].ContainsKey("3"))
                     {
-                        ScheduleSubject3.Text = timetable[className].Data[dow]["3"];
+                        ScheduleSubject3.Text = timetable.Data[dow]["3"];
                         if (ScheduleSubject3.Text.Length > 15)
                             ScheduleSubject3.Text = ScheduleSubject3.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject3.Text.Substring(15).Trim();
-                        if (timetable[className].Data[dow].ContainsKey("4"))
+                        if (timetable.Data[dow].ContainsKey("4"))
                         {
-                            ScheduleSubject4.Text = timetable[className].Data[dow]["4"];
+                            ScheduleSubject4.Text = timetable.Data[dow]["4"];
                             if (ScheduleSubject4.Text.Length > 15)
                                 ScheduleSubject4.Text = ScheduleSubject4.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject4.Text.Substring(15).Trim();
-                            if (timetable[className].Data[dow].ContainsKey("5"))
+                            if (timetable.Data[dow].ContainsKey("5"))
                             {
-                                ScheduleSubject5.Text = timetable[className].Data[dow]["5"];
+                                ScheduleSubject5.Text = timetable.Data[dow]["5"];
                                 if (ScheduleSubject5.Text.Length > 15)
                                     ScheduleSubject5.Text = ScheduleSubject5.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject5.Text.Substring(15).Trim();
-                                if (timetable[className].Data[dow].ContainsKey("6"))
+                                if (timetable.Data[dow].ContainsKey("6"))
                                 {
-                                    ScheduleSubject6.Text = timetable[className].Data[dow]["6"];
+                                    ScheduleSubject6.Text = timetable.Data[dow]["6"];
                                     if (ScheduleSubject6.Text.Length > 15)
                                         ScheduleSubject6.Text = ScheduleSubject6.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject6.Text.Substring(15).Trim();
-                                    if (timetable[className].Data[dow].ContainsKey("7"))
+                                    if (timetable.Data[dow].ContainsKey("7"))
                                     {
-                                        ScheduleSubject7.Text = timetable[className].Data[dow]["7"];
+                                        ScheduleSubject7.Text = timetable.Data[dow]["7"];
                                         if (ScheduleSubject7.Text.Length > 15)
                                             ScheduleSubject7.Text = ScheduleSubject7.Text.Substring(0, 15).Trim() + "\n" + ScheduleSubject7.Text.Substring(15).Trim();
                                     }
@@ -313,7 +314,7 @@ namespace Hanyang
             }
 
             Description.Text = "[" + className + "반 시간표]";
-            Date.Text = DateTime.ParseExact(timetable[className].Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 시간표입니다.";
+            Date.Text = DateTime.ParseExact(timetable.Date[dow], "yyyyMMdd", null).ToString("yyyy년 M월 d일") + " 시간표입니다.";
             
             if (App.Animation)
             {
@@ -346,13 +347,13 @@ namespace Hanyang
         #endregion
 
         #region 학사 일정 보기
-        private async Task ViewAcademicScheduleAnimation()
+        private async Task ViewSchoolScheduleAnimation()
         {
-            AcademicSchedule.IsVisible = true;
+            SchoolSchedule.IsVisible = true;
             if (App.Animation)
             {
-                AcademicSchedule.Opacity = 0;
-                await AcademicSchedule.FadeTo(1, 750, Easing.SpringIn);
+                SchoolSchedule.Opacity = 0;
+                await SchoolSchedule.FadeTo(1, 750, Easing.SpringIn);
             }
         }
         #endregion
@@ -368,13 +369,13 @@ namespace Hanyang
                 view = "schedule";
 
                 ViewLunchMenuButton.BackgroundColor = Color.FromRgb(248, 248, 255);
-                ViewAcademicScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
+                ViewSchoolScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
 
                 ViewLunchMenuButton.TextColor = Color.FromRgb(43, 43, 43);
-                ViewAcademicScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
+                ViewSchoolScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
 
                 LunchMenu.IsVisible = false;
-                AcademicSchedule.IsVisible = false;
+                SchoolSchedule.IsVisible = false;
 
                 ViewButtonAnimation(sender as Button);
                 await ViewScheduleAnimation();
@@ -392,13 +393,13 @@ namespace Hanyang
                 view = "lunch_menu";
 
                 ViewScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
-                ViewAcademicScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
+                ViewSchoolScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
 
                 ViewScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
-                ViewAcademicScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
+                ViewSchoolScheduleButton.TextColor = Color.FromRgb(43, 43, 43);
 
                 Schedule.IsVisible = false;
-                AcademicSchedule.IsVisible = false;
+                SchoolSchedule.IsVisible = false;
 
                 ViewButtonAnimation(sender as Button);
                 await ViewLunchMenuAnimation();
@@ -408,12 +409,12 @@ namespace Hanyang
         #endregion
 
         #region 학사 일정 보기 버튼
-        private async void ViewAcademicScheduleButton_Clicked(object sender, System.EventArgs e)
+        private async void ViewSchoolScheduleButton_Clicked(object sender, System.EventArgs e)
         {
-            if (!task && view != "academic_schedule")
+            if (!task && view != "school_schedule")
             {
                 task = true;
-                view = "academic_schedule";
+                view = "school_schedule";
 
                 ViewScheduleButton.BackgroundColor = Color.FromRgb(248, 248, 255);
                 ViewLunchMenuButton.BackgroundColor = Color.FromRgb(248, 248, 255);
@@ -425,7 +426,7 @@ namespace Hanyang
                 LunchMenu.IsVisible = false;
 
                 ViewButtonAnimation(sender as Button);
-                await ViewAcademicScheduleAnimation();
+                await ViewSchoolScheduleAnimation();
                 task = false;
             }
         }
@@ -556,12 +557,52 @@ namespace Hanyang
         {
             await ImageButtonAnimation(sender as ImageButton);
 
-            if(!task)
+            if (!task)
             {
                 task = true;
 
-                if(Connectivity.NetworkAccess == NetworkAccess.Internet)
-                    await MainPage.GetInstance().GetData();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    if(App.Class == 0)
+                    {
+                        DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
+                            "프로필 설정을 완료해주세요.");
+                        return;
+                    }
+
+                    var dataInfo = MainPage.GetInstance().GetDataInfo();
+
+                    if (dataInfo == null)
+                    {
+                        DependencyService.Get<IToastMessage>().Longtime("서버에서 데이터를 받아오지 못했습니다.\n잠시 후 다시 시도해 주시기 바랍니다.");
+                        return;
+                    }
+
+                    var timetable = dataInfo["Timetable-" + App.GetClassName()]["Size"];
+                    var lunchMenu = dataInfo["LunchMenu"]["Size"];
+                    var schoolSchedule = dataInfo["SchoolSchedule"]["Size"];
+
+                    var total = ByteSize.Parse(timetable);
+                    total = total.Add(ByteSize.Parse(lunchMenu));
+                    total = total.Add(ByteSize.Parse(schoolSchedule));
+
+                    var result = await DisplayAlert("새로고침", 
+                        "데이터를 새로 다운받습니다.\n" +
+                        "LTE/5G를 사용 중인 경우 데이터가 사용됩니다.\n\n" + 
+                        "※ 다운받는 데이터 크기\n" +
+                        "- 시간표: " + timetable + "\n" +
+                        "- 급식 메뉴: " + lunchMenu + "\n" +
+                        "- 학사 일정: " + schoolSchedule + "\n\n" +
+                        "총 [" + total.ToString() + "] 를 다운받습니다.",
+                        "확인", "취소");
+
+                    if(!result)
+                    {
+                        task = false;
+                        return;
+                    }
+                    await MainPage.GetInstance().GetData(refresh: true);
+                }
                 else
                 {
                     DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
@@ -574,13 +615,101 @@ namespace Hanyang
         #endregion
 
         #region 함수
+        #region 급식 메뉴 데이터 초기화
+        public void InitLunchMenu()
+        {
+            var appointments = new CalendarEventCollection();
+
+            var lunchMenu = App.LunchMenu;
+            var datas = new List<JsonData>();
+
+            foreach (var key in lunchMenu.Data.Keys)
+            {
+                var date = DateTime.ParseExact(key, "yyyyMMdd", null).ToString();
+
+                foreach (var item in lunchMenu.Data[key])
+                {
+                    var random = new Random();
+
+                    datas.Add(new JsonData
+                    {
+                        Subject = item,
+                        StartTime = date,
+                        EndTime = date,
+                        IsAllDay = "True",
+                        Background = string.Format("#{0:X6}", random.Next(0x1000000))
+                    });
+                }
+            }
+
+            foreach (var data in datas)
+            {
+                appointments.Add(new CalendarInlineEvent()
+                {
+                    Subject = data.Subject,
+                    StartTime = Convert.ToDateTime(data.StartTime),
+                    EndTime = Convert.ToDateTime(data.EndTime),
+                    Color = Color.FromHex(data.Background),
+                    IsAllDay = Convert.ToBoolean(data.IsAllDay)
+                });
+            }
+
+            LunchMenuCalendar.DataSource = appointments;
+        }
+        #endregion
+
+        #region 학사 일정 데이터 초기화
+        public void InitSchoolSchedule()
+        {
+            var appointments = new CalendarEventCollection();
+
+            var schoolSchedule = App.SchoolSchedule;
+            var datas = new List<JsonData>();
+
+            foreach (var key in schoolSchedule.Keys)
+            {
+                foreach (var value in schoolSchedule[key].Data.Keys)
+                {
+                    var date = DateTime.ParseExact(key + value.PadLeft(2, '0'), "yyyyMMdd", null).ToString();
+
+                    var random = new Random();
+
+                    foreach (var item in schoolSchedule[key].Data[value])
+                    {
+                        datas.Add(new JsonData
+                        {
+                            Subject = item,
+                            StartTime = date,
+                            EndTime = date,
+                            IsAllDay = "True",
+                            Background = string.Format("#{0:X6}", random.Next(0x1000000))
+                        });
+                    }
+                }
+            }
+
+            foreach (var data in datas)
+            {
+                appointments.Add(new CalendarInlineEvent()
+                {
+                    Subject = data.Subject,
+                    StartTime = Convert.ToDateTime(data.StartTime),
+                    EndTime = Convert.ToDateTime(data.EndTime),
+                    Color = Color.FromHex(data.Background),
+                    IsAllDay = Convert.ToBoolean(data.IsAllDay)
+                });
+            }
+
+            SchoolScheduleCalendar.DataSource = appointments;
+        }
+        #endregion
+
         #region 인스턴스 가져오기
         public static TabbedSchedulePage GetInstance()
         {
             return instance;
         }
         #endregion
-
         #endregion
     }
 }

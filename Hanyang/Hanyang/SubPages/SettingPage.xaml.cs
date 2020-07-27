@@ -89,7 +89,7 @@ namespace Hanyang.SubPages
                         App.BirthDay = arg.BirthDay;
 
                         TabbedHomePage.ins.MyInfoUpdate();
-                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                        _ = MainPage.GetInstance().GetData();
 
                         DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");
                     }

@@ -45,11 +45,11 @@
                     FontSize="16"
                     CornerRadius="10"
                     BackgroundColor="#F8F8FF"/>
-            <Button x:Name="ViewAcademicScheduleButton" 
+            <Button x:Name="ViewSchoolScheduleButton" 
                     Text="학사 일정"
                     Grid.Column="2"
                     TextColor="#2B2B2B"
-                    Clicked="ViewAcademicScheduleButton_Clicked"
+                    Clicked="ViewSchoolScheduleButton_Clicked"
                     FontSize="16"
                     CornerRadius="10"
                     BackgroundColor="#F8F8FF"/>
@@ -476,9 +476,10 @@
                                    ViewMode="MonthView"
                                    VerticalOptions="FillAndExpand"
                                    HorizontalOptions="FillAndExpand"
-                                   DataSource="{Binding Appointments}"
                                    ShowLeadingAndTrailingDays="False"
                                    ShowYearView="false"
+                                   MaximumEventIndicatorCount="1"
+                                   EnableSwiping="False"
                                    ShowInlineEvents="True"
                                    InlineViewMode="Agenda">
                 <syncfusion:SfCalendar.MonthViewSettings>
@@ -496,25 +497,21 @@
                 <syncfusion:SfCalendar.Behaviors>
                     <others:CalendarBehavior/>
                 </syncfusion:SfCalendar.Behaviors>
-                <syncfusion:SfCalendar.BindingContext>
-                    <others:CalendarContainer/>
-                </syncfusion:SfCalendar.BindingContext>
             </syncfusion:SfCalendar>
         </StackLayout>
         <!--#endregion-->
         
         <!--#region 학사 일정-->
-        <StackLayout x:Name="AcademicSchedule"
+        <StackLayout x:Name="SchoolSchedule"
                      IsVisible="False"
                      Grid.Row="3"
                      Margin="0,-7,0,0">
-            <syncfusion:SfCalendar x:Name="ASCalendar"
+            <syncfusion:SfCalendar x:Name="SchoolScheduleCalendar"
                                    Margin="10,0"
                                    ShowNavigationButtons="True"
                                    ViewMode="MonthView"
                                    VerticalOptions="FillAndExpand"
                                    HorizontalOptions="FillAndExpand"
-                                   DataSource="{Binding Appointments}"
                                    ShowInlineEvents="True"
                                    NavigateToMonthOnInActiveDatesSelection="True"
                                    InlineViewMode="Agenda">
@@ -533,9 +530,6 @@
                 <syncfusion:SfCalendar.Behaviors>
                     <others:CalendarBehavior/>
                 </syncfusion:SfCalendar.Behaviors>
-                <syncfusion:SfCalendar.BindingContext>
-                    <others:CalendarContainer/>
-                </syncfusion:SfCalendar.BindingContext>
             </syncfusion:SfCalendar>
         </StackLayout>
         <!--#endregion-->

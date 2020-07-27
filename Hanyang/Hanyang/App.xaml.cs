@@ -24,7 +24,7 @@ namespace Hanyang
         // 한양이 WebServer API 키
         public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
 
-        public static string ServerUrl { get; } = "https://hanyang.azurewebsites.net/api/"; // 서버 URL
+        public static string ServerUrl { get; } = "http://121.130.234.8:5000/"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 
@@ -42,9 +42,14 @@ namespace Hanyang
 
         public static int BirthDay { get; set; } = 0; // 생일 - 일
 
-        public static Dictionary<string, Timetable> Timetable { get; set; } // 시간표
+        public static Timetable Timetable { get; set; } // 시간표
 
-        private static Dictionary<int, Article> notices; // 공지사항 글 목록
+        public static LunchMenu LunchMenu { get; set; } // 급식 메뉴
+
+        public static Dictionary<string, SchoolSchedule> SchoolSchedule { get; set; } // 학사 일정
+
+        public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // 학교 공지사항
+
         private static Dictionary<int, Article> sns; // 가정통신문 글 목록
         private static Dictionary<int, Article> appNotices; // 앱 공지사항 글 목록
         #endregion
@@ -91,65 +96,6 @@ namespace Hanyang
         {
             // Syncfusion 라이선스 키
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg5MzIwQDMxMzgyZTMyMmUzMG1rdm93cVY1UXUxZDlPS0dESmh5dFBrNmlNenBGYS9pU0RUN3VKV3JwOEE9");
-
-            #region 글 임시 생성
-            notices = new Dictionary<int, Article>();
-            sns = new Dictionary<int, Article>();
-            appNotices = new Dictionary<int, Article>();
-
-            for (int i = 1; i <= 20; i++)
-            {
-                var atts = new List<Attachment>
-                {
-                    new Attachment() { Name = "테스트파일 1", Format = "PDF", Size = "90.4KB" },
-                    new Attachment() { Name = "테스트파일 2", Format = "HWP", Size = "50.6KB" },
-                    new Attachment() { Name = "테스트파일 3", Format = "PPT", Size = "44.8KB" }
-                };
-
-                notices.Add(i, new Article
-                {
-                    Id = i,
-                    Title = "공지사항입니다.",
-                    Contents = "공지사항 내용입니다.\n테스트입니다.\nㅋ\nㅇㅇ\nㄴㄴㄴㄴ\nㅂㅈㄷㅂ\nㄷㅂㄷ\nㅂㅈ\nㄷ\nㅁㄴ\nㅇㅁㄴ\nㅇㅁㄴㅇ\nㅋㅌ\n" + 
-                    "ㅊㅋㅌ\nㅊㅋ\nㅌㅊ\nㅁㄴ\nㅇㅁㄴ\nㅋ\nㅌ\nㅊㅌㅋ\n호ㅓ\nㅗ허\nㅁㄴ\nㅇㅂ\nㅈㄷ\nㅐㅏㅔ\nㅑㅐ\nㅓㅐ\nㅗㅕㅑㅙ\nㅕㅑㅗ\nㅕㅑㅐ\nㅗㅕㅑㅐ\nㅗㅕㅑㅐㅗ",
-                    Info = "최정원 | 2020.06.27",
-                    Attachments = atts
-                });
-            }
-
-            for (int i = 1; i <= 20; i++)
-            {
-                var atts = new List<Attachment>
-                {
-                    new Attachment() { Name = "테스트파일 1", Format = "PDF", Size = "90.4KB" }
-                };
-
-                sns.Add(i, new Article
-                {
-                    Id = i,
-                    Title = "가정통신문입니다.",
-                    Contents = "가정통신문 내용입니다.\n테스트입니다.\nㅋ\nㅇㅇ\nㄴㄴㄴㄴ\nㅂㅈㄷㅂ\nㄷㅂㄷ\nㅂㅈ\nㄷ\nㅁㄴ\nㅇㅁㄴ\nㅇㅁㄴㅇ\nㅋㅌ\n" +
-                    "ㅊㅋㅌ\nㅊㅋ\nㅌㅊ\nㅁㄴ\nㅇㅁㄴ\nㅋ\nㅌ\nㅊㅌㅋ\n호ㅓ\nㅗ허\nㅁㄴ\nㅇㅂ\nㅈㄷ\nㅐㅏㅔ\nㅑㅐ\nㅓㅐ\nㅗㅕㅑㅙ\nㅕㅑㅗ\nㅕㅑㅐ\nㅗㅕㅑㅐ\nㅗㅕㅑㅐㅗ",
-                    Info = "최정원 | 2020.06.27",
-                    Attachments = atts
-                });
-            }
-
-            for (int i = 1; i <= 20; i++)
-            {
-                var atts = new List<Attachment>();
-
-                appNotices.Add(i, new Article
-                {
-                    Id = i,
-                    Title = "앱 공지사항입니다.",
-                    Contents = "앱 공지사항 내용입니다.\n테스트입니다.\nㅋ\nㅇㅇ\nㄴㄴㄴㄴ\nㅂㅈㄷㅂ\nㄷㅂㄷ\nㅂㅈ\nㄷ\nㅁㄴ\nㅇㅁㄴ\nㅇㅁㄴㅇ\nㅋㅌ\n" +
-                    "ㅊㅋㅌ\nㅊㅋ\nㅌㅊ\nㅁㄴ\nㅇㅁㄴ\nㅋ\nㅌ\nㅊㅌㅋ\n호ㅓ\nㅗ허\nㅁㄴ\nㅇㅂ\nㅈㄷ\nㅐㅏㅔ\nㅑㅐ\nㅓㅐ\nㅗㅕㅑㅙ\nㅕㅑㅗ\nㅕㅑㅐ\nㅗㅕㅑㅐ\nㅗㅕㅑㅐㅗ",
-                    Info = "최정원 | 2020.06.27",
-                    Attachments = atts
-                });
-            }
-            #endregion
 
             InitSetting();
             GetSetting();
@@ -265,7 +211,6 @@ namespace Hanyang
         #endregion
 
         #region GET
-        public static Dictionary<int, Article> GetNotices() { return notices; }
         public static Dictionary<int, Article> GetSchoolNewsletters() { return sns; }
         public static Dictionary<int, Article> GetAppNotices() { return appNotices; }
         #endregion

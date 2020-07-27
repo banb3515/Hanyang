@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms.Platform.Android;
 using Rg.Plugins.Popup.Services;
+using LabelHtml.Forms.Plugin.Droid;
 #endregion
 
 namespace Hanyang.Droid.Activitys
@@ -23,6 +24,9 @@ namespace Hanyang.Droid.Activitys
             base.OnCreate(savedInstanceState);
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
+            HtmlLabelRenderer.Initialize();
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

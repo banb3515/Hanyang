@@ -39,6 +39,8 @@ namespace WebServer
             {
                 endpoints.MapControllers();
             });
+
+            app.UseDeveloperExceptionPage();
         }
     }
 }

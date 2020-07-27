@@ -7,12 +7,18 @@ namespace Hanyang
 {
     public class WebServer
     {
-        public static async Task<string> GetJson(string type)
+        public static async Task<string> GetJson(string type, params string[] args)
         {
             try
             {
                 type = type.ToLower();
-                var json = new System.Net.WebClient().DownloadString(App.ServerUrl + type + "/" + App.API_KEY);
+                string url = "";
+
+                if(args.Length == 0)
+                    url = App.ServerUrl + type + "/" + App.API_KEY;
+                else
+                    url = App.ServerUrl + type + "/" + App.API_KEY + "/" + args[0];
+                var json = new System.Net.WebClient().DownloadString(url);
                 return json;
             }
             catch (Exception e)

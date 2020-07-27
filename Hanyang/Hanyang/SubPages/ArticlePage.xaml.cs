@@ -1,6 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Models;
-
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
@@ -15,7 +15,7 @@ namespace Hanyang.SubPages
         #endregion
 
         #region 생성자
-        public ArticlePage(string title, int id)
+        public ArticlePage(string type, int id)
         {
             #region 변수 초기화
             task = false;
@@ -24,18 +24,23 @@ namespace Hanyang.SubPages
             InitializeComponent();
 
             #region 글 가져오기
-            Article article = null;
-            
-            switch (title)
+            Dictionary<string, string> article = null;
+
+            var title = "";
+
+            switch (type)
             {
-                case "공지사항":
-                    article = App.GetNotices()[id];
+                case "SchoolNotice":
+                    article = App.SchoolNotice[id.ToString()];
+                    title = "공지사항";
                     break;
                 case "가정통신문":
-                    article = App.GetSchoolNewsletters()[id];
+                    //article = App.GetSchoolNewsletters()[id];
+                    title = "가정통신문";
                     break;
                 case "앱 공지사항":
-                    article = App.GetAppNotices()[id];
+                    //article = App.GetAppNotices()[id];
+                    title = "앱 공지사항";
                     break;
             }
             #endregion
@@ -44,21 +49,21 @@ namespace Hanyang.SubPages
             Title = title;
 
             ArticleId.Text = "[" + id.ToString() + "]";
-            ArticleTitle.Text = article.Title;
-            ArticleWriter.Text = article.Info.Split('|')[0];
-            ArticleDate.Text = article.Info.Split('|')[1];
-            ArticleContents.Text = article.Contents;
+            ArticleTitle.Text = article["Title"];
+            ArticleWriter.Text = article["Name"];
+            ArticleDate.Text = article["Date"];
+            ArticleContents.Text = article["Content"];
             #endregion
 
-            if (article.Attachments.Count < 1)
-                Attachment.IsVisible = false;
-            else
-            {
-                AttachmentList.ItemsSource = article.Attachments;
-                if (article.Attachments.Count > 1)
-                    AttachmentList.HeightRequest = 75;
-                Attachment.IsVisible = true;
-            }
+            //if (article.Attachments.Count < 1)
+            //    Attachment.IsVisible = false;
+            //else
+            //{
+            //    AttachmentList.ItemsSource = article.Attachments;
+            //    if (article.Attachments.Count > 1)
+            //        AttachmentList.HeightRequest = 75;
+            //    Attachment.IsVisible = true;
+            //}
         }
         #endregion
 

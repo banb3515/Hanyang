@@ -13,6 +13,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 using Newtonsoft.Json;
+using Hanyang.Models;
 #endregion
 
 namespace Hanyang
@@ -34,7 +35,12 @@ namespace Hanyang
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
 
-            _ = GetData();
+            var signalR = new SignalR("Timetable");
+            signalR.Start();
+            signalR.Send("TimetableFromServer", "Hello, Server!");
+
+            //_ = GetData();
+            //_ = GetCrawling();
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
@@ -42,7 +48,7 @@ namespace Hanyang
 
         #region 함수
         #region 데이터 가져오기
-        public async Task GetData()
+        public async Task GetData(bool refresh = false)
         {
             try
             {
@@ -50,7 +56,35 @@ namespace Hanyang
                 {
                     try
                     {
-                        GetTimetable();
+                        var timetable = false;
+                        var lunchMenu = false;
+                        var schoolSchedule = false;
+
+                        if (refresh || App.Timetable == null)
+                            timetable = GetTimetable();
+
+                        if (refresh || App.LunchMenu == null)
+                            lunchMenu = GetLunchMenu();
+
+                        if (refresh || App.SchoolSchedule == null)
+                            schoolSchedule = GetSchoolSchedule();
+
+                        if (refresh)
+
+                        if (timetable)
+                        {
+                            // 시간표 초기화
+                            TabbedSchedulePage.GetInstance().task = true;
+                            _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                        }
+
+                        if (lunchMenu)
+                            // 급식 메뉴 초기화
+                            TabbedSchedulePage.GetInstance().InitLunchMenu();
+
+                        if (schoolSchedule)
+                            // 학사 일정 초기화
+                            TabbedSchedulePage.GetInstance().InitSchoolSchedule();
                     }
                     catch (Exception e)
                     {
@@ -65,13 +99,55 @@ namespace Hanyang
             {
                 await ErrorAlert("데이터 가져오기 (인터넷 상태)", "데이터를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
             }
+            TabbedSchedulePage.GetInstance().task = false;
+        }
+        #endregion
+
+        #region 크롤링 데이터 가져오기
+        public async Task GetCrawling(bool refresh = false)
+        {
+            try
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    try
+                    {
+                        var schoolNotice = false;
+
+                        if (refresh || App.SchoolNotice == null)
+                            schoolNotice = GetSchoolNotice();
+
+                        if (schoolNotice)
+                            // 급식 메뉴 초기화
+                            TabbedHomePage.GetInstance().InitSchoolNotice();
+                    }
+                    catch (Exception e)
+                    {
+                        await ErrorAlert("크롤링 데이터 가져오기", "크롤링 데이터를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
+                    }
+                }
+                else
+                    DependencyService.Get<IToastMessage>().Longtime("크롤링 데이터를 가져올 수 없습니다.\n" +
+                        "인터넷 상태를 확인해주세요.");
+            }
+            catch (Exception e)
+            {
+                await ErrorAlert("크롤링 데이터 가져오기 (인터넷 상태)", "크롤링 데이터를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
+            }
         }
         #endregion
 
         #region 시간표 가져오기
-        private void GetTimetable()
+        private bool GetTimetable()
         {
-            var json = WebServer.GetJson("timetable");
+            if (App.Class == 0)
+            {
+                DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
+                            "프로필 설정을 완료해주세요.");
+                return false;
+            }
+
+            var json = WebServer.GetJson("timetable", App.GetClassName());
 
             if (json == null)
             {
@@ -79,38 +155,165 @@ namespace Hanyang
                 {
                     await ErrorAlert("시간표 가져오기", "시간표를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return;
+                return false;
             }
 
-            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, Timetable>>(json.Result);
+            var timetable = JsonConvert.DeserializeObject<Timetable>(json.Result);
 
-            foreach (var value in tempDict.Values)
+            if (timetable.ResultCode != "000")
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (timetable.ResultCode == "999")
+                        await ErrorAlert("시간표 가져오기 (" + timetable.ResultCode + ")", "시간표를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + timetable.ResultMsg);
+                    else
+                        await ErrorAlert("시간표 가져오기 (" + timetable.ResultCode + ")", "시간표를 가져오는 도중 오류가 발생했습니다.\n" + timetable.ResultMsg, sendError: false);
+                });
+                return false;
+            }
+
+            App.Timetable = timetable;
+            return true;
+        }
+        #endregion
+
+        #region 급식 메뉴 가져오기
+        private bool GetLunchMenu()
+        {
+            var json = WebServer.GetJson("lunchmenu");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("급식 메뉴 가져오기", "급식 메뉴를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return false;
+            }
+
+            var lunchMenu = JsonConvert.DeserializeObject<LunchMenu>(json.Result);
+
+            if (lunchMenu.ResultCode != "000")
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (lunchMenu.ResultCode == "999")
+                        await ErrorAlert("급식 메뉴 가져오기 (" + lunchMenu.ResultCode + ")", "급식 메뉴를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + lunchMenu.ResultMsg);
+                    else
+                        await ErrorAlert("급식 메뉴 가져오기 (" + lunchMenu.ResultCode + ")", "급식 메뉴를 가져오는 도중 오류가 발생했습니다.\n" + lunchMenu.ResultMsg, sendError: false);
+                });
+                return false;
+            }
+
+            App.LunchMenu = lunchMenu;
+            return true;
+        }
+        #endregion
+
+        #region 학사 일정 가져오기
+        private bool GetSchoolSchedule()
+        {
+            var json = WebServer.GetJson("schoolschedule");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("학사 일정 가져오기", "학사 일정을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return false;
+            }
+
+            var schoolSchedule = JsonConvert.DeserializeObject<Dictionary<string, SchoolSchedule>>(json.Result);
+
+            foreach (var value in schoolSchedule.Values)
             {
                 if (value.ResultCode != "000")
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        if(value.ResultCode == "999")
-                            await ErrorAlert("시간표 가져오기 (" + value.ResultCode + ")", "시간표를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + value.ResultMsg);
+                        if (value.ResultCode == "999")
+                            await ErrorAlert("학사 일정 가져오기 (" + value.ResultCode + ")", "학사 일정을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + value.ResultMsg);
                         else
-                            await ErrorAlert("시간표 가져오기 (" + value.ResultCode + ")", "시간표를 가져오는 도중 오류가 발생했습니다.\n" + value.ResultMsg, sendError: false);
+                            await ErrorAlert("학사 일정 가져오기 (" + value.ResultCode + ")", "학사 일정을 가져오는 도중 오류가 발생했습니다.\n" + value.ResultMsg, sendError: false);
                     });
-                    return;
+                    return false;
                 }
             }
 
-            App.Timetable = tempDict;
-
-            // 시간표 초기화
-            TabbedSchedulePage.GetInstance().task = true;
-            _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+            App.SchoolSchedule = schoolSchedule;
+            return true;
         }
         #endregion
 
-        #region 급식 메뉴 가져오기
+        #region 데이터 정보 가져오기
+        public Dictionary<string, Dictionary<string, string>> GetDataInfo()
+        {
+            var json = WebServer.GetJson("datainfo");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("데이터 정보 가져오기", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return null;
+            }
+
+            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+
+            foreach (var value in tempDict.Values)
+            {
+                if (value.ContainsKey("ResultCode"))
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        if (value["ResultCode"] == "999")
+                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + value["ResultMsg"]);
+                        else
+                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n" + value["ResultMsg"], sendError: false);
+                    });
+                    return null;
+                }
+            }
+
+            return tempDict;
+        }
         #endregion
 
-        #region 학사 일정 가져오기
+        #region 학교 공지사항 가져오기
+        public bool GetSchoolNotice()
+        {
+            var json = WebServer.GetJson("schoolnotice");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("학교 공지사항 가져오기", "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return false;
+            }
+
+            var lunchMenu = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+
+            if (lunchMenu.ContainsKey("Error"))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (lunchMenu["Error"]["ResultCode"] == "999")
+                        await ErrorAlert("학교 공지사항 가져오기 (" + lunchMenu["Error"]["ResultCode"] + ")", 
+                            "학교 공지사항을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + lunchMenu["Error"]["ResultMsg"]);
+                    else
+                        await ErrorAlert("학교 공지사항 가져오기 (" + lunchMenu["Error"]["ResultCode"] + ")", 
+                            "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n" + lunchMenu["Error"]["ResultMsg"], sendError: false);
+                });
+                return false;
+            }
+
+            App.SchoolNotice = lunchMenu;
+            return true;
+        }
         #endregion
 
         #region 인스턴스 가져오기

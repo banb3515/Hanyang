@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="자가 진단"
+             NavigationPage.HasNavigationBar="True"
+             x:Class="Hanyang.SubPages.WebViewPage">
+    <Grid>
+        <WebView x:Name="WebView"
+                 Navigated="WebView_Navigated"/>
+
+        <StackLayout HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Orientation="Horizontal"
+                     Margin="0,0,10,10">
+            <ImageButton x:Name="GoBack" 
+                         WidthRequest="45"
+                         BackgroundColor="Transparent"
+                         Clicked="GoBack_Clicked"
+                         Margin="0,0,2,0"
+                         Source="arrow_left.png"/>
+            <ImageButton x:Name="GoForward" 
+                         WidthRequest="45"
+                         BackgroundColor="Transparent"
+                         Clicked="GoForward_Clicked"
+                         Margin="2,0,0,0"
+                         Source="arrow_right.png"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

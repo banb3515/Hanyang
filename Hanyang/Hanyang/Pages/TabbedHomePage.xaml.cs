@@ -25,6 +25,8 @@ namespace Hanyang
     public partial class TabbedHomePage : ContentPage
     {
         #region 변수
+        private static TabbedHomePage instance;
+
         private bool task; // 다른 작업 중인지 확인
         private string view; // 현재 보고있는 레이아웃
         private bool hanyangLogoRotate; // 한양공고 로고 애니메이션 작동중인지 확인
@@ -47,19 +49,6 @@ namespace Hanyang
             InitializeComponent();
 
             MyInfoUpdate();
-
-            #region 글 목록 임시 생성
-            var notices = new List<Article>(App.GetNotices().Values);
-            notices.Reverse();
-            var sns = new List<Article>(App.GetSchoolNewsletters().Values);
-            sns.Reverse();
-            var appNotices = new List<Article>(App.GetAppNotices().Values);
-            appNotices.Reverse();
-
-            NoticeList.ItemsSource = notices;
-            SNList.ItemsSource = sns;
-            AppNoticeList.ItemsSource = appNotices;
-            #endregion
         }
         #endregion
 
@@ -117,6 +106,33 @@ namespace Hanyang
                     myInfoSet = true;
                 }
             });
+        }
+        #endregion
+
+        #region 학교 공지사항 초기화
+        public void InitSchoolNotice()
+        {
+            var noticeList = new List<Article>();
+            var notices = App.SchoolNotice;
+
+            foreach (var key in notices.Keys)
+            {
+                noticeList.Add(new Article
+                {
+                    Id = Convert.ToInt32(key),
+                    Title = notices[key]["Title"],
+                    Info = notices[key]["Name"] + " | " + notices[key]["Date"]
+                });
+            }
+
+            NoticeList.ItemsSource = notices;
+        }
+        #endregion
+
+        #region 인스턴스 가져오기
+        public static TabbedHomePage GetInstance()
+        {
+            return instance;
         }
         #endregion
         #endregion
@@ -180,17 +196,16 @@ namespace Hanyang
         #region 학교 홈페이지 바로가기 버튼
         private async void HomepageButton_Clicked(object sender, EventArgs e)
         {
-            await MainPage.GetInstance().ErrorAlert("테스트", "에러 메시지입니다.");
-            //await ImageButtonAnimation(sender as ImageButton);
-            //OpenBrowser("http://hanyang.sen.hs.kr/index.do");
+            await ImageButtonAnimation(sender as ImageButton);
+            NewPage(new WebViewPage("학교 홈페이지", "http://hanyang.sen.hs.kr/index.do"));
         }
         #endregion
 
-        #region 한양뉴스 바로가기 버튼
+        #region 한양 뉴스 바로가기 버튼
         private async void NewsButton_Clicked(object sender, EventArgs e)
         {
             await ImageButtonAnimation(sender as ImageButton);
-            OpenBrowser("http://hanyangnews.com/");
+            NewPage(new WebViewPage("한양 뉴스", "http://hanyangnews.com/"));
         }
         #endregion
 
@@ -198,7 +213,7 @@ namespace Hanyang
         private async void CoronamapButton_Clicked(object sender, EventArgs e)
         {
             await ImageButtonAnimation(sender as ImageButton);
-            OpenBrowser("https://coronamap.site/");
+            NewPage(new WebViewPage("코로나맵", "https://coronamap.site/"));
         }
         #endregion
 
@@ -211,7 +226,7 @@ namespace Hanyang
                 await DisplayAlert("자가 진단 바로가기", "프로필 설정 후 이용 가능합니다.", "확인");
                 return;
             }
-            NewPage(new SelfDiagnosisPage());
+            NewPage(new WebViewPage("자가 진단", "https://eduro.sen.go.kr/stv_cvd_co00_002.do"));
         }
         #endregion
 
@@ -301,23 +316,23 @@ namespace Hanyang
         private void NoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var article = e.Item as Article;
-            NewPage(new ArticlePage("공지사항", article.Id));
+            NewPage(new ArticlePage("SchoolNotice", article.Id));
         }
         #endregion
 
         #region 가정통신문 목록 글 탭
         private void SNList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var article = e.Item as Article;
-            NewPage(new ArticlePage("가정통신문", article.Id));
+            //var article = e.Item as Article;
+            //NewPage(new ArticlePage("가정통신문", article.Id));
         }
         #endregion
 
         #region 앱 공지사항 목록 글 탭
         private void AppNoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var article = e.Item as Article;
-            NewPage(new ArticlePage("앱 공지사항", article.Id));
+            //var article = e.Item as Article;
+            //NewPage(new ArticlePage("앱 공지사항", article.Id));
         }
         #endregion
 
@@ -380,7 +395,7 @@ namespace Hanyang
                         App.BirthDay = arg.BirthDay;
 
                         MyInfoUpdate();
-                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                        _ = MainPage.GetInstance().GetData();
 
                         DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");
                     }
