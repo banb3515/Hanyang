@@ -1,6 +1,7 @@
 ﻿#region API 참조
 using Hanyang.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
@@ -63,6 +64,8 @@ namespace Hanyang.SubPages
         #region 맨 위로 이동 버튼
         private async void TopButton_Clicked(object sender, System.EventArgs e)
         {
+            await ImageButtonAnimation(sender as ImageButton);
+
             if (!task)
             {
                 task = true;
@@ -71,7 +74,14 @@ namespace Hanyang.SubPages
             }
         }
         #endregion
+        #endregion
 
+        #region 이미지 버튼 클릭
+        private async Task ImageButtonAnimation(ImageButton b)
+        {
+            await b.ScaleTo(0.8, 150, Easing.SinOut);
+            await b.ScaleTo(1, 100, Easing.SinIn);
+        }
         #endregion
 
         #region 새 페이지 열기

@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:progress="0"
-            android:max="150"
+            android:max="1000"
             android:progressDrawable="@drawable/my_progress_bar"
             style="@android:style/Widget.Holo.ProgressBar.Horizontal"/>
     </LinearLayout>

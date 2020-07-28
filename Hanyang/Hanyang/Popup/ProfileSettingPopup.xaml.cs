@@ -24,24 +24,41 @@ namespace Hanyang.Popup
             #region UI 설정
             for (int i = 1; i <= 3; i++)
                 Grade.Items.Add(i + "학년");
-            Grade.SelectedIndex = 0;
+            if (App.Grade == 0)
+                Grade.SelectedIndex = 0;
+            else
+                Grade.SelectedIndex = App.Grade - 1;
 
             for (int i = 1; i <= 12; i++)
                 Class.Items.Add(i + "반");
-            Class.SelectedIndex = 0;
+            if (App.Class == 0)
+                Class.SelectedIndex = 0;
+            else
+                Class.SelectedIndex = App.Class - 1;
 
             for (int i = 1; i <= 26; i++)
                 Number.Items.Add(i + "번");
-            Number.SelectedIndex = 0;
+            if (App.Number == 0)
+                Number.SelectedIndex = 0;
+            else
+                Number.SelectedIndex = App.Number - 1;
 
             for (int i = 1; i <= 12; i++)
                 BirthMonth.Items.Add(i + "월");
-            BirthMonth.SelectedIndex = 0;
+            if (App.BirthMonth == 0)
+                BirthMonth.SelectedIndex = 0;
+            else
+                BirthMonth.SelectedIndex = App.BirthMonth - 1;
 
             for (int i = 1; i <= 31; i++)
                 BirthDay.Items.Add(i + "일");
-            BirthDay.SelectedIndex = 0;
+            if (App.BirthDay == 0)
+                BirthDay.SelectedIndex = 0;
+            else
+                BirthDay.SelectedIndex = App.BirthDay - 1;
 
+            if (App.Name != "NONE")
+                Name.Text = App.Name;
             #endregion
         }
         #endregion

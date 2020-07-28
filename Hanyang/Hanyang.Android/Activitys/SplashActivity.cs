@@ -33,13 +33,13 @@ namespace Hanyang.Droid.Activitys
 
             new System.Threading.Thread(new ThreadStart(delegate
             {
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(100);
 
-                while (progressBarStatus < 150)
+                while (progressBarStatus < 1000)
                 {
-                    progressBarStatus += 1;
+                    progressBarStatus += 2;
                     progressBar.Progress = progressBarStatus;
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(1);
                 }
 
                 StartActivity(intent);

@@ -8,74 +8,76 @@
              BackgroundColor="White"
              x:Class="Hanyang.SubPages.ArticlePage">
     <Grid>
-        <ScrollView x:Name="Scroll">
-            <StackLayout Margin="5,5">
-                <BoxView BackgroundColor="Black" 
+        <StackLayout Margin="5,5">
+            <BoxView BackgroundColor="Black" 
                          HeightRequest="2"
                          HorizontalOptions="FillAndExpand"/>
 
-                <!--#region 글 제목-->
-                <Label x:Name="ArticleTitle" 
+            <!--#region 글 제목-->
+            <Label x:Name="ArticleTitle" 
                        FontSize="24"
                        Margin="10,0"
                        LineBreakMode="WordWrap"
                        TextColor="Black"/>
-                <!--#endregion-->
+            <!--#endregion-->
 
-                <!--#region 작성자, 작성 날짜-->
-                <Grid Margin="10,-2,10,0">
-                    <Label x:Name="ArticleWriter"
+            <!--#region 작성자, 작성 날짜-->
+            <Grid Margin="10,-2,10,0">
+                <Label x:Name="ArticleWriter"
                            FontSize="14"
                            TextColor="Black"/>
-                    <Label x:Name="ArticleDate" 
+                <Label x:Name="ArticleDate" 
                            FontSize="14"
                            HorizontalOptions="End"
                            TextColor="#323232"/>
-                </Grid>
-                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
 
-                <BoxView BackgroundColor="Black" 
+            <BoxView BackgroundColor="Black" 
                          HeightRequest="2"
                          HorizontalOptions="FillAndExpand"/>
 
-                <Label Text="첨부파일은 웹에서 다운로드 가능합니다."
+            <Label Text="첨부파일은 웹에서 다운로드 가능합니다."
                        HorizontalTextAlignment="Center"
                        TextColor="Gray"
                        FontSize="14"/>
 
-                <BoxView BackgroundColor="Black" 
+            <BoxView BackgroundColor="Black" 
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand"/>
-                
+
+            <ScrollView x:Name="Scroll"
+                        Margin="10,0"
+                        VerticalOptions="FillAndExpand">
                 <htmlLabel:HtmlLabel x:Name="ArticleContents"
-                                     VerticalOptions="FillAndExpand"
-                                     Margin="10,0"/>
+                                         TextColor="Black"/>
+            </ScrollView>
 
-                <BoxView BackgroundColor="Black" 
-                         HeightRequest="1"
-                         Margin="0,0,0,5"
-                         HorizontalOptions="FillAndExpand"/>
+            <BoxView BackgroundColor="Black" 
+                     HeightRequest="1"
+                     Margin="0,5,0,5"
+                     HorizontalOptions="FillAndExpand"/>
 
-                <Label x:Name="ViewWeb" 
-                       Text="웹에서 보기"
-                       TextColor="Blue"
-                       HorizontalOptions="Center"
-                       FontSize="16">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ViewWeb_Tapped"
+            <Label x:Name="ViewWeb" 
+                   Text="웹에서 보기 🔗"
+                   Margin="0,0,0,2"
+                   TextColor="Blue"
+                   HorizontalOptions="Center"
+                   FontSize="16">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ViewWeb_Tapped"
                                               NumberOfTapsRequired="1"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                </Label.GestureRecognizers>
+            </Label>
 
-                <Label Text="* 화면이 제대로 보이지 않을 경우 웹에서 보기를 클릭해주세요."
-                       LineBreakMode="WordWrap"
-                       Margin="10,0,0,0"
-                       TextColor="DarkGray"
-                       FontSize="14"/>
-                <!--#endregion-->
-            </StackLayout>
-        </ScrollView>
-        
+            <Label Text="* 화면이 제대로 보이지 않을 경우 웹에서 보기를 클릭해주세요."
+                   LineBreakMode="WordWrap"
+                   Margin="10,0,0,8"
+                   TextColor="Gray"
+                   FontSize="14"/>
+            <!--#endregion-->
+        </StackLayout>
+
         <ImageButton x:Name="TopButton"
                      HeightRequest="50"
                      WidthRequest="50"
