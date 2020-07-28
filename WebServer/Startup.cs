@@ -20,6 +20,11 @@ namespace WebServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

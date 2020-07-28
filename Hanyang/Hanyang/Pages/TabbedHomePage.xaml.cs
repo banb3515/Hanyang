@@ -17,6 +17,7 @@ using Newtonsoft.Json.Linq;
 
 using Rg.Plugins.Popup.Services;
 using Xamarin.Essentials;
+using System.Diagnostics;
 #endregion
 
 namespace Hanyang
@@ -31,20 +32,19 @@ namespace Hanyang
         private string view; // 현재 보고있는 레이아웃
         private bool hanyangLogoRotate; // 한양공고 로고 애니메이션 작동중인지 확인
         private bool myInfoSet; // 나의 정보가 설정되어있는지 확인
-        public static TabbedHomePage ins;
         #endregion
 
         #region 생성자
         public TabbedHomePage()
         {
             #region 변수 초기화
+            instance = this;
+
             task = false;
             view = "notice";
             hanyangLogoRotate = false;
             myInfoSet = false;
             #endregion
-
-            ins = this;
 
             InitializeComponent();
 
@@ -117,15 +117,43 @@ namespace Hanyang
 
             foreach (var key in notices.Keys)
             {
-                noticeList.Add(new Article
+                var title = notices[key]["Title"];
+
+                var article = new Article
                 {
                     Id = Convert.ToInt32(key),
-                    Title = notices[key]["Title"],
+                    Title = title,
                     Info = notices[key]["Name"] + " | " + notices[key]["Date"]
-                });
+                };
+
+                noticeList.Add(article);
             }
 
-            NoticeList.ItemsSource = notices;
+            NoticeList.ItemsSource = noticeList;
+        }
+        #endregion
+
+        #region 가정통신문 초기화
+        public void InitSchoolNewsletter()
+        {
+            var newsletterList = new List<Article>();
+            var newsletters = App.SchoolNewsletter;
+
+            foreach (var key in newsletters.Keys)
+            {
+                var title = newsletters[key]["Title"];
+
+                var article = new Article
+                {
+                    Id = Convert.ToInt32(key),
+                    Title = title,
+                    Info = newsletters[key]["Name"] + " | " + newsletters[key]["Date"]
+                };
+
+                newsletterList.Add(article);
+            }
+
+            SNList.ItemsSource = newsletterList;
         }
         #endregion
 
@@ -323,8 +351,8 @@ namespace Hanyang
         #region 가정통신문 목록 글 탭
         private void SNList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //var article = e.Item as Article;
-            //NewPage(new ArticlePage("가정통신문", article.Id));
+            var article = e.Item as Article;
+            NewPage(new ArticlePage("SchoolNewsletter", article.Id));
         }
         #endregion
 
@@ -395,7 +423,8 @@ namespace Hanyang
                         App.BirthDay = arg.BirthDay;
 
                         MyInfoUpdate();
-                        _ = MainPage.GetInstance().GetData();
+                        MainPage.GetInstance().GetTimetable();
+                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
                         DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");
                     }

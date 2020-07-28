@@ -35,8 +35,8 @@ namespace Hanyang
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
 
-            _ = GetData();
-            _ = GetCrawling();
+            GetData();
+            GetCrawling();
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
@@ -44,7 +44,7 @@ namespace Hanyang
 
         #region 함수
         #region 데이터 가져오기
-        public async Task GetData(bool refresh = false)
+        public async void GetData(bool refresh = false)
         {
             try
             {
@@ -64,8 +64,6 @@ namespace Hanyang
 
                         if (refresh || App.SchoolSchedule == null)
                             schoolSchedule = GetSchoolSchedule();
-
-                        if (refresh)
 
                         if (timetable)
                         {
@@ -100,7 +98,7 @@ namespace Hanyang
         #endregion
 
         #region 크롤링 데이터 가져오기
-        public async Task GetCrawling(bool refresh = false)
+        public async void GetCrawling(bool refresh = false)
         {
             try
             {
@@ -109,13 +107,21 @@ namespace Hanyang
                     try
                     {
                         var schoolNotice = false;
+                        var schoolNewsletter = false;
 
                         if (refresh || App.SchoolNotice == null)
                             schoolNotice = GetSchoolNotice();
 
+                        if (refresh || App.SchoolNewsletter == null)
+                            schoolNewsletter = GetSchoolNewsletter();
+
                         if (schoolNotice)
-                            // 급식 메뉴 초기화
+                            // 학교 공지사항 초기화
                             TabbedHomePage.GetInstance().InitSchoolNotice();
+
+                        if (schoolNewsletter)
+                            // 가정통신문 초기화
+                            TabbedHomePage.GetInstance().InitSchoolNewsletter();
                     }
                     catch (Exception e)
                     {
@@ -134,7 +140,7 @@ namespace Hanyang
         #endregion
 
         #region 시간표 가져오기
-        private bool GetTimetable()
+        public bool GetTimetable()
         {
             if (App.Class == 0)
             {
@@ -174,7 +180,7 @@ namespace Hanyang
         #endregion
 
         #region 급식 메뉴 가져오기
-        private bool GetLunchMenu()
+        public bool GetLunchMenu()
         {
             var json = WebServer.GetJson("lunchmenu");
 
@@ -207,7 +213,7 @@ namespace Hanyang
         #endregion
 
         #region 학사 일정 가져오기
-        private bool GetSchoolSchedule()
+        public bool GetSchoolSchedule()
         {
             var json = WebServer.GetJson("schoolschedule");
 
@@ -291,23 +297,58 @@ namespace Hanyang
                 return false;
             }
 
-            var lunchMenu = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+            var schoolNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
 
-            if (lunchMenu.ContainsKey("Error"))
+            if (schoolNotice.ContainsKey("Error"))
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    if (lunchMenu["Error"]["ResultCode"] == "999")
-                        await ErrorAlert("학교 공지사항 가져오기 (" + lunchMenu["Error"]["ResultCode"] + ")", 
-                            "학교 공지사항을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + lunchMenu["Error"]["ResultMsg"]);
+                    if (schoolNotice["Error"]["ResultCode"] == "999")
+                        await ErrorAlert("학교 공지사항 가져오기 (" + schoolNotice["Error"]["ResultCode"] + ")", 
+                            "학교 공지사항을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + schoolNotice["Error"]["ResultMsg"]);
                     else
-                        await ErrorAlert("학교 공지사항 가져오기 (" + lunchMenu["Error"]["ResultCode"] + ")", 
-                            "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n" + lunchMenu["Error"]["ResultMsg"], sendError: false);
+                        await ErrorAlert("학교 공지사항 가져오기 (" + schoolNotice["Error"]["ResultCode"] + ")", 
+                            "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n" + schoolNotice["Error"]["ResultMsg"], sendError: false);
                 });
                 return false;
             }
 
-            App.SchoolNotice = lunchMenu;
+            App.SchoolNotice = schoolNotice;
+            return true;
+        }
+        #endregion
+
+        #region 가정통신문 가져오기
+        public bool GetSchoolNewsletter()
+        {
+            var json = WebServer.GetJson("schoolnewsletter");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("가정통신문 가져오기", "가정통신문을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return false;
+            }
+
+            var schoolNewsletter = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+
+            if (schoolNewsletter.ContainsKey("Error"))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (schoolNewsletter["Error"]["ResultCode"] == "999")
+                        await ErrorAlert("가정통신문 가져오기 (" + schoolNewsletter["Error"]["ResultCode"] + ")",
+                            "가정통신문을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + schoolNewsletter["Error"]["ResultMsg"]);
+                    else
+                        await ErrorAlert("가정통신문 가져오기 (" + schoolNewsletter["Error"]["ResultCode"] + ")",
+                            "가정통신문을 가져오는 도중 오류가 발생했습니다.\n" + schoolNewsletter["Error"]["ResultMsg"], sendError: false);
+                });
+                return false;
+            }
+
+            App.SchoolNewsletter = schoolNewsletter;
             return true;
         }
         #endregion
@@ -359,12 +400,12 @@ namespace Hanyang
 
         #region 이벤트
         #region 인터넷 상태 변경
-        private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             if (e.NetworkAccess == NetworkAccess.Internet)
             {
                 DependencyService.Get<IToastMessage>().Longtime("인터넷에 연결되었습니다.");
-                await GetData();
+                GetData();
             }
             else
                 DependencyService.Get<IToastMessage>().Longtime("인터넷 연결이 해제되었습니다.");

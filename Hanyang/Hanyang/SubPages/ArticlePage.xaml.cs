@@ -12,6 +12,8 @@ namespace Hanyang.SubPages
     {
         #region 변수
         private bool task; // 다른 작업 중인지 확인
+        Dictionary<string, string> article;
+        int id;
         #endregion
 
         #region 생성자
@@ -24,7 +26,8 @@ namespace Hanyang.SubPages
             InitializeComponent();
 
             #region 글 가져오기
-            Dictionary<string, string> article = null;
+            article = null;
+            this.id = id;
 
             var title = "";
 
@@ -34,7 +37,7 @@ namespace Hanyang.SubPages
                     article = App.SchoolNotice[id.ToString()];
                     title = "공지사항";
                     break;
-                case "가정통신문":
+                case "SchoolNewsletter":
                     //article = App.GetSchoolNewsletters()[id];
                     title = "가정통신문";
                     break;
@@ -48,22 +51,11 @@ namespace Hanyang.SubPages
             #region UI 설정
             Title = title;
 
-            ArticleId.Text = "[" + id.ToString() + "]";
             ArticleTitle.Text = article["Title"];
             ArticleWriter.Text = article["Name"];
             ArticleDate.Text = article["Date"];
             ArticleContents.Text = article["Content"];
             #endregion
-
-            //if (article.Attachments.Count < 1)
-            //    Attachment.IsVisible = false;
-            //else
-            //{
-            //    AttachmentList.ItemsSource = article.Attachments;
-            //    if (article.Attachments.Count > 1)
-            //        AttachmentList.HeightRequest = 75;
-            //    Attachment.IsVisible = true;
-            //}
         }
         #endregion
 
@@ -79,6 +71,26 @@ namespace Hanyang.SubPages
             }
         }
         #endregion
+
+        #endregion
+
+        #region 새 페이지 열기
+        private async void NewPage(Page page)
+        {
+            await Navigation.PushAsync(page);
+        }
+        #endregion
+
+        #region 웹에서 보기 탭
+        private void ViewWeb_Tapped(object sender, System.EventArgs e)
+        {
+            var url = "";
+
+            if (Title == "공지사항")
+                url = "http://hanyang.sen.hs.kr/8665/subMenu.do";
+
+            NewPage(new WebViewPage(Title, url));
+        }
         #endregion
     }
 }

@@ -90,6 +90,7 @@
                     <ImageButton x:Name="HomepageButton" 
                                  Source="hanyang_homepage.png"
                                  HeightRequest="50" 
+                                 BackgroundColor="White"
                                  Clicked="HomepageButton_Clicked"
                                  HorizontalOptions="Center"/>
                     <Label Text="홈페이지" 
@@ -108,6 +109,7 @@
                     <ImageButton x:Name="NewsButton"
                                  Source="hanyang_news.png" 
                                  HeightRequest="50"
+                                 BackgroundColor="White"
                                  Clicked="NewsButton_Clicked"
                                  HorizontalOptions="Center"/>
                     <Label Text="한양 뉴스" 
@@ -126,6 +128,7 @@
                     <ImageButton x:Name="CoronamapButton"
                                  Source="coronamap.png" 
                                  HeightRequest="50" 
+                                 BackgroundColor="White"
                                  Clicked="CoronamapButton_Clicked"
                                  HorizontalOptions="Center"/>
                     <Label Text="코로나맵" 
@@ -144,6 +147,7 @@
                     <ImageButton x:Name="SelfDiagnosisButton"
                                  Source="self_diagnosis.png" 
                                  HeightRequest="50" 
+                                 BackgroundColor="White"
                                  Clicked="SelfDiagnosisButton_Clicked"
                                  HorizontalOptions="Center"/>
                     <Label Text="자가 진단" 
@@ -220,51 +224,50 @@
                       SelectionMode="None"
                       ItemsSource="{Binding Article}"
                       ItemTapped="NoticeList_ItemTapped"
+                      HasUnevenRows="True"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="40"/>
                                     <ColumnDefinition Width="1"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                </Grid.RowDefinitions>
 
-                                <Image Grid.RowSpan="2"
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Image Grid.RowSpan="2" 
+                                       VerticalOptions="Center"
                                        Source="notice.png"
-                                       WidthRequest="30"
-                                       HeightRequest="30"
-                                       Margin="5,5,0,0"
-                                       VerticalOptions="Start"/>
+                                       Margin="5,0,0,0"/>
+                                
                                 <BoxView Grid.Column="1" 
                                          Grid.RowSpan="2"
                                          BackgroundColor="Black" 
-                                         Margin="0,5,0,0"
                                          WidthRequest="1"
                                          HorizontalOptions="FillAndExpand"/>
+
                                 <StackLayout Grid.Column="2"
-                                             Orientation="Horizontal">
-                                    <Label Text="{Binding Id, StringFormat='[{0}]'}"
-                                           FontSize="16"
-                                           TextColor="Black"/>
+                                             Orientation="Vertical"
+                                             VerticalOptions="Center">
                                     <Label Text="{Binding Title}"
-                                           Margin="-5,0,0,0"
-                                           FontSize="16"
-                                           TextColor="Black"/>
-                                </StackLayout>
-                                <Label Text="{Binding Info}"
+                                       LineBreakMode="WordWrap"
+                                       FontSize="16"
+                                       TextColor="Black"/>
+                                    <Label Text="{Binding Info}"
                                        Grid.Column="2"
                                        Grid.Row="1"
                                        FontSize="11"
                                        Margin="0,-5,0,0"
-                                       TextColor="#2E2E2E"/>
-                                <BoxView Grid.Row="2" 
+                                       TextColor="#778899"/>
+                                </StackLayout>
+                                
+                                <BoxView Grid.Row="1" 
                                          Grid.ColumnSpan="3" 
                                          BackgroundColor="Black" 
                                          HeightRequest="1" 
@@ -279,55 +282,53 @@
             <!--#region 가정통신문 목록-->
             <ListView x:Name="SNList"
                       Margin="0,-5,0,0"
-                      ItemsSource="{Binding Article}"
                       SelectionMode="None"
+                      ItemsSource="{Binding Article}"
                       ItemTapped="SNList_ItemTapped"
-                      IsVisible="False"
+                      HasUnevenRows="True"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="40"/>
                                     <ColumnDefinition Width="1"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image Grid.RowSpan="2"
+                                <Image Grid.RowSpan="2" 
+                                       VerticalOptions="Center"
                                        Source="school_newsletter.png"
-                                       WidthRequest="30"
-                                       HeightRequest="30"
-                                       Margin="5,5,0,0"
-                                       VerticalOptions="Start"/>
+                                       Margin="5,0,0,0"/>
+
                                 <BoxView Grid.Column="1" 
                                          Grid.RowSpan="2"
-                                         Margin="0,5,0,0"
                                          BackgroundColor="Black" 
                                          WidthRequest="1"
                                          HorizontalOptions="FillAndExpand"/>
+
                                 <StackLayout Grid.Column="2"
-                                             Orientation="Horizontal">
-                                    <Label Text="{Binding Id, StringFormat='[{0}]'}"
-                                           FontSize="16"
-                                           TextColor="Black"/>
+                                             Orientation="Vertical"
+                                             VerticalOptions="Center">
                                     <Label Text="{Binding Title}"
-                                           Margin="-5,0,0,0"
-                                           FontSize="16"
-                                           TextColor="Black"/>
-                                </StackLayout>
-                                <Label Text="{Binding Info}"
+                                       LineBreakMode="WordWrap"
+                                       FontSize="16"
+                                       TextColor="Black"/>
+                                    <Label Text="{Binding Info}"
                                        Grid.Column="2"
                                        Grid.Row="1"
                                        FontSize="11"
                                        Margin="0,-5,0,0"
-                                       TextColor="#2E2E2E"/>
-                                <BoxView Grid.Row="2" 
+                                       TextColor="#778899"/>
+                                </StackLayout>
+
+                                <BoxView Grid.Row="1" 
                                          Grid.ColumnSpan="3" 
                                          BackgroundColor="Black" 
                                          HeightRequest="1" 

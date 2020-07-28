@@ -14,16 +14,11 @@
                          HeightRequest="2"
                          HorizontalOptions="FillAndExpand"/>
 
-                <!--#region 글 번호, 제목-->
-                <StackLayout Orientation="Horizontal"
-                             Margin="10,0">
-                    <Label x:Name="ArticleId" 
-                           FontSize="24"
-                           TextColor="Black"/>
-                    <Label x:Name="ArticleTitle" 
-                           FontSize="24"
-                           TextColor="Black"/>
-                </StackLayout>
+                <!--#region 글 제목-->
+                <Label x:Name="ArticleTitle" 
+                       FontSize="24"
+                       Margin="10,0"
+                       TextColor="Black"/>
                 <!--#endregion-->
 
                 <!--#region 작성자, 작성 날짜-->
@@ -41,77 +36,41 @@
                 <BoxView BackgroundColor="Black" 
                          HeightRequest="2"
                          HorizontalOptions="FillAndExpand"/>
-                
-                <!--#region 첨부파일-->
-                <StackLayout x:Name="Attachment"
-                             IsVisible="False">
-                    <Label Text="첨부파일"
-                           FontSize="18"
-                           Margin="10,0"
-                           HorizontalOptions="End"
-                           TextColor="Black"/>
 
-                    <BoxView BackgroundColor="Black" 
-                             HeightRequest="1"
-                             Margin="5,0"
-                             HorizontalOptions="FillAndExpand"/>
-
-                    <ListView x:Name="AttachmentList"
-                              Margin="10,-5,10,0"
-                              SelectionMode="None"
-                              HeightRequest="45"
-                              ItemsSource="{Binding Attachment}"
-                              SeparatorVisibility="None">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid VerticalOptions="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Name}"
-                                                   FontSize="14"
-                                                   TextColor="Black"/>
-                                        </StackLayout>
-                                        <Label Text="{Binding Format, StringFormat='파일 형식: {0}'}"
-                                               Grid.Row="1"
-                                               FontSize="11"
-                                               Margin="0,-5,0,0"
-                                               TextColor="#2E2E2E"/>
-                                        <Label Text="{Binding Size, StringFormat='파일 크기: {0}'}"
-                                               Grid.Row="1"
-                                               FontSize="11"
-                                               Margin="0,-5,0,0"
-                                               HorizontalOptions="End"
-                                               TextColor="#2E2E2E"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <BoxView BackgroundColor="Black" 
-                             HeightRequest="1"
-                             HorizontalOptions="FillAndExpand"/>
-                </StackLayout>
-                <!--#endregion-->
-                
-                <!--#region 내용-->
-                <Label Text="내용"
-                       FontSize="18"
-                       Margin="10,0"
-                       TextColor="Black"/>
+                <Label Text="첨부파일은 웹에서 다운로드 가능합니다."
+                       HorizontalTextAlignment="Center"
+                       TextColor="Gray"
+                       FontSize="14"/>
 
                 <BoxView BackgroundColor="Black" 
                          HeightRequest="1"
-                         Margin="5,0"
+                         HorizontalOptions="FillAndExpand"/>
+                
+                <htmlLabel:HtmlLabel x:Name="ArticleContents"
+                                     VerticalOptions="FillAndExpand"
+                                     Margin="10,0"/>
+
+                <BoxView BackgroundColor="Black" 
+                         HeightRequest="1"
+                         Margin="0,0,0,5"
                          HorizontalOptions="FillAndExpand"/>
 
-                <htmlLabel:HtmlLabel x:Name="ArticleContents"
-                                     Margin="10,0"/>
+                <Label x:Name="ViewWeb" 
+                       Text="웹에서 보기"
+                       TextColor="Blue"
+                       HorizontalOptions="Center"
+                       FontSize="16">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ViewWeb_Tapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Text="* 화면이 제대로 보이지 않을 경우 웹에서 보기를 클릭해주세요."
+                       LineBreakMode="WordWrap"
+                       Margin="10,0,0,0"
+                       TextColor="DarkGray"
+                       FontSize="14"/>
                 <!--#endregion-->
             </StackLayout>
         </ScrollView>

@@ -10,9 +10,14 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
+
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -39,6 +44,8 @@ namespace WebServer
         public static Dictionary<string, SchoolSchedule> SchoolSchedule { get; set; } // 학사 일정
 
         public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // 학교 공지사항
+
+        public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // 가정통신문
         #endregion
 
         #region NEIS API
@@ -86,9 +93,11 @@ namespace WebServer
 
             Thread getDataThread = new Thread(new ThreadStart(GetData));
             getDataThread.Start();
+            Logger.LogInformation("<Server> 데이터 가져오기 Thread 실행");
 
             Thread crawlingThread = new Thread(new ThreadStart(GetCrawling));
             crawlingThread.Start();
+            Logger.LogInformation("<Server> 학교 홈페이지 크롤링 Thread 실행");
 
             host.Run();
         }
@@ -112,8 +121,6 @@ namespace WebServer
         #region 데이터 가져오기
         private static async void GetData()
         {
-            Logger.LogInformation("<Server> 데이터 가져오기 Thread 실행");
-
             DataInfo = new Dictionary<string, Dictionary<string, string>>();
             DataInfo.Add("LunchMenu", new Dictionary<string, string>());
             DataInfo.Add("SchoolSchedule", new Dictionary<string, string>());
@@ -506,49 +513,70 @@ namespace WebServer
         {
             while (true)
             {
-                try
+                GetSchoolNotice();
+
+                GetSchoolNewsletter();
+
+                await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
+            }
+        }
+        #endregion
+
+        #region 학교 공지사항 가져오기
+        private static void GetSchoolNotice()
+        {
+            Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항을 가져옵니다.");
+
+            try
+            {
+                var options = new ChromeOptions
                 {
-                    var driverService = ChromeDriverService.CreateDefaultService();
-                    driverService.HideCommandPromptWindow = true;
-                    
-                    var options = new ChromeOptions();
-                    options.AddArgument("--headless");
-                    options.AddArgument("window-size=1600,900");
+                    PlatformName = PlatformType.Windows.ToString(),
+                };
+                options.AddArgument("no-sandbox");
+                options.AddArgument("window-size=1600,900");
 
-                    var driver = new ChromeDriver(driverService, options);
-                    driver.Navigate().GoToUrl("http://hanyang.sen.hs.kr/index.do");
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromSeconds(300));
+                driver.Navigate().GoToUrl("http://hanyang.sen.hs.kr/index.do");
 
-                    var datas = new Dictionary<string, Dictionary<string, string>>();
+                var datas = new Dictionary<string, Dictionary<string, string>>();
 
-                    var flag = true;
-                    var page = 1;
-                    var index = 1;
+                var flag = true;
+                var page = 1;
+                var index = 1;
 
-                    driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
+                driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
 
-                    while (flag)
+                while (flag)
+                {
+                    if (page != 1)
+                        driver.FindElementByXPath("//*[@id=\"board_area\"]/div[4]/a[" + (page + 2) + "]").Click();
+
+                    for (var line = 1; line <= 20; line++)
                     {
-                        if (page != 1)
-                            driver.FindElementByXPath("//*[@id=\"board_area\"]/div[4]/a[" + (page + 2) + "]").Click();
+                        var checkNotice = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]");
+                        
+                        if (checkNotice == null)
+                            break;
 
-                        for (var line = 2; line <= 11; line++)
+                        if (checkNotice.Text == "공지")
+                            continue;
+
+                        var articleDate = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[4]");
+
+                        if (DateTime.Now.Year > Convert.ToInt32(articleDate.Text.Substring(0, 4)))
                         {
-                            var articleDate = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[4]");
+                            flag = false;
+                            break;
+                        }
 
-                            if (DateTime.Now.Year > Convert.ToInt32(articleDate.Text.Substring(0, 4)))
-                            {
-                                flag = false;
-                                break;
-                            }
+                        driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[2]/a").Click();
+                        var name = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[1]/div").Text;
+                        var date = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[2]/div").Text;
+                        var title = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[2]/td/div").Text;
+                        var content = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[3]/td/div").GetAttribute("innerHTML").Trim();
 
-                            driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[2]/a").Click();
-                            var name = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[1]/div").Text;
-                            var date = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[2]/div").Text;
-                            var title = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[2]/td/div").Text;
-                            var content = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[3]/td/div").GetAttribute("innerHTML").Trim();
-
-                            var data = new Dictionary<string, string>
+                        var data = new Dictionary<string, string>
                             {
                                 { "Name", name },
                                 { "Date", date },
@@ -556,30 +584,112 @@ namespace WebServer
                                 { "Content", content }
                             };
 
-                            Logger.LogInformation("[" + title + "] 가져오기 성공 -\n" + content);
+                        datas.Add(index++.ToString(), data);
 
-                            datas.Add(index++.ToString(), data);
-
-                            driver.Navigate().Back();
-                            driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
-                        }
-
-                        if (flag)
-                            page++;
+                        driver.Navigate().Back();
+                        driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
                     }
 
-                    driver.Close();
-                    driver.Quit();
-
-                    Logger.LogInformation("<Server> 학교 공지사항 가져오기: 성공");
-                    SchoolNotice = datas;
+                    if (flag)
+                        page++;
                 }
-                catch (Exception e)
+
+                driver.Close();
+                driver.Quit();
+
+                Logger.LogInformation("<Server> 학교 공지사항 가져오기: 성공");
+                SchoolNotice = datas;
+            }
+            catch (Exception e)
+            {
+                Logger.LogInformation("<Server> 학교 공지사항 가져오기: 오류 (" + e.Message + ")");
+            }
+        }
+        #endregion
+
+        #region 가정통신문 가져오기
+        private static void GetSchoolNewsletter()
+        {
+            Logger.LogInformation("<Server> 가정통신문 크롤링: 학교 공지사항을 가져옵니다.");
+
+            try
+            {
+                var options = new ChromeOptions
                 {
-                    Logger.LogInformation("<Server> 학교 공지사항 가져오기: 오류 (" + e.Message + ")");
+                    PlatformName = PlatformType.Windows.ToString(),
+                };
+                options.AddArgument("headless");
+                options.AddArgument("no-sandbox");
+                options.AddArgument("window-size=1600,900");
+
+                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromSeconds(300));
+                driver.Navigate().GoToUrl("http://hanyang.sen.hs.kr/index.do");
+
+                var datas = new Dictionary<string, Dictionary<string, string>>();
+
+                var flag = true;
+                var page = 1;
+                var index = 1;
+                
+                driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // 가정통신문 보기 버튼 클릭
+
+                while (flag)
+                {
+                    if (page != 1)
+                        driver.FindElementByXPath("//*[@id=\"board_area\"]/div[4]/a[" + (page + 2) + "]").Click();
+
+                    for (var line = 1; line <= 11; line++)
+                    {
+                        var checkNotice = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]");
+
+                        if (checkNotice.Text == "공지")
+                            continue;
+
+                        var articleDate = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[4]");
+
+                        if (DateTime.Now.Year > Convert.ToInt32(articleDate.Text.Substring(0, 4)))
+                        {
+                            flag = false;
+                            break;
+                        }
+
+                        driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[2]/a").Click();
+                        var name = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[1]/div").Text;
+                        var date = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[2]/div").Text;
+                        var title = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[2]/td/div").Text;
+                        var content = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[3]/td/div").GetAttribute("innerHTML").Trim();
+
+                        if (title.Contains("[가정통신문]"))
+                            title = title.Replace("[가정통신문]", "");
+                        title = title.Trim();
+
+                        var data = new Dictionary<string, string>
+                            {
+                                { "Name", name },
+                                { "Date", date },
+                                { "Title", title },
+                                { "Content", content }
+                            };
+
+                        datas.Add(index++.ToString(), data);
+
+                        driver.Navigate().Back();
+                        driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // 가정통신문 보기 버튼 클릭
+                    }
+
+                    if (flag)
+                        page++;
                 }
 
-                await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
+                driver.Close();
+                driver.Quit();
+
+                Logger.LogInformation("<Server> 가정통신문 가져오기: 성공");
+                SchoolNewsletter = datas;
+            }
+            catch (Exception e)
+            {
+                Logger.LogInformation("<Server> 가정통신문 가져오기: 오류 (" + e.Message + ")");
             }
         }
         #endregion

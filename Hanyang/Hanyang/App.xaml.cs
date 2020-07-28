@@ -24,7 +24,7 @@ namespace Hanyang
         // 한양이 WebServer API 키
         public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
 
-        public static string ServerUrl { get; } = "http://hanyang.azurewebsite.com/"; // 서버 URL
+        public static string ServerUrl { get; } = "http://3.34.164.119/"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 
@@ -50,8 +50,7 @@ namespace Hanyang
 
         public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // 학교 공지사항
 
-        private static Dictionary<int, Article> sns; // 가정통신문 글 목록
-        private static Dictionary<int, Article> appNotices; // 앱 공지사항 글 목록
+        public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // 가정통신문
         #endregion
 
         #region 앱 종료 확인
@@ -208,11 +207,6 @@ namespace Hanyang
             }
         }
         #endregion
-        #endregion
-
-        #region GET
-        public static Dictionary<int, Article> GetSchoolNewsletters() { return sns; }
-        public static Dictionary<int, Article> GetAppNotices() { return appNotices; }
         #endregion
 
         #region 앱 시작

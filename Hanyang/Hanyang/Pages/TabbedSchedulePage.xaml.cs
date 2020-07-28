@@ -133,20 +133,54 @@ namespace Hanyang
         #region 시간표 보기
         public async Task ViewScheduleAnimation(Timetable arg = null)
         {
-            if (view != "schedule")
+            Button button = null;
+
+            switch (viewDOW)
             {
-                task = false;
-                return;
+                case 1:
+                    button = ViewSchedule1Button;
+                    break;
+                case 2:
+                    button = ViewSchedule2Button;
+                    break;
+                case 3:
+                    button = ViewSchedule3Button;
+                    break;
+                case 4:
+                    button = ViewSchedule4Button;
+                    break;
+                case 5:
+                    button = ViewSchedule5Button;
+                    break;
+            }
+
+            if (App.Animation)
+            {
+                await button.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => button.BackgroundColor = c, 75);
+                await button.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => button.TextColor = c, 50);
+            }
+            else
+            {
+                button.BackgroundColor = Color.FromRgb(78, 78, 78);
+                button.TextColor = Color.White;
             }
 
             if (App.Grade == 0 || App.Class == 0)
             {
-                DependencyService.Get<IToastMessage>().Shorttime("데이터를 가져올 수 없습니다.\n" +
+                DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
                     "프로필 설정을 완료해주세요.");
                 task = false;
                 return;
             }
-            Button button = null;
+
+            if (App.Timetable == null)
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                    return;
+
+                MainPage.GetInstance().GetTimetable();
+            }
+
             List<Grid> grids = new List<Grid>();
 
             ScheduleView.IsVisible = true;
@@ -172,37 +206,7 @@ namespace Hanyang
 
             var className = App.GetClassName();
 
-            switch (viewDOW)
-            {
-                case 1:
-                    button = ViewSchedule1Button;
-                    break;
-                case 2:
-                    button = ViewSchedule2Button;
-                    break;
-                case 3:
-                    button = ViewSchedule3Button;
-                    break;
-                case 4:
-                    button = ViewSchedule4Button;
-                    break;
-                case 5:
-                    button = ViewSchedule5Button;
-                    break;
-            }
-
             var dow = ((DayOfWeek)viewDOW).ToString();
-
-            if (App.Animation)
-            {
-                await button.ColorTo(Color.FromRgb(248, 248, 255), Color.FromRgb(78, 78, 78), c => button.BackgroundColor = c, 75);
-                await button.ColorTo(Color.FromRgb(43, 43, 43), Color.White, c => button.TextColor = c, 50);
-            }
-            else
-            {
-                button.BackgroundColor = Color.FromRgb(78, 78, 78);
-                button.TextColor = Color.White;
-            }
 
             if (App.Animation)
                 await Task.Delay(100);
@@ -601,7 +605,7 @@ namespace Hanyang
                         task = false;
                         return;
                     }
-                    await MainPage.GetInstance().GetData(refresh: true);
+                    MainPage.GetInstance().GetData(refresh: true);
                 }
                 else
                 {

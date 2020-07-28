@@ -15,9 +15,9 @@ namespace Hanyang
                 string url = "";
 
                 if(args.Length == 0)
-                    url = App.ServerUrl + type + "/" + App.API_KEY;
+                    url = App.ServerUrl + "api/" + type + "/" + App.API_KEY;
                 else
-                    url = App.ServerUrl + type + "/" + App.API_KEY + "/" + args[0];
+                    url = App.ServerUrl + "api/" + type + "/" + App.API_KEY + "/" + args[0];
                 var json = new System.Net.WebClient().DownloadString(url);
                 return json;
             }
