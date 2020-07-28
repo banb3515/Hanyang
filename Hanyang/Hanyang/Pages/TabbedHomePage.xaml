@@ -286,6 +286,7 @@
                       ItemsSource="{Binding Article}"
                       ItemTapped="SNList_ItemTapped"
                       HasUnevenRows="True"
+                      IsVisible="False"
                       SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>

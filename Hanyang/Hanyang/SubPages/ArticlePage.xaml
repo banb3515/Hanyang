@@ -18,6 +18,7 @@
                 <Label x:Name="ArticleTitle" 
                        FontSize="24"
                        Margin="10,0"
+                       LineBreakMode="WordWrap"
                        TextColor="Black"/>
                 <!--#endregion-->
 
