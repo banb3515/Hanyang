@@ -71,15 +71,29 @@ namespace WebServer.Controllers
         {
             var clientInfo = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4() + ":" + Request.HttpContext.Connection.RemotePort;
 
-            var error = new LunchMenu
+            try
             {
-                ResultCode = "001",
-                ResultMsg = "API 키 값을 입력해주세요.",
-                Data = null
-            };
+                var error = new LunchMenu
+                {
+                    ResultCode = "001",
+                    ResultMsg = "API 키 값을 입력해주세요.",
+                    Data = null
+                };
 
-            Program.Logger.LogInformation("<" + clientInfo + "> 급식 메뉴 요청: 결과 - " + error.ResultCode + " (" + error.ResultMsg + ")");
-            return error;
+                Program.Logger.LogInformation("<" + clientInfo + "> 급식 메뉴 요청: 결과 - " + error.ResultCode + " (" + error.ResultMsg + ")");
+                return error;
+            }
+            catch (Exception e)
+            {
+                var error = new LunchMenu
+                {
+                    ResultCode = "999",
+                    ResultMsg = "알 수 없는 오류:\n" + e.Message,
+                    Data = null
+                };
+                Program.Logger.LogError("<" + clientInfo + "> 급식 메뉴 요청: 결과 - 999 (" + e.Message + ")");
+                return error;
+            }
         }
         #endregion
     }

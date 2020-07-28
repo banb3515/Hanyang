@@ -91,6 +91,8 @@ namespace WebServer
             Logger = host.Services.GetRequiredService<ILogger<Program>>();
             Logger.LogInformation("<Server> 웹 서버 실행");
 
+            DataInfo = new Dictionary<string, Dictionary<string, string>>();
+
             Thread getDataThread = new Thread(new ThreadStart(GetData));
             getDataThread.Start();
             Logger.LogInformation("<Server> 데이터 가져오기 Thread 실행");
@@ -121,96 +123,102 @@ namespace WebServer
         #region 데이터 가져오기
         private static async void GetData()
         {
-            DataInfo = new Dictionary<string, Dictionary<string, string>>();
-            DataInfo.Add("LunchMenu", new Dictionary<string, string>());
-            DataInfo.Add("SchoolSchedule", new Dictionary<string, string>());
-
-            while (true)
+            try
             {
-                Logger.LogInformation("<Server> 데이터 가져오기: 시간표를 가져옵니다.");
-                var tmpTimetable = GetTimetable(); // 시간표 가져오기
+                DataInfo.Add("LunchMenu", new Dictionary<string, string>());
+                DataInfo.Add("SchoolSchedule", new Dictionary<string, string>());
 
-                Logger.LogInformation("<Server> 데이터 가져오기: 급식 메뉴를 가져옵니다.");
-                var tmpLunchMenu = GetLunchMenu(); // 급식 메뉴 가져오기
-
-                Logger.LogInformation("<Server> 데이터 가져오기: 학사 일정을 가져옵니다.");
-                var tmpSchoolSchedule = GetSchoolSchedule(); // 학사 일정 가져오기
-
-                // 시간표 데이터 값의 변화가 있는지 확인
-                if (Timetable != null)
+                while (true)
                 {
-                    if (!JsonCompare(tmpTimetable, Timetable))
-                    {
-                        foreach(var className in tmpTimetable.Keys)
-                        {
-                            DataInfo["Timetable-" + className].Remove("LastUpdate");
-                            DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
+                    Logger.LogInformation("<Server> 데이터 가져오기: 시간표를 가져옵니다.");
+                    var tmpTimetable = GetTimetable(); // 시간표 가져오기
 
-                            DataInfo["Timetable-" + className].Remove("Size");
+                    Logger.LogInformation("<Server> 데이터 가져오기: 급식 메뉴를 가져옵니다.");
+                    var tmpLunchMenu = GetLunchMenu(); // 급식 메뉴 가져오기
+
+                    Logger.LogInformation("<Server> 데이터 가져오기: 학사 일정을 가져옵니다.");
+                    var tmpSchoolSchedule = GetSchoolSchedule(); // 학사 일정 가져오기
+
+                    // 시간표 데이터 값의 변화가 있는지 확인
+                    if (Timetable != null)
+                    {
+                        if (!JsonCompare(tmpTimetable, Timetable))
+                        {
+                            foreach (var className in tmpTimetable.Keys)
+                            {
+                                DataInfo["Timetable-" + className].Remove("LastUpdate");
+                                DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
+
+                                DataInfo["Timetable-" + className].Remove("Size");
+                                DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
+                            }
+
+                            Timetable = tmpTimetable;
+                        }
+                    }
+                    else
+                    {
+                        foreach (var className in tmpTimetable.Keys)
+                        {
+                            DataInfo.Add("Timetable-" + className, new Dictionary<string, string>());
+
+                            DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
                             DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
                         }
 
                         Timetable = tmpTimetable;
                     }
-                }
-                else
-                {
-                    foreach (var className in tmpTimetable.Keys)
-                    {
-                        DataInfo.Add("Timetable-" + className, new Dictionary<string, string>());
 
-                        DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
-                        DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
+                    // 급식 메뉴 데이터 값의 변화가 있는지 확인
+                    if (LunchMenu != null)
+                    {
+                        if (!JsonCompare(tmpLunchMenu, LunchMenu))
+                        {
+                            DataInfo["LunchMenu"].Remove("LastUpdate");
+                            DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
+
+                            DataInfo["LunchMenu"].Remove("Size");
+                            DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
+
+                            LunchMenu = tmpLunchMenu;
+                        }
                     }
-
-                    Timetable = tmpTimetable;
-                }
-
-                // 급식 메뉴 데이터 값의 변화가 있는지 확인
-                if (LunchMenu != null)
-                {
-                    if (!JsonCompare(tmpLunchMenu, LunchMenu))
+                    else
                     {
-                        DataInfo["LunchMenu"].Remove("LastUpdate");
                         DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
-
-                        DataInfo["LunchMenu"].Remove("Size");
                         DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
 
                         LunchMenu = tmpLunchMenu;
                     }
-                }
-                else
-                {
-                    DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
-                    DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
 
-                    LunchMenu = tmpLunchMenu;
-                }
-
-                // 학사 일정 데이터 값의 변화가 있는지 확인
-                if (SchoolSchedule != null)
-                {
-                    if (!JsonCompare(tmpSchoolSchedule, SchoolSchedule))
+                    // 학사 일정 데이터 값의 변화가 있는지 확인
+                    if (SchoolSchedule != null)
                     {
-                        DataInfo["SchoolSchedule"].Remove("LastUpdate");
-                        DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
+                        if (!JsonCompare(tmpSchoolSchedule, SchoolSchedule))
+                        {
+                            DataInfo["SchoolSchedule"].Remove("LastUpdate");
+                            DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
 
-                        DataInfo["SchoolSchedule"].Remove("Size");
+                            DataInfo["SchoolSchedule"].Remove("Size");
+                            DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
+
+                            SchoolSchedule = tmpSchoolSchedule;
+                        }
+                    }
+                    else
+                    {
+                        DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
                         DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
 
                         SchoolSchedule = tmpSchoolSchedule;
                     }
-                }
-                else
-                {
-                    DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
-                    DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
 
-                    SchoolSchedule = tmpSchoolSchedule;
+                    await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
                 }
-
-                await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("<Server> 데이터 가져오기: 오류 (" + e.Message + ")");
             }
         }
         #endregion
@@ -511,28 +519,83 @@ namespace WebServer
         #region 학교 홈페이지 크롤링
         private static async void GetCrawling()
         {
-            while (true)
+            try
             {
-                GetSchoolNotice();
+                DataInfo.Add("SchoolNotice", new Dictionary<string, string>());
+                DataInfo.Add("SchoolNewsletter", new Dictionary<string, string>());
 
-                GetSchoolNewsletter();
+                while (true)
+                {
+                    Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항을 가져옵니다.");
+                    var tmpSchoolNotice = GetSchoolNotice();
 
-                await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
+                    Logger.LogInformation("<Server> 가정통신문 크롤링: 학교 공지사항을 가져옵니다.");
+                    var tmpSchoolNewsletter = GetSchoolNewsletter();
+
+                    // 학교 공지사항 데이터 값의 변화가 있는지 확인
+                    if (SchoolNotice != null)
+                    {
+                        if (!JsonCompare(tmpSchoolNotice, SchoolNotice))
+                        {
+                            DataInfo["SchoolNotice"].Remove("LastUpdate");
+                            DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
+
+                            DataInfo["SchoolNotice"].Remove("Size");
+                            DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
+
+                            SchoolNotice = tmpSchoolNotice;
+                        }
+                    }
+                    else
+                    {
+                        DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
+                        DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
+
+                        SchoolNotice = tmpSchoolNotice;
+                    }
+
+                    // 가정통신문 데이터 값의 변화가 있는지 확인
+                    if (SchoolNewsletter != null)
+                    {
+                        if (!JsonCompare(tmpSchoolNewsletter, SchoolNewsletter))
+                        {
+                            DataInfo["SchoolNewsletter"].Remove("LastUpdate");
+                            DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
+
+                            DataInfo["SchoolNewsletter"].Remove("Size");
+                            DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
+
+                            SchoolNewsletter = tmpSchoolNewsletter;
+                        }
+                    }
+                    else
+                    {
+                        DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
+                        DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
+
+                        SchoolNewsletter = tmpSchoolNewsletter;
+                    }
+
+                    await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("<Server> 학교 홈페이지 크롤링: 오류 (" + e.Message + ")");
             }
         }
         #endregion
 
         #region 학교 공지사항 가져오기
-        private static void GetSchoolNotice()
+        private static Dictionary<string, Dictionary<string, string>> GetSchoolNotice()
         {
-            Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항을 가져옵니다.");
-
             try
             {
                 var options = new ChromeOptions
                 {
                     PlatformName = PlatformType.Windows.ToString(),
                 };
+                options.AddArgument("headless");
                 options.AddArgument("no-sandbox");
                 options.AddArgument("window-size=1600,900");
 
@@ -584,6 +647,8 @@ namespace WebServer
                                 { "Content", content }
                             };
 
+                        Console.WriteLine(title);
+
                         datas.Add(index++.ToString(), data);
 
                         driver.Navigate().Back();
@@ -598,20 +663,19 @@ namespace WebServer
                 driver.Quit();
 
                 Logger.LogInformation("<Server> 학교 공지사항 가져오기: 성공");
-                SchoolNotice = datas;
+                return datas;
             }
             catch (Exception e)
             {
                 Logger.LogInformation("<Server> 학교 공지사항 가져오기: 오류 (" + e.Message + ")");
             }
+            return SchoolNotice;
         }
         #endregion
 
         #region 가정통신문 가져오기
-        private static void GetSchoolNewsletter()
+        private static Dictionary<string, Dictionary<string, string>> GetSchoolNewsletter()
         {
-            Logger.LogInformation("<Server> 가정통신문 크롤링: 학교 공지사항을 가져옵니다.");
-
             try
             {
                 var options = new ChromeOptions
@@ -685,37 +749,54 @@ namespace WebServer
                 driver.Quit();
 
                 Logger.LogInformation("<Server> 가정통신문 가져오기: 성공");
-                SchoolNewsletter = datas;
+                return datas;
             }
             catch (Exception e)
             {
                 Logger.LogInformation("<Server> 가정통신문 가져오기: 오류 (" + e.Message + ")");
             }
+            return SchoolNewsletter;
         }
         #endregion
 
         #region Json 비교
         private static bool JsonCompare(object obj1, object obj2)
         {
-            if (ReferenceEquals(obj1, obj2)) return true;
-            if ((obj1 == null) || (obj2 == null)) return false;
-            if (obj1.GetType() != obj2.GetType()) return false;
+            try
+            {
+                if (ReferenceEquals(obj1, obj2)) return true;
+                if ((obj1 == null) || (obj2 == null)) return false;
+                if (obj1.GetType() != obj2.GetType()) return false;
 
-            var objJson = JsonConvert.SerializeObject(obj1);
-            var anotherJson = JsonConvert.SerializeObject(obj2);
+                var objJson = JsonConvert.SerializeObject(obj1);
+                var anotherJson = JsonConvert.SerializeObject(obj2);
 
-            return objJson == anotherJson;
+                return objJson == anotherJson;
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("<Server> Json 데이터 비교: 오류 (" + e.Message + ")");
+            }
+            return false;
         }
         #endregion
 
         #region Json 바이트 크기 가져오기
         private static int GetJsonByteLength(object obj)
         {
-            var json = JsonConvert.SerializeObject(obj);
+            try
+            {
+                var json = JsonConvert.SerializeObject(obj);
 
-            byte[] byteArr;
-            byteArr = Encoding.UTF8.GetBytes(json);
-            return byteArr.Length;
+                byte[] byteArr;
+                byteArr = Encoding.UTF8.GetBytes(json);
+                return byteArr.Length;
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("<Server> Json 데이터 바이트 크기 가져오기: 오류 (" + e.Message + ")");
+                return 0;
+            }
         }
         #endregion
         #endregion

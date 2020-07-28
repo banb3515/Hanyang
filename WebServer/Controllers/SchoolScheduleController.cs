@@ -91,7 +91,9 @@ namespace WebServer.Controllers
         {
             var clientInfo = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4() + ":" + Request.HttpContext.Connection.RemotePort;
 
-            var errorDict = new Dictionary<string, SchoolSchedule>
+            try
+            {
+                var errorDict = new Dictionary<string, SchoolSchedule>
             {
                 {
                     "Error",
@@ -104,8 +106,28 @@ namespace WebServer.Controllers
                 }
             };
 
-            Program.Logger.LogInformation("<" + clientInfo + "> 학사 일정 요청: 결과 - " + errorDict["Error"].ResultCode + " (" + errorDict["Error"].ResultMsg + ")");
-            return errorDict;
+                Program.Logger.LogInformation("<" + clientInfo + "> 학사 일정 요청: 결과 - " + errorDict["Error"].ResultCode + " (" + errorDict["Error"].ResultMsg + ")");
+                return errorDict;
+            }
+            catch (Exception e)
+            {
+                var errorDict = new Dictionary<string, SchoolSchedule>
+                {
+                    {
+                        "Error",
+                        new SchoolSchedule
+                        {
+
+                            ResultCode = "999",
+                            ResultMsg = "알 수 없는 오류:\n" + e.Message,
+                            Data = null
+                        }
+                    }
+                };
+
+                Program.Logger.LogError("<" + clientInfo + "> 학사 일정 요청: 결과 - 999 (" + e.Message + ")");
+                return errorDict;
+            }
         }
         #endregion
     }

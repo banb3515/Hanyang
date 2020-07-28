@@ -423,7 +423,6 @@ namespace Hanyang
                         App.BirthDay = arg.BirthDay;
 
                         MyInfoUpdate();
-                        MainPage.GetInstance().GetTimetable();
                         _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
 
                         DependencyService.Get<IToastMessage>().Longtime("입력된 정보가 저장되었습니다.");

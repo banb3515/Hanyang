@@ -54,9 +54,9 @@ namespace WebServer.Controllers
             catch (Exception e)
             {
                 var errorDict = new Dictionary<string, Dictionary<string, string>>
-                    {
-                        { "Error", new Dictionary<string, string>() }
-                    };
+                {
+                    { "Error", new Dictionary<string, string>() }
+                };
                 errorDict["Error"].Add("ResultCode", "999");
                 errorDict["Error"].Add("ResultMsg", "알 수 없는 오류:\n" + e.Message);
 
@@ -72,15 +72,30 @@ namespace WebServer.Controllers
         {
             var clientInfo = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4() + ":" + Request.HttpContext.Connection.RemotePort;
 
-            var errorDict = new Dictionary<string, Dictionary<string, string>>
+            try
             {
-                { "Error", new Dictionary<string, string>() }
-            };
-            errorDict["Error"].Add("ResultCode", "001");
-            errorDict["Error"].Add("ResultMsg", "API 키 값을 입력해주세요.");
+                var errorDict = new Dictionary<string, Dictionary<string, string>>
+                {
+                    { "Error", new Dictionary<string, string>() }
+                };
+                errorDict["Error"].Add("ResultCode", "001");
+                errorDict["Error"].Add("ResultMsg", "API 키 값을 입력해주세요.");
 
-            Program.Logger.LogInformation("<" + clientInfo + "> 데이터 정보 요청: 결과 - " + errorDict["Error"]["ResultCode"] + " (" + errorDict["Error"]["ResultMsg"] + ")");
-            return errorDict;
+                Program.Logger.LogInformation("<" + clientInfo + "> 데이터 정보 요청: 결과 - " + errorDict["Error"]["ResultCode"] + " (" + errorDict["Error"]["ResultMsg"] + ")");
+                return errorDict;
+            }
+            catch (Exception e)
+            {
+                var errorDict = new Dictionary<string, Dictionary<string, string>>
+                {
+                    { "Error", new Dictionary<string, string>() }
+                };
+                errorDict["Error"].Add("ResultCode", "999");
+                errorDict["Error"].Add("ResultMsg", "알 수 없는 오류:\n" + e.Message);
+
+                Program.Logger.LogError("<" + clientInfo + "> 데이터 정보 요청: 결과 - 999 (" + e.Message + ")");
+                return errorDict;
+            }
         }
         #endregion
     }
