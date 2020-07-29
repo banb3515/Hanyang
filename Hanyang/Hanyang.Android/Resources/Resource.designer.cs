@@ -13753,13 +13753,13 @@ namespace Hanyang.Droid
 			public const int setting = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int splash_screen_bg = 2131165356;
+			public const int setup_page_background = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int splash_screen_logo = 2131165357;
+			public const int splash_screen_bg = 2131165357;
 			
 			// aapt resource value: 0x7F0700AE
-			public const int tmp = 2131165358;
+			public const int splash_screen_logo = 2131165358;
 			
 			// aapt resource value: 0x7F0700AF
 			public const int tooltip_frame_dark = 2131165359;

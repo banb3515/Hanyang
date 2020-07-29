@@ -7,7 +7,7 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              mc:Ignorable="d"
              BackgroundColor="White"
-             x:Class="Hanyang.TabbedSchedulePage">
+             x:Class="Hanyang.Pages.TabbedSchedulePage">
     <Grid VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

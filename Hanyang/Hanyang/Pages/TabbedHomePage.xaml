@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BackgroundColor="White"
-             x:Class="Hanyang.TabbedHomePage">
+             x:Class="Hanyang.Pages.TabbedHomePage">
     <Grid VerticalOptions="FillAndExpand">
         <!--#region 행 나누기-->
         <Grid.RowDefinitions>

@@ -39,7 +39,7 @@ namespace Hanyang.SubPages
                     title = "공지사항";
                     break;
                 case "SchoolNewsletter":
-                    //article = App.GetSchoolNewsletters()[id];
+                    article = App.SchoolNewsletter[id.ToString()];
                     title = "가정통신문";
                     break;
                 case "앱 공지사항":

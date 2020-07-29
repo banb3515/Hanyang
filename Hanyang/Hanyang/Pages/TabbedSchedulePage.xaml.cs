@@ -17,13 +17,13 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
 
-namespace Hanyang
+namespace Hanyang.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabbedSchedulePage : ContentPage
     {
         #region 변수
-        private string view; // 현재 보고있는 레이아웃
+        public string view; // 현재 보고있는 레이아웃
         private int viewDOW; // 현재 보고있는 요일 레이아웃
         public bool task; // 다른 작업 중인지 확인
         private List<string> rainbowColors; // 여러 색상
@@ -571,6 +571,7 @@ namespace Hanyang
                     {
                         DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
                             "프로필 설정을 완료해주세요.");
+                        task = false;
                         return;
                     }
 
@@ -579,12 +580,24 @@ namespace Hanyang
                     if (dataInfo == null)
                     {
                         DependencyService.Get<IToastMessage>().Longtime("서버에서 데이터를 받아오지 못했습니다.\n잠시 후 다시 시도해 주시기 바랍니다.");
+                        task = false;
                         return;
                     }
+
+                    var timetableByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.Timetable).Result).ToString();
+                    var lunchMenuByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.LunchMenu).Result).ToString();
+                    var schoolScheduleByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolSchedule).Result).ToString();
 
                     var timetable = dataInfo["Timetable-" + App.GetClassName()]["Size"];
                     var lunchMenu = dataInfo["LunchMenu"]["Size"];
                     var schoolSchedule = dataInfo["SchoolSchedule"]["Size"];
+
+                    if(timetableByte == timetable && lunchMenuByte == lunchMenu && schoolScheduleByte == schoolSchedule)
+                    {
+                        await DisplayAlert("새로고침", "이미 최신 데이터입니다.", "확인");
+                        task = false;
+                        return;
+                    }
 
                     var total = ByteSize.Parse(timetable);
                     total = total.Add(ByteSize.Parse(lunchMenu));

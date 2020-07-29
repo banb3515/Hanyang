@@ -18,9 +18,10 @@ using Newtonsoft.Json.Linq;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Essentials;
 using System.Diagnostics;
+using ByteSizeLib;
 #endregion
 
-namespace Hanyang
+namespace Hanyang.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabbedHomePage : ContentPage
@@ -334,8 +335,63 @@ namespace Hanyang
         #region 글 목록 새로고침 버튼
         private async void RefreshButton_Clicked(object sender, EventArgs e)
         {
-            // 글 목록 새로고침
             await ImageButtonAnimation(sender as ImageButton);
+
+            if (!task)
+            {
+                task = true;
+
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    var dataInfo = MainPage.GetInstance().GetDataInfo();
+
+                    if (dataInfo == null)
+                    {
+                        DependencyService.Get<IToastMessage>().Longtime("서버에서 데이터를 받아오지 못했습니다.\n잠시 후 다시 시도해 주시기 바랍니다.");
+                        task = false;
+                        return;
+                    }
+
+                    var schoolNoticeByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolNotice).Result).ToString();
+                    var schoolNewsletterByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolNewsletter).Result).ToString();
+
+                    var schoolNotice = dataInfo["SchoolNotice"]["Size"];
+                    var schoolNewsletter = dataInfo["SchoolNewsletter"]["Size"];
+
+                    if (schoolNoticeByte == schoolNotice && schoolNewsletterByte == schoolNewsletter)
+                    {
+                        await DisplayAlert("새로고침", "이미 최신 데이터입니다.", "확인");
+                        task = false;
+                        return;
+                    }
+
+                    var total = ByteSize.Parse(schoolNotice);
+                    total = total.Add(ByteSize.Parse(schoolNewsletter));
+
+                    var result = await DisplayAlert("새로고침",
+                        "데이터를 새로 다운받습니다.\n" +
+                        "LTE/5G를 사용 중인 경우 데이터가 사용됩니다.\n\n" +
+                        "※ 다운받는 데이터 크기\n" +
+                        "- 공지사항: " + schoolNotice + "\n" +
+                        "- 가정통신문: " + schoolNewsletter + "\n\n" +
+                        "총 [" + total.ToString() + "] 를 다운받습니다.\n\n" +
+                        "* 글에 포함된 사진은 다운되지 않습니다.",
+                        "확인", "취소");
+
+                    if (!result)
+                    {
+                        task = false;
+                        return;
+                    }
+                    MainPage.GetInstance().GetCrawling(refresh: true);
+                }
+                else
+                {
+                    DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
+                        "인터넷 상태를 확인해주세요.");
+                    task = false;
+                }
+            }
         }
         #endregion
         #endregion
@@ -367,7 +423,6 @@ namespace Hanyang
 
         #endregion
 
-        #region 탭
         #region 프로필 설정하기 탭
         private async void GoSetting_Tapped(object sender, EventArgs e)
         {
@@ -435,7 +490,6 @@ namespace Hanyang
                 task = false;
             }
         }
-        #endregion
         #endregion
     }
 }

@@ -36,6 +36,26 @@ namespace Hanyang.Controller
         }
         #endregion
 
+        #region 읽기 String 형식
+        public string ReadString()
+        {
+            try
+            {
+                File.ReadAllText(path);
+
+                using (StreamReader reader = File.OpenText(path))
+                {
+                    string read = reader.ReadToEnd();
+                    return read;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #region 읽기
         public Dictionary<string, object> Read()
         {

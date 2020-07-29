@@ -1,6 +1,7 @@
 ﻿#region API 참조
 using Hanyang.Controller;
 using Hanyang.Interface;
+using Hanyang.Pages;
 using Hanyang.Popup;
 
 using Newtonsoft.Json.Linq;

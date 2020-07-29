@@ -14,15 +14,20 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 using Newtonsoft.Json;
 using Hanyang.Models;
+using Newtonsoft.Json.Linq;
+using Hanyang.Controller;
+using System.Text;
 #endregion
 
-namespace Hanyang
+namespace Hanyang.Pages
 {
     [DesignTimeVisible(false)]
     public partial class MainPage : Xamarin.Forms.TabbedPage
     {
         #region 변수
         public static MainPage ins; // Instance
+
+        public Dictionary<string, Dictionary<string, string>> dataInfo;
         #endregion
 
         #region 생성자
@@ -34,6 +39,20 @@ namespace Hanyang
 
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
+
+            try
+            {
+                // 데이터 정보 파일 읽기
+                var controller = new JsonController("data_info");
+                var json = controller.ReadString();
+
+                if (json != null)
+                    dataInfo = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+            }
+            catch (Exception e)
+            {
+                _ = ErrorAlert("알 수 없는 오류 (MainPage)", "알 수 없는 오류가 발생했습니다:\n" + e.Message);
+            }
 
             GetData();
             GetCrawling();
@@ -48,13 +67,124 @@ namespace Hanyang
         {
             try
             {
+                JsonController controller = null;
+                string json = "";
+
+                // 시간표 파일 읽기
+                if (App.Class != 0)
+                {
+                    controller = new JsonController("timetable-" + App.GetClassName());
+                    json = controller.ReadString();
+
+                    if (json != null)
+                        App.Timetable = JsonConvert.DeserializeObject<Timetable>(json);
+                }
+
+                // 급식 메뉴 파일 읽기
+                controller = new JsonController("lunch_menu");
+                json = controller.ReadString();
+
+                if (json != null)
+                    App.LunchMenu = JsonConvert.DeserializeObject<LunchMenu>(json);
+
+                // 학사 일정 파일 읽기
+                controller = new JsonController("school_schedule");
+                json = controller.ReadString();
+
+                if (json != null)
+                    App.SchoolSchedule = JsonConvert.DeserializeObject<Dictionary<string, SchoolSchedule>>(json);
+
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
                     try
                     {
-                        var timetable = false;
-                        var lunchMenu = false;
-                        var schoolSchedule = false;
+                        if(dataInfo != null)
+                        {
+                            var serverDataInfo = GetDataInfo();
+
+                            // 서버에 접속할 수 없으므로 로컬 파일 이용
+                            if (serverDataInfo == null)
+                            {
+                                if (App.Timetable != null)
+                                {
+                                    if (TabbedSchedulePage.GetInstance().view == "schedule")
+                                    {
+                                        TabbedSchedulePage.GetInstance().task = true;
+                                        _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                                    }
+                                }
+
+                                if (App.LunchMenu != null)
+                                    TabbedSchedulePage.GetInstance().InitLunchMenu();
+
+                                if (App.SchoolSchedule != null)
+                                    TabbedSchedulePage.GetInstance().InitSchoolSchedule();
+
+                                return;
+                            }
+
+                            var timetableT = "";
+                            var lunchMenuT = "";
+                            var schoolScheduleT = "";
+
+                            if (App.Grade != 0 &&
+                                dataInfo["Timetable-" + App.GetClassName()]["Size"] != serverDataInfo["Timetable-" + App.GetClassName()]["Size"])
+                                timetableT = GetTimetable();
+
+                            if (dataInfo["LunchMenu"]["Size"] != serverDataInfo["LunchMenu"]["Size"])
+                                lunchMenuT = GetLunchMenu();
+
+                            if (dataInfo["SchoolSchedule"]["Size"] != serverDataInfo["SchoolSchedule"]["Size"])
+                                schoolScheduleT = GetSchoolSchedule();
+
+                            if(timetableT != "" || lunchMenuT != "" || schoolScheduleT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("data_info");
+                                await controller.Write(JObject.Parse(JsonConvert.SerializeObject(serverDataInfo)));
+                            }
+
+                            // 시간표 초기화
+                            if (TabbedSchedulePage.GetInstance().view == "schedule")
+                            {
+                                TabbedSchedulePage.GetInstance().task = true;
+                                _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                            }
+
+                            if (timetableT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("timetable-" + App.GetClassName());
+                                await controller.Write(JObject.Parse(timetableT));
+                            }
+
+                            // 급식 메뉴 초기화
+                            TabbedSchedulePage.GetInstance().InitLunchMenu();
+
+                            if (lunchMenuT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("lunch_menu");
+                                await controller.Write(JObject.Parse(lunchMenuT));
+                            }
+
+                            // 학사 일정 초기화
+                            TabbedSchedulePage.GetInstance().InitSchoolSchedule();
+
+                            if (schoolScheduleT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("school_schedule");
+                                await controller.Write(JObject.Parse(schoolScheduleT));
+                            }
+
+                            return;
+                        }
+
+                        var dataInfoT = GetDataInfo();
+                        var timetable = "";
+                        var lunchMenu = "";
+                        var schoolSchedule = "";
 
                         if (refresh || App.Timetable == null)
                             timetable = GetTimetable();
@@ -65,20 +195,45 @@ namespace Hanyang
                         if (refresh || App.SchoolSchedule == null)
                             schoolSchedule = GetSchoolSchedule();
 
-                        if (timetable)
+                        if(dataInfoT != null)
                         {
-                            // 시간표 초기화
-                            TabbedSchedulePage.GetInstance().task = true;
-                            _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                            controller = new JsonController("data_info");
+                            await controller.Write(JObject.Parse(JsonConvert.SerializeObject(dataInfoT)));
                         }
 
-                        if (lunchMenu)
+                        if (timetable != "")
+                        {
+                            if (TabbedSchedulePage.GetInstance().view == "schedule")
+                            {
+                                // 시간표 초기화
+                                TabbedSchedulePage.GetInstance().task = true;
+                                _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                            }
+
+                            // 파일로 저장
+                            controller = new JsonController("timetable-" + App.GetClassName());
+                            await controller.Write(JObject.Parse(timetable));
+                        }
+
+                        if (lunchMenu != "")
+                        {
                             // 급식 메뉴 초기화
                             TabbedSchedulePage.GetInstance().InitLunchMenu();
 
-                        if (schoolSchedule)
+                            // 파일로 저장
+                            controller = new JsonController("lunch_menu");
+                            await controller.Write(JObject.Parse(lunchMenu));
+                        }
+
+                        if (schoolSchedule != "")
+                        {
                             // 학사 일정 초기화
                             TabbedSchedulePage.GetInstance().InitSchoolSchedule();
+
+                            // 파일로 저장
+                            controller = new JsonController("school_schedule");
+                            await controller.Write(JObject.Parse(schoolSchedule));
+                        }
                     }
                     catch (Exception e)
                     {
@@ -86,8 +241,49 @@ namespace Hanyang
                     }
                 }
                 else
-                    DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
-                        "인터넷 상태를 확인해주세요.");
+                {
+                    // 시간표 파일 읽기
+                    if (App.Class != 0)
+                    {
+                        controller = new JsonController("timetable-" + App.GetClassName());
+                        json = controller.ReadString();
+
+                        if (json != null)
+                        {
+                            App.Timetable = JsonConvert.DeserializeObject<Timetable>(json);
+
+                            if (TabbedSchedulePage.GetInstance().view == "schedule")
+                            {
+                                TabbedSchedulePage.GetInstance().task = true;
+                                _ = TabbedSchedulePage.GetInstance().ViewScheduleAnimation();
+                            }
+                        }
+                    }
+
+                    // 급식 메뉴 파일 읽기
+                    controller = new JsonController("lunch_menu");
+                    json = controller.ReadString();
+
+                    if (json != null)
+                    {
+                        App.LunchMenu = JsonConvert.DeserializeObject<LunchMenu>(json);
+
+                        TabbedSchedulePage.GetInstance().InitLunchMenu();
+                    }
+
+                    // 학사 일정 파일 읽기
+                    controller = new JsonController("school_schedule");
+                    json = controller.ReadString();
+
+                    if (json != null)
+                    {
+                        App.SchoolSchedule = JsonConvert.DeserializeObject<Dictionary<string, SchoolSchedule>>(json);
+
+                        TabbedSchedulePage.GetInstance().InitSchoolSchedule();
+                    }
+
+                    DependencyService.Get<IToastMessage>().Longtime("인터넷에 연결되어 있지 않아 최신 정보를 확인할 수 없습니다.");
+                }
             }
             catch (Exception e)
             {
@@ -102,12 +298,84 @@ namespace Hanyang
         {
             try
             {
+                JsonController controller = null;
+                string json = "";
+
+                // 학교 공지사항 파일 읽기
+                controller = new JsonController("school_notice");
+                json = controller.ReadString();
+
+                if (json != null)
+                    App.SchoolNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+                // 가정통신문 파일 읽기
+                controller = new JsonController("school_newsletter");
+                json = controller.ReadString();
+
+                if (json != null)
+                    App.SchoolNewsletter = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
                     try
                     {
-                        var schoolNotice = false;
-                        var schoolNewsletter = false;
+                        if (dataInfo != null)
+                        {
+                            var serverDataInfo = GetDataInfo();
+
+                            // 서버에 접속할 수 없으므로 로컬 파일 이용
+                            if (serverDataInfo == null)
+                            {
+                                if (App.SchoolNotice != null)
+                                    TabbedHomePage.GetInstance().InitSchoolNotice();
+
+                                if (App.SchoolNewsletter != null)
+                                    TabbedHomePage.GetInstance().InitSchoolNewsletter();
+
+                                return;
+                            }
+
+                            var schoolNoticeT = "";
+                            var schoolNewsletterT = "";
+
+                            if (dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
+                                schoolNoticeT = GetSchoolNotice();
+
+                            if (dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
+                                schoolNewsletterT = GetSchoolNewsletter();
+
+                            if (schoolNoticeT != "" || schoolNewsletterT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("data_info");
+                                await controller.Write(JObject.Parse(JsonConvert.SerializeObject(serverDataInfo)));
+                            }
+
+                            // 학교 공지사항 초기화
+                            TabbedHomePage.GetInstance().InitSchoolNotice();
+
+                            if (schoolNoticeT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("school_notice");
+                                await controller.Write(JObject.Parse(schoolNoticeT));
+                            }
+
+                            // 가정통신문 초기화
+                            TabbedHomePage.GetInstance().InitSchoolNewsletter();
+
+                            if (schoolNewsletterT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("school_newsletter");
+                                await controller.Write(JObject.Parse(schoolNewsletterT));
+                            }
+
+                            return;
+                        }
+
+                        var schoolNotice = "";
+                        var schoolNewsletter = "";
 
                         if (refresh || App.SchoolNotice == null)
                             schoolNotice = GetSchoolNotice();
@@ -115,13 +383,25 @@ namespace Hanyang
                         if (refresh || App.SchoolNewsletter == null)
                             schoolNewsletter = GetSchoolNewsletter();
 
-                        if (schoolNotice)
+                        if (schoolNotice != "")
+                        {
                             // 학교 공지사항 초기화
                             TabbedHomePage.GetInstance().InitSchoolNotice();
 
-                        if (schoolNewsletter)
+                            // 파일로 저장
+                            controller = new JsonController("school_notice");
+                            await controller.Write(JObject.Parse(schoolNotice));
+                        }
+
+                        if (schoolNewsletter != "")
+                        {
                             // 가정통신문 초기화
                             TabbedHomePage.GetInstance().InitSchoolNewsletter();
+
+                            // 파일로 저장
+                            controller = new JsonController("school_newsletter");
+                            await controller.Write(JObject.Parse(schoolNewsletter));
+                        }
                     }
                     catch (Exception e)
                     {
@@ -129,8 +409,29 @@ namespace Hanyang
                     }
                 }
                 else
-                    DependencyService.Get<IToastMessage>().Longtime("크롤링 데이터를 가져올 수 없습니다.\n" +
-                        "인터넷 상태를 확인해주세요.");
+                {
+                    // 학교 공지사항 파일 읽기
+                    controller = new JsonController("school_notice");
+                    json = controller.ReadString();
+
+                    if (json != null)
+                    {
+                        App.SchoolNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+                        TabbedHomePage.GetInstance().InitSchoolNotice();
+                    }
+
+                    // 가정통신문 파일 읽기
+                    controller = new JsonController("school_newsletter");
+                    json = controller.ReadString();
+
+                    if (json != null)
+                    {
+                        App.SchoolNewsletter = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+                        TabbedHomePage.GetInstance().InitSchoolNewsletter();
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -140,13 +441,13 @@ namespace Hanyang
         #endregion
 
         #region 시간표 가져오기
-        public bool GetTimetable()
+        public string GetTimetable()
         {
             if (App.Class == 0)
             {
                 DependencyService.Get<IToastMessage>().Longtime("데이터를 가져올 수 없습니다.\n" +
                             "프로필 설정을 완료해주세요.");
-                return false;
+                return "";
             }
 
             var json = WebServer.GetJson("timetable", App.GetClassName());
@@ -157,7 +458,7 @@ namespace Hanyang
                 {
                     await ErrorAlert("시간표 가져오기", "시간표를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return false;
+                return "";
             }
 
             var timetable = JsonConvert.DeserializeObject<Timetable>(json.Result);
@@ -171,16 +472,16 @@ namespace Hanyang
                     else
                         await ErrorAlert("시간표 가져오기 (" + timetable.ResultCode + ")", "시간표를 가져오는 도중 오류가 발생했습니다.\n" + timetable.ResultMsg, sendError: false);
                 });
-                return false;
+                return "";
             }
 
             App.Timetable = timetable;
-            return true;
+            return json.Result;
         }
         #endregion
 
         #region 급식 메뉴 가져오기
-        public bool GetLunchMenu()
+        public string GetLunchMenu()
         {
             var json = WebServer.GetJson("lunchmenu");
 
@@ -190,7 +491,7 @@ namespace Hanyang
                 {
                     await ErrorAlert("급식 메뉴 가져오기", "급식 메뉴를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return false;
+                return "";
             }
 
             var lunchMenu = JsonConvert.DeserializeObject<LunchMenu>(json.Result);
@@ -204,16 +505,16 @@ namespace Hanyang
                     else
                         await ErrorAlert("급식 메뉴 가져오기 (" + lunchMenu.ResultCode + ")", "급식 메뉴를 가져오는 도중 오류가 발생했습니다.\n" + lunchMenu.ResultMsg, sendError: false);
                 });
-                return false;
+                return "";
             }
 
             App.LunchMenu = lunchMenu;
-            return true;
+            return json.Result;
         }
         #endregion
 
         #region 학사 일정 가져오기
-        public bool GetSchoolSchedule()
+        public string GetSchoolSchedule()
         {
             var json = WebServer.GetJson("schoolschedule");
 
@@ -223,7 +524,7 @@ namespace Hanyang
                 {
                     await ErrorAlert("학사 일정 가져오기", "학사 일정을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return false;
+                return "";
             }
 
             var schoolSchedule = JsonConvert.DeserializeObject<Dictionary<string, SchoolSchedule>>(json.Result);
@@ -239,12 +540,12 @@ namespace Hanyang
                         else
                             await ErrorAlert("학사 일정 가져오기 (" + value.ResultCode + ")", "학사 일정을 가져오는 도중 오류가 발생했습니다.\n" + value.ResultMsg, sendError: false);
                     });
-                    return false;
+                    return "";
                 }
             }
 
             App.SchoolSchedule = schoolSchedule;
-            return true;
+            return json.Result;
         }
         #endregion
 
@@ -284,7 +585,7 @@ namespace Hanyang
         #endregion
 
         #region 학교 공지사항 가져오기
-        public bool GetSchoolNotice()
+        public string GetSchoolNotice()
         {
             var json = WebServer.GetJson("schoolnotice");
 
@@ -294,7 +595,7 @@ namespace Hanyang
                 {
                     await ErrorAlert("학교 공지사항 가져오기", "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return false;
+                return "";
             }
 
             var schoolNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
@@ -310,16 +611,16 @@ namespace Hanyang
                         await ErrorAlert("학교 공지사항 가져오기 (" + schoolNotice["Error"]["ResultCode"] + ")", 
                             "학교 공지사항을 가져오는 도중 오류가 발생했습니다.\n" + schoolNotice["Error"]["ResultMsg"], sendError: false);
                 });
-                return false;
+                return "";
             }
 
             App.SchoolNotice = schoolNotice;
-            return true;
+            return json.Result;
         }
         #endregion
 
         #region 가정통신문 가져오기
-        public bool GetSchoolNewsletter()
+        public string GetSchoolNewsletter()
         {
             var json = WebServer.GetJson("schoolnewsletter");
 
@@ -329,7 +630,7 @@ namespace Hanyang
                 {
                     await ErrorAlert("가정통신문 가져오기", "가정통신문을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
                 });
-                return false;
+                return "";
             }
 
             var schoolNewsletter = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
@@ -345,11 +646,11 @@ namespace Hanyang
                         await ErrorAlert("가정통신문 가져오기 (" + schoolNewsletter["Error"]["ResultCode"] + ")",
                             "가정통신문을 가져오는 도중 오류가 발생했습니다.\n" + schoolNewsletter["Error"]["ResultMsg"], sendError: false);
                 });
-                return false;
+                return "";
             }
 
             App.SchoolNewsletter = schoolNewsletter;
-            return true;
+            return json.Result;
         }
         #endregion
 
@@ -393,6 +694,25 @@ namespace Hanyang
                     await Email.ComposeAsync(email);
                 }
                 catch { }
+            }
+        }
+        #endregion
+
+        #region Json 바이트 크기 가져오기
+        public async Task<int> GetJsonByteLength(object obj)
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(obj);
+
+                byte[] byteArr;
+                byteArr = Encoding.UTF8.GetBytes(json);
+                return byteArr.Length;
+            }
+            catch (Exception e)
+            {
+                await ErrorAlert("Json 데이터 바이트 크기 가져오기", "Json 데이터 바이트 크기를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
+                return 0;
             }
         }
         #endregion

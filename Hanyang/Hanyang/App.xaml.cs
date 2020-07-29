@@ -2,7 +2,7 @@
 using Hanyang.Controller;
 using Hanyang.Interface;
 using Hanyang.Models;
-
+using Hanyang.Pages;
 using Models;
 
 using Newtonsoft.Json.Linq;
@@ -29,6 +29,8 @@ namespace Hanyang
         public static string NewestVersion { get; set; } // 최신 버전
 
         public static bool Animation { get; set; } // 애니메이션 On/Off
+
+        public static bool Setup { get; set; } // 초기 설정
 
         public static int Grade { get; set; } = 0; // 학년
 
@@ -101,7 +103,10 @@ namespace Hanyang
 
             InitializeComponent();
 
-            MainPage = new MainPage();
+            if (Setup)
+                MainPage = new MainPage();
+            else
+                MainPage = new SetupPage();
         }
         #endregion
 
@@ -117,26 +122,37 @@ namespace Hanyang
                 // 애니메이션이 설정되지 않았을 때
                 if (read != null)
                 {
-                    if (!read.ContainsKey("Animation"))
+                    try
                     {
-                        // 애니메이션 On으로 초기화
-                        try
+                        if (!read.ContainsKey("Animation"))
                         {
+                            // 애니메이션 On으로 초기화
                             var dict = new Dictionary<string, object>();
                             dict.Add("Animation", true);
                             controller.Add(dict);
                         }
-                        catch (Exception e)
+
+                        if (!read.ContainsKey("Setup"))
                         {
-                            Debug.WriteLine(e.Message);
+                            var dict = new Dictionary<string, object>();
+                            dict.Add("Setup", false);
+                            controller.Add(dict);
                         }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
                     }
                 }
                 else
-                    await controller.Write(new JObject(new JProperty("Animation", true)));
+                    await controller.Write(new JObject(
+                        new JProperty("Animation", true),
+                        new JProperty("Setup", false)
+                        ));
                 read = controller.Read();
 
-                App.Animation = Convert.ToBoolean(read["Animation"]);
+                Animation = Convert.ToBoolean(read["Animation"]);
+                Setup = Convert.ToBoolean(read["Setup"]);
             }
             catch (Exception e)
             {
