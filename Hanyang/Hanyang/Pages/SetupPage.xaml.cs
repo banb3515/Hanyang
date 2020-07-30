@@ -107,7 +107,8 @@ namespace Hanyang.Pages
             Page2.IsVisible = true;
 
             Back.IsVisible = true;
-            Forward.IsVisible = false;
+            if(!Page2Label3.IsVisible)
+                Forward.IsVisible = false;
 
             if (pagesAnimation[page - 1])
                 return;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "870076944986",
+    "firebase_url": "https://hanyang-c3758.firebaseio.com",
+    "project_id": "hanyang-c3758",
+    "storage_bucket": "hanyang-c3758.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870076944986:android:ea9f706dd6bb8872e37e63",
+        "android_client_info": {
+          "package_name": "io.github.banb3515.hanyang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870076944986-vb9pp5vhvc5fleho0l5ltvmi1enm2eo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8RODMdY3lYHsTEK4JAduqk1yn6DgPT8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870076944986-vb9pp5vhvc5fleho0l5ltvmi1enm2eo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

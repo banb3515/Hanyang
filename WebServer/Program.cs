@@ -1,5 +1,8 @@
-#region API ÂüÁ¶
+ï»¿#region API ì°¸ì¡°
 using ByteSizeLib;
+using FirebaseAdmin;
+using FirebaseAdmin.Messaging;
+using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -28,57 +32,61 @@ namespace WebServer
 {
     public class Program
     {
-        #region º¯¼ö
-        public static ILogger Logger { get; set; } // Logger - ·Î±× ±â·Ï
+        #region ë³€ìˆ˜
+        public static ILogger Logger { get; set; } // Logger - ë¡œê·¸ ê¸°ë¡
 
-        // API KEY °ª
+        private const string FCM_TOKEN = "AAAAypSgklo:APA91bHqNp_jlDP9BOUohMYfszAAygCrg9Kc0ONhNNJp_41wHb0WOpDMX8gDSgdUrq8wT8xou0whdflUdba4ma1-ZMTwfVTjWXUMLhnzsPFsR1ODsBSxXv7MhUwAaTAkGCzWNERhUoSZ";
+
+        // API KEY ê°’
         public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
 
-        #region API ¿äÃ» °ª
-        public static Dictionary<string, Dictionary<string, string>> DataInfo { get; set; } // µ¥ÀÌÅÍ Á¤º¸
+        #region API ìš”ì²­ ê°’
+        public static Dictionary<string, string> AppInfo { get; set; } // ì•± ì •ë³´
 
-        public static Dictionary<string, Timetable> Timetable { get; set; } // ½Ã°£Ç¥
+        public static Dictionary<string, Dictionary<string, string>> DataInfo { get; set; } // ë°ì´í„° ì •ë³´
 
-        public static LunchMenu LunchMenu { get; set; } // ±Ş½Ä ¸Ş´º
+        public static Dictionary<string, Timetable> Timetable { get; set; } // ì‹œê°„í‘œ
 
-        public static Dictionary<string, SchoolSchedule> SchoolSchedule { get; set; } // ÇĞ»ç ÀÏÁ¤
+        public static LunchMenu LunchMenu { get; set; } // ê¸‰ì‹ ë©”ë‰´
 
-        public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // ÇĞ±³ °øÁö»çÇ×
+        public static Dictionary<string, SchoolSchedule> SchoolSchedule { get; set; } // í•™ì‚¬ ì¼ì •
 
-        public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // °¡Á¤Åë½Å¹®
+        public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // í•™êµ ê³µì§€ì‚¬í•­
+
+        public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // ê°€ì •í†µì‹ ë¬¸
         #endregion
 
         #region NEIS API
-        private const string NEIS_API_KEY = "KEY=762281280e4943e58669a6b02991a67c&"; // API Å°
-        private const string TIMETABLE_URL = "https://open.neis.go.kr/hub/hisTimetable?"; // ½Ã°£Ç¥ API URL
-        private const string LUNCH_MENU_URL = "https://open.neis.go.kr/hub/mealServiceDietInfo?"; // ±Ş½Ä ÀÏÁ¤ API URL
-        private const string SCHOOL_SCHEDULE_URL = "https://open.neis.go.kr/hub/SchoolSchedule?"; // ÇĞ±³ ÀÏÁ¤ API URL
-        private const string TYPE = "Type=json&"; // µ¥ÀÌÅÍ Å¸ÀÔ
-        private const string P_INDEX = "pIndex=1&"; // ÆäÀÌÁö À§Ä¡
-        private const string P_SIZE = "pSize=1000&"; // ÆäÀÌÁö ´ç ½ÅÃ» ¼ö
-        private const string ATPT_OFCDC_SC_CODE = "ATPT_OFCDC_SC_CODE=B10&"; // ½Ãµµ±³À°Ã»ÄÚµå: ¼­¿ï½Ã ±³À°Ã»
-        private const string SD_SCHUL_CODE = "SD_SCHUL_CODE=7010377&"; // Ç¥ÁØÇĞ±³ÄÚµå: ÇÑ¾ç°ø¾÷°íµîÇĞ±³
+        private const string NEIS_API_KEY = "KEY=762281280e4943e58669a6b02991a67c&"; // API í‚¤
+        private const string TIMETABLE_URL = "https://open.neis.go.kr/hub/hisTimetable?"; // ì‹œê°„í‘œ API URL
+        private const string LUNCH_MENU_URL = "https://open.neis.go.kr/hub/mealServiceDietInfo?"; // ê¸‰ì‹ ì¼ì • API URL
+        private const string SCHOOL_SCHEDULE_URL = "https://open.neis.go.kr/hub/SchoolSchedule?"; // í•™êµ ì¼ì • API URL
+        private const string TYPE = "Type=json&"; // ë°ì´í„° íƒ€ì…
+        private const string P_INDEX = "pIndex=1&"; // í˜ì´ì§€ ìœ„ì¹˜
+        private const string P_SIZE = "pSize=1000&"; // í˜ì´ì§€ ë‹¹ ì‹ ì²­ ìˆ˜
+        private const string ATPT_OFCDC_SC_CODE = "ATPT_OFCDC_SC_CODE=B10&"; // ì‹œë„êµìœ¡ì²­ì½”ë“œ: ì„œìš¸ì‹œ êµìœ¡ì²­
+        private const string SD_SCHUL_CODE = "SD_SCHUL_CODE=7010377&"; // í‘œì¤€í•™êµì½”ë“œ: í•œì–‘ê³µì—…ê³ ë“±í•™êµ
 
-        // ÇĞ°ú ¸ñ·Ï
+        // í•™ê³¼ ëª©ë¡
         private static readonly string[] departments = new string[]
         { 
-            "°Ç¼³Á¤º¸°ú", 
-            "°ÇÃà°ú",
-            "ÀÚµ¿È­±â°è°ú",
-            "µğÁöÅĞÀüÀÚ°ú",
-            "ÀÚµ¿Â÷°ú",
-            "ÄÄÇ»ÅÍ³×Æ®¿öÅ©°ú"
+            "ê±´ì„¤ì •ë³´ê³¼", 
+            "ê±´ì¶•ê³¼",
+            "ìë™í™”ê¸°ê³„ê³¼",
+            "ë””ì§€í„¸ì „ìê³¼",
+            "ìë™ì°¨ê³¼",
+            "ì»´í“¨í„°ë„¤íŠ¸ì›Œí¬ê³¼"
         };
 
-        // À¯È¿ÇÑ ¹İ ÀÌ¸§
+        // ìœ íš¨í•œ ë°˜ ì´ë¦„
         private static readonly string[] validClassNames = new string[]
         {
-            "°Ç¼³",
-            "°ÇÃà",
-            "±â°è",
-            "ÀüÀÚ",
-            "ÀÚµ¿Â÷",
-            "ÄÄ³İ"
+            "ê±´ì„¤",
+            "ê±´ì¶•",
+            "ê¸°ê³„",
+            "ì „ì",
+            "ìë™ì°¨",
+            "ì»´ë„·"
         };
         #endregion
         #endregion
@@ -89,17 +97,23 @@ namespace WebServer
             var host = CreateHostBuilder(args).Build();
 
             Logger = host.Services.GetRequiredService<ILogger<Program>>();
-            Logger.LogInformation("<Server> À¥ ¼­¹ö ½ÇÇà");
+            Logger.LogInformation("<Server> ì›¹ ì„œë²„ ì‹¤í–‰");
+
+            AppInfo = new Dictionary<string, string>
+            {
+                { "Version", "1.0" }, // ì•± ë²„ì „
+                { "UpdateContent", "â˜ í•œì–‘ì´ ì•±ì´ ì¶œì‹œë˜ì—ˆìŠµë‹ˆë‹¤." } // ì—…ë°ì´íŠ¸ ë‚´ìš©
+            };
 
             DataInfo = new Dictionary<string, Dictionary<string, string>>();
 
             Thread getDataThread = new Thread(new ThreadStart(GetData));
             getDataThread.Start();
-            Logger.LogInformation("<Server> µ¥ÀÌÅÍ °¡Á®¿À±â Thread ½ÇÇà");
+            Logger.LogInformation("<Server> ë°ì´í„° ê°€ì ¸ì˜¤ê¸° Thread ì‹¤í–‰");
 
             Thread crawlingThread = new Thread(new ThreadStart(GetCrawling));
             crawlingThread.Start();
-            Logger.LogInformation("<Server> ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ Thread ½ÇÇà");
+            Logger.LogInformation("<Server> í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§ Thread ì‹¤í–‰");
 
             host.Run();
         }
@@ -119,8 +133,8 @@ namespace WebServer
                 });
         #endregion
 
-        #region ÇÔ¼ö
-        #region µ¥ÀÌÅÍ °¡Á®¿À±â
+        #region í•¨ìˆ˜
+        #region ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
         private static async void GetData()
         {
             try
@@ -130,125 +144,134 @@ namespace WebServer
 
                 while (true)
                 {
-                    Logger.LogInformation("<Server> µ¥ÀÌÅÍ °¡Á®¿À±â: ½Ã°£Ç¥¸¦ °¡Á®¿É´Ï´Ù.");
-                    var tmpTimetable = GetTimetable(); // ½Ã°£Ç¥ °¡Á®¿À±â
+                    Logger.LogInformation("<Server> ë°ì´í„° ê°€ì ¸ì˜¤ê¸°: ì‹œê°„í‘œë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.");
+                    var tmpTimetable = GetTimetable(); // ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°
 
-                    Logger.LogInformation("<Server> µ¥ÀÌÅÍ °¡Á®¿À±â: ±Ş½Ä ¸Ş´º¸¦ °¡Á®¿É´Ï´Ù.");
-                    var tmpLunchMenu = GetLunchMenu(); // ±Ş½Ä ¸Ş´º °¡Á®¿À±â
+                    Logger.LogInformation("<Server> ë°ì´í„° ê°€ì ¸ì˜¤ê¸°: ê¸‰ì‹ ë©”ë‰´ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.");
+                    var tmpLunchMenu = GetLunchMenu(); // ê¸‰ì‹ ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°
 
-                    Logger.LogInformation("<Server> µ¥ÀÌÅÍ °¡Á®¿À±â: ÇĞ»ç ÀÏÁ¤À» °¡Á®¿É´Ï´Ù.");
-                    var tmpSchoolSchedule = GetSchoolSchedule(); // ÇĞ»ç ÀÏÁ¤ °¡Á®¿À±â
+                    Logger.LogInformation("<Server> ë°ì´í„° ê°€ì ¸ì˜¤ê¸°: í•™ì‚¬ ì¼ì •ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.");
+                    var tmpSchoolSchedule = GetSchoolSchedule(); // í•™ì‚¬ ì¼ì • ê°€ì ¸ì˜¤ê¸°
 
-                    // ½Ã°£Ç¥ µ¥ÀÌÅÍ °ªÀÇ º¯È­°¡ ÀÖ´ÂÁö È®ÀÎ
-                    if (Timetable != null)
+                    if (tmpTimetable != null)
                     {
-                        if (!JsonCompare(tmpTimetable, Timetable))
+                        // ì‹œê°„í‘œ ë°ì´í„° ê°’ì˜ ë³€í™”ê°€ ìˆëŠ”ì§€ í™•ì¸
+                        if (Timetable != null)
+                        {
+                            if (!JsonCompare(tmpTimetable, Timetable))
+                            {
+                                foreach (var className in tmpTimetable.Keys)
+                                {
+                                    DataInfo["Timetable-" + className].Remove("LastUpdate");
+                                    DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
+
+                                    DataInfo["Timetable-" + className].Remove("Size");
+                                    DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
+                                }
+
+                                Timetable = tmpTimetable;
+                            }
+                        }
+                        else
                         {
                             foreach (var className in tmpTimetable.Keys)
                             {
-                                DataInfo["Timetable-" + className].Remove("LastUpdate");
-                                DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
+                                DataInfo.Add("Timetable-" + className, new Dictionary<string, string>());
 
-                                DataInfo["Timetable-" + className].Remove("Size");
+                                DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
                                 DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
                             }
 
                             Timetable = tmpTimetable;
                         }
                     }
-                    else
-                    {
-                        foreach (var className in tmpTimetable.Keys)
-                        {
-                            DataInfo.Add("Timetable-" + className, new Dictionary<string, string>());
 
-                            DataInfo["Timetable-" + className].Add("LastUpdate", DateTime.Now.ToString());
-                            DataInfo["Timetable-" + className].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpTimetable[className])).ToString());
+                    if (tmpLunchMenu != null)
+                    {
+                        // ê¸‰ì‹ ë©”ë‰´ ë°ì´í„° ê°’ì˜ ë³€í™”ê°€ ìˆëŠ”ì§€ í™•ì¸
+                        if (LunchMenu != null)
+                        {
+                            if (!JsonCompare(tmpLunchMenu, LunchMenu))
+                            {
+                                DataInfo["LunchMenu"].Remove("LastUpdate");
+                                DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
+
+                                DataInfo["LunchMenu"].Remove("Size");
+                                DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
+
+                                LunchMenu = tmpLunchMenu;
+                            }
                         }
-
-                        Timetable = tmpTimetable;
-                    }
-
-                    // ±Ş½Ä ¸Ş´º µ¥ÀÌÅÍ °ªÀÇ º¯È­°¡ ÀÖ´ÂÁö È®ÀÎ
-                    if (LunchMenu != null)
-                    {
-                        if (!JsonCompare(tmpLunchMenu, LunchMenu))
+                        else
                         {
-                            DataInfo["LunchMenu"].Remove("LastUpdate");
                             DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
-
-                            DataInfo["LunchMenu"].Remove("Size");
                             DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
 
                             LunchMenu = tmpLunchMenu;
                         }
                     }
-                    else
-                    {
-                        DataInfo["LunchMenu"].Add("LastUpdate", DateTime.Now.ToString());
-                        DataInfo["LunchMenu"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpLunchMenu)).ToString());
 
-                        LunchMenu = tmpLunchMenu;
-                    }
-
-                    // ÇĞ»ç ÀÏÁ¤ µ¥ÀÌÅÍ °ªÀÇ º¯È­°¡ ÀÖ´ÂÁö È®ÀÎ
-                    if (SchoolSchedule != null)
+                    if (tmpSchoolSchedule != null)
                     {
-                        if (!JsonCompare(tmpSchoolSchedule, SchoolSchedule))
+                        // í•™ì‚¬ ì¼ì • ë°ì´í„° ê°’ì˜ ë³€í™”ê°€ ìˆëŠ”ì§€ í™•ì¸
+                        if (SchoolSchedule != null)
                         {
-                            DataInfo["SchoolSchedule"].Remove("LastUpdate");
-                            DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
+                            if (!JsonCompare(tmpSchoolSchedule, SchoolSchedule))
+                            {
+                                DataInfo["SchoolSchedule"].Remove("LastUpdate");
+                                DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
 
-                            DataInfo["SchoolSchedule"].Remove("Size");
+                                DataInfo["SchoolSchedule"].Remove("Size");
+                                DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
+
+                                SchoolSchedule = tmpSchoolSchedule;
+                            }
+                        }
+                        else
+                        {
+                            DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
                             DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
 
                             SchoolSchedule = tmpSchoolSchedule;
                         }
                     }
-                    else
-                    {
-                        DataInfo["SchoolSchedule"].Add("LastUpdate", DateTime.Now.ToString());
-                        DataInfo["SchoolSchedule"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolSchedule)).ToString());
 
-                        SchoolSchedule = tmpSchoolSchedule;
-                    }
-
-                    await Task.Delay(1800000); // 1000 = 1ÃÊ, ±âº»: 30ºĞ (1800000)
+                    await Task.Delay(1800000); // 1000 = 1ì´ˆ, ê¸°ë³¸: 30ë¶„ (1800000)
                 }
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> µ¥ÀÌÅÍ °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> ë°ì´í„° ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
         }
         #endregion
 
-        #region ½Ã°£Ç¥ °¡Á®¿À±â
+        #region ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°
         private static Dictionary<string, Timetable> GetTimetable()
         {
             try
             {
-                string AY = "AY=" + DateTime.Now.Year.ToString() + "&"; // ÇĞ³âµµ
-                // ¡é ¿À·¡µÈ(³Ê¹« ¸¹Àº) ½Ã°£Ç¥¸¦ °¡Á®¿ÀÁö ¾Ê±â À§ÇØ 2´Ş Àü ³¯Â¥ºÎÅÍ ½Ã°£Ç¥ °¡Á®¿À±â
-                string TI_FROM_YMD = "TI_FROM_YMD=" + DateTime.Now.AddMonths(-2).ToString("yyyyMMdd") + "&"; // ½Ã°£Ç¥½ÃÀÛÀÏÀÚ
-                string TI_TO_YMD = "TI_TO_YMD="; // ½Ã°£Ç¥Á¾·áÀÏÀÚ
+                string AY = "AY=" + DateTime.Now.Year.ToString() + "&"; // í•™ë…„ë„
+                // â†“ ì˜¤ë˜ëœ(ë„ˆë¬´ ë§ì€) ì‹œê°„í‘œë¥¼ ê°€ì ¸ì˜¤ì§€ ì•Šê¸° ìœ„í•´ 2ë‹¬ ì „ ë‚ ì§œë¶€í„° ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°
+                string TI_FROM_YMD = "TI_FROM_YMD=" + DateTime.Now.AddMonths(-2).ToString("yyyyMMdd") + "&"; // ì‹œê°„í‘œì‹œì‘ì¼ì
+                string TI_TO_YMD = "TI_TO_YMD="; // ì‹œê°„í‘œì¢…ë£Œì¼ì
 
-                // ÀÌ¹ø ÁÖ ±İ¿äÀÏ ³¯Â¥ °¡Á®¿À±â, Åä/ÀÏ¿äÀÏÀÏ ¶§ ´ÙÀ½ ÁÖ ±İ¿äÀÏ ³¯Â¥ °¡Á®¿À±â
+                // ì´ë²ˆ ì£¼ ê¸ˆìš”ì¼ ë‚ ì§œ ê°€ì ¸ì˜¤ê¸°, í† /ì¼ìš”ì¼ì¼ ë•Œ ë‹¤ìŒ ì£¼ ê¸ˆìš”ì¼ ë‚ ì§œ ê°€ì ¸ì˜¤ê¸°
                 if (Convert.ToInt32(DateTime.Now.DayOfWeek) < Convert.ToInt32(DayOfWeek.Saturday))
-                    // ÀÌ¹ø ÁÖ
+                    // ì´ë²ˆ ì£¼
                     TI_TO_YMD += DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 else
-                    // ´ÙÀ½ ÁÖ
+                    // ë‹¤ìŒ ì£¼
                     TI_TO_YMD += DateTime.Today.AddDays(7 + Convert.ToInt32(DayOfWeek.Friday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyyMMdd");
                 TI_TO_YMD += "&";
 
-                // °¡Á®¿Â ½Ã°£Ç¥ µ¥ÀÌÅÍ: string = ¹İ
+                // ê°€ì ¸ì˜¨ ì‹œê°„í‘œ ë°ì´í„°: string = ë°˜
                 var datas = new Dictionary<string, Timetable>();
                 
-                // ÇĞ³â ¼ö ¸¸Å­ ¹İº¹: 1, 2, 3ÇĞ³â
+                // í•™ë…„ ìˆ˜ ë§Œí¼ ë°˜ë³µ: 1, 2, 3í•™ë…„
                 for(int grade = 1; grade <= 3; grade ++)
                 {
-                    // ÇĞ°ú ¼ö ¸¸Å­ ¹İº¹: °Ç¼³Á¤º¸°ú, °ÇÃà°ú, ÀÚµ¿È­±â°è°ú, µğÁöÅĞÀüÀÚ°ú, ÀÚµ¿Â÷°ú, ÄÄÇ»ÅÍ³×Æ®¿öÅ©°ú
+                    // í•™ê³¼ ìˆ˜ ë§Œí¼ ë°˜ë³µ: ê±´ì„¤ì •ë³´ê³¼, ê±´ì¶•ê³¼, ìë™í™”ê¸°ê³„ê³¼, ë””ì§€í„¸ì „ìê³¼, ìë™ì°¨ê³¼, ì»´í“¨í„°ë„¤íŠ¸ì›Œí¬ê³¼
                     foreach (var dep in departments)
                     {
                         var json = new WebClient().DownloadString(
@@ -275,35 +298,35 @@ namespace WebServer
 
                         if (resultCode == "INFO-000")
                         {
-                            DateTime firstDate = DateTime.ParseExact(row[dataSize - 1]["ALL_TI_YMD"].ToString(), "yyyyMMdd", null); // ¸¶Áö¸·(ÃÖ½Å) ½Ã°£Ç¥ Ã³À½ ³¯Â¥
+                            DateTime firstDate = DateTime.ParseExact(row[dataSize - 1]["ALL_TI_YMD"].ToString(), "yyyyMMdd", null); // ë§ˆì§€ë§‰(ìµœì‹ ) ì‹œê°„í‘œ ì²˜ìŒ ë‚ ì§œ
 
                             if (firstDate.DayOfWeek == DayOfWeek.Friday)
                                 firstDate = firstDate.AddDays(-4);
                             else
                                 firstDate = firstDate.AddDays(-6);
 
-                            // ÀÓ½Ã µñ¼Å³Ê¸®: 1 string = ¹İ, 2 string = ¿äÀÏ, 3 string = ±³½Ã, 4 string = °ú¸ñ
+                            // ì„ì‹œ ë”•ì…”ë„ˆë¦¬: 1 string = ë°˜, 2 string = ìš”ì¼, 3 string = êµì‹œ, 4 string = ê³¼ëª©
                             var dict = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
-                            // ÀÓ½Ã ³¯Â¥ µñ¼Å³Ê¸®: 1 string = ¹İ, 2 string = ¿äÀÏ, 3 string = ³¯Â¥
+                            // ì„ì‹œ ë‚ ì§œ ë”•ì…”ë„ˆë¦¬: 1 string = ë°˜, 2 string = ìš”ì¼, 3 string = ë‚ ì§œ
                             var dateDict = new Dictionary<string, Dictionary<string, string>>();
 
                             for(int i = 0; i < dataSize; i ++)
                             {
                                 var data = row[i];
-                                var date = data["ALL_TI_YMD"].ToString(); // ³¯Â¥ ¹®ÀÚ¿­ Çü½Ä
-                                var datetime = DateTime.ParseExact(date, "yyyyMMdd", null); // ³¯Â¥ DateTime °´Ã¼ Çü½Ä
+                                var date = data["ALL_TI_YMD"].ToString(); // ë‚ ì§œ ë¬¸ìì—´ í˜•ì‹
+                                var datetime = DateTime.ParseExact(date, "yyyyMMdd", null); // ë‚ ì§œ DateTime ê°ì²´ í˜•ì‹
 
-                                // °¡Á®¿Â ³¯Â¥°¡ ¸¶Áö¸· ½Ã°£Ç¥ Ã³À½ ³¯Â¥¿Í °°°Å³ª Å¬ °æ¿ì
+                                // ê°€ì ¸ì˜¨ ë‚ ì§œê°€ ë§ˆì§€ë§‰ ì‹œê°„í‘œ ì²˜ìŒ ë‚ ì§œì™€ ê°™ê±°ë‚˜ í´ ê²½ìš°
                                 if (DateTime.Compare(datetime, firstDate) >= 0)
                                 {
-                                    var className = data["CLRM_NM"].ToString(); // ¹İ ÀÌ¸§: ex) 2ÄÄ³İB
-                                    var dow = datetime.DayOfWeek.ToString(); // ¿äÀÏ
+                                    var className = data["CLRM_NM"].ToString(); // ë°˜ ì´ë¦„: ex) 2ì»´ë„·B
+                                    var dow = datetime.DayOfWeek.ToString(); // ìš”ì¼
 
-                                    // ¼öÁØº°¹İ µî ±âÅ¸ ¹İÀº Á¦¿Ü
+                                    // ìˆ˜ì¤€ë³„ë°˜ ë“± ê¸°íƒ€ ë°˜ì€ ì œì™¸
                                     if (Array.FindIndex(validClassNames, x => className.Contains(x)) == -1)
                                         continue;
 
-                                    // ÀÓ½Ã µñ¼Å³Ê¸® ÃÊ±âÈ­
+                                    // ì„ì‹œ ë”•ì…”ë„ˆë¦¬ ì´ˆê¸°í™”
                                     if (!dict.ContainsKey(className))
                                     {
                                         dict.Add(className, new Dictionary<string, Dictionary<string, string>>());
@@ -314,22 +337,22 @@ namespace WebServer
                                         dict[className].Add("Friday", new Dictionary<string, string>());
                                     }
 
-                                    // ÀÓ½Ã ³¯Â¥ µñ¼Å³Ê¸® ÃÊ±âÈ­
+                                    // ì„ì‹œ ë‚ ì§œ ë”•ì…”ë„ˆë¦¬ ì´ˆê¸°í™”
                                     if (!dateDict.ContainsKey(className))
                                         dateDict.Add(className, new Dictionary<string, string>());
 
-                                    // ³¯Â¥ Ãß°¡
+                                    // ë‚ ì§œ ì¶”ê°€
                                     if (!dateDict[className].ContainsKey(dow))
                                         dateDict[className].Add(dow, date);
 
-                                    var perio = data["PERIO"].ToString(); // ±³½Ã
-                                    var subject = data["ITRT_CNTNT"].ToString(); // °ú¸ñ
+                                    var perio = data["PERIO"].ToString(); // êµì‹œ
+                                    var subject = data["ITRT_CNTNT"].ToString(); // ê³¼ëª©
 
-                                    // °ú¸ñ ¹®ÀÚ¿­¿¡¼­ ºÒÇÊ¿äÇÑ ¹®ÀÚ Á¦°Å
+                                    // ê³¼ëª© ë¬¸ìì—´ì—ì„œ ë¶ˆí•„ìš”í•œ ë¬¸ì ì œê±°
                                     if (subject.Contains("* "))
                                         subject = subject.Replace("* ", "");
 
-                                    // Áßº¹µÇÁö ¾ÊÀº °ªÀ» ÀÓ½Ã µñ¼Å³Ê¸®¿¡ Ãß°¡
+                                    // ì¤‘ë³µë˜ì§€ ì•Šì€ ê°’ì„ ì„ì‹œ ë”•ì…”ë„ˆë¦¬ì— ì¶”ê°€
                                     if (!dict[className][dow].ContainsKey(perio))
                                         dict[className][dow].Add(perio, subject);
                                 }
@@ -344,28 +367,28 @@ namespace WebServer
                                 });
                             }
 
-                            Logger.LogInformation("<Server> " + grade + "ÇĞ³â " + dep + " ½Ã°£Ç¥ °¡Á®¿À±â: ¼º°ø");
+                            Logger.LogInformation("<Server> " + grade + "í•™ë…„ " + dep + " ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°: ì„±ê³µ");
                         }
                         else
-                            Logger.LogInformation("<Server> " + grade + "ÇĞ³â " + dep + " ½Ã°£Ç¥ °¡Á®¿À±â: ½ÇÆĞ - " + resultCode + " (" + resultMsg + ")");
+                            Logger.LogInformation("<Server> " + grade + "í•™ë…„ " + dep + " ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°: ì‹¤íŒ¨ - " + resultCode + " (" + resultMsg + ")");
                     }
                 }
                 return datas;
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> ½Ã°£Ç¥ °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> ì‹œê°„í‘œ ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return Timetable;
         }
         #endregion
 
-        #region ±Ş½Ä ¸Ş´º °¡Á®¿À±â
+        #region ê¸‰ì‹ ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°
         private static LunchMenu GetLunchMenu()
         {
             try
             {
-                string MLSV_YMD = "MLSV_YMD=" + DateTime.Now.ToString("yyyyMM") + "&"; // ±Ş½Ä ÀÏÀÚ
+                string MLSV_YMD = "MLSV_YMD=" + DateTime.Now.ToString("yyyyMM") + "&"; // ê¸‰ì‹ ì¼ì
 
                 var json = new WebClient().DownloadString(
                             LUNCH_MENU_URL +
@@ -396,47 +419,47 @@ namespace WebServer
                     for(int i = 0; i < dataSize; i ++)
                     {
                         var data = row[i];
-                        var date = data["MLSV_YMD"].ToString(); // ³¯Â¥ ¹®ÀÚ¿­ Çü½Ä
-                        var tmpMenus = new List<string>(data["DDISH_NM"].ToString().Split("<br/>")); // <br/>À» ±âÁØÀ¸·Î Àß¶ó ÀÓ½Ã ¸®½ºÆ®¿¡ ÀúÀå
-                        var menus = new List<string>(); // ±Ş½Ä ¸Ş´º ¸®½ºÆ® »ı¼º
+                        var date = data["MLSV_YMD"].ToString(); // ë‚ ì§œ ë¬¸ìì—´ í˜•ì‹
+                        var tmpMenus = new List<string>(data["DDISH_NM"].ToString().Split("<br/>")); // <br/>ì„ ê¸°ì¤€ìœ¼ë¡œ ì˜ë¼ ì„ì‹œ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥
+                        var menus = new List<string>(); // ê¸‰ì‹ ë©”ë‰´ ë¦¬ìŠ¤íŠ¸ ìƒì„±
 
-                        // ¸Ş´º¿¡ ÀÖ´Â ¼ıÀÚ(¾Ë·¹¸£±â Ç¥½Ã) Á¦°Å
+                        // ë©”ë‰´ì— ìˆëŠ” ìˆ«ì(ì•Œë ˆë¥´ê¸° í‘œì‹œ) ì œê±°
                         foreach(var tmp in tmpMenus)
                         {
-                            var regex = new Regex(@"[0-9]"); // Á¤±Ô½Ä: ¼ıÀÚ Æ÷ÇÔ
+                            var regex = new Regex(@"[0-9]"); // ì •ê·œì‹: ìˆ«ì í¬í•¨
                             var menu = tmp;
 
                             for (var j = 0; j < tmp.Length; j ++)
                             {
-                                // ¸Ş´º¿¡ ¼ıÀÚ°¡ Æ÷ÇÔµÇ¾î ÀÖÀ» ¶§
+                                // ë©”ë‰´ì— ìˆ«ìê°€ í¬í•¨ë˜ì–´ ìˆì„ ë•Œ
                                 if(regex.IsMatch(tmp[j].ToString()))
                                 {
-                                    // ±× µÚ¿¡ ¹®ÀÚ ¸ğµÎ Á¦°Å
+                                    // ê·¸ ë’¤ì— ë¬¸ì ëª¨ë‘ ì œê±°
                                     menu = tmp.Substring(0, tmp.IndexOf(tmp[j]));
                                     break;
                                 }
                             }
-                            menus.Add(menu); // ¸®½ºÆ®¿¡ Ãß°¡
+                            menus.Add(menu); // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
                         }
 
-                        lunchMenuData.Data.Add(date, menus); // ±Ş½Ä ¸Ş´º µ¥ÀÌÅÍ¿¡ Ãß°¡
+                        lunchMenuData.Data.Add(date, menus); // ê¸‰ì‹ ë©”ë‰´ ë°ì´í„°ì— ì¶”ê°€
                     }
 
-                    Logger.LogInformation("<Server> ±Ş½Ä ¸Ş´º °¡Á®¿À±â: ¼º°ø");
+                    Logger.LogInformation("<Server> ê¸‰ì‹ ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°: ì„±ê³µ");
                     return lunchMenuData;
                 }
                 else
-                    Logger.LogInformation("<Server> ±Ş½Ä ¸Ş´º °¡Á®¿À±â: ½ÇÆĞ - " + resultCode + " (" + resultMsg + ")");
+                    Logger.LogInformation("<Server> ê¸‰ì‹ ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°: ì‹¤íŒ¨ - " + resultCode + " (" + resultMsg + ")");
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> ±Ş½Ä ¸Ş´º °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> ê¸‰ì‹ ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return LunchMenu;
         }
         #endregion
 
-        #region ÇĞ»ç ÀÏÁ¤ °¡Á®¿À±â
+        #region í•™ì‚¬ ì¼ì • ê°€ì ¸ì˜¤ê¸°
         private static Dictionary<string, SchoolSchedule> GetSchoolSchedule()
         {
             try
@@ -445,12 +468,12 @@ namespace WebServer
 
                 var ssDatas = new Dictionary<string, SchoolSchedule>();
 
-                // 1¿ùºÎÅÍ ´ÙÀ½ ³âµµ 2¿ù±îÁö ¹İº¹
+                // 1ì›”ë¶€í„° ë‹¤ìŒ ë…„ë„ 2ì›”ê¹Œì§€ ë°˜ë³µ
                 for (int i = 1; i <= 14; i++)
                 {
                     int month = i;
 
-                    // 12¿ù ÀÌ»ó(´ÙÀ½ ³âµµ 1¿ù) ÀÏ ¶§
+                    // 12ì›” ì´ìƒ(ë‹¤ìŒ ë…„ë„ 1ì›”) ì¼ ë•Œ
                     if (month > 12)
                     {
                         year++;
@@ -470,7 +493,7 @@ namespace WebServer
                         AA_YMD);
 
                     var schoolSchedule = JObject.Parse(json)["SchoolSchedule"];
-                    // {month}¿ù µ¥ÀÌÅÍ°¡ ¾øÀ» ¶§
+                    // {month}ì›” ë°ì´í„°ê°€ ì—†ì„ ë•Œ
                     if (schoolSchedule == null)
                         continue;
                     var head = schoolSchedule.First["head"];
@@ -501,22 +524,22 @@ namespace WebServer
                         }
                         ssDatas.Add(year + month.ToString().PadLeft(2, '0'), ssData);
 
-                        Logger.LogInformation("<Server> " + year + "³â " + month + "¿ù ÇĞ»ç ÀÏÁ¤ °¡Á®¿À±â: ¼º°ø");
+                        Logger.LogInformation("<Server> " + year + "ë…„ " + month + "ì›” í•™ì‚¬ ì¼ì • ê°€ì ¸ì˜¤ê¸°: ì„±ê³µ");
                     }
                     else
-                        Logger.LogInformation("<Server> " + year + "³â " + month + "¿ù ÇĞ»ç ÀÏÁ¤ °¡Á®¿À±â: ½ÇÆĞ - " + resultCode + " (" + resultMsg + ")");
+                        Logger.LogInformation("<Server> " + year + "ë…„ " + month + "ì›” í•™ì‚¬ ì¼ì • ê°€ì ¸ì˜¤ê¸°: ì‹¤íŒ¨ - " + resultCode + " (" + resultMsg + ")");
                 }
                 return ssDatas;
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> ÇĞ»ç ÀÏÁ¤ °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> í•™ì‚¬ ì¼ì • ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return SchoolSchedule;
         }
         #endregion
 
-        #region ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ
+        #region í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§
         private static async void GetCrawling()
         {
             try
@@ -526,69 +549,75 @@ namespace WebServer
 
                 while (true)
                 {
-                    Logger.LogInformation("<Server> ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ: ÇĞ±³ °øÁö»çÇ×À» °¡Á®¿É´Ï´Ù.");
+                    Logger.LogInformation("<Server> í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§: í•™êµ ê³µì§€ì‚¬í•­ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.");
                     var tmpSchoolNotice = GetSchoolNotice();
 
                     await Task.Delay(500);
 
-                    Logger.LogInformation("<Server> °¡Á¤Åë½Å¹® Å©·Ñ¸µ: ÇĞ±³ °øÁö»çÇ×À» °¡Á®¿É´Ï´Ù.");
+                    Logger.LogInformation("<Server> ê°€ì •í†µì‹ ë¬¸ í¬ë¡¤ë§: í•™êµ ê³µì§€ì‚¬í•­ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.");
                     var tmpSchoolNewsletter = GetSchoolNewsletter();
 
-                    // ÇĞ±³ °øÁö»çÇ× µ¥ÀÌÅÍ °ªÀÇ º¯È­°¡ ÀÖ´ÂÁö È®ÀÎ
-                    if (SchoolNotice != null)
+                    if (tmpSchoolNotice != null)
                     {
-                        if (!JsonCompare(tmpSchoolNotice, SchoolNotice))
+                        // í•™êµ ê³µì§€ì‚¬í•­ ë°ì´í„° ê°’ì˜ ë³€í™”ê°€ ìˆëŠ”ì§€ í™•ì¸
+                        if (SchoolNotice != null)
                         {
-                            DataInfo["SchoolNotice"].Remove("LastUpdate");
-                            DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
+                            if (!JsonCompare(tmpSchoolNotice, SchoolNotice))
+                            {
+                                DataInfo["SchoolNotice"].Remove("LastUpdate");
+                                DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
 
-                            DataInfo["SchoolNotice"].Remove("Size");
+                                DataInfo["SchoolNotice"].Remove("Size");
+                                DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
+
+                                SchoolNotice = tmpSchoolNotice;
+                            }
+                        }
+                        else
+                        {
+                            DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
                             DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
 
                             SchoolNotice = tmpSchoolNotice;
                         }
                     }
-                    else
-                    {
-                        DataInfo["SchoolNotice"].Add("LastUpdate", DateTime.Now.ToString());
-                        DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
 
-                        SchoolNotice = tmpSchoolNotice;
-                    }
-
-                    // °¡Á¤Åë½Å¹® µ¥ÀÌÅÍ °ªÀÇ º¯È­°¡ ÀÖ´ÂÁö È®ÀÎ
-                    if (SchoolNewsletter != null)
+                    if (tmpSchoolNewsletter != null)
                     {
-                        if (!JsonCompare(tmpSchoolNewsletter, SchoolNewsletter))
+                        // ê°€ì •í†µì‹ ë¬¸ ë°ì´í„° ê°’ì˜ ë³€í™”ê°€ ìˆëŠ”ì§€ í™•ì¸
+                        if (SchoolNewsletter != null)
                         {
-                            DataInfo["SchoolNewsletter"].Remove("LastUpdate");
-                            DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
+                            if (!JsonCompare(tmpSchoolNewsletter, SchoolNewsletter))
+                            {
+                                DataInfo["SchoolNewsletter"].Remove("LastUpdate");
+                                DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
 
-                            DataInfo["SchoolNewsletter"].Remove("Size");
+                                DataInfo["SchoolNewsletter"].Remove("Size");
+                                DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
+
+                                SchoolNewsletter = tmpSchoolNewsletter;
+                            }
+                        }
+                        else
+                        {
+                            DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
                             DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
 
                             SchoolNewsletter = tmpSchoolNewsletter;
                         }
                     }
-                    else
-                    {
-                        DataInfo["SchoolNewsletter"].Add("LastUpdate", DateTime.Now.ToString());
-                        DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
 
-                        SchoolNewsletter = tmpSchoolNewsletter;
-                    }
-
-                    await Task.Delay(1800000); // 1000 = 1ÃÊ, ±âº»: 30ºĞ (1800000)
+                    await Task.Delay(1800000); // 1000 = 1ì´ˆ, ê¸°ë³¸: 30ë¶„ (1800000)
                 }
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§: ì˜¤ë¥˜ (" + e.Message + ")");
             }
         }
         #endregion
 
-        #region ÇĞ±³ °øÁö»çÇ× °¡Á®¿À±â
+        #region í•™êµ ê³µì§€ì‚¬í•­ ê°€ì ¸ì˜¤ê¸°
         private static Dictionary<string, Dictionary<string, string>> GetSchoolNotice()
         {
             try
@@ -612,7 +641,7 @@ namespace WebServer
                 var page = 1;
                 var index = 1;
 
-                driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // °øÁö»çÇ× º¸±â ¹öÆ° Å¬¸¯
+                driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // ê³µì§€ì‚¬í•­ ë³´ê¸° ë²„íŠ¼ í´ë¦­
 
                 while (flag)
                 {
@@ -625,7 +654,7 @@ namespace WebServer
 
                             var checkNotice = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]");
 
-                            if (checkNotice.Text == "°øÁö")
+                            if (checkNotice.Text == "ê³µì§€")
                                 continue;
 
                             var articleDate = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[4]");
@@ -650,12 +679,12 @@ namespace WebServer
                                 { "Content", content }
                             };
 
-                            Logger.LogInformation("<Server> ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ: ÇĞ±³ °øÁö»çÇ× (" + title + ")");
+                            Logger.LogInformation("<Server> í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§: í•™êµ ê³µì§€ì‚¬í•­ (" + title + ")");
 
                             datas.Add(index++.ToString(), data);
 
                             driver.Navigate().Back();
-                            driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // °øÁö»çÇ× º¸±â ¹öÆ° Å¬¸¯
+                            driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // ê³µì§€ì‚¬í•­ ë³´ê¸° ë²„íŠ¼ í´ë¦­
                         }
                         catch (NoSuchElementException)
                         {
@@ -670,18 +699,18 @@ namespace WebServer
                 driver.Close();
                 driver.Quit();
 
-                Logger.LogInformation("<Server> ÇĞ±³ °øÁö»çÇ× °¡Á®¿À±â: ¼º°ø");
+                Logger.LogInformation("<Server> í•™êµ ê³µì§€ì‚¬í•­ ê°€ì ¸ì˜¤ê¸°: ì„±ê³µ");
                 return datas;
             }
             catch (Exception e)
             {
-                Logger.LogInformation("<Server> ÇĞ±³ °øÁö»çÇ× °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogInformation("<Server> í•™êµ ê³µì§€ì‚¬í•­ ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return SchoolNotice;
         }
         #endregion
 
-        #region °¡Á¤Åë½Å¹® °¡Á®¿À±â
+        #region ê°€ì •í†µì‹ ë¬¸ ê°€ì ¸ì˜¤ê¸°
         private static Dictionary<string, Dictionary<string, string>> GetSchoolNewsletter()
         {
             try
@@ -705,7 +734,7 @@ namespace WebServer
                 var page = 1;
                 var index = 1;
 
-                driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // °¡Á¤Åë½Å¹® º¸±â ¹öÆ° Å¬¸¯
+                driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // ê°€ì •í†µì‹ ë¬¸ ë³´ê¸° ë²„íŠ¼ í´ë¦­
 
                 while (flag)
                 {
@@ -718,7 +747,7 @@ namespace WebServer
 
                             var checkNotice = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]");
 
-                            if (checkNotice.Text == "°øÁö")
+                            if (checkNotice.Text == "ê³µì§€")
                                 continue;
 
                             var articleDate = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[4]");
@@ -743,12 +772,12 @@ namespace WebServer
                                 { "Content", content }
                             };
 
-                            Logger.LogInformation("<Server> ÇĞ±³ È¨ÆäÀÌÁö Å©·Ñ¸µ: °¡Á¤Åë½Å¹® (" + title + ")");
+                            Logger.LogInformation("<Server> í•™êµ í™ˆí˜ì´ì§€ í¬ë¡¤ë§: ê°€ì •í†µì‹ ë¬¸ (" + title + ")");
 
                             datas.Add(index++.ToString(), data);
 
                             driver.Navigate().Back();
-                            driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // °¡Á¤Åë½Å¹® º¸±â ¹öÆ° Å¬¸¯
+                            driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // ê°€ì •í†µì‹ ë¬¸ ë³´ê¸° ë²„íŠ¼ í´ë¦­
                         }
                         catch (NoSuchElementException)
                         {
@@ -763,18 +792,21 @@ namespace WebServer
                 driver.Close();
                 driver.Quit();
 
-                Logger.LogInformation("<Server> °¡Á¤Åë½Å¹® °¡Á®¿À±â: ¼º°ø");
+                Logger.LogInformation("<Server> ê°€ì •í†µì‹ ë¬¸ ê°€ì ¸ì˜¤ê¸°: ì„±ê³µ");
                 return datas;
             }
             catch (Exception e)
             {
-                Logger.LogInformation("<Server> °¡Á¤Åë½Å¹® °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogInformation("<Server> ê°€ì •í†µì‹ ë¬¸ ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return SchoolNewsletter;
         }
         #endregion
 
-        #region Json ºñ±³
+        #region ê¸‰ì‹ ì•Œë¦¼ ë³´ë‚´ê¸°
+        #endregion
+
+        #region Json ë¹„êµ
         private static bool JsonCompare(object obj1, object obj2)
         {
             try
@@ -790,13 +822,13 @@ namespace WebServer
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> Json µ¥ÀÌÅÍ ºñ±³: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> Json ë°ì´í„° ë¹„êµ: ì˜¤ë¥˜ (" + e.Message + ")");
             }
             return false;
         }
         #endregion
 
-        #region Json ¹ÙÀÌÆ® Å©±â °¡Á®¿À±â
+        #region Json ë°”ì´íŠ¸ í¬ê¸° ê°€ì ¸ì˜¤ê¸°
         private static int GetJsonByteLength(object obj)
         {
             try
@@ -809,7 +841,7 @@ namespace WebServer
             }
             catch (Exception e)
             {
-                Logger.LogError("<Server> Json µ¥ÀÌÅÍ ¹ÙÀÌÆ® Å©±â °¡Á®¿À±â: ¿À·ù (" + e.Message + ")");
+                Logger.LogError("<Server> Json ë°ì´í„° ë°”ì´íŠ¸ í¬ê¸° ê°€ì ¸ì˜¤ê¸°: ì˜¤ë¥˜ (" + e.Message + ")");
                 return 0;
             }
         }

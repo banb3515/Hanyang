@@ -619,6 +619,7 @@ namespace Hanyang.Pages
                         return;
                     }
                     MainPage.GetInstance().GetData(refresh: true);
+                    task = false;
                 }
                 else
                 {

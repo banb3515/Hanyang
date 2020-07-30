@@ -99,7 +99,7 @@ namespace Hanyang
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg5MzIwQDMxMzgyZTMyMmUzMG1rdm93cVY1UXUxZDlPS0dESmh5dFBrNmlNenBGYS9pU0RUN3VKV3JwOEE9");
 
             InitSetting();
-            GetSetting();
+            GetProfile();
 
             InitializeComponent();
 
@@ -191,20 +191,17 @@ namespace Hanyang
         }
         #endregion
 
-        #region 설정 가져오기
-        private void GetSetting()
+        #region 프로필 가져오기
+        private void GetProfile()
         {
             var controller = new JsonController("setting");
             var read = controller.Read();
-            var resettingMsg = "더 보기 -> 설정에서 다시 설정을 해주세요.\n! 설정을 하지 않을 시 UI표시에 문제가 생길 수 있습니다.";
 
             try
             {
                 if (read != null)
                 {
-                    if (!read.ContainsKey("Grade") || !read.ContainsKey("Class") || !read.ContainsKey("Number") || !read.ContainsKey("Name"))
-                        DependencyService.Get<IToastMessage>().Shorttime("* 프로필이 설정되지 않았습니다.\n" + resettingMsg);
-                    else
+                    if (read.ContainsKey("Grade") && read.ContainsKey("Class") && read.ContainsKey("Number") && read.ContainsKey("Name"))
                     {
                         Grade = Convert.ToInt32(read["Grade"]);
                         Class = Convert.ToInt32(read["Class"]);
@@ -214,12 +211,10 @@ namespace Hanyang
                         BirthDay = Convert.ToInt32(read["BirthDay"]);
                     }
                 }
-                else
-                    DependencyService.Get<IToastMessage>().Shorttime("* 설정 파일을 찾을 수 없습니다.\n" + resettingMsg);
             }
             catch (Exception e)
             {
-                DependencyService.Get<IToastMessage>().Shorttime("※ 설정 가져오기 오류\n" + e.Message);
+                DependencyService.Get<IToastMessage>().Shorttime("※ 프로필 가져오기 오류\n" + e.Message);
             }
         }
         #endregion

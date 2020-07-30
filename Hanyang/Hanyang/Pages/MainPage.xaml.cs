@@ -56,6 +56,43 @@ namespace Hanyang.Pages
 
             GetData();
             GetCrawling();
+            
+            var appInfo = GetAppInfo();
+
+            if (appInfo["Version"] != App.Version)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var store = "";
+
+                    switch (Device.RuntimePlatform)
+                    {
+                        case Device.Android:
+                            store = "Google Play 스토어";
+                            break;
+                        case Device.iOS:
+                            store = "앱 스토어";
+                            break;
+                    }
+
+                    var result = await DisplayAlert("업데이트", "최신 버전(v" + appInfo["Version"] + ")으로 업데이트할 수 있습니다.\n\n" +
+                        "※ 업데이트 내용\n" + appInfo["UpdateContent"] + "\n\n" +
+                        "[이동] 버튼 클릭 시 " + store + "로 이동합니다.", "이동", "취소");
+
+                    if (result)
+                    {
+                        switch (Device.RuntimePlatform)
+                        {
+                            case Device.Android:
+                                await Launcher.OpenAsync(new Uri("market://details?id=io.github.banb3515.hanyang"));
+                                break;
+                            case Device.iOS:
+                                await Launcher.OpenAsync(new Uri("itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=io.github.banb3515.hanyang&amp;onlyLatestVersion=true&amp;pageNumber=0&amp;sortOrdering=1&amp;type=Purple+Software"));
+                                break;
+                        }
+                    }
+                });
+            }
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
@@ -578,6 +615,40 @@ namespace Hanyang.Pages
                     });
                     return null;
                 }
+            }
+
+            return tempDict;
+        }
+        #endregion
+
+        #region 앱 정보 가져오기
+        public Dictionary<string, string> GetAppInfo()
+        {
+            var json = WebServer.GetJson("appinfo");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("앱 정보 가져오기", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return null;
+            }
+
+            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json.Result);
+
+            if (tempDict.ContainsKey("ResultCode"))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (tempDict["ResultCode"] == "999")
+                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" 
+                            + tempDict["ResultMsg"]);
+                    else
+                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n" +
+                            tempDict["ResultMsg"], sendError: false);
+                });
+                return null;
             }
 
             return tempDict;

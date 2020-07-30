@@ -54,18 +54,11 @@ namespace Hanyang.Pages
         #endregion
 
         #region 함수
-        #region 브라우저 열기
-        private void OpenBrowser(string url)
-        {
-            var browser = DependencyService.Get<IBrowser>();
-            browser.Open(url);
-        }
-        #endregion
-
         #region 새 페이지 열기
         private async void NewPage(Page page)
         {
             await Navigation.PushAsync(page);
+            task = false;
         }
         #endregion
 
@@ -384,6 +377,7 @@ namespace Hanyang.Pages
                         return;
                     }
                     MainPage.GetInstance().GetCrawling(refresh: true);
+                    task = false;
                 }
                 else
                 {
@@ -400,24 +394,36 @@ namespace Hanyang.Pages
         #region 공지사항 목록 글 탭
         private void NoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var article = e.Item as Article;
-            NewPage(new ArticlePage("SchoolNotice", article.Id));
+            if (!task)
+            {
+                task = true;
+                var article = e.Item as Article;
+                NewPage(new ArticlePage("SchoolNotice", article.Id));
+            }
         }
         #endregion
 
         #region 가정통신문 목록 글 탭
         private void SNList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var article = e.Item as Article;
-            NewPage(new ArticlePage("SchoolNewsletter", article.Id));
+            if (!task)
+            {
+                task = true;
+                var article = e.Item as Article;
+                NewPage(new ArticlePage("SchoolNewsletter", article.Id));
+            }
         }
         #endregion
 
         #region 앱 공지사항 목록 글 탭
         private void AppNoticeList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //var article = e.Item as Article;
-            //NewPage(new ArticlePage("앱 공지사항", article.Id));
+            if (!task)
+            {
+                task = true;
+                //var article = e.Item as Article;
+                //NewPage(new ArticlePage("앱 공지사항", article.Id));
+            }
         }
         #endregion
 

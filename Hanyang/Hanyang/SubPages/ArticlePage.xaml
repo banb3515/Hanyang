@@ -23,6 +23,10 @@
 
             <!--#region 작성자, 작성 날짜-->
             <Grid Margin="10,-2,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
                 <Label x:Name="ArticleWriter"
                            FontSize="14"
                            TextColor="Black"/>
