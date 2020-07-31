@@ -164,14 +164,14 @@ namespace Hanyang.Pages
                             var lunchMenuT = "";
                             var schoolScheduleT = "";
 
-                            if (App.Grade != 0 &&
+                            if (App.Grade != 0 && !dataInfo.ContainsKey("Timetable-" + App.GetClassName()) ||
                                 dataInfo["Timetable-" + App.GetClassName()]["Size"] != serverDataInfo["Timetable-" + App.GetClassName()]["Size"])
                                 timetableT = GetTimetable();
 
-                            if (dataInfo["LunchMenu"]["Size"] != serverDataInfo["LunchMenu"]["Size"])
+                            if (!dataInfo.ContainsKey("LunchMenu") || dataInfo["LunchMenu"]["Size"] != serverDataInfo["LunchMenu"]["Size"])
                                 lunchMenuT = GetLunchMenu();
 
-                            if (dataInfo["SchoolSchedule"]["Size"] != serverDataInfo["SchoolSchedule"]["Size"])
+                            if (!dataInfo.ContainsKey("SchoolSchedule") || dataInfo["SchoolSchedule"]["Size"] != serverDataInfo["SchoolSchedule"]["Size"])
                                 schoolScheduleT = GetSchoolSchedule();
 
                             if(timetableT != "" || lunchMenuT != "" || schoolScheduleT != "")
@@ -375,10 +375,10 @@ namespace Hanyang.Pages
                             var schoolNoticeT = "";
                             var schoolNewsletterT = "";
 
-                            if (dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
+                            if (!dataInfo["SchoolNotice"].ContainsKey("Size") || dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
                                 schoolNoticeT = GetSchoolNotice();
 
-                            if (dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
+                            if (!dataInfo["SchoolNewsletter"].ContainsKey("Size") || dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
                                 schoolNewsletterT = GetSchoolNewsletter();
 
                             if (schoolNoticeT != "" || schoolNewsletterT != "")
