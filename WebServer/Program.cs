@@ -54,6 +54,8 @@ namespace WebServer
         public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // 학교 공지사항
 
         public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // 가정통신문
+
+        public static Dictionary<string, Dictionary<string, string>> AppNotice { get; set; } // 앱 공지사항
         #endregion
 
         #region NEIS API
@@ -106,6 +108,21 @@ namespace WebServer
             };
 
             DataInfo = new Dictionary<string, Dictionary<string, string>>();
+
+            AppNotice = new Dictionary<string, Dictionary<string, string>>();
+            AppNotice.Add("1", new Dictionary<string, string> 
+            {
+                { "Name", "한양이" },
+                { "Date", "2020-08-01" },
+                { "Title", "한양이 앱 테스트 버전" },
+                { "Content", "<p>한양이 앱 테스트 버전입니다.</p>" },
+            });
+
+            DataInfo.Add("AppNotice", new Dictionary<string, string> 
+            {
+                { "LastUpdate", DateTime.Now.ToString() },
+                { "Size", ByteSize.FromBytes(GetJsonByteLength(AppNotice)).ToString() }
+            });
 
             Thread getDataThread = new Thread(new ThreadStart(GetData));
             getDataThread.Start();

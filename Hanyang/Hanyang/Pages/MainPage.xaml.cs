@@ -55,7 +55,7 @@ namespace Hanyang.Pages
             }
 
             GetData();
-            GetCrawling();
+            GetArticle();
             
             var appInfo = GetAppInfo();
 
@@ -330,8 +330,8 @@ namespace Hanyang.Pages
         }
         #endregion
 
-        #region 크롤링 데이터 가져오기
-        public async void GetCrawling(bool refresh = false)
+        #region 게시글 가져오기
+        public async void GetArticle(bool refresh = false)
         {
             try
             {
@@ -352,6 +352,13 @@ namespace Hanyang.Pages
                 if (json != null)
                     App.SchoolNewsletter = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
 
+                // 앱 공지사항 파일 읽기
+                controller = new JsonController("app_notice");
+                json = controller.ReadString();
+
+                if (json != null)
+                    App.AppNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
                     try
@@ -369,11 +376,15 @@ namespace Hanyang.Pages
                                 if (App.SchoolNewsletter != null)
                                     TabbedHomePage.GetInstance().InitSchoolNewsletter();
 
+                                if (App.AppNotice != null)
+                                    TabbedHomePage.GetInstance().InitAppNotice();
+
                                 return;
                             }
 
                             var schoolNoticeT = "";
                             var schoolNewsletterT = "";
+                            var appNoticeT = "";
 
                             if (!dataInfo["SchoolNotice"].ContainsKey("Size") || dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
                                 schoolNoticeT = GetSchoolNotice();
@@ -381,7 +392,10 @@ namespace Hanyang.Pages
                             if (!dataInfo["SchoolNewsletter"].ContainsKey("Size") || dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
                                 schoolNewsletterT = GetSchoolNewsletter();
 
-                            if (schoolNoticeT != "" || schoolNewsletterT != "")
+                            if (!dataInfo["AppNotice"].ContainsKey("Size") || dataInfo["AppNotice"]["Size"] != serverDataInfo["AppNotice"]["Size"])
+                                appNoticeT = GetAppNotice();
+
+                            if (schoolNoticeT != "" || schoolNewsletterT != "" || appNoticeT != "")
                             {
                                 // 파일로 저장
                                 controller = new JsonController("data_info");
@@ -408,17 +422,31 @@ namespace Hanyang.Pages
                                 await controller.Write(JObject.Parse(schoolNewsletterT));
                             }
 
+                            // 앱 공지사항 초기화
+                            TabbedHomePage.GetInstance().InitAppNotice();
+
+                            if (appNoticeT != "")
+                            {
+                                // 파일로 저장
+                                controller = new JsonController("app_notice");
+                                await controller.Write(JObject.Parse(appNoticeT));
+                            }
+
                             return;
                         }
 
                         var schoolNotice = "";
                         var schoolNewsletter = "";
+                        var appNotice = "";
 
                         if (refresh || App.SchoolNotice == null)
                             schoolNotice = GetSchoolNotice();
 
                         if (refresh || App.SchoolNewsletter == null)
                             schoolNewsletter = GetSchoolNewsletter();
+
+                        if (refresh || App.AppNotice == null)
+                            appNotice = GetAppNotice();
 
                         if (schoolNotice != "")
                         {
@@ -439,10 +467,20 @@ namespace Hanyang.Pages
                             controller = new JsonController("school_newsletter");
                             await controller.Write(JObject.Parse(schoolNewsletter));
                         }
+
+                        if (appNotice != "")
+                        {
+                            // 가정통신문 초기화
+                            TabbedHomePage.GetInstance().InitAppNotice();
+
+                            // 파일로 저장
+                            controller = new JsonController("app_notice");
+                            await controller.Write(JObject.Parse(appNotice));
+                        }
                     }
                     catch (Exception e)
                     {
-                        await ErrorAlert("크롤링 데이터 가져오기", "크롤링 데이터를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
+                        await ErrorAlert("게시글 가져오기", "게시글을 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
                     }
                 }
                 else
@@ -468,12 +506,92 @@ namespace Hanyang.Pages
 
                         TabbedHomePage.GetInstance().InitSchoolNewsletter();
                     }
+
+                    // 앱 공지사항 파일 읽기
+                    controller = new JsonController("app_notice");
+                    json = controller.ReadString();
+
+                    if (json != null)
+                    {
+                        App.AppNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+                        TabbedHomePage.GetInstance().InitAppNotice();
+                    }
                 }
             }
             catch (Exception e)
             {
-                await ErrorAlert("크롤링 데이터 가져오기 (인터넷 상태)", "크롤링 데이터를 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
+                await ErrorAlert("게시글 가져오기 (인터넷 상태)", "게시글을 가져오는 도중 오류가 발생했습니다.\n" + e.Message);
             }
+        }
+        #endregion
+
+        #region 데이터 정보 가져오기
+        public Dictionary<string, Dictionary<string, string>> GetDataInfo()
+        {
+            var json = WebServer.GetJson("datainfo");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("데이터 정보 가져오기", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return null;
+            }
+
+            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+
+            foreach (var value in tempDict.Values)
+            {
+                if (value.ContainsKey("ResultCode"))
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        if (value["ResultCode"] == "999")
+                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + value["ResultMsg"]);
+                        else
+                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n" + value["ResultMsg"], sendError: false);
+                    });
+                    return null;
+                }
+            }
+
+            return tempDict;
+        }
+        #endregion
+
+        #region 앱 정보 가져오기
+        public Dictionary<string, string> GetAppInfo()
+        {
+            var json = WebServer.GetJson("appinfo");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("앱 정보 가져오기", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return null;
+            }
+
+            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json.Result);
+
+            if (tempDict.ContainsKey("ResultCode"))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (tempDict["ResultCode"] == "999")
+                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n"
+                            + tempDict["ResultMsg"]);
+                    else
+                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n" +
+                            tempDict["ResultMsg"], sendError: false);
+                });
+                return null;
+            }
+
+            return tempDict;
         }
         #endregion
 
@@ -586,75 +704,6 @@ namespace Hanyang.Pages
         }
         #endregion
 
-        #region 데이터 정보 가져오기
-        public Dictionary<string, Dictionary<string, string>> GetDataInfo()
-        {
-            var json = WebServer.GetJson("datainfo");
-
-            if (json == null)
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await ErrorAlert("데이터 정보 가져오기", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
-                });
-                return null;
-            }
-
-            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
-
-            foreach (var value in tempDict.Values)
-            {
-                if (value.ContainsKey("ResultCode"))
-                {
-                    Device.BeginInvokeOnMainThread(async () =>
-                    {
-                        if (value["ResultCode"] == "999")
-                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + value["ResultMsg"]);
-                        else
-                            await ErrorAlert("데이터 정보 가져오기 (" + value["ResultCode"] + ")", "데이터 정보를 가져오는 도중 오류가 발생했습니다.\n" + value["ResultMsg"], sendError: false);
-                    });
-                    return null;
-                }
-            }
-
-            return tempDict;
-        }
-        #endregion
-
-        #region 앱 정보 가져오기
-        public Dictionary<string, string> GetAppInfo()
-        {
-            var json = WebServer.GetJson("appinfo");
-
-            if (json == null)
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await ErrorAlert("앱 정보 가져오기", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
-                });
-                return null;
-            }
-
-            var tempDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json.Result);
-
-            if (tempDict.ContainsKey("ResultCode"))
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    if (tempDict["ResultCode"] == "999")
-                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" 
-                            + tempDict["ResultMsg"]);
-                    else
-                        await ErrorAlert("앱 정보 가져오기 (" + tempDict["ResultCode"] + ")", "앱 정보를 가져오는 도중 오류가 발생했습니다.\n" +
-                            tempDict["ResultMsg"], sendError: false);
-                });
-                return null;
-            }
-
-            return tempDict;
-        }
-        #endregion
-
         #region 학교 공지사항 가져오기
         public string GetSchoolNotice()
         {
@@ -721,6 +770,41 @@ namespace Hanyang.Pages
             }
 
             App.SchoolNewsletter = schoolNewsletter;
+            return json.Result;
+        }
+        #endregion
+
+        #region 앱 공지사항 가져오기
+        public string GetAppNotice()
+        {
+            var json = WebServer.GetJson("appnotice");
+
+            if (json == null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await ErrorAlert("앱 공지사항 가져오기", "앱 공지사항을 가져오는 도중 오류가 발생했습니다.\n인터넷 상태를 확인해주세요.", sendError: false);
+                });
+                return "";
+            }
+
+            var appNotice = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json.Result);
+
+            if (appNotice.ContainsKey("Error"))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (appNotice["Error"]["ResultCode"] == "999")
+                        await ErrorAlert("앱 공지사항 가져오기 (" + appNotice["Error"]["ResultCode"] + ")",
+                            "앱 공지사항을 가져오는 도중 알 수 없는 오류가 발생했습니다.\n" + appNotice["Error"]["ResultMsg"]);
+                    else
+                        await ErrorAlert("앱 공지사항 가져오기 (" + appNotice["Error"]["ResultCode"] + ")",
+                            "앱 공지사항을 가져오는 도중 오류가 발생했습니다.\n" + appNotice["Error"]["ResultMsg"], sendError: false);
+                });
+                return "";
+            }
+
+            App.AppNotice = appNotice;
             return json.Result;
         }
         #endregion

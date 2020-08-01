@@ -43,8 +43,8 @@ namespace Hanyang.SubPages
                     article = App.SchoolNewsletter[id.ToString()];
                     title = "가정통신문";
                     break;
-                case "앱 공지사항":
-                    //article = App.GetAppNotices()[id];
+                case "AppNotice":
+                    article = App.AppNotice[id.ToString()];
                     title = "앱 공지사항";
                     break;
             }
@@ -57,6 +57,13 @@ namespace Hanyang.SubPages
             ArticleWriter.Text = article["Name"];
             ArticleDate.Text = article["Date"];
             ArticleContents.Text = article["Content"];
+
+            if(Title == "앱 공지사항")
+            {
+                ViewWebLine.IsVisible = false;
+                ViewWeb.IsVisible = false;
+                ViewWebDesc.IsVisible = false;
+            }
             #endregion
         }
         #endregion
@@ -99,6 +106,8 @@ namespace Hanyang.SubPages
 
             if (Title == "공지사항")
                 url = "http://hanyang.sen.hs.kr/8665/subMenu.do";
+            if (Title == "가정통신문")
+                url = "http://hanyang.sen.hs.kr/8666/subMenu.do";
 
             NewPage(new WebViewPage(Title, url));
         }

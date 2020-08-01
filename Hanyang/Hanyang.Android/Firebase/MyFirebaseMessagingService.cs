@@ -18,6 +18,7 @@ namespace Hanyang.Droid.Firebase
         }
 
         [System.Obsolete]
+        #pragma warning disable CS0809
         public override void OnMessageReceived(RemoteMessage message)
         {
             base.OnMessageReceived(message);

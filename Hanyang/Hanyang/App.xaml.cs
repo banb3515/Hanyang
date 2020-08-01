@@ -53,6 +53,8 @@ namespace Hanyang
         public static Dictionary<string, Dictionary<string, string>> SchoolNotice { get; set; } // 학교 공지사항
 
         public static Dictionary<string, Dictionary<string, string>> SchoolNewsletter { get; set; } // 가정통신문
+
+        public static Dictionary<string, Dictionary<string, string>> AppNotice { get; set; } // 앱 공지사항
         #endregion
 
         #region 앱 종료 확인

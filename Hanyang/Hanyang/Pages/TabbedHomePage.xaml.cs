@@ -152,6 +152,31 @@ namespace Hanyang.Pages
         }
         #endregion
 
+        #region 가정통신문 초기화
+        public void InitAppNotice()
+        {
+            var noticeList = new List<Article>();
+            var notices = App.AppNotice;
+
+            foreach (var key in notices.Keys)
+            {
+                var title = notices[key]["Title"];
+
+                var article = new Article
+                {
+                    Id = Convert.ToInt32(key),
+                    Title = title,
+                    Info = notices[key]["Name"] + " | " + notices[key]["Date"]
+                };
+
+                noticeList.Add(article);
+            }
+
+            AppNoticeList.ItemsSource = noticeList;
+            AppNoticeList.IsVisible = false;
+        }
+        #endregion
+
         #region 인스턴스 가져오기
         public static TabbedHomePage GetInstance()
         {
@@ -347,11 +372,13 @@ namespace Hanyang.Pages
 
                     var schoolNoticeByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolNotice).Result).ToString();
                     var schoolNewsletterByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolNewsletter).Result).ToString();
+                    var appNoticeByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.AppNotice).Result).ToString();
 
                     var schoolNotice = dataInfo["SchoolNotice"]["Size"];
                     var schoolNewsletter = dataInfo["SchoolNewsletter"]["Size"];
+                    var appNotice = dataInfo["AppNotice"]["Size"];
 
-                    if (schoolNoticeByte == schoolNotice && schoolNewsletterByte == schoolNewsletter)
+                    if (schoolNoticeByte == schoolNotice && schoolNewsletterByte == schoolNewsletter && appNoticeByte == appNotice)
                     {
                         await DisplayAlert("새로고침", "이미 최신 데이터입니다.", "확인");
                         task = false;
@@ -360,13 +387,15 @@ namespace Hanyang.Pages
 
                     var total = ByteSize.Parse(schoolNotice);
                     total = total.Add(ByteSize.Parse(schoolNewsletter));
+                    total = total.Add(ByteSize.Parse(appNotice));
 
                     var result = await DisplayAlert("새로고침",
                         "데이터를 새로 다운받습니다.\n" +
                         "LTE/5G를 사용 중인 경우 데이터가 사용됩니다.\n\n" +
                         "※ 다운받는 데이터 크기\n" +
                         "- 공지사항: " + schoolNotice + "\n" +
-                        "- 가정통신문: " + schoolNewsletter + "\n\n" +
+                        "- 가정통신문: " + schoolNewsletter + "\n" +
+                        "- 앱 공지사항: " + appNotice + "\n\n" +
                         "총 [" + total.ToString() + "] 를 다운받습니다.\n\n" +
                         "* 글에 포함된 사진은 다운되지 않습니다.",
                         "확인", "취소");
@@ -376,7 +405,7 @@ namespace Hanyang.Pages
                         task = false;
                         return;
                     }
-                    MainPage.GetInstance().GetCrawling(refresh: true);
+                    MainPage.GetInstance().GetArticle(refresh: true);
                     task = false;
                 }
                 else
@@ -421,8 +450,8 @@ namespace Hanyang.Pages
             if (!task)
             {
                 task = true;
-                //var article = e.Item as Article;
-                //NewPage(new ArticlePage("앱 공지사항", article.Id));
+                var article = e.Item as Article;
+                NewPage(new ArticlePage("AppNotice", article.Id));
             }
         }
         #endregion
