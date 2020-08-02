@@ -1,7 +1,9 @@
 ﻿#region API 참조
 using Hanyang.Interface;
+using Hanyang.Controller;
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -13,10 +15,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 using Newtonsoft.Json;
-using Hanyang.Models;
 using Newtonsoft.Json.Linq;
-using Hanyang.Controller;
-using System.Text;
 #endregion
 
 namespace Hanyang.Pages

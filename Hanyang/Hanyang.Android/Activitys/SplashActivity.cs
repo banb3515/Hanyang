@@ -9,8 +9,6 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
-
-using Java.Lang;
 #endregion
 
 namespace Hanyang.Droid.Activitys

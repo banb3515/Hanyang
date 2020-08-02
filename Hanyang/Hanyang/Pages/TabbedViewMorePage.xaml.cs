@@ -42,13 +42,6 @@ namespace Hanyang.Pages
             NewPage(new AppInfoPage());
         }
         #endregion
-
-        #region 오픈소스 라이센스 버튼
-        private void OSLButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
         #endregion
     }
 }

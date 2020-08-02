@@ -1,8 +1,8 @@
 ﻿#region API 참조
-using Android.Widget;
-
 using Hanyang.Droid.Request;
 using Hanyang.Interface;
+
+using Android.Widget;
 
 using Xamarin.Forms;
 #endregion

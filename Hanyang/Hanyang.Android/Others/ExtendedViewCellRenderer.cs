@@ -1,5 +1,6 @@
 ﻿#region API 참조
 using Hanyang.Others;
+using Hanyang.Droid.Others;
 
 using System.ComponentModel;
 
@@ -9,7 +10,6 @@ using Android.Views;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Hanyang.Droid.Others;
 #endregion
 
 [assembly: ExportRenderer(typeof(ExtendedViewCell), typeof(ExtendedViewCellRenderer))]

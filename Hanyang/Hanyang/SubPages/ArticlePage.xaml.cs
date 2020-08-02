@@ -1,8 +1,7 @@
 ﻿#region API 참조
-using Hanyang.Models;
-using HtmlAgilityPack;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion

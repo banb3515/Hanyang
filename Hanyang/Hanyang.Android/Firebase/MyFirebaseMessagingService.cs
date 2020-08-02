@@ -1,9 +1,10 @@
 ﻿#region API 참조
+using Hanyang.Droid.Helper;
+
 using Android.App;
 using Android.Content;
 
 using Firebase.Messaging;
-using Hanyang.Droid.Helper;
 #endregion
 
 namespace Hanyang.Droid.Firebase

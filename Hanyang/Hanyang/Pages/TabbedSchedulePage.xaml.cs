@@ -1,20 +1,21 @@
 ﻿#region API 참조
-using ByteSizeLib;
 using Hanyang.Animations;
 using Hanyang.Interface;
 using Hanyang.Models;
-using Hanyang.Others;
+
 using Models;
-using Newtonsoft.Json;
-using Syncfusion.SfCalendar.XForms;
+
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using Syncfusion.SfCalendar.XForms;
+
+using ByteSizeLib;
 #endregion
 
 namespace Hanyang.Pages

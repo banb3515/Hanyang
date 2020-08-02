@@ -2,11 +2,15 @@
 using Hanyang.Controller;
 using Hanyang.Interface;
 using Hanyang.Popup;
+
 using Newtonsoft.Json.Linq;
+
 using Rg.Plugins.Popup.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion

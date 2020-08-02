@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 using Newtonsoft.Json.Linq;
 
 using Rg.Plugins.Popup.Services;
-using Xamarin.Essentials;
-using System.Diagnostics;
+
 using ByteSizeLib;
 #endregion
 

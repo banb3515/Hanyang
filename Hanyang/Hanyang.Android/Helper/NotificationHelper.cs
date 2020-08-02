@@ -1,4 +1,8 @@
 ﻿#region API 참조
+using Hanyang.Droid.Activitys;
+using Hanyang.Droid.Helper;
+using Hanyang.Interface;
+
 using System;
 using System.Diagnostics;
 
@@ -6,10 +10,6 @@ using Android.App;
 using Android.Content;
 using Android.Media;
 using Android.Support.V4.App;
-
-using Hanyang.Droid.Activitys;
-using Hanyang.Droid.Helper;
-using Hanyang.Interface;
 
 using Xamarin.Forms;
 #endregion
