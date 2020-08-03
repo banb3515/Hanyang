@@ -326,7 +326,7 @@ namespace Hanyang.Pages
         }
         #endregion
 
-        #region 한양이(앱 공지사항) 보기 버튼
+        #region 앱 공지사항 보기 버튼
         private async void ViewAppNoticeButton_Clicked(object sender, EventArgs e)
         {
             if (!task && view != "app_notice")
@@ -374,9 +374,24 @@ namespace Hanyang.Pages
                     var schoolNewsletterByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolNewsletter).Result).ToString();
                     var appNoticeByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.AppNotice).Result).ToString();
 
-                    var schoolNotice = dataInfo["SchoolNotice"]["Size"];
-                    var schoolNewsletter = dataInfo["SchoolNewsletter"]["Size"];
-                    var appNotice = dataInfo["AppNotice"]["Size"];
+                    string schoolNotice;
+                    string schoolNewsletter;
+                    string appNotice;
+
+                    if (dataInfo["SchoolNotice"].ContainsKey("Size"))
+                        schoolNotice = dataInfo["SchoolNotice"]["Size"];
+                    else
+                        schoolNotice = schoolNoticeByte;
+
+                    if (dataInfo["SchoolNewsletter"].ContainsKey("Size"))
+                        schoolNewsletter = dataInfo["SchoolNewsletter"]["Size"];
+                    else
+                        schoolNewsletter = schoolNewsletterByte;
+
+                    if (dataInfo["AppNotice"].ContainsKey("Size"))
+                        appNotice = dataInfo["AppNotice"]["Size"];
+                    else
+                        appNotice = appNoticeByte;
 
                     if (schoolNoticeByte == schoolNotice && schoolNewsletterByte == schoolNewsletter && appNoticeByte == appNotice)
                     {

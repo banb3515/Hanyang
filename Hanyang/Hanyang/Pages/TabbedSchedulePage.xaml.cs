@@ -589,9 +589,24 @@ namespace Hanyang.Pages
                     var lunchMenuByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.LunchMenu).Result).ToString();
                     var schoolScheduleByte = ByteSize.FromBytes(MainPage.GetInstance().GetJsonByteLength(App.SchoolSchedule).Result).ToString();
 
-                    var timetable = dataInfo["Timetable-" + App.GetClassName()]["Size"];
-                    var lunchMenu = dataInfo["LunchMenu"]["Size"];
-                    var schoolSchedule = dataInfo["SchoolSchedule"]["Size"];
+                    string timetable;
+                    string lunchMenu;
+                    string schoolSchedule;
+
+                    if (dataInfo["Timetable-" + App.GetClassName()].ContainsKey("Size"))
+                        timetable = dataInfo["Timetable-" + App.GetClassName()]["Size"];
+                    else
+                        timetable = timetableByte;
+
+                    if (dataInfo["LunchMenu"].ContainsKey("Size"))
+                        lunchMenu = dataInfo["LunchMenu"]["Size"];
+                    else
+                        lunchMenu = lunchMenuByte;
+
+                    if (dataInfo["SchoolSchedule"].ContainsKey("Size"))
+                        schoolSchedule = dataInfo["SchoolSchedule"]["Size"];
+                    else
+                        schoolSchedule = schoolScheduleByte;
 
                     if(timetableByte == timetable && lunchMenuByte == lunchMenu && schoolScheduleByte == schoolSchedule)
                     {

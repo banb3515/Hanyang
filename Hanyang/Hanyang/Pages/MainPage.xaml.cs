@@ -163,14 +163,14 @@ namespace Hanyang.Pages
                             var lunchMenuT = "";
                             var schoolScheduleT = "";
 
-                            if (App.Grade != 0 && !dataInfo.ContainsKey("Timetable-" + App.GetClassName()) ||
+                            if (App.Grade != 0 && !dataInfo.ContainsKey("Timetable-" + App.GetClassName()) && !serverDataInfo.ContainsKey("Timetable-" + App.GetClassName()) ||
                                 dataInfo["Timetable-" + App.GetClassName()]["Size"] != serverDataInfo["Timetable-" + App.GetClassName()]["Size"])
                                 timetableT = GetTimetable();
 
-                            if (!dataInfo.ContainsKey("LunchMenu") || dataInfo["LunchMenu"]["Size"] != serverDataInfo["LunchMenu"]["Size"])
+                            if (!dataInfo.ContainsKey("LunchMenu") && !serverDataInfo.ContainsKey("LunchMenu") || dataInfo["LunchMenu"]["Size"] != serverDataInfo["LunchMenu"]["Size"])
                                 lunchMenuT = GetLunchMenu();
 
-                            if (!dataInfo.ContainsKey("SchoolSchedule") || dataInfo["SchoolSchedule"]["Size"] != serverDataInfo["SchoolSchedule"]["Size"])
+                            if (!dataInfo.ContainsKey("SchoolSchedule") && !serverDataInfo.ContainsKey("SchoolSchedule") || dataInfo["SchoolSchedule"]["Size"] != serverDataInfo["SchoolSchedule"]["Size"])
                                 schoolScheduleT = GetSchoolSchedule();
 
                             if(timetableT != "" || lunchMenuT != "" || schoolScheduleT != "")
@@ -385,13 +385,13 @@ namespace Hanyang.Pages
                             var schoolNewsletterT = "";
                             var appNoticeT = "";
 
-                            if (!dataInfo["SchoolNotice"].ContainsKey("Size") || dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
+                            if (!dataInfo["SchoolNotice"].ContainsKey("Size") && !serverDataInfo["SchoolNotice"].ContainsKey("Size") || dataInfo["SchoolNotice"]["Size"] != serverDataInfo["SchoolNotice"]["Size"])
                                 schoolNoticeT = GetSchoolNotice();
 
-                            if (!dataInfo["SchoolNewsletter"].ContainsKey("Size") || dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
+                            if (!dataInfo["SchoolNewsletter"].ContainsKey("Size") && !serverDataInfo["SchoolNewsletter"].ContainsKey("Size") || dataInfo["SchoolNewsletter"]["Size"] != serverDataInfo["SchoolNewsletter"]["Size"])
                                 schoolNewsletterT = GetSchoolNewsletter();
 
-                            if (!dataInfo["AppNotice"].ContainsKey("Size") || dataInfo["AppNotice"]["Size"] != serverDataInfo["AppNotice"]["Size"])
+                            if (!dataInfo["AppNotice"].ContainsKey("Size") && !serverDataInfo["AppNotice"].ContainsKey("Size") || dataInfo["AppNotice"]["Size"] != serverDataInfo["AppNotice"]["Size"])
                                 appNoticeT = GetAppNotice();
 
                             if (schoolNoticeT != "" || schoolNewsletterT != "" || appNoticeT != "")

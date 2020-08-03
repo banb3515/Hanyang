@@ -13867,25 +13867,22 @@ namespace Hanyang.Droid
 			public const int setting = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int setup_page_background = 2131165377;
+			public const int splash_screen_bg = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int splash_screen_bg = 2131165378;
+			public const int splash_screen_logo = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int splash_screen_logo = 2131165379;
+			public const int tooltip_frame_dark = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int tooltip_frame_dark = 2131165380;
+			public const int tooltip_frame_light = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int tooltip_frame_light = 2131165381;
+			public const int xamarin_logo = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int xamarin_logo = 2131165382;
-			
-			// aapt resource value: 0x7F0700C7
-			public const int xamarin_text_logo = 2131165383;
+			public const int xamarin_text_logo = 2131165382;
 			
 			static Drawable()
 			{
