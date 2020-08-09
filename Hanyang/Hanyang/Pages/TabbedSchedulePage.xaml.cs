@@ -634,7 +634,7 @@ namespace Hanyang.Pages
                         task = false;
                         return;
                     }
-                    MainPage.GetInstance().GetData(refresh: true);
+                    await MainPage.GetInstance().GetData(refresh: true);
                     task = false;
                 }
                 else

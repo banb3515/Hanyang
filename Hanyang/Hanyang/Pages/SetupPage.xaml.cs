@@ -186,6 +186,9 @@ namespace Hanyang.Pages
                 {
                     task = true;
 
+                    Back.IsVisible = false;
+                    Forward.IsVisible = false;
+
                     Page2Label4.IsVisible = true;
                     Page2Label4.Opacity = 0;
 

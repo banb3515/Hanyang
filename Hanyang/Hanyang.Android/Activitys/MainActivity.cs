@@ -26,6 +26,8 @@ namespace Hanyang.Droid.Activitys
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
+            AiForms.Dialogs.Dialogs.Init(this);
+
             HtmlLabelRenderer.Initialize();
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 

@@ -420,7 +420,7 @@ namespace Hanyang.Pages
                         task = false;
                         return;
                     }
-                    MainPage.GetInstance().GetArticle(refresh: true);
+                    await MainPage.GetInstance().GetArticle(refresh: true);
                     task = false;
                 }
                 else

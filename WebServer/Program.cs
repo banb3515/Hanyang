@@ -252,6 +252,7 @@ namespace WebServer
                 catch (Exception e)
                 {
                     Logger.LogError("<Server> 데이터 가져오기: 오류 (" + e.Message + ")");
+                    continue;
                 }
 
                 await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
@@ -623,6 +624,7 @@ namespace WebServer
                 catch (Exception e)
                 {
                     Logger.LogError("<Server> 학교 홈페이지 크롤링: 오류 (" + e.Message + ")");
+                    continue;
                 }
 
                 await Task.Delay(1800000); // 1000 = 1초, 기본: 30분 (1800000)
@@ -645,7 +647,7 @@ namespace WebServer
                 options.AddArgument("proxy-server='direct://'");
                 options.AddArgument("proxy-bypass-list=*");
 
-                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromSeconds(300));
+                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities());
                 driver.Navigate().GoToUrl("http://hanyang.sen.hs.kr/index.do");
 
                 var datas = new Dictionary<string, Dictionary<string, string>>();
@@ -738,7 +740,7 @@ namespace WebServer
                 options.AddArgument("proxy-server='direct://'");
                 options.AddArgument("proxy-bypass-list=*");
 
-                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromSeconds(300));
+                var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities());
                 driver.Navigate().GoToUrl("http://hanyang.sen.hs.kr/index.do");
 
                 var datas = new Dictionary<string, Dictionary<string, string>>();

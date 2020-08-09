@@ -45,9 +45,9 @@
     <AndroidSigningStorePass>Bblack2142!</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>Hanyang</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Bblack2142!</AndroidSigningKeyPass>
-    <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -82,6 +82,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AiForms.Dialogs">
+      <Version>1.0.7</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>

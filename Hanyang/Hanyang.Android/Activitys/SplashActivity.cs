@@ -35,7 +35,7 @@ namespace Hanyang.Droid.Activitys
 
                 while (progressBarStatus < 1000)
                 {
-                    progressBarStatus += 2;
+                    progressBarStatus += 4;
                     progressBar.Progress = progressBarStatus;
                     System.Threading.Thread.Sleep(1);
                 }

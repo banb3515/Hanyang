@@ -16,10 +16,11 @@ namespace Hanyang.iOS
         {
             Rg.Plugins.Popup.Popup.Init();
 
+            AiForms.Dialogs.Dialogs.Init();
+
             HtmlLabelRenderer.Initialize();
             global::Xamarin.Forms.Forms.Init();
 
-            global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

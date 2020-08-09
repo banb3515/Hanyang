@@ -25,6 +25,1958 @@ namespace Hanyang.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::AiForms.Dialogs.Resource.Animation.abc_fade_in = global::Hanyang.Droid.Resource.Animation.abc_fade_in;
+			global::AiForms.Dialogs.Resource.Animation.abc_fade_out = global::Hanyang.Droid.Resource.Animation.abc_fade_out;
+			global::AiForms.Dialogs.Resource.Animation.abc_grow_fade_in_from_bottom = global::Hanyang.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::AiForms.Dialogs.Resource.Animation.abc_popup_enter = global::Hanyang.Droid.Resource.Animation.abc_popup_enter;
+			global::AiForms.Dialogs.Resource.Animation.abc_popup_exit = global::Hanyang.Droid.Resource.Animation.abc_popup_exit;
+			global::AiForms.Dialogs.Resource.Animation.abc_shrink_fade_out_from_bottom = global::Hanyang.Droid.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::AiForms.Dialogs.Resource.Animation.abc_slide_in_bottom = global::Hanyang.Droid.Resource.Animation.abc_slide_in_bottom;
+			global::AiForms.Dialogs.Resource.Animation.abc_slide_in_top = global::Hanyang.Droid.Resource.Animation.abc_slide_in_top;
+			global::AiForms.Dialogs.Resource.Animation.abc_slide_out_bottom = global::Hanyang.Droid.Resource.Animation.abc_slide_out_bottom;
+			global::AiForms.Dialogs.Resource.Animation.abc_slide_out_top = global::Hanyang.Droid.Resource.Animation.abc_slide_out_top;
+			global::AiForms.Dialogs.Resource.Animation.design_bottom_sheet_slide_in = global::Hanyang.Droid.Resource.Animation.design_bottom_sheet_slide_in;
+			global::AiForms.Dialogs.Resource.Animation.design_bottom_sheet_slide_out = global::Hanyang.Droid.Resource.Animation.design_bottom_sheet_slide_out;
+			global::AiForms.Dialogs.Resource.Animation.design_snackbar_in = global::Hanyang.Droid.Resource.Animation.design_snackbar_in;
+			global::AiForms.Dialogs.Resource.Animation.design_snackbar_out = global::Hanyang.Droid.Resource.Animation.design_snackbar_out;
+			global::AiForms.Dialogs.Resource.Animation.extra_dialog_enter = global::Hanyang.Droid.Resource.Animation.extra_dialog_enter;
+			global::AiForms.Dialogs.Resource.Animation.extra_dialog_exit = global::Hanyang.Droid.Resource.Animation.extra_dialog_exit;
+			global::AiForms.Dialogs.Resource.Animator.design_appbar_state_list_animator = global::Hanyang.Droid.Resource.Animator.design_appbar_state_list_animator;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarDivider = global::Hanyang.Droid.Resource.Attribute.actionBarDivider;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarItemBackground = global::Hanyang.Droid.Resource.Attribute.actionBarItemBackground;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarPopupTheme = global::Hanyang.Droid.Resource.Attribute.actionBarPopupTheme;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarSize = global::Hanyang.Droid.Resource.Attribute.actionBarSize;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarSplitStyle = global::Hanyang.Droid.Resource.Attribute.actionBarSplitStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarStyle = global::Hanyang.Droid.Resource.Attribute.actionBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarTabBarStyle = global::Hanyang.Droid.Resource.Attribute.actionBarTabBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarTabStyle = global::Hanyang.Droid.Resource.Attribute.actionBarTabStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarTabTextStyle = global::Hanyang.Droid.Resource.Attribute.actionBarTabTextStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarTheme = global::Hanyang.Droid.Resource.Attribute.actionBarTheme;
+			global::AiForms.Dialogs.Resource.Attribute.actionBarWidgetTheme = global::Hanyang.Droid.Resource.Attribute.actionBarWidgetTheme;
+			global::AiForms.Dialogs.Resource.Attribute.actionButtonStyle = global::Hanyang.Droid.Resource.Attribute.actionButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionDropDownStyle = global::Hanyang.Droid.Resource.Attribute.actionDropDownStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionLayout = global::Hanyang.Droid.Resource.Attribute.actionLayout;
+			global::AiForms.Dialogs.Resource.Attribute.actionMenuTextAppearance = global::Hanyang.Droid.Resource.Attribute.actionMenuTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.actionMenuTextColor = global::Hanyang.Droid.Resource.Attribute.actionMenuTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeBackground = global::Hanyang.Droid.Resource.Attribute.actionModeBackground;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeCloseButtonStyle = global::Hanyang.Droid.Resource.Attribute.actionModeCloseButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeCloseDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeCloseDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeCopyDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeCopyDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeCutDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeCutDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeFindDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeFindDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModePasteDrawable = global::Hanyang.Droid.Resource.Attribute.actionModePasteDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModePopupWindowStyle = global::Hanyang.Droid.Resource.Attribute.actionModePopupWindowStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeSelectAllDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeSelectAllDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeShareDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeShareDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeSplitBackground = global::Hanyang.Droid.Resource.Attribute.actionModeSplitBackground;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeStyle = global::Hanyang.Droid.Resource.Attribute.actionModeStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionModeWebSearchDrawable = global::Hanyang.Droid.Resource.Attribute.actionModeWebSearchDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.actionOverflowButtonStyle = global::Hanyang.Droid.Resource.Attribute.actionOverflowButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionOverflowMenuStyle = global::Hanyang.Droid.Resource.Attribute.actionOverflowMenuStyle;
+			global::AiForms.Dialogs.Resource.Attribute.actionProviderClass = global::Hanyang.Droid.Resource.Attribute.actionProviderClass;
+			global::AiForms.Dialogs.Resource.Attribute.actionViewClass = global::Hanyang.Droid.Resource.Attribute.actionViewClass;
+			global::AiForms.Dialogs.Resource.Attribute.activityChooserViewStyle = global::Hanyang.Droid.Resource.Attribute.activityChooserViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.alertDialogButtonGroupStyle = global::Hanyang.Droid.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::AiForms.Dialogs.Resource.Attribute.alertDialogCenterButtons = global::Hanyang.Droid.Resource.Attribute.alertDialogCenterButtons;
+			global::AiForms.Dialogs.Resource.Attribute.alertDialogStyle = global::Hanyang.Droid.Resource.Attribute.alertDialogStyle;
+			global::AiForms.Dialogs.Resource.Attribute.alertDialogTheme = global::Hanyang.Droid.Resource.Attribute.alertDialogTheme;
+			global::AiForms.Dialogs.Resource.Attribute.allowStacking = global::Hanyang.Droid.Resource.Attribute.allowStacking;
+			global::AiForms.Dialogs.Resource.Attribute.alpha = global::Hanyang.Droid.Resource.Attribute.alpha;
+			global::AiForms.Dialogs.Resource.Attribute.alphabeticModifiers = global::Hanyang.Droid.Resource.Attribute.alphabeticModifiers;
+			global::AiForms.Dialogs.Resource.Attribute.arrowHeadLength = global::Hanyang.Droid.Resource.Attribute.arrowHeadLength;
+			global::AiForms.Dialogs.Resource.Attribute.arrowShaftLength = global::Hanyang.Droid.Resource.Attribute.arrowShaftLength;
+			global::AiForms.Dialogs.Resource.Attribute.autoCompleteTextViewStyle = global::Hanyang.Droid.Resource.Attribute.autoCompleteTextViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.autoSizeMaxTextSize = global::Hanyang.Droid.Resource.Attribute.autoSizeMaxTextSize;
+			global::AiForms.Dialogs.Resource.Attribute.autoSizeMinTextSize = global::Hanyang.Droid.Resource.Attribute.autoSizeMinTextSize;
+			global::AiForms.Dialogs.Resource.Attribute.autoSizePresetSizes = global::Hanyang.Droid.Resource.Attribute.autoSizePresetSizes;
+			global::AiForms.Dialogs.Resource.Attribute.autoSizeStepGranularity = global::Hanyang.Droid.Resource.Attribute.autoSizeStepGranularity;
+			global::AiForms.Dialogs.Resource.Attribute.autoSizeTextType = global::Hanyang.Droid.Resource.Attribute.autoSizeTextType;
+			global::AiForms.Dialogs.Resource.Attribute.background = global::Hanyang.Droid.Resource.Attribute.background;
+			global::AiForms.Dialogs.Resource.Attribute.backgroundSplit = global::Hanyang.Droid.Resource.Attribute.backgroundSplit;
+			global::AiForms.Dialogs.Resource.Attribute.backgroundStacked = global::Hanyang.Droid.Resource.Attribute.backgroundStacked;
+			global::AiForms.Dialogs.Resource.Attribute.backgroundTint = global::Hanyang.Droid.Resource.Attribute.backgroundTint;
+			global::AiForms.Dialogs.Resource.Attribute.backgroundTintMode = global::Hanyang.Droid.Resource.Attribute.backgroundTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.barLength = global::Hanyang.Droid.Resource.Attribute.barLength;
+			global::AiForms.Dialogs.Resource.Attribute.behavior_autoHide = global::Hanyang.Droid.Resource.Attribute.behavior_autoHide;
+			global::AiForms.Dialogs.Resource.Attribute.behavior_hideable = global::Hanyang.Droid.Resource.Attribute.behavior_hideable;
+			global::AiForms.Dialogs.Resource.Attribute.behavior_overlapTop = global::Hanyang.Droid.Resource.Attribute.behavior_overlapTop;
+			global::AiForms.Dialogs.Resource.Attribute.behavior_peekHeight = global::Hanyang.Droid.Resource.Attribute.behavior_peekHeight;
+			global::AiForms.Dialogs.Resource.Attribute.behavior_skipCollapsed = global::Hanyang.Droid.Resource.Attribute.behavior_skipCollapsed;
+			global::AiForms.Dialogs.Resource.Attribute.borderlessButtonStyle = global::Hanyang.Droid.Resource.Attribute.borderlessButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.borderWidth = global::Hanyang.Droid.Resource.Attribute.borderWidth;
+			global::AiForms.Dialogs.Resource.Attribute.bottomSheetDialogTheme = global::Hanyang.Droid.Resource.Attribute.bottomSheetDialogTheme;
+			global::AiForms.Dialogs.Resource.Attribute.bottomSheetStyle = global::Hanyang.Droid.Resource.Attribute.bottomSheetStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonBarButtonStyle = global::Hanyang.Droid.Resource.Attribute.buttonBarButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonBarNegativeButtonStyle = global::Hanyang.Droid.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonBarNeutralButtonStyle = global::Hanyang.Droid.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonBarPositiveButtonStyle = global::Hanyang.Droid.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonBarStyle = global::Hanyang.Droid.Resource.Attribute.buttonBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonGravity = global::Hanyang.Droid.Resource.Attribute.buttonGravity;
+			global::AiForms.Dialogs.Resource.Attribute.buttonPanelSideLayout = global::Hanyang.Droid.Resource.Attribute.buttonPanelSideLayout;
+			global::AiForms.Dialogs.Resource.Attribute.buttonStyle = global::Hanyang.Droid.Resource.Attribute.buttonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.buttonStyleSmall = global::Hanyang.Droid.Resource.Attribute.buttonStyleSmall;
+			global::AiForms.Dialogs.Resource.Attribute.buttonTint = global::Hanyang.Droid.Resource.Attribute.buttonTint;
+			global::AiForms.Dialogs.Resource.Attribute.buttonTintMode = global::Hanyang.Droid.Resource.Attribute.buttonTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.cardBackgroundColor = global::Hanyang.Droid.Resource.Attribute.cardBackgroundColor;
+			global::AiForms.Dialogs.Resource.Attribute.cardCornerRadius = global::Hanyang.Droid.Resource.Attribute.cardCornerRadius;
+			global::AiForms.Dialogs.Resource.Attribute.cardElevation = global::Hanyang.Droid.Resource.Attribute.cardElevation;
+			global::AiForms.Dialogs.Resource.Attribute.cardMaxElevation = global::Hanyang.Droid.Resource.Attribute.cardMaxElevation;
+			global::AiForms.Dialogs.Resource.Attribute.cardPreventCornerOverlap = global::Hanyang.Droid.Resource.Attribute.cardPreventCornerOverlap;
+			global::AiForms.Dialogs.Resource.Attribute.cardUseCompatPadding = global::Hanyang.Droid.Resource.Attribute.cardUseCompatPadding;
+			global::AiForms.Dialogs.Resource.Attribute.checkboxStyle = global::Hanyang.Droid.Resource.Attribute.checkboxStyle;
+			global::AiForms.Dialogs.Resource.Attribute.checkedTextViewStyle = global::Hanyang.Droid.Resource.Attribute.checkedTextViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.closeIcon = global::Hanyang.Droid.Resource.Attribute.closeIcon;
+			global::AiForms.Dialogs.Resource.Attribute.closeItemLayout = global::Hanyang.Droid.Resource.Attribute.closeItemLayout;
+			global::AiForms.Dialogs.Resource.Attribute.collapseContentDescription = global::Hanyang.Droid.Resource.Attribute.collapseContentDescription;
+			global::AiForms.Dialogs.Resource.Attribute.collapsedTitleGravity = global::Hanyang.Droid.Resource.Attribute.collapsedTitleGravity;
+			global::AiForms.Dialogs.Resource.Attribute.collapsedTitleTextAppearance = global::Hanyang.Droid.Resource.Attribute.collapsedTitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.collapseIcon = global::Hanyang.Droid.Resource.Attribute.collapseIcon;
+			global::AiForms.Dialogs.Resource.Attribute.color = global::Hanyang.Droid.Resource.Attribute.color;
+			global::AiForms.Dialogs.Resource.Attribute.colorAccent = global::Hanyang.Droid.Resource.Attribute.colorAccent;
+			global::AiForms.Dialogs.Resource.Attribute.colorBackgroundFloating = global::Hanyang.Droid.Resource.Attribute.colorBackgroundFloating;
+			global::AiForms.Dialogs.Resource.Attribute.colorButtonNormal = global::Hanyang.Droid.Resource.Attribute.colorButtonNormal;
+			global::AiForms.Dialogs.Resource.Attribute.colorControlActivated = global::Hanyang.Droid.Resource.Attribute.colorControlActivated;
+			global::AiForms.Dialogs.Resource.Attribute.colorControlHighlight = global::Hanyang.Droid.Resource.Attribute.colorControlHighlight;
+			global::AiForms.Dialogs.Resource.Attribute.colorControlNormal = global::Hanyang.Droid.Resource.Attribute.colorControlNormal;
+			global::AiForms.Dialogs.Resource.Attribute.colorError = global::Hanyang.Droid.Resource.Attribute.colorError;
+			global::AiForms.Dialogs.Resource.Attribute.colorPrimary = global::Hanyang.Droid.Resource.Attribute.colorPrimary;
+			global::AiForms.Dialogs.Resource.Attribute.colorPrimaryDark = global::Hanyang.Droid.Resource.Attribute.colorPrimaryDark;
+			global::AiForms.Dialogs.Resource.Attribute.colorSwitchThumbNormal = global::Hanyang.Droid.Resource.Attribute.colorSwitchThumbNormal;
+			global::AiForms.Dialogs.Resource.Attribute.commitIcon = global::Hanyang.Droid.Resource.Attribute.commitIcon;
+			global::AiForms.Dialogs.Resource.Attribute.contentDescription = global::Hanyang.Droid.Resource.Attribute.contentDescription;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetEnd = global::Hanyang.Droid.Resource.Attribute.contentInsetEnd;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetEndWithActions = global::Hanyang.Droid.Resource.Attribute.contentInsetEndWithActions;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetLeft = global::Hanyang.Droid.Resource.Attribute.contentInsetLeft;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetRight = global::Hanyang.Droid.Resource.Attribute.contentInsetRight;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetStart = global::Hanyang.Droid.Resource.Attribute.contentInsetStart;
+			global::AiForms.Dialogs.Resource.Attribute.contentInsetStartWithNavigation = global::Hanyang.Droid.Resource.Attribute.contentInsetStartWithNavigation;
+			global::AiForms.Dialogs.Resource.Attribute.contentPadding = global::Hanyang.Droid.Resource.Attribute.contentPadding;
+			global::AiForms.Dialogs.Resource.Attribute.contentPaddingBottom = global::Hanyang.Droid.Resource.Attribute.contentPaddingBottom;
+			global::AiForms.Dialogs.Resource.Attribute.contentPaddingLeft = global::Hanyang.Droid.Resource.Attribute.contentPaddingLeft;
+			global::AiForms.Dialogs.Resource.Attribute.contentPaddingRight = global::Hanyang.Droid.Resource.Attribute.contentPaddingRight;
+			global::AiForms.Dialogs.Resource.Attribute.contentPaddingTop = global::Hanyang.Droid.Resource.Attribute.contentPaddingTop;
+			global::AiForms.Dialogs.Resource.Attribute.contentScrim = global::Hanyang.Droid.Resource.Attribute.contentScrim;
+			global::AiForms.Dialogs.Resource.Attribute.controlBackground = global::Hanyang.Droid.Resource.Attribute.controlBackground;
+			global::AiForms.Dialogs.Resource.Attribute.counterEnabled = global::Hanyang.Droid.Resource.Attribute.counterEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.counterMaxLength = global::Hanyang.Droid.Resource.Attribute.counterMaxLength;
+			global::AiForms.Dialogs.Resource.Attribute.counterOverflowTextAppearance = global::Hanyang.Droid.Resource.Attribute.counterOverflowTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.counterTextAppearance = global::Hanyang.Droid.Resource.Attribute.counterTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.customNavigationLayout = global::Hanyang.Droid.Resource.Attribute.customNavigationLayout;
+			global::AiForms.Dialogs.Resource.Attribute.defaultQueryHint = global::Hanyang.Droid.Resource.Attribute.defaultQueryHint;
+			global::AiForms.Dialogs.Resource.Attribute.dialogPreferredPadding = global::Hanyang.Droid.Resource.Attribute.dialogPreferredPadding;
+			global::AiForms.Dialogs.Resource.Attribute.dialogTheme = global::Hanyang.Droid.Resource.Attribute.dialogTheme;
+			global::AiForms.Dialogs.Resource.Attribute.displayOptions = global::Hanyang.Droid.Resource.Attribute.displayOptions;
+			global::AiForms.Dialogs.Resource.Attribute.divider = global::Hanyang.Droid.Resource.Attribute.divider;
+			global::AiForms.Dialogs.Resource.Attribute.dividerHorizontal = global::Hanyang.Droid.Resource.Attribute.dividerHorizontal;
+			global::AiForms.Dialogs.Resource.Attribute.dividerPadding = global::Hanyang.Droid.Resource.Attribute.dividerPadding;
+			global::AiForms.Dialogs.Resource.Attribute.dividerVertical = global::Hanyang.Droid.Resource.Attribute.dividerVertical;
+			global::AiForms.Dialogs.Resource.Attribute.drawableSize = global::Hanyang.Droid.Resource.Attribute.drawableSize;
+			global::AiForms.Dialogs.Resource.Attribute.drawerArrowStyle = global::Hanyang.Droid.Resource.Attribute.drawerArrowStyle;
+			global::AiForms.Dialogs.Resource.Attribute.dropdownListPreferredItemHeight = global::Hanyang.Droid.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::AiForms.Dialogs.Resource.Attribute.dropDownListViewStyle = global::Hanyang.Droid.Resource.Attribute.dropDownListViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.editTextBackground = global::Hanyang.Droid.Resource.Attribute.editTextBackground;
+			global::AiForms.Dialogs.Resource.Attribute.editTextColor = global::Hanyang.Droid.Resource.Attribute.editTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.editTextStyle = global::Hanyang.Droid.Resource.Attribute.editTextStyle;
+			global::AiForms.Dialogs.Resource.Attribute.elevation = global::Hanyang.Droid.Resource.Attribute.elevation;
+			global::AiForms.Dialogs.Resource.Attribute.errorEnabled = global::Hanyang.Droid.Resource.Attribute.errorEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.errorTextAppearance = global::Hanyang.Droid.Resource.Attribute.errorTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Hanyang.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.expanded = global::Hanyang.Droid.Resource.Attribute.expanded;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleGravity = global::Hanyang.Droid.Resource.Attribute.expandedTitleGravity;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleMargin = global::Hanyang.Droid.Resource.Attribute.expandedTitleMargin;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleMarginBottom = global::Hanyang.Droid.Resource.Attribute.expandedTitleMarginBottom;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleMarginEnd = global::Hanyang.Droid.Resource.Attribute.expandedTitleMarginEnd;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleMarginStart = global::Hanyang.Droid.Resource.Attribute.expandedTitleMarginStart;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleMarginTop = global::Hanyang.Droid.Resource.Attribute.expandedTitleMarginTop;
+			global::AiForms.Dialogs.Resource.Attribute.expandedTitleTextAppearance = global::Hanyang.Droid.Resource.Attribute.expandedTitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.fabSize = global::Hanyang.Droid.Resource.Attribute.fabSize;
+			global::AiForms.Dialogs.Resource.Attribute.fastScrollEnabled = global::Hanyang.Droid.Resource.Attribute.fastScrollEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::Hanyang.Droid.Resource.Attribute.fastScrollHorizontalThumbDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.fastScrollHorizontalTrackDrawable = global::Hanyang.Droid.Resource.Attribute.fastScrollHorizontalTrackDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.fastScrollVerticalThumbDrawable = global::Hanyang.Droid.Resource.Attribute.fastScrollVerticalThumbDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.fastScrollVerticalTrackDrawable = global::Hanyang.Droid.Resource.Attribute.fastScrollVerticalTrackDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.font = global::Hanyang.Droid.Resource.Attribute.font;
+			global::AiForms.Dialogs.Resource.Attribute.fontFamily = global::Hanyang.Droid.Resource.Attribute.fontFamily;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderAuthority = global::Hanyang.Droid.Resource.Attribute.fontProviderAuthority;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderCerts = global::Hanyang.Droid.Resource.Attribute.fontProviderCerts;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderFetchStrategy = global::Hanyang.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderFetchTimeout = global::Hanyang.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderPackage = global::Hanyang.Droid.Resource.Attribute.fontProviderPackage;
+			global::AiForms.Dialogs.Resource.Attribute.fontProviderQuery = global::Hanyang.Droid.Resource.Attribute.fontProviderQuery;
+			global::AiForms.Dialogs.Resource.Attribute.fontStyle = global::Hanyang.Droid.Resource.Attribute.fontStyle;
+			global::AiForms.Dialogs.Resource.Attribute.fontWeight = global::Hanyang.Droid.Resource.Attribute.fontWeight;
+			global::AiForms.Dialogs.Resource.Attribute.foregroundInsidePadding = global::Hanyang.Droid.Resource.Attribute.foregroundInsidePadding;
+			global::AiForms.Dialogs.Resource.Attribute.gapBetweenBars = global::Hanyang.Droid.Resource.Attribute.gapBetweenBars;
+			global::AiForms.Dialogs.Resource.Attribute.goIcon = global::Hanyang.Droid.Resource.Attribute.goIcon;
+			global::AiForms.Dialogs.Resource.Attribute.headerLayout = global::Hanyang.Droid.Resource.Attribute.headerLayout;
+			global::AiForms.Dialogs.Resource.Attribute.height = global::Hanyang.Droid.Resource.Attribute.height;
+			global::AiForms.Dialogs.Resource.Attribute.hideOnContentScroll = global::Hanyang.Droid.Resource.Attribute.hideOnContentScroll;
+			global::AiForms.Dialogs.Resource.Attribute.hintAnimationEnabled = global::Hanyang.Droid.Resource.Attribute.hintAnimationEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.hintEnabled = global::Hanyang.Droid.Resource.Attribute.hintEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.hintTextAppearance = global::Hanyang.Droid.Resource.Attribute.hintTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.homeAsUpIndicator = global::Hanyang.Droid.Resource.Attribute.homeAsUpIndicator;
+			global::AiForms.Dialogs.Resource.Attribute.homeLayout = global::Hanyang.Droid.Resource.Attribute.homeLayout;
+			global::AiForms.Dialogs.Resource.Attribute.icon = global::Hanyang.Droid.Resource.Attribute.icon;
+			global::AiForms.Dialogs.Resource.Attribute.iconifiedByDefault = global::Hanyang.Droid.Resource.Attribute.iconifiedByDefault;
+			global::AiForms.Dialogs.Resource.Attribute.iconTint = global::Hanyang.Droid.Resource.Attribute.iconTint;
+			global::AiForms.Dialogs.Resource.Attribute.iconTintMode = global::Hanyang.Droid.Resource.Attribute.iconTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.imageButtonStyle = global::Hanyang.Droid.Resource.Attribute.imageButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.indeterminateProgressStyle = global::Hanyang.Droid.Resource.Attribute.indeterminateProgressStyle;
+			global::AiForms.Dialogs.Resource.Attribute.initialActivityCount = global::Hanyang.Droid.Resource.Attribute.initialActivityCount;
+			global::AiForms.Dialogs.Resource.Attribute.insetForeground = global::Hanyang.Droid.Resource.Attribute.insetForeground;
+			global::AiForms.Dialogs.Resource.Attribute.isLightTheme = global::Hanyang.Droid.Resource.Attribute.isLightTheme;
+			global::AiForms.Dialogs.Resource.Attribute.itemBackground = global::Hanyang.Droid.Resource.Attribute.itemBackground;
+			global::AiForms.Dialogs.Resource.Attribute.itemIconTint = global::Hanyang.Droid.Resource.Attribute.itemIconTint;
+			global::AiForms.Dialogs.Resource.Attribute.itemPadding = global::Hanyang.Droid.Resource.Attribute.itemPadding;
+			global::AiForms.Dialogs.Resource.Attribute.itemTextAppearance = global::Hanyang.Droid.Resource.Attribute.itemTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.itemTextColor = global::Hanyang.Droid.Resource.Attribute.itemTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.keylines = global::Hanyang.Droid.Resource.Attribute.keylines;
+			global::AiForms.Dialogs.Resource.Attribute.layout = global::Hanyang.Droid.Resource.Attribute.layout;
+			global::AiForms.Dialogs.Resource.Attribute.layoutManager = global::Hanyang.Droid.Resource.Attribute.layoutManager;
+			global::AiForms.Dialogs.Resource.Attribute.layout_anchor = global::Hanyang.Droid.Resource.Attribute.layout_anchor;
+			global::AiForms.Dialogs.Resource.Attribute.layout_anchorGravity = global::Hanyang.Droid.Resource.Attribute.layout_anchorGravity;
+			global::AiForms.Dialogs.Resource.Attribute.layout_behavior = global::Hanyang.Droid.Resource.Attribute.layout_behavior;
+			global::AiForms.Dialogs.Resource.Attribute.layout_collapseMode = global::Hanyang.Droid.Resource.Attribute.layout_collapseMode;
+			global::AiForms.Dialogs.Resource.Attribute.layout_collapseParallaxMultiplier = global::Hanyang.Droid.Resource.Attribute.layout_collapseParallaxMultiplier;
+			global::AiForms.Dialogs.Resource.Attribute.layout_dodgeInsetEdges = global::Hanyang.Droid.Resource.Attribute.layout_dodgeInsetEdges;
+			global::AiForms.Dialogs.Resource.Attribute.layout_insetEdge = global::Hanyang.Droid.Resource.Attribute.layout_insetEdge;
+			global::AiForms.Dialogs.Resource.Attribute.layout_keyline = global::Hanyang.Droid.Resource.Attribute.layout_keyline;
+			global::AiForms.Dialogs.Resource.Attribute.layout_scrollFlags = global::Hanyang.Droid.Resource.Attribute.layout_scrollFlags;
+			global::AiForms.Dialogs.Resource.Attribute.layout_scrollInterpolator = global::Hanyang.Droid.Resource.Attribute.layout_scrollInterpolator;
+			global::AiForms.Dialogs.Resource.Attribute.listChoiceBackgroundIndicator = global::Hanyang.Droid.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::AiForms.Dialogs.Resource.Attribute.listDividerAlertDialog = global::Hanyang.Droid.Resource.Attribute.listDividerAlertDialog;
+			global::AiForms.Dialogs.Resource.Attribute.listItemLayout = global::Hanyang.Droid.Resource.Attribute.listItemLayout;
+			global::AiForms.Dialogs.Resource.Attribute.listLayout = global::Hanyang.Droid.Resource.Attribute.listLayout;
+			global::AiForms.Dialogs.Resource.Attribute.listMenuViewStyle = global::Hanyang.Droid.Resource.Attribute.listMenuViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.listPopupWindowStyle = global::Hanyang.Droid.Resource.Attribute.listPopupWindowStyle;
+			global::AiForms.Dialogs.Resource.Attribute.listPreferredItemHeight = global::Hanyang.Droid.Resource.Attribute.listPreferredItemHeight;
+			global::AiForms.Dialogs.Resource.Attribute.listPreferredItemHeightLarge = global::Hanyang.Droid.Resource.Attribute.listPreferredItemHeightLarge;
+			global::AiForms.Dialogs.Resource.Attribute.listPreferredItemHeightSmall = global::Hanyang.Droid.Resource.Attribute.listPreferredItemHeightSmall;
+			global::AiForms.Dialogs.Resource.Attribute.listPreferredItemPaddingLeft = global::Hanyang.Droid.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::AiForms.Dialogs.Resource.Attribute.listPreferredItemPaddingRight = global::Hanyang.Droid.Resource.Attribute.listPreferredItemPaddingRight;
+			global::AiForms.Dialogs.Resource.Attribute.logo = global::Hanyang.Droid.Resource.Attribute.logo;
+			global::AiForms.Dialogs.Resource.Attribute.logoDescription = global::Hanyang.Droid.Resource.Attribute.logoDescription;
+			global::AiForms.Dialogs.Resource.Attribute.maxActionInlineWidth = global::Hanyang.Droid.Resource.Attribute.maxActionInlineWidth;
+			global::AiForms.Dialogs.Resource.Attribute.maxButtonHeight = global::Hanyang.Droid.Resource.Attribute.maxButtonHeight;
+			global::AiForms.Dialogs.Resource.Attribute.measureWithLargestChild = global::Hanyang.Droid.Resource.Attribute.measureWithLargestChild;
+			global::AiForms.Dialogs.Resource.Attribute.menu = global::Hanyang.Droid.Resource.Attribute.menu;
+			global::AiForms.Dialogs.Resource.Attribute.multiChoiceItemLayout = global::Hanyang.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::AiForms.Dialogs.Resource.Attribute.navigationContentDescription = global::Hanyang.Droid.Resource.Attribute.navigationContentDescription;
+			global::AiForms.Dialogs.Resource.Attribute.navigationIcon = global::Hanyang.Droid.Resource.Attribute.navigationIcon;
+			global::AiForms.Dialogs.Resource.Attribute.navigationMode = global::Hanyang.Droid.Resource.Attribute.navigationMode;
+			global::AiForms.Dialogs.Resource.Attribute.numericModifiers = global::Hanyang.Droid.Resource.Attribute.numericModifiers;
+			global::AiForms.Dialogs.Resource.Attribute.overlapAnchor = global::Hanyang.Droid.Resource.Attribute.overlapAnchor;
+			global::AiForms.Dialogs.Resource.Attribute.paddingBottomNoButtons = global::Hanyang.Droid.Resource.Attribute.paddingBottomNoButtons;
+			global::AiForms.Dialogs.Resource.Attribute.paddingEnd = global::Hanyang.Droid.Resource.Attribute.paddingEnd;
+			global::AiForms.Dialogs.Resource.Attribute.paddingStart = global::Hanyang.Droid.Resource.Attribute.paddingStart;
+			global::AiForms.Dialogs.Resource.Attribute.paddingTopNoTitle = global::Hanyang.Droid.Resource.Attribute.paddingTopNoTitle;
+			global::AiForms.Dialogs.Resource.Attribute.panelBackground = global::Hanyang.Droid.Resource.Attribute.panelBackground;
+			global::AiForms.Dialogs.Resource.Attribute.panelMenuListTheme = global::Hanyang.Droid.Resource.Attribute.panelMenuListTheme;
+			global::AiForms.Dialogs.Resource.Attribute.panelMenuListWidth = global::Hanyang.Droid.Resource.Attribute.panelMenuListWidth;
+			global::AiForms.Dialogs.Resource.Attribute.passwordToggleContentDescription = global::Hanyang.Droid.Resource.Attribute.passwordToggleContentDescription;
+			global::AiForms.Dialogs.Resource.Attribute.passwordToggleDrawable = global::Hanyang.Droid.Resource.Attribute.passwordToggleDrawable;
+			global::AiForms.Dialogs.Resource.Attribute.passwordToggleEnabled = global::Hanyang.Droid.Resource.Attribute.passwordToggleEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.passwordToggleTint = global::Hanyang.Droid.Resource.Attribute.passwordToggleTint;
+			global::AiForms.Dialogs.Resource.Attribute.passwordToggleTintMode = global::Hanyang.Droid.Resource.Attribute.passwordToggleTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.popupMenuStyle = global::Hanyang.Droid.Resource.Attribute.popupMenuStyle;
+			global::AiForms.Dialogs.Resource.Attribute.popupTheme = global::Hanyang.Droid.Resource.Attribute.popupTheme;
+			global::AiForms.Dialogs.Resource.Attribute.popupWindowStyle = global::Hanyang.Droid.Resource.Attribute.popupWindowStyle;
+			global::AiForms.Dialogs.Resource.Attribute.preserveIconSpacing = global::Hanyang.Droid.Resource.Attribute.preserveIconSpacing;
+			global::AiForms.Dialogs.Resource.Attribute.pressedTranslationZ = global::Hanyang.Droid.Resource.Attribute.pressedTranslationZ;
+			global::AiForms.Dialogs.Resource.Attribute.progressBarPadding = global::Hanyang.Droid.Resource.Attribute.progressBarPadding;
+			global::AiForms.Dialogs.Resource.Attribute.progressBarStyle = global::Hanyang.Droid.Resource.Attribute.progressBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.queryBackground = global::Hanyang.Droid.Resource.Attribute.queryBackground;
+			global::AiForms.Dialogs.Resource.Attribute.queryHint = global::Hanyang.Droid.Resource.Attribute.queryHint;
+			global::AiForms.Dialogs.Resource.Attribute.radioButtonStyle = global::Hanyang.Droid.Resource.Attribute.radioButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.ratingBarStyle = global::Hanyang.Droid.Resource.Attribute.ratingBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.ratingBarStyleIndicator = global::Hanyang.Droid.Resource.Attribute.ratingBarStyleIndicator;
+			global::AiForms.Dialogs.Resource.Attribute.ratingBarStyleSmall = global::Hanyang.Droid.Resource.Attribute.ratingBarStyleSmall;
+			global::AiForms.Dialogs.Resource.Attribute.reverseLayout = global::Hanyang.Droid.Resource.Attribute.reverseLayout;
+			global::AiForms.Dialogs.Resource.Attribute.rippleColor = global::Hanyang.Droid.Resource.Attribute.rippleColor;
+			global::AiForms.Dialogs.Resource.Attribute.scrimAnimationDuration = global::Hanyang.Droid.Resource.Attribute.scrimAnimationDuration;
+			global::AiForms.Dialogs.Resource.Attribute.scrimVisibleHeightTrigger = global::Hanyang.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
+			global::AiForms.Dialogs.Resource.Attribute.searchHintIcon = global::Hanyang.Droid.Resource.Attribute.searchHintIcon;
+			global::AiForms.Dialogs.Resource.Attribute.searchIcon = global::Hanyang.Droid.Resource.Attribute.searchIcon;
+			global::AiForms.Dialogs.Resource.Attribute.searchViewStyle = global::Hanyang.Droid.Resource.Attribute.searchViewStyle;
+			global::AiForms.Dialogs.Resource.Attribute.seekBarStyle = global::Hanyang.Droid.Resource.Attribute.seekBarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.selectableItemBackground = global::Hanyang.Droid.Resource.Attribute.selectableItemBackground;
+			global::AiForms.Dialogs.Resource.Attribute.selectableItemBackgroundBorderless = global::Hanyang.Droid.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::AiForms.Dialogs.Resource.Attribute.showAsAction = global::Hanyang.Droid.Resource.Attribute.showAsAction;
+			global::AiForms.Dialogs.Resource.Attribute.showDividers = global::Hanyang.Droid.Resource.Attribute.showDividers;
+			global::AiForms.Dialogs.Resource.Attribute.showText = global::Hanyang.Droid.Resource.Attribute.showText;
+			global::AiForms.Dialogs.Resource.Attribute.showTitle = global::Hanyang.Droid.Resource.Attribute.showTitle;
+			global::AiForms.Dialogs.Resource.Attribute.singleChoiceItemLayout = global::Hanyang.Droid.Resource.Attribute.singleChoiceItemLayout;
+			global::AiForms.Dialogs.Resource.Attribute.spanCount = global::Hanyang.Droid.Resource.Attribute.spanCount;
+			global::AiForms.Dialogs.Resource.Attribute.spinBars = global::Hanyang.Droid.Resource.Attribute.spinBars;
+			global::AiForms.Dialogs.Resource.Attribute.spinnerDropDownItemStyle = global::Hanyang.Droid.Resource.Attribute.spinnerDropDownItemStyle;
+			global::AiForms.Dialogs.Resource.Attribute.spinnerStyle = global::Hanyang.Droid.Resource.Attribute.spinnerStyle;
+			global::AiForms.Dialogs.Resource.Attribute.splitTrack = global::Hanyang.Droid.Resource.Attribute.splitTrack;
+			global::AiForms.Dialogs.Resource.Attribute.srcCompat = global::Hanyang.Droid.Resource.Attribute.srcCompat;
+			global::AiForms.Dialogs.Resource.Attribute.stackFromEnd = global::Hanyang.Droid.Resource.Attribute.stackFromEnd;
+			global::AiForms.Dialogs.Resource.Attribute.state_above_anchor = global::Hanyang.Droid.Resource.Attribute.state_above_anchor;
+			global::AiForms.Dialogs.Resource.Attribute.state_collapsed = global::Hanyang.Droid.Resource.Attribute.state_collapsed;
+			global::AiForms.Dialogs.Resource.Attribute.state_collapsible = global::Hanyang.Droid.Resource.Attribute.state_collapsible;
+			global::AiForms.Dialogs.Resource.Attribute.statusBarBackground = global::Hanyang.Droid.Resource.Attribute.statusBarBackground;
+			global::AiForms.Dialogs.Resource.Attribute.statusBarScrim = global::Hanyang.Droid.Resource.Attribute.statusBarScrim;
+			global::AiForms.Dialogs.Resource.Attribute.subMenuArrow = global::Hanyang.Droid.Resource.Attribute.subMenuArrow;
+			global::AiForms.Dialogs.Resource.Attribute.submitBackground = global::Hanyang.Droid.Resource.Attribute.submitBackground;
+			global::AiForms.Dialogs.Resource.Attribute.subtitle = global::Hanyang.Droid.Resource.Attribute.subtitle;
+			global::AiForms.Dialogs.Resource.Attribute.subtitleTextAppearance = global::Hanyang.Droid.Resource.Attribute.subtitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.subtitleTextColor = global::Hanyang.Droid.Resource.Attribute.subtitleTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.subtitleTextStyle = global::Hanyang.Droid.Resource.Attribute.subtitleTextStyle;
+			global::AiForms.Dialogs.Resource.Attribute.suggestionRowLayout = global::Hanyang.Droid.Resource.Attribute.suggestionRowLayout;
+			global::AiForms.Dialogs.Resource.Attribute.switchMinWidth = global::Hanyang.Droid.Resource.Attribute.switchMinWidth;
+			global::AiForms.Dialogs.Resource.Attribute.switchPadding = global::Hanyang.Droid.Resource.Attribute.switchPadding;
+			global::AiForms.Dialogs.Resource.Attribute.switchStyle = global::Hanyang.Droid.Resource.Attribute.switchStyle;
+			global::AiForms.Dialogs.Resource.Attribute.switchTextAppearance = global::Hanyang.Droid.Resource.Attribute.switchTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.tabBackground = global::Hanyang.Droid.Resource.Attribute.tabBackground;
+			global::AiForms.Dialogs.Resource.Attribute.tabContentStart = global::Hanyang.Droid.Resource.Attribute.tabContentStart;
+			global::AiForms.Dialogs.Resource.Attribute.tabGravity = global::Hanyang.Droid.Resource.Attribute.tabGravity;
+			global::AiForms.Dialogs.Resource.Attribute.tabIndicatorColor = global::Hanyang.Droid.Resource.Attribute.tabIndicatorColor;
+			global::AiForms.Dialogs.Resource.Attribute.tabIndicatorHeight = global::Hanyang.Droid.Resource.Attribute.tabIndicatorHeight;
+			global::AiForms.Dialogs.Resource.Attribute.tabMaxWidth = global::Hanyang.Droid.Resource.Attribute.tabMaxWidth;
+			global::AiForms.Dialogs.Resource.Attribute.tabMinWidth = global::Hanyang.Droid.Resource.Attribute.tabMinWidth;
+			global::AiForms.Dialogs.Resource.Attribute.tabMode = global::Hanyang.Droid.Resource.Attribute.tabMode;
+			global::AiForms.Dialogs.Resource.Attribute.tabPadding = global::Hanyang.Droid.Resource.Attribute.tabPadding;
+			global::AiForms.Dialogs.Resource.Attribute.tabPaddingBottom = global::Hanyang.Droid.Resource.Attribute.tabPaddingBottom;
+			global::AiForms.Dialogs.Resource.Attribute.tabPaddingEnd = global::Hanyang.Droid.Resource.Attribute.tabPaddingEnd;
+			global::AiForms.Dialogs.Resource.Attribute.tabPaddingStart = global::Hanyang.Droid.Resource.Attribute.tabPaddingStart;
+			global::AiForms.Dialogs.Resource.Attribute.tabPaddingTop = global::Hanyang.Droid.Resource.Attribute.tabPaddingTop;
+			global::AiForms.Dialogs.Resource.Attribute.tabSelectedTextColor = global::Hanyang.Droid.Resource.Attribute.tabSelectedTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.tabTextAppearance = global::Hanyang.Droid.Resource.Attribute.tabTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.tabTextColor = global::Hanyang.Droid.Resource.Attribute.tabTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.textAllCaps = global::Hanyang.Droid.Resource.Attribute.textAllCaps;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceLargePopupMenu = global::Hanyang.Droid.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceListItem = global::Hanyang.Droid.Resource.Attribute.textAppearanceListItem;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceListItemSecondary = global::Hanyang.Droid.Resource.Attribute.textAppearanceListItemSecondary;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceListItemSmall = global::Hanyang.Droid.Resource.Attribute.textAppearanceListItemSmall;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearancePopupMenuHeader = global::Hanyang.Droid.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceSearchResultSubtitle = global::Hanyang.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceSearchResultTitle = global::Hanyang.Droid.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::AiForms.Dialogs.Resource.Attribute.textAppearanceSmallPopupMenu = global::Hanyang.Droid.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::AiForms.Dialogs.Resource.Attribute.textColorAlertDialogListItem = global::Hanyang.Droid.Resource.Attribute.textColorAlertDialogListItem;
+			global::AiForms.Dialogs.Resource.Attribute.textColorSearchUrl = global::Hanyang.Droid.Resource.Attribute.textColorSearchUrl;
+			global::AiForms.Dialogs.Resource.Attribute.theme = global::Hanyang.Droid.Resource.Attribute.theme;
+			global::AiForms.Dialogs.Resource.Attribute.thickness = global::Hanyang.Droid.Resource.Attribute.thickness;
+			global::AiForms.Dialogs.Resource.Attribute.thumbTextPadding = global::Hanyang.Droid.Resource.Attribute.thumbTextPadding;
+			global::AiForms.Dialogs.Resource.Attribute.thumbTint = global::Hanyang.Droid.Resource.Attribute.thumbTint;
+			global::AiForms.Dialogs.Resource.Attribute.thumbTintMode = global::Hanyang.Droid.Resource.Attribute.thumbTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.tickMark = global::Hanyang.Droid.Resource.Attribute.tickMark;
+			global::AiForms.Dialogs.Resource.Attribute.tickMarkTint = global::Hanyang.Droid.Resource.Attribute.tickMarkTint;
+			global::AiForms.Dialogs.Resource.Attribute.tickMarkTintMode = global::Hanyang.Droid.Resource.Attribute.tickMarkTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.tint = global::Hanyang.Droid.Resource.Attribute.tint;
+			global::AiForms.Dialogs.Resource.Attribute.tintMode = global::Hanyang.Droid.Resource.Attribute.tintMode;
+			global::AiForms.Dialogs.Resource.Attribute.title = global::Hanyang.Droid.Resource.Attribute.title;
+			global::AiForms.Dialogs.Resource.Attribute.titleEnabled = global::Hanyang.Droid.Resource.Attribute.titleEnabled;
+			global::AiForms.Dialogs.Resource.Attribute.titleMargin = global::Hanyang.Droid.Resource.Attribute.titleMargin;
+			global::AiForms.Dialogs.Resource.Attribute.titleMarginBottom = global::Hanyang.Droid.Resource.Attribute.titleMarginBottom;
+			global::AiForms.Dialogs.Resource.Attribute.titleMarginEnd = global::Hanyang.Droid.Resource.Attribute.titleMarginEnd;
+			global::AiForms.Dialogs.Resource.Attribute.titleMargins = global::Hanyang.Droid.Resource.Attribute.titleMargins;
+			global::AiForms.Dialogs.Resource.Attribute.titleMarginStart = global::Hanyang.Droid.Resource.Attribute.titleMarginStart;
+			global::AiForms.Dialogs.Resource.Attribute.titleMarginTop = global::Hanyang.Droid.Resource.Attribute.titleMarginTop;
+			global::AiForms.Dialogs.Resource.Attribute.titleTextAppearance = global::Hanyang.Droid.Resource.Attribute.titleTextAppearance;
+			global::AiForms.Dialogs.Resource.Attribute.titleTextColor = global::Hanyang.Droid.Resource.Attribute.titleTextColor;
+			global::AiForms.Dialogs.Resource.Attribute.titleTextStyle = global::Hanyang.Droid.Resource.Attribute.titleTextStyle;
+			global::AiForms.Dialogs.Resource.Attribute.toolbarId = global::Hanyang.Droid.Resource.Attribute.toolbarId;
+			global::AiForms.Dialogs.Resource.Attribute.toolbarNavigationButtonStyle = global::Hanyang.Droid.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::AiForms.Dialogs.Resource.Attribute.toolbarStyle = global::Hanyang.Droid.Resource.Attribute.toolbarStyle;
+			global::AiForms.Dialogs.Resource.Attribute.tooltipForegroundColor = global::Hanyang.Droid.Resource.Attribute.tooltipForegroundColor;
+			global::AiForms.Dialogs.Resource.Attribute.tooltipFrameBackground = global::Hanyang.Droid.Resource.Attribute.tooltipFrameBackground;
+			global::AiForms.Dialogs.Resource.Attribute.tooltipText = global::Hanyang.Droid.Resource.Attribute.tooltipText;
+			global::AiForms.Dialogs.Resource.Attribute.track = global::Hanyang.Droid.Resource.Attribute.track;
+			global::AiForms.Dialogs.Resource.Attribute.trackTint = global::Hanyang.Droid.Resource.Attribute.trackTint;
+			global::AiForms.Dialogs.Resource.Attribute.trackTintMode = global::Hanyang.Droid.Resource.Attribute.trackTintMode;
+			global::AiForms.Dialogs.Resource.Attribute.useCompatPadding = global::Hanyang.Droid.Resource.Attribute.useCompatPadding;
+			global::AiForms.Dialogs.Resource.Attribute.voiceIcon = global::Hanyang.Droid.Resource.Attribute.voiceIcon;
+			global::AiForms.Dialogs.Resource.Attribute.windowActionBar = global::Hanyang.Droid.Resource.Attribute.windowActionBar;
+			global::AiForms.Dialogs.Resource.Attribute.windowActionBarOverlay = global::Hanyang.Droid.Resource.Attribute.windowActionBarOverlay;
+			global::AiForms.Dialogs.Resource.Attribute.windowActionModeOverlay = global::Hanyang.Droid.Resource.Attribute.windowActionModeOverlay;
+			global::AiForms.Dialogs.Resource.Attribute.windowFixedHeightMajor = global::Hanyang.Droid.Resource.Attribute.windowFixedHeightMajor;
+			global::AiForms.Dialogs.Resource.Attribute.windowFixedHeightMinor = global::Hanyang.Droid.Resource.Attribute.windowFixedHeightMinor;
+			global::AiForms.Dialogs.Resource.Attribute.windowFixedWidthMajor = global::Hanyang.Droid.Resource.Attribute.windowFixedWidthMajor;
+			global::AiForms.Dialogs.Resource.Attribute.windowFixedWidthMinor = global::Hanyang.Droid.Resource.Attribute.windowFixedWidthMinor;
+			global::AiForms.Dialogs.Resource.Attribute.windowMinWidthMajor = global::Hanyang.Droid.Resource.Attribute.windowMinWidthMajor;
+			global::AiForms.Dialogs.Resource.Attribute.windowMinWidthMinor = global::Hanyang.Droid.Resource.Attribute.windowMinWidthMinor;
+			global::AiForms.Dialogs.Resource.Attribute.windowNoTitle = global::Hanyang.Droid.Resource.Attribute.windowNoTitle;
+			global::AiForms.Dialogs.Resource.Boolean.abc_action_bar_embed_tabs = global::Hanyang.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::AiForms.Dialogs.Resource.Boolean.abc_allow_stacked_button_bar = global::Hanyang.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::AiForms.Dialogs.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::Hanyang.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::AiForms.Dialogs.Resource.Color.abc_background_cache_hint_selector_material_dark = global::Hanyang.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::AiForms.Dialogs.Resource.Color.abc_background_cache_hint_selector_material_light = global::Hanyang.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::AiForms.Dialogs.Resource.Color.abc_btn_colored_borderless_text_material = global::Hanyang.Droid.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::AiForms.Dialogs.Resource.Color.abc_btn_colored_text_material = global::Hanyang.Droid.Resource.Color.abc_btn_colored_text_material;
+			global::AiForms.Dialogs.Resource.Color.abc_color_highlight_material = global::Hanyang.Droid.Resource.Color.abc_color_highlight_material;
+			global::AiForms.Dialogs.Resource.Color.abc_hint_foreground_material_dark = global::Hanyang.Droid.Resource.Color.abc_hint_foreground_material_dark;
+			global::AiForms.Dialogs.Resource.Color.abc_hint_foreground_material_light = global::Hanyang.Droid.Resource.Color.abc_hint_foreground_material_light;
+			global::AiForms.Dialogs.Resource.Color.abc_input_method_navigation_guard = global::Hanyang.Droid.Resource.Color.abc_input_method_navigation_guard;
+			global::AiForms.Dialogs.Resource.Color.abc_primary_text_disable_only_material_dark = global::Hanyang.Droid.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::AiForms.Dialogs.Resource.Color.abc_primary_text_disable_only_material_light = global::Hanyang.Droid.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::AiForms.Dialogs.Resource.Color.abc_primary_text_material_dark = global::Hanyang.Droid.Resource.Color.abc_primary_text_material_dark;
+			global::AiForms.Dialogs.Resource.Color.abc_primary_text_material_light = global::Hanyang.Droid.Resource.Color.abc_primary_text_material_light;
+			global::AiForms.Dialogs.Resource.Color.abc_search_url_text = global::Hanyang.Droid.Resource.Color.abc_search_url_text;
+			global::AiForms.Dialogs.Resource.Color.abc_search_url_text_normal = global::Hanyang.Droid.Resource.Color.abc_search_url_text_normal;
+			global::AiForms.Dialogs.Resource.Color.abc_search_url_text_pressed = global::Hanyang.Droid.Resource.Color.abc_search_url_text_pressed;
+			global::AiForms.Dialogs.Resource.Color.abc_search_url_text_selected = global::Hanyang.Droid.Resource.Color.abc_search_url_text_selected;
+			global::AiForms.Dialogs.Resource.Color.abc_secondary_text_material_dark = global::Hanyang.Droid.Resource.Color.abc_secondary_text_material_dark;
+			global::AiForms.Dialogs.Resource.Color.abc_secondary_text_material_light = global::Hanyang.Droid.Resource.Color.abc_secondary_text_material_light;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_btn_checkable = global::Hanyang.Droid.Resource.Color.abc_tint_btn_checkable;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_default = global::Hanyang.Droid.Resource.Color.abc_tint_default;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_edittext = global::Hanyang.Droid.Resource.Color.abc_tint_edittext;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_seek_thumb = global::Hanyang.Droid.Resource.Color.abc_tint_seek_thumb;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_spinner = global::Hanyang.Droid.Resource.Color.abc_tint_spinner;
+			global::AiForms.Dialogs.Resource.Color.abc_tint_switch_track = global::Hanyang.Droid.Resource.Color.abc_tint_switch_track;
+			global::AiForms.Dialogs.Resource.Color.accent_material_dark = global::Hanyang.Droid.Resource.Color.accent_material_dark;
+			global::AiForms.Dialogs.Resource.Color.accent_material_light = global::Hanyang.Droid.Resource.Color.accent_material_light;
+			global::AiForms.Dialogs.Resource.Color.background_floating_material_dark = global::Hanyang.Droid.Resource.Color.background_floating_material_dark;
+			global::AiForms.Dialogs.Resource.Color.background_floating_material_light = global::Hanyang.Droid.Resource.Color.background_floating_material_light;
+			global::AiForms.Dialogs.Resource.Color.background_material_dark = global::Hanyang.Droid.Resource.Color.background_material_dark;
+			global::AiForms.Dialogs.Resource.Color.background_material_light = global::Hanyang.Droid.Resource.Color.background_material_light;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_disabled_material_dark = global::Hanyang.Droid.Resource.Color.bright_foreground_disabled_material_dark;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_disabled_material_light = global::Hanyang.Droid.Resource.Color.bright_foreground_disabled_material_light;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_inverse_material_dark = global::Hanyang.Droid.Resource.Color.bright_foreground_inverse_material_dark;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_inverse_material_light = global::Hanyang.Droid.Resource.Color.bright_foreground_inverse_material_light;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_material_dark = global::Hanyang.Droid.Resource.Color.bright_foreground_material_dark;
+			global::AiForms.Dialogs.Resource.Color.bright_foreground_material_light = global::Hanyang.Droid.Resource.Color.bright_foreground_material_light;
+			global::AiForms.Dialogs.Resource.Color.button_material_dark = global::Hanyang.Droid.Resource.Color.button_material_dark;
+			global::AiForms.Dialogs.Resource.Color.button_material_light = global::Hanyang.Droid.Resource.Color.button_material_light;
+			global::AiForms.Dialogs.Resource.Color.cardview_dark_background = global::Hanyang.Droid.Resource.Color.cardview_dark_background;
+			global::AiForms.Dialogs.Resource.Color.cardview_light_background = global::Hanyang.Droid.Resource.Color.cardview_light_background;
+			global::AiForms.Dialogs.Resource.Color.cardview_shadow_end_color = global::Hanyang.Droid.Resource.Color.cardview_shadow_end_color;
+			global::AiForms.Dialogs.Resource.Color.cardview_shadow_start_color = global::Hanyang.Droid.Resource.Color.cardview_shadow_start_color;
+			global::AiForms.Dialogs.Resource.Color.design_bottom_navigation_shadow_color = global::Hanyang.Droid.Resource.Color.design_bottom_navigation_shadow_color;
+			global::AiForms.Dialogs.Resource.Color.design_error = global::Hanyang.Droid.Resource.Color.design_error;
+			global::AiForms.Dialogs.Resource.Color.design_fab_shadow_end_color = global::Hanyang.Droid.Resource.Color.design_fab_shadow_end_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_shadow_mid_color = global::Hanyang.Droid.Resource.Color.design_fab_shadow_mid_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_shadow_start_color = global::Hanyang.Droid.Resource.Color.design_fab_shadow_start_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_stroke_end_inner_color = global::Hanyang.Droid.Resource.Color.design_fab_stroke_end_inner_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_stroke_end_outer_color = global::Hanyang.Droid.Resource.Color.design_fab_stroke_end_outer_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_stroke_top_inner_color = global::Hanyang.Droid.Resource.Color.design_fab_stroke_top_inner_color;
+			global::AiForms.Dialogs.Resource.Color.design_fab_stroke_top_outer_color = global::Hanyang.Droid.Resource.Color.design_fab_stroke_top_outer_color;
+			global::AiForms.Dialogs.Resource.Color.design_snackbar_background_color = global::Hanyang.Droid.Resource.Color.design_snackbar_background_color;
+			global::AiForms.Dialogs.Resource.Color.design_tint_password_toggle = global::Hanyang.Droid.Resource.Color.design_tint_password_toggle;
+			global::AiForms.Dialogs.Resource.Color.dim_foreground_disabled_material_dark = global::Hanyang.Droid.Resource.Color.dim_foreground_disabled_material_dark;
+			global::AiForms.Dialogs.Resource.Color.dim_foreground_disabled_material_light = global::Hanyang.Droid.Resource.Color.dim_foreground_disabled_material_light;
+			global::AiForms.Dialogs.Resource.Color.dim_foreground_material_dark = global::Hanyang.Droid.Resource.Color.dim_foreground_material_dark;
+			global::AiForms.Dialogs.Resource.Color.dim_foreground_material_light = global::Hanyang.Droid.Resource.Color.dim_foreground_material_light;
+			global::AiForms.Dialogs.Resource.Color.foreground_material_dark = global::Hanyang.Droid.Resource.Color.foreground_material_dark;
+			global::AiForms.Dialogs.Resource.Color.foreground_material_light = global::Hanyang.Droid.Resource.Color.foreground_material_light;
+			global::AiForms.Dialogs.Resource.Color.highlighted_text_material_dark = global::Hanyang.Droid.Resource.Color.highlighted_text_material_dark;
+			global::AiForms.Dialogs.Resource.Color.highlighted_text_material_light = global::Hanyang.Droid.Resource.Color.highlighted_text_material_light;
+			global::AiForms.Dialogs.Resource.Color.material_blue_grey_800 = global::Hanyang.Droid.Resource.Color.material_blue_grey_800;
+			global::AiForms.Dialogs.Resource.Color.material_blue_grey_900 = global::Hanyang.Droid.Resource.Color.material_blue_grey_900;
+			global::AiForms.Dialogs.Resource.Color.material_blue_grey_950 = global::Hanyang.Droid.Resource.Color.material_blue_grey_950;
+			global::AiForms.Dialogs.Resource.Color.material_deep_teal_200 = global::Hanyang.Droid.Resource.Color.material_deep_teal_200;
+			global::AiForms.Dialogs.Resource.Color.material_deep_teal_500 = global::Hanyang.Droid.Resource.Color.material_deep_teal_500;
+			global::AiForms.Dialogs.Resource.Color.material_grey_100 = global::Hanyang.Droid.Resource.Color.material_grey_100;
+			global::AiForms.Dialogs.Resource.Color.material_grey_300 = global::Hanyang.Droid.Resource.Color.material_grey_300;
+			global::AiForms.Dialogs.Resource.Color.material_grey_50 = global::Hanyang.Droid.Resource.Color.material_grey_50;
+			global::AiForms.Dialogs.Resource.Color.material_grey_600 = global::Hanyang.Droid.Resource.Color.material_grey_600;
+			global::AiForms.Dialogs.Resource.Color.material_grey_800 = global::Hanyang.Droid.Resource.Color.material_grey_800;
+			global::AiForms.Dialogs.Resource.Color.material_grey_850 = global::Hanyang.Droid.Resource.Color.material_grey_850;
+			global::AiForms.Dialogs.Resource.Color.material_grey_900 = global::Hanyang.Droid.Resource.Color.material_grey_900;
+			global::AiForms.Dialogs.Resource.Color.notification_action_color_filter = global::Hanyang.Droid.Resource.Color.notification_action_color_filter;
+			global::AiForms.Dialogs.Resource.Color.notification_icon_bg_color = global::Hanyang.Droid.Resource.Color.notification_icon_bg_color;
+			global::AiForms.Dialogs.Resource.Color.notification_material_background_media_default_color = global::Hanyang.Droid.Resource.Color.notification_material_background_media_default_color;
+			global::AiForms.Dialogs.Resource.Color.primary_dark_material_dark = global::Hanyang.Droid.Resource.Color.primary_dark_material_dark;
+			global::AiForms.Dialogs.Resource.Color.primary_dark_material_light = global::Hanyang.Droid.Resource.Color.primary_dark_material_light;
+			global::AiForms.Dialogs.Resource.Color.primary_material_dark = global::Hanyang.Droid.Resource.Color.primary_material_dark;
+			global::AiForms.Dialogs.Resource.Color.primary_material_light = global::Hanyang.Droid.Resource.Color.primary_material_light;
+			global::AiForms.Dialogs.Resource.Color.primary_text_default_material_dark = global::Hanyang.Droid.Resource.Color.primary_text_default_material_dark;
+			global::AiForms.Dialogs.Resource.Color.primary_text_default_material_light = global::Hanyang.Droid.Resource.Color.primary_text_default_material_light;
+			global::AiForms.Dialogs.Resource.Color.primary_text_disabled_material_dark = global::Hanyang.Droid.Resource.Color.primary_text_disabled_material_dark;
+			global::AiForms.Dialogs.Resource.Color.primary_text_disabled_material_light = global::Hanyang.Droid.Resource.Color.primary_text_disabled_material_light;
+			global::AiForms.Dialogs.Resource.Color.ripple_material_dark = global::Hanyang.Droid.Resource.Color.ripple_material_dark;
+			global::AiForms.Dialogs.Resource.Color.ripple_material_light = global::Hanyang.Droid.Resource.Color.ripple_material_light;
+			global::AiForms.Dialogs.Resource.Color.secondary_text_default_material_dark = global::Hanyang.Droid.Resource.Color.secondary_text_default_material_dark;
+			global::AiForms.Dialogs.Resource.Color.secondary_text_default_material_light = global::Hanyang.Droid.Resource.Color.secondary_text_default_material_light;
+			global::AiForms.Dialogs.Resource.Color.secondary_text_disabled_material_dark = global::Hanyang.Droid.Resource.Color.secondary_text_disabled_material_dark;
+			global::AiForms.Dialogs.Resource.Color.secondary_text_disabled_material_light = global::Hanyang.Droid.Resource.Color.secondary_text_disabled_material_light;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_disabled_material_dark = global::Hanyang.Droid.Resource.Color.switch_thumb_disabled_material_dark;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_disabled_material_light = global::Hanyang.Droid.Resource.Color.switch_thumb_disabled_material_light;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_material_dark = global::Hanyang.Droid.Resource.Color.switch_thumb_material_dark;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_material_light = global::Hanyang.Droid.Resource.Color.switch_thumb_material_light;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_normal_material_dark = global::Hanyang.Droid.Resource.Color.switch_thumb_normal_material_dark;
+			global::AiForms.Dialogs.Resource.Color.switch_thumb_normal_material_light = global::Hanyang.Droid.Resource.Color.switch_thumb_normal_material_light;
+			global::AiForms.Dialogs.Resource.Color.tooltip_background_dark = global::Hanyang.Droid.Resource.Color.tooltip_background_dark;
+			global::AiForms.Dialogs.Resource.Color.tooltip_background_light = global::Hanyang.Droid.Resource.Color.tooltip_background_light;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_content_inset_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_default_height_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_default_height_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_default_padding_end_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_default_padding_start_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_elevation_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_elevation_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_stacked_max_height = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::Hanyang.Droid.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_button_min_height_material = global::Hanyang.Droid.Resource.Dimension.abc_action_button_min_height_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_button_min_width_material = global::Hanyang.Droid.Resource.Dimension.abc_action_button_min_width_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_action_button_min_width_overflow_material = global::Hanyang.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_alert_dialog_button_bar_height = global::Hanyang.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::AiForms.Dialogs.Resource.Dimension.abc_button_inset_horizontal_material = global::Hanyang.Droid.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_button_inset_vertical_material = global::Hanyang.Droid.Resource.Dimension.abc_button_inset_vertical_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_button_padding_horizontal_material = global::Hanyang.Droid.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_button_padding_vertical_material = global::Hanyang.Droid.Resource.Dimension.abc_button_padding_vertical_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::Hanyang.Droid.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::AiForms.Dialogs.Resource.Dimension.abc_config_prefDialogWidth = global::Hanyang.Droid.Resource.Dimension.abc_config_prefDialogWidth;
+			global::AiForms.Dialogs.Resource.Dimension.abc_control_corner_material = global::Hanyang.Droid.Resource.Dimension.abc_control_corner_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_control_inset_material = global::Hanyang.Droid.Resource.Dimension.abc_control_inset_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_control_padding_material = global::Hanyang.Droid.Resource.Dimension.abc_control_padding_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_fixed_height_major = global::Hanyang.Droid.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_fixed_height_minor = global::Hanyang.Droid.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_fixed_width_major = global::Hanyang.Droid.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_fixed_width_minor = global::Hanyang.Droid.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::Hanyang.Droid.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::Hanyang.Droid.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_min_width_major = global::Hanyang.Droid.Resource.Dimension.abc_dialog_min_width_major;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_min_width_minor = global::Hanyang.Droid.Resource.Dimension.abc_dialog_min_width_minor;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_padding_material = global::Hanyang.Droid.Resource.Dimension.abc_dialog_padding_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_padding_top_material = global::Hanyang.Droid.Resource.Dimension.abc_dialog_padding_top_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dialog_title_divider_material = global::Hanyang.Droid.Resource.Dimension.abc_dialog_title_divider_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_disabled_alpha_material_dark = global::Hanyang.Droid.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::AiForms.Dialogs.Resource.Dimension.abc_disabled_alpha_material_light = global::Hanyang.Droid.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dropdownitem_icon_width = global::Hanyang.Droid.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dropdownitem_text_padding_left = global::Hanyang.Droid.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::AiForms.Dialogs.Resource.Dimension.abc_dropdownitem_text_padding_right = global::Hanyang.Droid.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::AiForms.Dialogs.Resource.Dimension.abc_edit_text_inset_bottom_material = global::Hanyang.Droid.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::Hanyang.Droid.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_edit_text_inset_top_material = global::Hanyang.Droid.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_floating_window_z = global::Hanyang.Droid.Resource.Dimension.abc_floating_window_z;
+			global::AiForms.Dialogs.Resource.Dimension.abc_list_item_padding_horizontal_material = global::Hanyang.Droid.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_panel_menu_list_width = global::Hanyang.Droid.Resource.Dimension.abc_panel_menu_list_width;
+			global::AiForms.Dialogs.Resource.Dimension.abc_progress_bar_height_material = global::Hanyang.Droid.Resource.Dimension.abc_progress_bar_height_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_search_view_preferred_height = global::Hanyang.Droid.Resource.Dimension.abc_search_view_preferred_height;
+			global::AiForms.Dialogs.Resource.Dimension.abc_search_view_preferred_width = global::Hanyang.Droid.Resource.Dimension.abc_search_view_preferred_width;
+			global::AiForms.Dialogs.Resource.Dimension.abc_seekbar_track_background_height_material = global::Hanyang.Droid.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_seekbar_track_progress_height_material = global::Hanyang.Droid.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_select_dialog_padding_start_material = global::Hanyang.Droid.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_switch_padding = global::Hanyang.Droid.Resource.Dimension.abc_switch_padding;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_body_1_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_body_1_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_body_2_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_body_2_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_button_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_button_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_caption_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_caption_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_display_1_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_display_1_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_display_2_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_display_2_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_display_3_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_display_3_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_display_4_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_display_4_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_headline_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_headline_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_large_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_large_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_medium_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_medium_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_menu_header_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_menu_header_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_menu_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_menu_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_small_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_small_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_subhead_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_subhead_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::Hanyang.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_title_material = global::Hanyang.Droid.Resource.Dimension.abc_text_size_title_material;
+			global::AiForms.Dialogs.Resource.Dimension.abc_text_size_title_material_toolbar = global::Hanyang.Droid.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::AiForms.Dialogs.Resource.Dimension.cardview_compat_inset_shadow = global::Hanyang.Droid.Resource.Dimension.cardview_compat_inset_shadow;
+			global::AiForms.Dialogs.Resource.Dimension.cardview_default_elevation = global::Hanyang.Droid.Resource.Dimension.cardview_default_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.cardview_default_radius = global::Hanyang.Droid.Resource.Dimension.cardview_default_radius;
+			global::AiForms.Dialogs.Resource.Dimension.compat_button_inset_horizontal_material = global::Hanyang.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.compat_button_inset_vertical_material = global::Hanyang.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::AiForms.Dialogs.Resource.Dimension.compat_button_padding_horizontal_material = global::Hanyang.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::AiForms.Dialogs.Resource.Dimension.compat_button_padding_vertical_material = global::Hanyang.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::AiForms.Dialogs.Resource.Dimension.compat_control_corner_material = global::Hanyang.Droid.Resource.Dimension.compat_control_corner_material;
+			global::AiForms.Dialogs.Resource.Dimension.design_appbar_elevation = global::Hanyang.Droid.Resource.Dimension.design_appbar_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_active_item_max_width = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_active_item_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_active_text_size = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_active_text_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_elevation = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_height = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_height;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_item_max_width = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_item_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_item_min_width = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_item_min_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_margin = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_margin;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_shadow_height = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_shadow_height;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_navigation_text_size = global::Hanyang.Droid.Resource.Dimension.design_bottom_navigation_text_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_sheet_modal_elevation = global::Hanyang.Droid.Resource.Dimension.design_bottom_sheet_modal_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_bottom_sheet_peek_height_min = global::Hanyang.Droid.Resource.Dimension.design_bottom_sheet_peek_height_min;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_border_width = global::Hanyang.Droid.Resource.Dimension.design_fab_border_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_elevation = global::Hanyang.Droid.Resource.Dimension.design_fab_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_image_size = global::Hanyang.Droid.Resource.Dimension.design_fab_image_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_size_mini = global::Hanyang.Droid.Resource.Dimension.design_fab_size_mini;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_size_normal = global::Hanyang.Droid.Resource.Dimension.design_fab_size_normal;
+			global::AiForms.Dialogs.Resource.Dimension.design_fab_translation_z_pressed = global::Hanyang.Droid.Resource.Dimension.design_fab_translation_z_pressed;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_elevation = global::Hanyang.Droid.Resource.Dimension.design_navigation_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_icon_padding = global::Hanyang.Droid.Resource.Dimension.design_navigation_icon_padding;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_icon_size = global::Hanyang.Droid.Resource.Dimension.design_navigation_icon_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_max_width = global::Hanyang.Droid.Resource.Dimension.design_navigation_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_padding_bottom = global::Hanyang.Droid.Resource.Dimension.design_navigation_padding_bottom;
+			global::AiForms.Dialogs.Resource.Dimension.design_navigation_separator_vertical_padding = global::Hanyang.Droid.Resource.Dimension.design_navigation_separator_vertical_padding;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_action_inline_max_width = global::Hanyang.Droid.Resource.Dimension.design_snackbar_action_inline_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_background_corner_radius = global::Hanyang.Droid.Resource.Dimension.design_snackbar_background_corner_radius;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_elevation = global::Hanyang.Droid.Resource.Dimension.design_snackbar_elevation;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_extra_spacing_horizontal = global::Hanyang.Droid.Resource.Dimension.design_snackbar_extra_spacing_horizontal;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_max_width = global::Hanyang.Droid.Resource.Dimension.design_snackbar_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_min_width = global::Hanyang.Droid.Resource.Dimension.design_snackbar_min_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_padding_horizontal = global::Hanyang.Droid.Resource.Dimension.design_snackbar_padding_horizontal;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_padding_vertical = global::Hanyang.Droid.Resource.Dimension.design_snackbar_padding_vertical;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_padding_vertical_2lines = global::Hanyang.Droid.Resource.Dimension.design_snackbar_padding_vertical_2lines;
+			global::AiForms.Dialogs.Resource.Dimension.design_snackbar_text_size = global::Hanyang.Droid.Resource.Dimension.design_snackbar_text_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_tab_max_width = global::Hanyang.Droid.Resource.Dimension.design_tab_max_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_tab_scrollable_min_width = global::Hanyang.Droid.Resource.Dimension.design_tab_scrollable_min_width;
+			global::AiForms.Dialogs.Resource.Dimension.design_tab_text_size = global::Hanyang.Droid.Resource.Dimension.design_tab_text_size;
+			global::AiForms.Dialogs.Resource.Dimension.design_tab_text_size_2line = global::Hanyang.Droid.Resource.Dimension.design_tab_text_size_2line;
+			global::AiForms.Dialogs.Resource.Dimension.disabled_alpha_material_dark = global::Hanyang.Droid.Resource.Dimension.disabled_alpha_material_dark;
+			global::AiForms.Dialogs.Resource.Dimension.disabled_alpha_material_light = global::Hanyang.Droid.Resource.Dimension.disabled_alpha_material_light;
+			global::AiForms.Dialogs.Resource.Dimension.fastscroll_default_thickness = global::Hanyang.Droid.Resource.Dimension.fastscroll_default_thickness;
+			global::AiForms.Dialogs.Resource.Dimension.fastscroll_margin = global::Hanyang.Droid.Resource.Dimension.fastscroll_margin;
+			global::AiForms.Dialogs.Resource.Dimension.fastscroll_minimum_range = global::Hanyang.Droid.Resource.Dimension.fastscroll_minimum_range;
+			global::AiForms.Dialogs.Resource.Dimension.highlight_alpha_material_colored = global::Hanyang.Droid.Resource.Dimension.highlight_alpha_material_colored;
+			global::AiForms.Dialogs.Resource.Dimension.highlight_alpha_material_dark = global::Hanyang.Droid.Resource.Dimension.highlight_alpha_material_dark;
+			global::AiForms.Dialogs.Resource.Dimension.highlight_alpha_material_light = global::Hanyang.Droid.Resource.Dimension.highlight_alpha_material_light;
+			global::AiForms.Dialogs.Resource.Dimension.hint_alpha_material_dark = global::Hanyang.Droid.Resource.Dimension.hint_alpha_material_dark;
+			global::AiForms.Dialogs.Resource.Dimension.hint_alpha_material_light = global::Hanyang.Droid.Resource.Dimension.hint_alpha_material_light;
+			global::AiForms.Dialogs.Resource.Dimension.hint_pressed_alpha_material_dark = global::Hanyang.Droid.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::AiForms.Dialogs.Resource.Dimension.hint_pressed_alpha_material_light = global::Hanyang.Droid.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::AiForms.Dialogs.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Hanyang.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::AiForms.Dialogs.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Hanyang.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::AiForms.Dialogs.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Hanyang.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::AiForms.Dialogs.Resource.Dimension.notification_action_icon_size = global::Hanyang.Droid.Resource.Dimension.notification_action_icon_size;
+			global::AiForms.Dialogs.Resource.Dimension.notification_action_text_size = global::Hanyang.Droid.Resource.Dimension.notification_action_text_size;
+			global::AiForms.Dialogs.Resource.Dimension.notification_big_circle_margin = global::Hanyang.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::AiForms.Dialogs.Resource.Dimension.notification_content_margin_start = global::Hanyang.Droid.Resource.Dimension.notification_content_margin_start;
+			global::AiForms.Dialogs.Resource.Dimension.notification_large_icon_height = global::Hanyang.Droid.Resource.Dimension.notification_large_icon_height;
+			global::AiForms.Dialogs.Resource.Dimension.notification_large_icon_width = global::Hanyang.Droid.Resource.Dimension.notification_large_icon_width;
+			global::AiForms.Dialogs.Resource.Dimension.notification_main_column_padding_top = global::Hanyang.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::AiForms.Dialogs.Resource.Dimension.notification_media_narrow_margin = global::Hanyang.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::AiForms.Dialogs.Resource.Dimension.notification_right_icon_size = global::Hanyang.Droid.Resource.Dimension.notification_right_icon_size;
+			global::AiForms.Dialogs.Resource.Dimension.notification_right_side_padding_top = global::Hanyang.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::AiForms.Dialogs.Resource.Dimension.notification_small_icon_background_padding = global::Hanyang.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::AiForms.Dialogs.Resource.Dimension.notification_small_icon_size_as_large = global::Hanyang.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::AiForms.Dialogs.Resource.Dimension.notification_subtext_size = global::Hanyang.Droid.Resource.Dimension.notification_subtext_size;
+			global::AiForms.Dialogs.Resource.Dimension.notification_top_pad = global::Hanyang.Droid.Resource.Dimension.notification_top_pad;
+			global::AiForms.Dialogs.Resource.Dimension.notification_top_pad_large_text = global::Hanyang.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_corner_radius = global::Hanyang.Droid.Resource.Dimension.tooltip_corner_radius;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_horizontal_padding = global::Hanyang.Droid.Resource.Dimension.tooltip_horizontal_padding;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_margin = global::Hanyang.Droid.Resource.Dimension.tooltip_margin;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::Hanyang.Droid.Resource.Dimension.tooltip_precise_anchor_extra_offset;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_precise_anchor_threshold = global::Hanyang.Droid.Resource.Dimension.tooltip_precise_anchor_threshold;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_vertical_padding = global::Hanyang.Droid.Resource.Dimension.tooltip_vertical_padding;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_y_offset_non_touch = global::Hanyang.Droid.Resource.Dimension.tooltip_y_offset_non_touch;
+			global::AiForms.Dialogs.Resource.Dimension.tooltip_y_offset_touch = global::Hanyang.Droid.Resource.Dimension.tooltip_y_offset_touch;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_action_bar_item_background_material = global::Hanyang.Droid.Resource.Drawable.abc_action_bar_item_background_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_borderless_material = global::Hanyang.Droid.Resource.Drawable.abc_btn_borderless_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_check_material = global::Hanyang.Droid.Resource.Drawable.abc_btn_check_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::Hanyang.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::Hanyang.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_colored_material = global::Hanyang.Droid.Resource.Drawable.abc_btn_colored_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_default_mtrl_shape = global::Hanyang.Droid.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_radio_material = global::Hanyang.Droid.Resource.Drawable.abc_btn_radio_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::Hanyang.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::Hanyang.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::Hanyang.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::AiForms.Dialogs.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::Hanyang.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::AiForms.Dialogs.Resource.Drawable.abc_cab_background_internal_bg = global::Hanyang.Droid.Resource.Drawable.abc_cab_background_internal_bg;
+			global::AiForms.Dialogs.Resource.Drawable.abc_cab_background_top_material = global::Hanyang.Droid.Resource.Drawable.abc_cab_background_top_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_control_background_material = global::Hanyang.Droid.Resource.Drawable.abc_control_background_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_dialog_material_background = global::Hanyang.Droid.Resource.Drawable.abc_dialog_material_background;
+			global::AiForms.Dialogs.Resource.Drawable.abc_edit_text_material = global::Hanyang.Droid.Resource.Drawable.abc_edit_text_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_ab_back_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_ab_back_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_clear_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_clear_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_go_search_api_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_go_search_api_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_overflow_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_search_api_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_search_api_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_black_16dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_black_16dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_black_36dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_black_36dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_black_48dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_black_48dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_half_black_16dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_half_black_36dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_star_half_black_48dp = global::Hanyang.Droid.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ic_voice_search_api_material = global::Hanyang.Droid.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_item_background_holo_dark = global::Hanyang.Droid.Resource.Drawable.abc_item_background_holo_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_item_background_holo_light = global::Hanyang.Droid.Resource.Drawable.abc_item_background_holo_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_divider_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_focused_holo = global::Hanyang.Droid.Resource.Drawable.abc_list_focused_holo;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_longpressed_holo = global::Hanyang.Droid.Resource.Drawable.abc_list_longpressed_holo;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_pressed_holo_dark = global::Hanyang.Droid.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_pressed_holo_light = global::Hanyang.Droid.Resource.Drawable.abc_list_pressed_holo_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_disabled_holo_light = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_holo_dark = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_holo_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_list_selector_holo_light = global::Hanyang.Droid.Resource.Drawable.abc_list_selector_holo_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::Hanyang.Droid.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::AiForms.Dialogs.Resource.Drawable.abc_popup_background_mtrl_mult = global::Hanyang.Droid.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ratingbar_indicator_material = global::Hanyang.Droid.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ratingbar_material = global::Hanyang.Droid.Resource.Drawable.abc_ratingbar_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_ratingbar_small_material = global::Hanyang.Droid.Resource.Drawable.abc_ratingbar_small_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::Hanyang.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::AiForms.Dialogs.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::Hanyang.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::AiForms.Dialogs.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_seekbar_thumb_material = global::Hanyang.Droid.Resource.Drawable.abc_seekbar_thumb_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_seekbar_tick_mark_material = global::Hanyang.Droid.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_seekbar_track_material = global::Hanyang.Droid.Resource.Drawable.abc_seekbar_track_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::Hanyang.Droid.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_spinner_textfield_background_material = global::Hanyang.Droid.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_switch_thumb_material = global::Hanyang.Droid.Resource.Drawable.abc_switch_thumb_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_switch_track_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_tab_indicator_material = global::Hanyang.Droid.Resource.Drawable.abc_tab_indicator_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::Hanyang.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::AiForms.Dialogs.Resource.Drawable.abc_textfield_search_material = global::Hanyang.Droid.Resource.Drawable.abc_textfield_search_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_cursor_material = global::Hanyang.Droid.Resource.Drawable.abc_text_cursor_material;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::AiForms.Dialogs.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::Hanyang.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::AiForms.Dialogs.Resource.Drawable.abc_vector_test = global::Hanyang.Droid.Resource.Drawable.abc_vector_test;
+			global::AiForms.Dialogs.Resource.Drawable.avd_hide_password = global::Hanyang.Droid.Resource.Drawable.avd_hide_password;
+			global::AiForms.Dialogs.Resource.Drawable.avd_show_password = global::Hanyang.Droid.Resource.Drawable.avd_show_password;
+			global::AiForms.Dialogs.Resource.Drawable.design_bottom_navigation_item_background = global::Hanyang.Droid.Resource.Drawable.design_bottom_navigation_item_background;
+			global::AiForms.Dialogs.Resource.Drawable.design_fab_background = global::Hanyang.Droid.Resource.Drawable.design_fab_background;
+			global::AiForms.Dialogs.Resource.Drawable.design_ic_visibility = global::Hanyang.Droid.Resource.Drawable.design_ic_visibility;
+			global::AiForms.Dialogs.Resource.Drawable.design_ic_visibility_off = global::Hanyang.Droid.Resource.Drawable.design_ic_visibility_off;
+			global::AiForms.Dialogs.Resource.Drawable.design_password_eye = global::Hanyang.Droid.Resource.Drawable.design_password_eye;
+			global::AiForms.Dialogs.Resource.Drawable.design_snackbar_background = global::Hanyang.Droid.Resource.Drawable.design_snackbar_background;
+			global::AiForms.Dialogs.Resource.Drawable.navigation_empty_icon = global::Hanyang.Droid.Resource.Drawable.navigation_empty_icon;
+			global::AiForms.Dialogs.Resource.Drawable.notification_action_background = global::Hanyang.Droid.Resource.Drawable.notification_action_background;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg = global::Hanyang.Droid.Resource.Drawable.notification_bg;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg_low = global::Hanyang.Droid.Resource.Drawable.notification_bg_low;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg_low_normal = global::Hanyang.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg_low_pressed = global::Hanyang.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg_normal = global::Hanyang.Droid.Resource.Drawable.notification_bg_normal;
+			global::AiForms.Dialogs.Resource.Drawable.notification_bg_normal_pressed = global::Hanyang.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::AiForms.Dialogs.Resource.Drawable.notification_icon_background = global::Hanyang.Droid.Resource.Drawable.notification_icon_background;
+			global::AiForms.Dialogs.Resource.Drawable.notification_template_icon_bg = global::Hanyang.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::AiForms.Dialogs.Resource.Drawable.notification_template_icon_low_bg = global::Hanyang.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::AiForms.Dialogs.Resource.Drawable.notification_tile_bg = global::Hanyang.Droid.Resource.Drawable.notification_tile_bg;
+			global::AiForms.Dialogs.Resource.Drawable.notify_panel_notification_icon_bg = global::Hanyang.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::AiForms.Dialogs.Resource.Drawable.tooltip_frame_dark = global::Hanyang.Droid.Resource.Drawable.tooltip_frame_dark;
+			global::AiForms.Dialogs.Resource.Drawable.tooltip_frame_light = global::Hanyang.Droid.Resource.Drawable.tooltip_frame_light;
+			global::AiForms.Dialogs.Resource.Id.action0 = global::Hanyang.Droid.Resource.Id.action0;
+			global::AiForms.Dialogs.Resource.Id.actions = global::Hanyang.Droid.Resource.Id.actions;
+			global::AiForms.Dialogs.Resource.Id.action_bar = global::Hanyang.Droid.Resource.Id.action_bar;
+			global::AiForms.Dialogs.Resource.Id.action_bar_activity_content = global::Hanyang.Droid.Resource.Id.action_bar_activity_content;
+			global::AiForms.Dialogs.Resource.Id.action_bar_container = global::Hanyang.Droid.Resource.Id.action_bar_container;
+			global::AiForms.Dialogs.Resource.Id.action_bar_root = global::Hanyang.Droid.Resource.Id.action_bar_root;
+			global::AiForms.Dialogs.Resource.Id.action_bar_spinner = global::Hanyang.Droid.Resource.Id.action_bar_spinner;
+			global::AiForms.Dialogs.Resource.Id.action_bar_subtitle = global::Hanyang.Droid.Resource.Id.action_bar_subtitle;
+			global::AiForms.Dialogs.Resource.Id.action_bar_title = global::Hanyang.Droid.Resource.Id.action_bar_title;
+			global::AiForms.Dialogs.Resource.Id.action_container = global::Hanyang.Droid.Resource.Id.action_container;
+			global::AiForms.Dialogs.Resource.Id.action_context_bar = global::Hanyang.Droid.Resource.Id.action_context_bar;
+			global::AiForms.Dialogs.Resource.Id.action_divider = global::Hanyang.Droid.Resource.Id.action_divider;
+			global::AiForms.Dialogs.Resource.Id.action_image = global::Hanyang.Droid.Resource.Id.action_image;
+			global::AiForms.Dialogs.Resource.Id.action_menu_divider = global::Hanyang.Droid.Resource.Id.action_menu_divider;
+			global::AiForms.Dialogs.Resource.Id.action_menu_presenter = global::Hanyang.Droid.Resource.Id.action_menu_presenter;
+			global::AiForms.Dialogs.Resource.Id.action_mode_bar = global::Hanyang.Droid.Resource.Id.action_mode_bar;
+			global::AiForms.Dialogs.Resource.Id.action_mode_bar_stub = global::Hanyang.Droid.Resource.Id.action_mode_bar_stub;
+			global::AiForms.Dialogs.Resource.Id.action_mode_close_button = global::Hanyang.Droid.Resource.Id.action_mode_close_button;
+			global::AiForms.Dialogs.Resource.Id.action_text = global::Hanyang.Droid.Resource.Id.action_text;
+			global::AiForms.Dialogs.Resource.Id.activity_chooser_view_content = global::Hanyang.Droid.Resource.Id.activity_chooser_view_content;
+			global::AiForms.Dialogs.Resource.Id.add = global::Hanyang.Droid.Resource.Id.add;
+			global::AiForms.Dialogs.Resource.Id.alertTitle = global::Hanyang.Droid.Resource.Id.alertTitle;
+			global::AiForms.Dialogs.Resource.Id.all = global::Hanyang.Droid.Resource.Id.all;
+			global::AiForms.Dialogs.Resource.Id.ALT = global::Hanyang.Droid.Resource.Id.ALT;
+			global::AiForms.Dialogs.Resource.Id.always = global::Hanyang.Droid.Resource.Id.always;
+			global::AiForms.Dialogs.Resource.Id.async = global::Hanyang.Droid.Resource.Id.async;
+			global::AiForms.Dialogs.Resource.Id.auto = global::Hanyang.Droid.Resource.Id.auto;
+			global::AiForms.Dialogs.Resource.Id.beginning = global::Hanyang.Droid.Resource.Id.beginning;
+			global::AiForms.Dialogs.Resource.Id.blocking = global::Hanyang.Droid.Resource.Id.blocking;
+			global::AiForms.Dialogs.Resource.Id.bottom = global::Hanyang.Droid.Resource.Id.bottom;
+			global::AiForms.Dialogs.Resource.Id.buttonPanel = global::Hanyang.Droid.Resource.Id.buttonPanel;
+			global::AiForms.Dialogs.Resource.Id.cancel_action = global::Hanyang.Droid.Resource.Id.cancel_action;
+			global::AiForms.Dialogs.Resource.Id.center = global::Hanyang.Droid.Resource.Id.center;
+			global::AiForms.Dialogs.Resource.Id.center_horizontal = global::Hanyang.Droid.Resource.Id.center_horizontal;
+			global::AiForms.Dialogs.Resource.Id.center_vertical = global::Hanyang.Droid.Resource.Id.center_vertical;
+			global::AiForms.Dialogs.Resource.Id.checkbox = global::Hanyang.Droid.Resource.Id.checkbox;
+			global::AiForms.Dialogs.Resource.Id.chronometer = global::Hanyang.Droid.Resource.Id.chronometer;
+			global::AiForms.Dialogs.Resource.Id.clip_horizontal = global::Hanyang.Droid.Resource.Id.clip_horizontal;
+			global::AiForms.Dialogs.Resource.Id.clip_vertical = global::Hanyang.Droid.Resource.Id.clip_vertical;
+			global::AiForms.Dialogs.Resource.Id.collapseActionView = global::Hanyang.Droid.Resource.Id.collapseActionView;
+			global::AiForms.Dialogs.Resource.Id.container = global::Hanyang.Droid.Resource.Id.container;
+			global::AiForms.Dialogs.Resource.Id.contentPanel = global::Hanyang.Droid.Resource.Id.contentPanel;
+			global::AiForms.Dialogs.Resource.Id.coordinator = global::Hanyang.Droid.Resource.Id.coordinator;
+			global::AiForms.Dialogs.Resource.Id.CTRL = global::Hanyang.Droid.Resource.Id.CTRL;
+			global::AiForms.Dialogs.Resource.Id.custom = global::Hanyang.Droid.Resource.Id.custom;
+			global::AiForms.Dialogs.Resource.Id.customPanel = global::Hanyang.Droid.Resource.Id.customPanel;
+			global::AiForms.Dialogs.Resource.Id.decor_content_parent = global::Hanyang.Droid.Resource.Id.decor_content_parent;
+			global::AiForms.Dialogs.Resource.Id.default_activity_button = global::Hanyang.Droid.Resource.Id.default_activity_button;
+			global::AiForms.Dialogs.Resource.Id.design_bottom_sheet = global::Hanyang.Droid.Resource.Id.design_bottom_sheet;
+			global::AiForms.Dialogs.Resource.Id.design_menu_item_action_area = global::Hanyang.Droid.Resource.Id.design_menu_item_action_area;
+			global::AiForms.Dialogs.Resource.Id.design_menu_item_action_area_stub = global::Hanyang.Droid.Resource.Id.design_menu_item_action_area_stub;
+			global::AiForms.Dialogs.Resource.Id.design_menu_item_text = global::Hanyang.Droid.Resource.Id.design_menu_item_text;
+			global::AiForms.Dialogs.Resource.Id.design_navigation_view = global::Hanyang.Droid.Resource.Id.design_navigation_view;
+			global::AiForms.Dialogs.Resource.Id.disableHome = global::Hanyang.Droid.Resource.Id.disableHome;
+			global::AiForms.Dialogs.Resource.Id.edit_query = global::Hanyang.Droid.Resource.Id.edit_query;
+			global::AiForms.Dialogs.Resource.Id.end = global::Hanyang.Droid.Resource.Id.end;
+			global::AiForms.Dialogs.Resource.Id.end_padder = global::Hanyang.Droid.Resource.Id.end_padder;
+			global::AiForms.Dialogs.Resource.Id.enterAlways = global::Hanyang.Droid.Resource.Id.enterAlways;
+			global::AiForms.Dialogs.Resource.Id.enterAlwaysCollapsed = global::Hanyang.Droid.Resource.Id.enterAlwaysCollapsed;
+			global::AiForms.Dialogs.Resource.Id.exitUntilCollapsed = global::Hanyang.Droid.Resource.Id.exitUntilCollapsed;
+			global::AiForms.Dialogs.Resource.Id.expanded_menu = global::Hanyang.Droid.Resource.Id.expanded_menu;
+			global::AiForms.Dialogs.Resource.Id.expand_activities_button = global::Hanyang.Droid.Resource.Id.expand_activities_button;
+			global::AiForms.Dialogs.Resource.Id.fill = global::Hanyang.Droid.Resource.Id.fill;
+			global::AiForms.Dialogs.Resource.Id.fill_horizontal = global::Hanyang.Droid.Resource.Id.fill_horizontal;
+			global::AiForms.Dialogs.Resource.Id.fill_vertical = global::Hanyang.Droid.Resource.Id.fill_vertical;
+			global::AiForms.Dialogs.Resource.Id.@fixed = global::Hanyang.Droid.Resource.Id.@fixed;
+			global::AiForms.Dialogs.Resource.Id.forever = global::Hanyang.Droid.Resource.Id.forever;
+			global::AiForms.Dialogs.Resource.Id.FUNCTION = global::Hanyang.Droid.Resource.Id.FUNCTION;
+			global::AiForms.Dialogs.Resource.Id.ghost_view = global::Hanyang.Droid.Resource.Id.ghost_view;
+			global::AiForms.Dialogs.Resource.Id.home = global::Hanyang.Droid.Resource.Id.home;
+			global::AiForms.Dialogs.Resource.Id.homeAsUp = global::Hanyang.Droid.Resource.Id.homeAsUp;
+			global::AiForms.Dialogs.Resource.Id.icon = global::Hanyang.Droid.Resource.Id.icon;
+			global::AiForms.Dialogs.Resource.Id.icon_group = global::Hanyang.Droid.Resource.Id.icon_group;
+			global::AiForms.Dialogs.Resource.Id.ifRoom = global::Hanyang.Droid.Resource.Id.ifRoom;
+			global::AiForms.Dialogs.Resource.Id.image = global::Hanyang.Droid.Resource.Id.image;
+			global::AiForms.Dialogs.Resource.Id.info = global::Hanyang.Droid.Resource.Id.info;
+			global::AiForms.Dialogs.Resource.Id.italic = global::Hanyang.Droid.Resource.Id.italic;
+			global::AiForms.Dialogs.Resource.Id.item_touch_helper_previous_elevation = global::Hanyang.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::AiForms.Dialogs.Resource.Id.largeLabel = global::Hanyang.Droid.Resource.Id.largeLabel;
+			global::AiForms.Dialogs.Resource.Id.left = global::Hanyang.Droid.Resource.Id.left;
+			global::AiForms.Dialogs.Resource.Id.line1 = global::Hanyang.Droid.Resource.Id.line1;
+			global::AiForms.Dialogs.Resource.Id.line3 = global::Hanyang.Droid.Resource.Id.line3;
+			global::AiForms.Dialogs.Resource.Id.listMode = global::Hanyang.Droid.Resource.Id.listMode;
+			global::AiForms.Dialogs.Resource.Id.list_item = global::Hanyang.Droid.Resource.Id.list_item;
+			global::AiForms.Dialogs.Resource.Id.loading_message = global::Hanyang.Droid.Resource.Id.loading_message;
+			global::AiForms.Dialogs.Resource.Id.masked = global::Hanyang.Droid.Resource.Id.masked;
+			global::AiForms.Dialogs.Resource.Id.media_actions = global::Hanyang.Droid.Resource.Id.media_actions;
+			global::AiForms.Dialogs.Resource.Id.message = global::Hanyang.Droid.Resource.Id.message;
+			global::AiForms.Dialogs.Resource.Id.META = global::Hanyang.Droid.Resource.Id.META;
+			global::AiForms.Dialogs.Resource.Id.middle = global::Hanyang.Droid.Resource.Id.middle;
+			global::AiForms.Dialogs.Resource.Id.mini = global::Hanyang.Droid.Resource.Id.mini;
+			global::AiForms.Dialogs.Resource.Id.multiply = global::Hanyang.Droid.Resource.Id.multiply;
+			global::AiForms.Dialogs.Resource.Id.navigation_header_container = global::Hanyang.Droid.Resource.Id.navigation_header_container;
+			global::AiForms.Dialogs.Resource.Id.never = global::Hanyang.Droid.Resource.Id.never;
+			global::AiForms.Dialogs.Resource.Id.none = global::Hanyang.Droid.Resource.Id.none;
+			global::AiForms.Dialogs.Resource.Id.normal = global::Hanyang.Droid.Resource.Id.normal;
+			global::AiForms.Dialogs.Resource.Id.notification_background = global::Hanyang.Droid.Resource.Id.notification_background;
+			global::AiForms.Dialogs.Resource.Id.notification_main_column = global::Hanyang.Droid.Resource.Id.notification_main_column;
+			global::AiForms.Dialogs.Resource.Id.notification_main_column_container = global::Hanyang.Droid.Resource.Id.notification_main_column_container;
+			global::AiForms.Dialogs.Resource.Id.parallax = global::Hanyang.Droid.Resource.Id.parallax;
+			global::AiForms.Dialogs.Resource.Id.parentPanel = global::Hanyang.Droid.Resource.Id.parentPanel;
+			global::AiForms.Dialogs.Resource.Id.parent_matrix = global::Hanyang.Droid.Resource.Id.parent_matrix;
+			global::AiForms.Dialogs.Resource.Id.pin = global::Hanyang.Droid.Resource.Id.pin;
+			global::AiForms.Dialogs.Resource.Id.progress = global::Hanyang.Droid.Resource.Id.progress;
+			global::AiForms.Dialogs.Resource.Id.progress_circular = global::Hanyang.Droid.Resource.Id.progress_circular;
+			global::AiForms.Dialogs.Resource.Id.progress_horizontal = global::Hanyang.Droid.Resource.Id.progress_horizontal;
+			global::AiForms.Dialogs.Resource.Id.radio = global::Hanyang.Droid.Resource.Id.radio;
+			global::AiForms.Dialogs.Resource.Id.right = global::Hanyang.Droid.Resource.Id.right;
+			global::AiForms.Dialogs.Resource.Id.right_icon = global::Hanyang.Droid.Resource.Id.right_icon;
+			global::AiForms.Dialogs.Resource.Id.right_side = global::Hanyang.Droid.Resource.Id.right_side;
+			global::AiForms.Dialogs.Resource.Id.save_image_matrix = global::Hanyang.Droid.Resource.Id.save_image_matrix;
+			global::AiForms.Dialogs.Resource.Id.save_non_transition_alpha = global::Hanyang.Droid.Resource.Id.save_non_transition_alpha;
+			global::AiForms.Dialogs.Resource.Id.save_scale_type = global::Hanyang.Droid.Resource.Id.save_scale_type;
+			global::AiForms.Dialogs.Resource.Id.screen = global::Hanyang.Droid.Resource.Id.screen;
+			global::AiForms.Dialogs.Resource.Id.scroll = global::Hanyang.Droid.Resource.Id.scroll;
+			global::AiForms.Dialogs.Resource.Id.scrollable = global::Hanyang.Droid.Resource.Id.scrollable;
+			global::AiForms.Dialogs.Resource.Id.scrollIndicatorDown = global::Hanyang.Droid.Resource.Id.scrollIndicatorDown;
+			global::AiForms.Dialogs.Resource.Id.scrollIndicatorUp = global::Hanyang.Droid.Resource.Id.scrollIndicatorUp;
+			global::AiForms.Dialogs.Resource.Id.scrollView = global::Hanyang.Droid.Resource.Id.scrollView;
+			global::AiForms.Dialogs.Resource.Id.search_badge = global::Hanyang.Droid.Resource.Id.search_badge;
+			global::AiForms.Dialogs.Resource.Id.search_bar = global::Hanyang.Droid.Resource.Id.search_bar;
+			global::AiForms.Dialogs.Resource.Id.search_button = global::Hanyang.Droid.Resource.Id.search_button;
+			global::AiForms.Dialogs.Resource.Id.search_close_btn = global::Hanyang.Droid.Resource.Id.search_close_btn;
+			global::AiForms.Dialogs.Resource.Id.search_edit_frame = global::Hanyang.Droid.Resource.Id.search_edit_frame;
+			global::AiForms.Dialogs.Resource.Id.search_go_btn = global::Hanyang.Droid.Resource.Id.search_go_btn;
+			global::AiForms.Dialogs.Resource.Id.search_mag_icon = global::Hanyang.Droid.Resource.Id.search_mag_icon;
+			global::AiForms.Dialogs.Resource.Id.search_plate = global::Hanyang.Droid.Resource.Id.search_plate;
+			global::AiForms.Dialogs.Resource.Id.search_src_text = global::Hanyang.Droid.Resource.Id.search_src_text;
+			global::AiForms.Dialogs.Resource.Id.search_voice_btn = global::Hanyang.Droid.Resource.Id.search_voice_btn;
+			global::AiForms.Dialogs.Resource.Id.select_dialog_listview = global::Hanyang.Droid.Resource.Id.select_dialog_listview;
+			global::AiForms.Dialogs.Resource.Id.SHIFT = global::Hanyang.Droid.Resource.Id.SHIFT;
+			global::AiForms.Dialogs.Resource.Id.shortcut = global::Hanyang.Droid.Resource.Id.shortcut;
+			global::AiForms.Dialogs.Resource.Id.showCustom = global::Hanyang.Droid.Resource.Id.showCustom;
+			global::AiForms.Dialogs.Resource.Id.showHome = global::Hanyang.Droid.Resource.Id.showHome;
+			global::AiForms.Dialogs.Resource.Id.showTitle = global::Hanyang.Droid.Resource.Id.showTitle;
+			global::AiForms.Dialogs.Resource.Id.smallLabel = global::Hanyang.Droid.Resource.Id.smallLabel;
+			global::AiForms.Dialogs.Resource.Id.snackbar_action = global::Hanyang.Droid.Resource.Id.snackbar_action;
+			global::AiForms.Dialogs.Resource.Id.snackbar_text = global::Hanyang.Droid.Resource.Id.snackbar_text;
+			global::AiForms.Dialogs.Resource.Id.snap = global::Hanyang.Droid.Resource.Id.snap;
+			global::AiForms.Dialogs.Resource.Id.spacer = global::Hanyang.Droid.Resource.Id.spacer;
+			global::AiForms.Dialogs.Resource.Id.split_action_bar = global::Hanyang.Droid.Resource.Id.split_action_bar;
+			global::AiForms.Dialogs.Resource.Id.src_atop = global::Hanyang.Droid.Resource.Id.src_atop;
+			global::AiForms.Dialogs.Resource.Id.src_in = global::Hanyang.Droid.Resource.Id.src_in;
+			global::AiForms.Dialogs.Resource.Id.src_over = global::Hanyang.Droid.Resource.Id.src_over;
+			global::AiForms.Dialogs.Resource.Id.start = global::Hanyang.Droid.Resource.Id.start;
+			global::AiForms.Dialogs.Resource.Id.status_bar_latest_event_content = global::Hanyang.Droid.Resource.Id.status_bar_latest_event_content;
+			global::AiForms.Dialogs.Resource.Id.submenuarrow = global::Hanyang.Droid.Resource.Id.submenuarrow;
+			global::AiForms.Dialogs.Resource.Id.submit_area = global::Hanyang.Droid.Resource.Id.submit_area;
+			global::AiForms.Dialogs.Resource.Id.SYM = global::Hanyang.Droid.Resource.Id.SYM;
+			global::AiForms.Dialogs.Resource.Id.tabMode = global::Hanyang.Droid.Resource.Id.tabMode;
+			global::AiForms.Dialogs.Resource.Id.tag_transition_group = global::Hanyang.Droid.Resource.Id.tag_transition_group;
+			global::AiForms.Dialogs.Resource.Id.text = global::Hanyang.Droid.Resource.Id.text;
+			global::AiForms.Dialogs.Resource.Id.text2 = global::Hanyang.Droid.Resource.Id.text2;
+			global::AiForms.Dialogs.Resource.Id.textinput_counter = global::Hanyang.Droid.Resource.Id.textinput_counter;
+			global::AiForms.Dialogs.Resource.Id.textinput_error = global::Hanyang.Droid.Resource.Id.textinput_error;
+			global::AiForms.Dialogs.Resource.Id.textSpacerNoButtons = global::Hanyang.Droid.Resource.Id.textSpacerNoButtons;
+			global::AiForms.Dialogs.Resource.Id.textSpacerNoTitle = global::Hanyang.Droid.Resource.Id.textSpacerNoTitle;
+			global::AiForms.Dialogs.Resource.Id.text_input_password_toggle = global::Hanyang.Droid.Resource.Id.text_input_password_toggle;
+			global::AiForms.Dialogs.Resource.Id.time = global::Hanyang.Droid.Resource.Id.time;
+			global::AiForms.Dialogs.Resource.Id.title = global::Hanyang.Droid.Resource.Id.title;
+			global::AiForms.Dialogs.Resource.Id.titleDividerNoCustom = global::Hanyang.Droid.Resource.Id.titleDividerNoCustom;
+			global::AiForms.Dialogs.Resource.Id.title_template = global::Hanyang.Droid.Resource.Id.title_template;
+			global::AiForms.Dialogs.Resource.Id.top = global::Hanyang.Droid.Resource.Id.top;
+			global::AiForms.Dialogs.Resource.Id.topPanel = global::Hanyang.Droid.Resource.Id.topPanel;
+			global::AiForms.Dialogs.Resource.Id.touch_outside = global::Hanyang.Droid.Resource.Id.touch_outside;
+			global::AiForms.Dialogs.Resource.Id.transition_current_scene = global::Hanyang.Droid.Resource.Id.transition_current_scene;
+			global::AiForms.Dialogs.Resource.Id.transition_layout_save = global::Hanyang.Droid.Resource.Id.transition_layout_save;
+			global::AiForms.Dialogs.Resource.Id.transition_position = global::Hanyang.Droid.Resource.Id.transition_position;
+			global::AiForms.Dialogs.Resource.Id.transition_scene_layoutid_cache = global::Hanyang.Droid.Resource.Id.transition_scene_layoutid_cache;
+			global::AiForms.Dialogs.Resource.Id.transition_transform = global::Hanyang.Droid.Resource.Id.transition_transform;
+			global::AiForms.Dialogs.Resource.Id.uniform = global::Hanyang.Droid.Resource.Id.uniform;
+			global::AiForms.Dialogs.Resource.Id.up = global::Hanyang.Droid.Resource.Id.up;
+			global::AiForms.Dialogs.Resource.Id.useLogo = global::Hanyang.Droid.Resource.Id.useLogo;
+			global::AiForms.Dialogs.Resource.Id.view_offset_helper = global::Hanyang.Droid.Resource.Id.view_offset_helper;
+			global::AiForms.Dialogs.Resource.Id.visible = global::Hanyang.Droid.Resource.Id.visible;
+			global::AiForms.Dialogs.Resource.Id.withText = global::Hanyang.Droid.Resource.Id.withText;
+			global::AiForms.Dialogs.Resource.Id.wrap_content = global::Hanyang.Droid.Resource.Id.wrap_content;
+			global::AiForms.Dialogs.Resource.Integer.abc_config_activityDefaultDur = global::Hanyang.Droid.Resource.Integer.abc_config_activityDefaultDur;
+			global::AiForms.Dialogs.Resource.Integer.abc_config_activityShortDur = global::Hanyang.Droid.Resource.Integer.abc_config_activityShortDur;
+			global::AiForms.Dialogs.Resource.Integer.app_bar_elevation_anim_duration = global::Hanyang.Droid.Resource.Integer.app_bar_elevation_anim_duration;
+			global::AiForms.Dialogs.Resource.Integer.bottom_sheet_slide_duration = global::Hanyang.Droid.Resource.Integer.bottom_sheet_slide_duration;
+			global::AiForms.Dialogs.Resource.Integer.cancel_button_image_alpha = global::Hanyang.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::AiForms.Dialogs.Resource.Integer.config_tooltipAnimTime = global::Hanyang.Droid.Resource.Integer.config_tooltipAnimTime;
+			global::AiForms.Dialogs.Resource.Integer.design_snackbar_text_max_lines = global::Hanyang.Droid.Resource.Integer.design_snackbar_text_max_lines;
+			global::AiForms.Dialogs.Resource.Integer.hide_password_duration = global::Hanyang.Droid.Resource.Integer.hide_password_duration;
+			global::AiForms.Dialogs.Resource.Integer.show_password_duration = global::Hanyang.Droid.Resource.Integer.show_password_duration;
+			global::AiForms.Dialogs.Resource.Integer.status_bar_notification_info_maxnum = global::Hanyang.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_bar_title_item = global::Hanyang.Droid.Resource.Layout.abc_action_bar_title_item;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_bar_up_container = global::Hanyang.Droid.Resource.Layout.abc_action_bar_up_container;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_menu_item_layout = global::Hanyang.Droid.Resource.Layout.abc_action_menu_item_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_menu_layout = global::Hanyang.Droid.Resource.Layout.abc_action_menu_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_mode_bar = global::Hanyang.Droid.Resource.Layout.abc_action_mode_bar;
+			global::AiForms.Dialogs.Resource.Layout.abc_action_mode_close_item_material = global::Hanyang.Droid.Resource.Layout.abc_action_mode_close_item_material;
+			global::AiForms.Dialogs.Resource.Layout.abc_activity_chooser_view = global::Hanyang.Droid.Resource.Layout.abc_activity_chooser_view;
+			global::AiForms.Dialogs.Resource.Layout.abc_activity_chooser_view_list_item = global::Hanyang.Droid.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::AiForms.Dialogs.Resource.Layout.abc_alert_dialog_button_bar_material = global::Hanyang.Droid.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::AiForms.Dialogs.Resource.Layout.abc_alert_dialog_material = global::Hanyang.Droid.Resource.Layout.abc_alert_dialog_material;
+			global::AiForms.Dialogs.Resource.Layout.abc_alert_dialog_title_material = global::Hanyang.Droid.Resource.Layout.abc_alert_dialog_title_material;
+			global::AiForms.Dialogs.Resource.Layout.abc_dialog_title_material = global::Hanyang.Droid.Resource.Layout.abc_dialog_title_material;
+			global::AiForms.Dialogs.Resource.Layout.abc_expanded_menu_layout = global::Hanyang.Droid.Resource.Layout.abc_expanded_menu_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_list_menu_item_checkbox = global::Hanyang.Droid.Resource.Layout.abc_list_menu_item_checkbox;
+			global::AiForms.Dialogs.Resource.Layout.abc_list_menu_item_icon = global::Hanyang.Droid.Resource.Layout.abc_list_menu_item_icon;
+			global::AiForms.Dialogs.Resource.Layout.abc_list_menu_item_layout = global::Hanyang.Droid.Resource.Layout.abc_list_menu_item_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_list_menu_item_radio = global::Hanyang.Droid.Resource.Layout.abc_list_menu_item_radio;
+			global::AiForms.Dialogs.Resource.Layout.abc_popup_menu_header_item_layout = global::Hanyang.Droid.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_popup_menu_item_layout = global::Hanyang.Droid.Resource.Layout.abc_popup_menu_item_layout;
+			global::AiForms.Dialogs.Resource.Layout.abc_screen_content_include = global::Hanyang.Droid.Resource.Layout.abc_screen_content_include;
+			global::AiForms.Dialogs.Resource.Layout.abc_screen_simple = global::Hanyang.Droid.Resource.Layout.abc_screen_simple;
+			global::AiForms.Dialogs.Resource.Layout.abc_screen_simple_overlay_action_mode = global::Hanyang.Droid.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::AiForms.Dialogs.Resource.Layout.abc_screen_toolbar = global::Hanyang.Droid.Resource.Layout.abc_screen_toolbar;
+			global::AiForms.Dialogs.Resource.Layout.abc_search_dropdown_item_icons_2line = global::Hanyang.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::AiForms.Dialogs.Resource.Layout.abc_search_view = global::Hanyang.Droid.Resource.Layout.abc_search_view;
+			global::AiForms.Dialogs.Resource.Layout.abc_select_dialog_material = global::Hanyang.Droid.Resource.Layout.abc_select_dialog_material;
+			global::AiForms.Dialogs.Resource.Layout.design_bottom_navigation_item = global::Hanyang.Droid.Resource.Layout.design_bottom_navigation_item;
+			global::AiForms.Dialogs.Resource.Layout.design_bottom_sheet_dialog = global::Hanyang.Droid.Resource.Layout.design_bottom_sheet_dialog;
+			global::AiForms.Dialogs.Resource.Layout.design_layout_snackbar = global::Hanyang.Droid.Resource.Layout.design_layout_snackbar;
+			global::AiForms.Dialogs.Resource.Layout.design_layout_snackbar_include = global::Hanyang.Droid.Resource.Layout.design_layout_snackbar_include;
+			global::AiForms.Dialogs.Resource.Layout.design_layout_tab_icon = global::Hanyang.Droid.Resource.Layout.design_layout_tab_icon;
+			global::AiForms.Dialogs.Resource.Layout.design_layout_tab_text = global::Hanyang.Droid.Resource.Layout.design_layout_tab_text;
+			global::AiForms.Dialogs.Resource.Layout.design_menu_item_action_area = global::Hanyang.Droid.Resource.Layout.design_menu_item_action_area;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_item = global::Hanyang.Droid.Resource.Layout.design_navigation_item;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_item_header = global::Hanyang.Droid.Resource.Layout.design_navigation_item_header;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_item_separator = global::Hanyang.Droid.Resource.Layout.design_navigation_item_separator;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_item_subheader = global::Hanyang.Droid.Resource.Layout.design_navigation_item_subheader;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_menu = global::Hanyang.Droid.Resource.Layout.design_navigation_menu;
+			global::AiForms.Dialogs.Resource.Layout.design_navigation_menu_item = global::Hanyang.Droid.Resource.Layout.design_navigation_menu_item;
+			global::AiForms.Dialogs.Resource.Layout.design_text_input_password_icon = global::Hanyang.Droid.Resource.Layout.design_text_input_password_icon;
+			global::AiForms.Dialogs.Resource.Layout.LoadingDialogLayout = global::Hanyang.Droid.Resource.Layout.LoadingDialogLayout;
+			global::AiForms.Dialogs.Resource.Layout.notification_action = global::Hanyang.Droid.Resource.Layout.notification_action;
+			global::AiForms.Dialogs.Resource.Layout.notification_action_tombstone = global::Hanyang.Droid.Resource.Layout.notification_action_tombstone;
+			global::AiForms.Dialogs.Resource.Layout.notification_media_action = global::Hanyang.Droid.Resource.Layout.notification_media_action;
+			global::AiForms.Dialogs.Resource.Layout.notification_media_cancel_action = global::Hanyang.Droid.Resource.Layout.notification_media_cancel_action;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_big_media = global::Hanyang.Droid.Resource.Layout.notification_template_big_media;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_big_media_custom = global::Hanyang.Droid.Resource.Layout.notification_template_big_media_custom;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_big_media_narrow = global::Hanyang.Droid.Resource.Layout.notification_template_big_media_narrow;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_big_media_narrow_custom = global::Hanyang.Droid.Resource.Layout.notification_template_big_media_narrow_custom;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_custom_big = global::Hanyang.Droid.Resource.Layout.notification_template_custom_big;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_icon_group = global::Hanyang.Droid.Resource.Layout.notification_template_icon_group;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_lines_media = global::Hanyang.Droid.Resource.Layout.notification_template_lines_media;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_media = global::Hanyang.Droid.Resource.Layout.notification_template_media;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_media_custom = global::Hanyang.Droid.Resource.Layout.notification_template_media_custom;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_part_chronometer = global::Hanyang.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::AiForms.Dialogs.Resource.Layout.notification_template_part_time = global::Hanyang.Droid.Resource.Layout.notification_template_part_time;
+			global::AiForms.Dialogs.Resource.Layout.select_dialog_item_material = global::Hanyang.Droid.Resource.Layout.select_dialog_item_material;
+			global::AiForms.Dialogs.Resource.Layout.select_dialog_multichoice_material = global::Hanyang.Droid.Resource.Layout.select_dialog_multichoice_material;
+			global::AiForms.Dialogs.Resource.Layout.select_dialog_singlechoice_material = global::Hanyang.Droid.Resource.Layout.select_dialog_singlechoice_material;
+			global::AiForms.Dialogs.Resource.Layout.support_simple_spinner_dropdown_item = global::Hanyang.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::AiForms.Dialogs.Resource.String.abc_action_bar_home_description = global::Hanyang.Droid.Resource.String.abc_action_bar_home_description;
+			global::AiForms.Dialogs.Resource.String.abc_action_bar_up_description = global::Hanyang.Droid.Resource.String.abc_action_bar_up_description;
+			global::AiForms.Dialogs.Resource.String.abc_action_menu_overflow_description = global::Hanyang.Droid.Resource.String.abc_action_menu_overflow_description;
+			global::AiForms.Dialogs.Resource.String.abc_action_mode_done = global::Hanyang.Droid.Resource.String.abc_action_mode_done;
+			global::AiForms.Dialogs.Resource.String.abc_activitychooserview_choose_application = global::Hanyang.Droid.Resource.String.abc_activitychooserview_choose_application;
+			global::AiForms.Dialogs.Resource.String.abc_activity_chooser_view_see_all = global::Hanyang.Droid.Resource.String.abc_activity_chooser_view_see_all;
+			global::AiForms.Dialogs.Resource.String.abc_capital_off = global::Hanyang.Droid.Resource.String.abc_capital_off;
+			global::AiForms.Dialogs.Resource.String.abc_capital_on = global::Hanyang.Droid.Resource.String.abc_capital_on;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_body_1_material = global::Hanyang.Droid.Resource.String.abc_font_family_body_1_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_body_2_material = global::Hanyang.Droid.Resource.String.abc_font_family_body_2_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_button_material = global::Hanyang.Droid.Resource.String.abc_font_family_button_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_caption_material = global::Hanyang.Droid.Resource.String.abc_font_family_caption_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_display_1_material = global::Hanyang.Droid.Resource.String.abc_font_family_display_1_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_display_2_material = global::Hanyang.Droid.Resource.String.abc_font_family_display_2_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_display_3_material = global::Hanyang.Droid.Resource.String.abc_font_family_display_3_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_display_4_material = global::Hanyang.Droid.Resource.String.abc_font_family_display_4_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_headline_material = global::Hanyang.Droid.Resource.String.abc_font_family_headline_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_menu_material = global::Hanyang.Droid.Resource.String.abc_font_family_menu_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_subhead_material = global::Hanyang.Droid.Resource.String.abc_font_family_subhead_material;
+			global::AiForms.Dialogs.Resource.String.abc_font_family_title_material = global::Hanyang.Droid.Resource.String.abc_font_family_title_material;
+			global::AiForms.Dialogs.Resource.String.abc_searchview_description_clear = global::Hanyang.Droid.Resource.String.abc_searchview_description_clear;
+			global::AiForms.Dialogs.Resource.String.abc_searchview_description_query = global::Hanyang.Droid.Resource.String.abc_searchview_description_query;
+			global::AiForms.Dialogs.Resource.String.abc_searchview_description_search = global::Hanyang.Droid.Resource.String.abc_searchview_description_search;
+			global::AiForms.Dialogs.Resource.String.abc_searchview_description_submit = global::Hanyang.Droid.Resource.String.abc_searchview_description_submit;
+			global::AiForms.Dialogs.Resource.String.abc_searchview_description_voice = global::Hanyang.Droid.Resource.String.abc_searchview_description_voice;
+			global::AiForms.Dialogs.Resource.String.abc_search_hint = global::Hanyang.Droid.Resource.String.abc_search_hint;
+			global::AiForms.Dialogs.Resource.String.abc_shareactionprovider_share_with = global::Hanyang.Droid.Resource.String.abc_shareactionprovider_share_with;
+			global::AiForms.Dialogs.Resource.String.abc_shareactionprovider_share_with_application = global::Hanyang.Droid.Resource.String.abc_shareactionprovider_share_with_application;
+			global::AiForms.Dialogs.Resource.String.abc_toolbar_collapse_description = global::Hanyang.Droid.Resource.String.abc_toolbar_collapse_description;
+			global::AiForms.Dialogs.Resource.String.appbar_scrolling_view_behavior = global::Hanyang.Droid.Resource.String.appbar_scrolling_view_behavior;
+			global::AiForms.Dialogs.Resource.String.bottom_sheet_behavior = global::Hanyang.Droid.Resource.String.bottom_sheet_behavior;
+			global::AiForms.Dialogs.Resource.String.character_counter_pattern = global::Hanyang.Droid.Resource.String.character_counter_pattern;
+			global::AiForms.Dialogs.Resource.String.library_name = global::Hanyang.Droid.Resource.String.library_name;
+			global::AiForms.Dialogs.Resource.String.password_toggle_content_description = global::Hanyang.Droid.Resource.String.password_toggle_content_description;
+			global::AiForms.Dialogs.Resource.String.path_password_eye = global::Hanyang.Droid.Resource.String.path_password_eye;
+			global::AiForms.Dialogs.Resource.String.path_password_eye_mask_strike_through = global::Hanyang.Droid.Resource.String.path_password_eye_mask_strike_through;
+			global::AiForms.Dialogs.Resource.String.path_password_eye_mask_visible = global::Hanyang.Droid.Resource.String.path_password_eye_mask_visible;
+			global::AiForms.Dialogs.Resource.String.path_password_strike_through = global::Hanyang.Droid.Resource.String.path_password_strike_through;
+			global::AiForms.Dialogs.Resource.String.search_menu_title = global::Hanyang.Droid.Resource.String.search_menu_title;
+			global::AiForms.Dialogs.Resource.String.status_bar_notification_info_overflow = global::Hanyang.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::AiForms.Dialogs.Resource.Style.AlertDialog_AppCompat = global::Hanyang.Droid.Resource.Style.AlertDialog_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.AlertDialog_AppCompat_Light = global::Hanyang.Droid.Resource.Style.AlertDialog_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Animation_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Animation_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Animation_AppCompat_DropDownUp = global::Hanyang.Droid.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::AiForms.Dialogs.Resource.Style.Animation_AppCompat_Tooltip = global::Hanyang.Droid.Resource.Style.Animation_AppCompat_Tooltip;
+			global::AiForms.Dialogs.Resource.Style.Animation_Design_BottomSheetDialog = global::Hanyang.Droid.Resource.Style.Animation_Design_BottomSheetDialog;
+			global::AiForms.Dialogs.Resource.Style.Base_AlertDialog_AppCompat = global::Hanyang.Droid.Resource.Style.Base_AlertDialog_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_AlertDialog_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_Animation_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::Hanyang.Droid.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::AiForms.Dialogs.Resource.Style.Base_Animation_AppCompat_Tooltip = global::Hanyang.Droid.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::AiForms.Dialogs.Resource.Style.Base_CardView = global::Hanyang.Droid.Resource.Style.Base_CardView;
+			global::AiForms.Dialogs.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::Hanyang.Droid.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_DialogWindowTitle_AppCompat = global::Hanyang.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Button = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Large = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Small = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Title = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::Hanyang.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::AiForms.Dialogs.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::Hanyang.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::AiForms.Dialogs.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V21_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_V21_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Hanyang.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V22_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_V22_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_V23_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_V23_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_V23_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_V26_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_V26_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_V26_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::Hanyang.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Base_V7_Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::Hanyang.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::Hanyang.Droid.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::Hanyang.Droid.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::AiForms.Dialogs.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::Hanyang.Droid.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionButton = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActionMode = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Button_Small = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_EditText = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ImageButton = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ListView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_RatingBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_SearchView = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_SeekBar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Spinner = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Toolbar = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::Hanyang.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::AiForms.Dialogs.Resource.Style.Base_Widget_Design_TabLayout = global::Hanyang.Droid.Resource.Style.Base_Widget_Design_TabLayout;
+			global::AiForms.Dialogs.Resource.Style.CardView = global::Hanyang.Droid.Resource.Style.CardView;
+			global::AiForms.Dialogs.Resource.Style.CardView_Dark = global::Hanyang.Droid.Resource.Style.CardView_Dark;
+			global::AiForms.Dialogs.Resource.Style.CardView_Light = global::Hanyang.Droid.Resource.Style.CardView_Light;
+			global::AiForms.Dialogs.Resource.Style.ExtraDialogAnimSet = global::Hanyang.Droid.Resource.Style.ExtraDialogAnimSet;
+			global::AiForms.Dialogs.Resource.Style.NoDimDialogFragmentStyle = global::Hanyang.Droid.Resource.Style.NoDimDialogFragmentStyle;
+			global::AiForms.Dialogs.Resource.Style.Platform_AppCompat = global::Hanyang.Droid.Resource.Style.Platform_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Platform_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Platform_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Platform_ThemeOverlay_AppCompat = global::Hanyang.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::Hanyang.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::AiForms.Dialogs.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Platform_V21_AppCompat = global::Hanyang.Droid.Resource.Style.Platform_V21_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Platform_V21_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Platform_V21_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Platform_V25_AppCompat = global::Hanyang.Droid.Resource.Style.Platform_V25_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Platform_V25_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Platform_V25_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Platform_Widget_AppCompat_Spinner = global::Hanyang.Droid.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::Hanyang.Droid.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::AiForms.Dialogs.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::Hanyang.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::AiForms.Dialogs.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::Hanyang.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::AiForms.Dialogs.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::Hanyang.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Body1 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Body2 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Button = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Button;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Caption = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Display1 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Display2 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Display3 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Display4 = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Headline = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Large = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Large;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Medium = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Menu = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Small = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Small;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Subhead = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Tooltip = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Tooltip;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Hanyang.Droid.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Info = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Info_Media = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Info_Media;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Line2_Media = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2_Media;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Media = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Media;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Time = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Time_Media = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Time_Media;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Compat_Notification_Title_Media = global::Hanyang.Droid.Resource.Style.TextAppearance_Compat_Notification_Title_Media;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Counter = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Counter;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Counter_Overflow = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Error = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Error;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Hint = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Hint;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Snackbar_Message = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Design_Tab = global::Hanyang.Droid.Resource.Style.TextAppearance_Design_Tab;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Hanyang.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Hanyang.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::AiForms.Dialogs.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::Hanyang.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_Dark = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.ThemeOverlay_AppCompat_Light = global::Hanyang.Droid.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat = global::Hanyang.Droid.Resource.Style.Theme_AppCompat;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_CompactMenu = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Dialog = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_Dialog = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_AppCompat_NoActionBar = global::Hanyang.Droid.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design = global::Hanyang.Droid.Resource.Style.Theme_Design;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design_BottomSheetDialog = global::Hanyang.Droid.Resource.Style.Theme_Design_BottomSheetDialog;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design_Light = global::Hanyang.Droid.Resource.Style.Theme_Design_Light;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::Hanyang.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design_Light_NoActionBar = global::Hanyang.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
+			global::AiForms.Dialogs.Resource.Style.Theme_Design_NoActionBar = global::Hanyang.Droid.Resource.Style.Theme_Design_NoActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionButton = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionButton;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActionMode = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActionMode;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ActivityChooserView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ButtonBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button_Borderless = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button_Colored = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Button_Small = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Button_Small;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_EditText = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_EditText;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ImageButton = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ImageButton;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionButton = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_SearchView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ListMenuView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ListPopupWindow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ListView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ListView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ListView_DropDown = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ListView_Menu = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_PopupMenu = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_PopupWindow = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ProgressBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_RatingBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_RatingBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_RatingBar_Small = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_SearchView = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_SearchView;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_SeekBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_SeekBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Spinner = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Spinner;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Toolbar = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Toolbar;
+			global::AiForms.Dialogs.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::Hanyang.Droid.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::AiForms.Dialogs.Resource.Style.Widget_Compat_NotificationActionContainer = global::Hanyang.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::AiForms.Dialogs.Resource.Style.Widget_Compat_NotificationActionText = global::Hanyang.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_AppBarLayout = global::Hanyang.Droid.Resource.Style.Widget_Design_AppBarLayout;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_BottomNavigationView = global::Hanyang.Droid.Resource.Style.Widget_Design_BottomNavigationView;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_BottomSheet_Modal = global::Hanyang.Droid.Resource.Style.Widget_Design_BottomSheet_Modal;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_CollapsingToolbar = global::Hanyang.Droid.Resource.Style.Widget_Design_CollapsingToolbar;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_FloatingActionButton = global::Hanyang.Droid.Resource.Style.Widget_Design_FloatingActionButton;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_NavigationView = global::Hanyang.Droid.Resource.Style.Widget_Design_NavigationView;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::Hanyang.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_Snackbar = global::Hanyang.Droid.Resource.Style.Widget_Design_Snackbar;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_TabLayout = global::Hanyang.Droid.Resource.Style.Widget_Design_TabLayout;
+			global::AiForms.Dialogs.Resource.Style.Widget_Design_TextInputLayout = global::Hanyang.Droid.Resource.Style.Widget_Design_TextInputLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar = global::Hanyang.Droid.Resource.Styleable.ActionBar;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBarLayout = global::Hanyang.Droid.Resource.Styleable.ActionBarLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::Hanyang.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_background = global::Hanyang.Droid.Resource.Styleable.ActionBar_background;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_backgroundSplit = global::Hanyang.Droid.Resource.Styleable.ActionBar_backgroundSplit;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_backgroundStacked = global::Hanyang.Droid.Resource.Styleable.ActionBar_backgroundStacked;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetEnd = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetLeft = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetRight = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetRight;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetStart = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetStart;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::Hanyang.Droid.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_customNavigationLayout = global::Hanyang.Droid.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_displayOptions = global::Hanyang.Droid.Resource.Styleable.ActionBar_displayOptions;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_divider = global::Hanyang.Droid.Resource.Styleable.ActionBar_divider;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_elevation = global::Hanyang.Droid.Resource.Styleable.ActionBar_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_height = global::Hanyang.Droid.Resource.Styleable.ActionBar_height;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_hideOnContentScroll = global::Hanyang.Droid.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_homeAsUpIndicator = global::Hanyang.Droid.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_homeLayout = global::Hanyang.Droid.Resource.Styleable.ActionBar_homeLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_icon = global::Hanyang.Droid.Resource.Styleable.ActionBar_icon;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::Hanyang.Droid.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_itemPadding = global::Hanyang.Droid.Resource.Styleable.ActionBar_itemPadding;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_logo = global::Hanyang.Droid.Resource.Styleable.ActionBar_logo;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_navigationMode = global::Hanyang.Droid.Resource.Styleable.ActionBar_navigationMode;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_popupTheme = global::Hanyang.Droid.Resource.Styleable.ActionBar_popupTheme;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_progressBarPadding = global::Hanyang.Droid.Resource.Styleable.ActionBar_progressBarPadding;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_progressBarStyle = global::Hanyang.Droid.Resource.Styleable.ActionBar_progressBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_subtitle = global::Hanyang.Droid.Resource.Styleable.ActionBar_subtitle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_subtitleTextStyle = global::Hanyang.Droid.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_title = global::Hanyang.Droid.Resource.Styleable.ActionBar_title;
+			global::AiForms.Dialogs.Resource.Styleable.ActionBar_titleTextStyle = global::Hanyang.Droid.Resource.Styleable.ActionBar_titleTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMenuItemView = global::Hanyang.Droid.Resource.Styleable.ActionMenuItemView;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMenuItemView_android_minWidth = global::Hanyang.Droid.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMenuView = global::Hanyang.Droid.Resource.Styleable.ActionMenuView;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode = global::Hanyang.Droid.Resource.Styleable.ActionMode;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_background = global::Hanyang.Droid.Resource.Styleable.ActionMode_background;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_backgroundSplit = global::Hanyang.Droid.Resource.Styleable.ActionMode_backgroundSplit;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_closeItemLayout = global::Hanyang.Droid.Resource.Styleable.ActionMode_closeItemLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_height = global::Hanyang.Droid.Resource.Styleable.ActionMode_height;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_subtitleTextStyle = global::Hanyang.Droid.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActionMode_titleTextStyle = global::Hanyang.Droid.Resource.Styleable.ActionMode_titleTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.ActivityChooserView = global::Hanyang.Droid.Resource.Styleable.ActivityChooserView;
+			global::AiForms.Dialogs.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Hanyang.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Hanyang.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog = global::Hanyang.Droid.Resource.Styleable.AlertDialog;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_android_layout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_android_layout;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_listItemLayout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_listItemLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_listLayout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_listLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_showTitle = global::Hanyang.Droid.Resource.Styleable.AlertDialog_showTitle;
+			global::AiForms.Dialogs.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::Hanyang.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout = global::Hanyang.Droid.Resource.Styleable.AppBarLayout;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayoutStates = global::Hanyang.Droid.Resource.Styleable.AppBarLayoutStates;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayoutStates_state_collapsed = global::Hanyang.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsed;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayoutStates_state_collapsible = global::Hanyang.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsible;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_android_background = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_android_background;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_elevation = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_expanded = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_expanded;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_Layout = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags;
+			global::AiForms.Dialogs.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator = global::Hanyang.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatImageView = global::Hanyang.Droid.Resource.Styleable.AppCompatImageView;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatImageView_android_src = global::Hanyang.Droid.Resource.Styleable.AppCompatImageView_android_src;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatImageView_srcCompat = global::Hanyang.Droid.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatImageView_tint = global::Hanyang.Droid.Resource.Styleable.AppCompatImageView_tint;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatImageView_tintMode = global::Hanyang.Droid.Resource.Styleable.AppCompatImageView_tintMode;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatSeekBar = global::Hanyang.Droid.Resource.Styleable.AppCompatSeekBar;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatSeekBar_android_thumb = global::Hanyang.Droid.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatSeekBar_tickMark = global::Hanyang.Droid.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::Hanyang.Droid.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::Hanyang.Droid.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::Hanyang.Droid.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_android_textAppearance = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_fontFamily = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTextView_textAllCaps = global::Hanyang.Droid.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarDivider = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarSize = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_checkboxStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorAccent = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorControlActivated = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorControlNormal = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorError = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorError;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorPrimary = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_controlBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dialogTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dividerVertical = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_editTextBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_editTextColor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_editTextStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_panelBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_searchViewStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_seekBarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_spinnerStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_switchStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_toolbarStyle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowActionBar = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::AiForms.Dialogs.Resource.Styleable.AppCompatTheme_windowNoTitle = global::Hanyang.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView_elevation = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView_itemBackground = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView_itemBackground;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView_itemIconTint = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView_itemIconTint;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView_itemTextColor = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView_itemTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.BottomNavigationView_menu = global::Hanyang.Droid.Resource.Styleable.BottomNavigationView_menu;
+			global::AiForms.Dialogs.Resource.Styleable.BottomSheetBehavior_Layout = global::Hanyang.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable = global::Hanyang.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable;
+			global::AiForms.Dialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight = global::Hanyang.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight;
+			global::AiForms.Dialogs.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::Hanyang.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
+			global::AiForms.Dialogs.Resource.Styleable.ButtonBarLayout = global::Hanyang.Droid.Resource.Styleable.ButtonBarLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ButtonBarLayout_allowStacking = global::Hanyang.Droid.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::AiForms.Dialogs.Resource.Styleable.CardView = global::Hanyang.Droid.Resource.Styleable.CardView;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_android_minHeight = global::Hanyang.Droid.Resource.Styleable.CardView_android_minHeight;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_android_minWidth = global::Hanyang.Droid.Resource.Styleable.CardView_android_minWidth;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardBackgroundColor = global::Hanyang.Droid.Resource.Styleable.CardView_cardBackgroundColor;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardCornerRadius = global::Hanyang.Droid.Resource.Styleable.CardView_cardCornerRadius;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardElevation = global::Hanyang.Droid.Resource.Styleable.CardView_cardElevation;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardMaxElevation = global::Hanyang.Droid.Resource.Styleable.CardView_cardMaxElevation;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardPreventCornerOverlap = global::Hanyang.Droid.Resource.Styleable.CardView_cardPreventCornerOverlap;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_cardUseCompatPadding = global::Hanyang.Droid.Resource.Styleable.CardView_cardUseCompatPadding;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_contentPadding = global::Hanyang.Droid.Resource.Styleable.CardView_contentPadding;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_contentPaddingBottom = global::Hanyang.Droid.Resource.Styleable.CardView_contentPaddingBottom;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_contentPaddingLeft = global::Hanyang.Droid.Resource.Styleable.CardView_contentPaddingLeft;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_contentPaddingRight = global::Hanyang.Droid.Resource.Styleable.CardView_contentPaddingRight;
+			global::AiForms.Dialogs.Resource.Styleable.CardView_contentPaddingTop = global::Hanyang.Droid.Resource.Styleable.CardView_contentPaddingTop;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_contentScrim = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_contentScrim;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_Layout = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_title = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_title;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_titleEnabled = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_titleEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.CollapsingToolbarLayout_toolbarId = global::Hanyang.Droid.Resource.Styleable.CollapsingToolbarLayout_toolbarId;
+			global::AiForms.Dialogs.Resource.Styleable.ColorStateListItem = global::Hanyang.Droid.Resource.Styleable.ColorStateListItem;
+			global::AiForms.Dialogs.Resource.Styleable.ColorStateListItem_alpha = global::Hanyang.Droid.Resource.Styleable.ColorStateListItem_alpha;
+			global::AiForms.Dialogs.Resource.Styleable.ColorStateListItem_android_alpha = global::Hanyang.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::AiForms.Dialogs.Resource.Styleable.ColorStateListItem_android_color = global::Hanyang.Droid.Resource.Styleable.ColorStateListItem_android_color;
+			global::AiForms.Dialogs.Resource.Styleable.CompoundButton = global::Hanyang.Droid.Resource.Styleable.CompoundButton;
+			global::AiForms.Dialogs.Resource.Styleable.CompoundButton_android_button = global::Hanyang.Droid.Resource.Styleable.CompoundButton_android_button;
+			global::AiForms.Dialogs.Resource.Styleable.CompoundButton_buttonTint = global::Hanyang.Droid.Resource.Styleable.CompoundButton_buttonTint;
+			global::AiForms.Dialogs.Resource.Styleable.CompoundButton_buttonTintMode = global::Hanyang.Droid.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_keylines = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_keylines;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::AiForms.Dialogs.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::Hanyang.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::AiForms.Dialogs.Resource.Styleable.DesignTheme = global::Hanyang.Droid.Resource.Styleable.DesignTheme;
+			global::AiForms.Dialogs.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::Hanyang.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
+			global::AiForms.Dialogs.Resource.Styleable.DesignTheme_bottomSheetStyle = global::Hanyang.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_barLength = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_color = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_color;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_drawableSize = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_spinBars = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::AiForms.Dialogs.Resource.Styleable.DrawerArrowToggle_thickness = global::Hanyang.Droid.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_backgroundTint = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_backgroundTint;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_borderWidth = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_borderWidth;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_elevation = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_fabSize = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_fabSize;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_pressedTranslationZ = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_rippleColor = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_rippleColor;
+			global::AiForms.Dialogs.Resource.Styleable.FloatingActionButton_useCompatPadding = global::Hanyang.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily = global::Hanyang.Droid.Resource.Styleable.FontFamily;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_android_font = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_android_fontStyle = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_android_fontWeight = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_font = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_fontStyle = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamilyFont_fontWeight = global::Hanyang.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderAuthority = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderCerts = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderPackage = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::AiForms.Dialogs.Resource.Styleable.FontFamily_fontProviderQuery = global::Hanyang.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::AiForms.Dialogs.Resource.Styleable.ForegroundLinearLayout = global::Hanyang.Droid.Resource.Styleable.ForegroundLinearLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::Hanyang.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
+			global::AiForms.Dialogs.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::Hanyang.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
+			global::AiForms.Dialogs.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::Hanyang.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_android_gravity = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_android_orientation = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_divider = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_divider;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_Layout = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::AiForms.Dialogs.Resource.Styleable.LinearLayoutCompat_showDividers = global::Hanyang.Droid.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::AiForms.Dialogs.Resource.Styleable.ListPopupWindow = global::Hanyang.Droid.Resource.Styleable.ListPopupWindow;
+			global::AiForms.Dialogs.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::Hanyang.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::AiForms.Dialogs.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::Hanyang.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup = global::Hanyang.Droid.Resource.Styleable.MenuGroup;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_checkableBehavior = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_enabled = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_enabled;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_id = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_id;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_menuCategory = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_orderInCategory = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::AiForms.Dialogs.Resource.Styleable.MenuGroup_android_visible = global::Hanyang.Droid.Resource.Styleable.MenuGroup_android_visible;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem = global::Hanyang.Droid.Resource.Styleable.MenuItem;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_actionLayout = global::Hanyang.Droid.Resource.Styleable.MenuItem_actionLayout;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_actionProviderClass = global::Hanyang.Droid.Resource.Styleable.MenuItem_actionProviderClass;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_actionViewClass = global::Hanyang.Droid.Resource.Styleable.MenuItem_actionViewClass;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_alphabeticModifiers = global::Hanyang.Droid.Resource.Styleable.MenuItem_alphabeticModifiers;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_checkable = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_checkable;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_checked = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_checked;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_enabled = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_enabled;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_icon = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_icon;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_id = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_id;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_menuCategory = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_menuCategory;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_numericShortcut = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_onClick = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_onClick;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_orderInCategory = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_title = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_title;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_titleCondensed = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_android_visible = global::Hanyang.Droid.Resource.Styleable.MenuItem_android_visible;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_contentDescription = global::Hanyang.Droid.Resource.Styleable.MenuItem_contentDescription;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_iconTint = global::Hanyang.Droid.Resource.Styleable.MenuItem_iconTint;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_iconTintMode = global::Hanyang.Droid.Resource.Styleable.MenuItem_iconTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_numericModifiers = global::Hanyang.Droid.Resource.Styleable.MenuItem_numericModifiers;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_showAsAction = global::Hanyang.Droid.Resource.Styleable.MenuItem_showAsAction;
+			global::AiForms.Dialogs.Resource.Styleable.MenuItem_tooltipText = global::Hanyang.Droid.Resource.Styleable.MenuItem_tooltipText;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView = global::Hanyang.Droid.Resource.Styleable.MenuView;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_headerBackground = global::Hanyang.Droid.Resource.Styleable.MenuView_android_headerBackground;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_horizontalDivider = global::Hanyang.Droid.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_itemBackground = global::Hanyang.Droid.Resource.Styleable.MenuView_android_itemBackground;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::Hanyang.Droid.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_itemTextAppearance = global::Hanyang.Droid.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_verticalDivider = global::Hanyang.Droid.Resource.Styleable.MenuView_android_verticalDivider;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Hanyang.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_preserveIconSpacing = global::Hanyang.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::AiForms.Dialogs.Resource.Styleable.MenuView_subMenuArrow = global::Hanyang.Droid.Resource.Styleable.MenuView_subMenuArrow;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView = global::Hanyang.Droid.Resource.Styleable.NavigationView;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_android_background = global::Hanyang.Droid.Resource.Styleable.NavigationView_android_background;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::Hanyang.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_android_maxWidth = global::Hanyang.Droid.Resource.Styleable.NavigationView_android_maxWidth;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_elevation = global::Hanyang.Droid.Resource.Styleable.NavigationView_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_headerLayout = global::Hanyang.Droid.Resource.Styleable.NavigationView_headerLayout;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_itemBackground = global::Hanyang.Droid.Resource.Styleable.NavigationView_itemBackground;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_itemIconTint = global::Hanyang.Droid.Resource.Styleable.NavigationView_itemIconTint;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_itemTextAppearance = global::Hanyang.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_itemTextColor = global::Hanyang.Droid.Resource.Styleable.NavigationView_itemTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.NavigationView_menu = global::Hanyang.Droid.Resource.Styleable.NavigationView_menu;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindow = global::Hanyang.Droid.Resource.Styleable.PopupWindow;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindowBackgroundState = global::Hanyang.Droid.Resource.Styleable.PopupWindowBackgroundState;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Hanyang.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::Hanyang.Droid.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindow_android_popupBackground = global::Hanyang.Droid.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::AiForms.Dialogs.Resource.Styleable.PopupWindow_overlapAnchor = global::Hanyang.Droid.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::AiForms.Dialogs.Resource.Styleable.RecycleListView = global::Hanyang.Droid.Resource.Styleable.RecycleListView;
+			global::AiForms.Dialogs.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::Hanyang.Droid.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::AiForms.Dialogs.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::Hanyang.Droid.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView = global::Hanyang.Droid.Resource.Styleable.RecyclerView;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_android_descendantFocusability = global::Hanyang.Droid.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_android_orientation = global::Hanyang.Droid.Resource.Styleable.RecyclerView_android_orientation;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_fastScrollEnabled = global::Hanyang.Droid.Resource.Styleable.RecyclerView_fastScrollEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_fastScrollHorizontalThumbDrawable = global::Hanyang.Droid.Resource.Styleable.RecyclerView_fastScrollHorizontalThumbDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_fastScrollHorizontalTrackDrawable = global::Hanyang.Droid.Resource.Styleable.RecyclerView_fastScrollHorizontalTrackDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_fastScrollVerticalThumbDrawable = global::Hanyang.Droid.Resource.Styleable.RecyclerView_fastScrollVerticalThumbDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_fastScrollVerticalTrackDrawable = global::Hanyang.Droid.Resource.Styleable.RecyclerView_fastScrollVerticalTrackDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_layoutManager = global::Hanyang.Droid.Resource.Styleable.RecyclerView_layoutManager;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_reverseLayout = global::Hanyang.Droid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_spanCount = global::Hanyang.Droid.Resource.Styleable.RecyclerView_spanCount;
+			global::AiForms.Dialogs.Resource.Styleable.RecyclerView_stackFromEnd = global::Hanyang.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::AiForms.Dialogs.Resource.Styleable.ScrimInsetsFrameLayout = global::Hanyang.Droid.Resource.Styleable.ScrimInsetsFrameLayout;
+			global::AiForms.Dialogs.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::Hanyang.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
+			global::AiForms.Dialogs.Resource.Styleable.ScrollingViewBehavior_Layout = global::Hanyang.Droid.Resource.Styleable.ScrollingViewBehavior_Layout;
+			global::AiForms.Dialogs.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop = global::Hanyang.Droid.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView = global::Hanyang.Droid.Resource.Styleable.SearchView;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_android_focusable = global::Hanyang.Droid.Resource.Styleable.SearchView_android_focusable;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_android_imeOptions = global::Hanyang.Droid.Resource.Styleable.SearchView_android_imeOptions;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_android_inputType = global::Hanyang.Droid.Resource.Styleable.SearchView_android_inputType;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_android_maxWidth = global::Hanyang.Droid.Resource.Styleable.SearchView_android_maxWidth;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_closeIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_closeIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_commitIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_commitIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_defaultQueryHint = global::Hanyang.Droid.Resource.Styleable.SearchView_defaultQueryHint;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_goIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_goIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_iconifiedByDefault = global::Hanyang.Droid.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_layout = global::Hanyang.Droid.Resource.Styleable.SearchView_layout;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_queryBackground = global::Hanyang.Droid.Resource.Styleable.SearchView_queryBackground;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_queryHint = global::Hanyang.Droid.Resource.Styleable.SearchView_queryHint;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_searchHintIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_searchHintIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_searchIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_searchIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_submitBackground = global::Hanyang.Droid.Resource.Styleable.SearchView_submitBackground;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_suggestionRowLayout = global::Hanyang.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::AiForms.Dialogs.Resource.Styleable.SearchView_voiceIcon = global::Hanyang.Droid.Resource.Styleable.SearchView_voiceIcon;
+			global::AiForms.Dialogs.Resource.Styleable.SnackbarLayout = global::Hanyang.Droid.Resource.Styleable.SnackbarLayout;
+			global::AiForms.Dialogs.Resource.Styleable.SnackbarLayout_android_maxWidth = global::Hanyang.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
+			global::AiForms.Dialogs.Resource.Styleable.SnackbarLayout_elevation = global::Hanyang.Droid.Resource.Styleable.SnackbarLayout_elevation;
+			global::AiForms.Dialogs.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::Hanyang.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner = global::Hanyang.Droid.Resource.Styleable.Spinner;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner_android_dropDownWidth = global::Hanyang.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner_android_entries = global::Hanyang.Droid.Resource.Styleable.Spinner_android_entries;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner_android_popupBackground = global::Hanyang.Droid.Resource.Styleable.Spinner_android_popupBackground;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner_android_prompt = global::Hanyang.Droid.Resource.Styleable.Spinner_android_prompt;
+			global::AiForms.Dialogs.Resource.Styleable.Spinner_popupTheme = global::Hanyang.Droid.Resource.Styleable.Spinner_popupTheme;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat = global::Hanyang.Droid.Resource.Styleable.SwitchCompat;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_android_textOff = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_android_textOff;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_android_textOn = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_android_textOn;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_android_thumb = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_android_thumb;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_showText = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_showText;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_splitTrack = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_splitTrack;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_switchMinWidth = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_switchPadding = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_switchPadding;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_switchTextAppearance = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_thumbTextPadding = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_thumbTint = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_thumbTint;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_thumbTintMode = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_track = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_track;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_trackTint = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_trackTint;
+			global::AiForms.Dialogs.Resource.Styleable.SwitchCompat_trackTintMode = global::Hanyang.Droid.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.TabItem = global::Hanyang.Droid.Resource.Styleable.TabItem;
+			global::AiForms.Dialogs.Resource.Styleable.TabItem_android_icon = global::Hanyang.Droid.Resource.Styleable.TabItem_android_icon;
+			global::AiForms.Dialogs.Resource.Styleable.TabItem_android_layout = global::Hanyang.Droid.Resource.Styleable.TabItem_android_layout;
+			global::AiForms.Dialogs.Resource.Styleable.TabItem_android_text = global::Hanyang.Droid.Resource.Styleable.TabItem_android_text;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout = global::Hanyang.Droid.Resource.Styleable.TabLayout;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabBackground = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabBackground;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabContentStart = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabContentStart;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabGravity = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabGravity;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabIndicatorColor = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabIndicatorColor;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabIndicatorHeight = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabMaxWidth = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabMaxWidth;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabMinWidth = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabMinWidth;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabMode = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabMode;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabPadding = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabPadding;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabPaddingBottom = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabPaddingBottom;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabPaddingEnd = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabPaddingEnd;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabPaddingStart = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabPaddingStart;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabPaddingTop = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabPaddingTop;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabSelectedTextColor = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabTextAppearance = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TabLayout_tabTextColor = global::Hanyang.Droid.Resource.Styleable.TabLayout_tabTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance = global::Hanyang.Droid.Resource.Styleable.TextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_fontFamily = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_fontFamily;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_shadowColor = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_shadowDx = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_shadowDy = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_shadowRadius = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_textColor = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_textColor;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_textColorHint = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_textColorLink = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_textColorLink;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_textSize = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_textSize;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_textStyle = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_textStyle;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_android_typeface = global::Hanyang.Droid.Resource.Styleable.TextAppearance_android_typeface;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_fontFamily = global::Hanyang.Droid.Resource.Styleable.TextAppearance_fontFamily;
+			global::AiForms.Dialogs.Resource.Styleable.TextAppearance_textAllCaps = global::Hanyang.Droid.Resource.Styleable.TextAppearance_textAllCaps;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout = global::Hanyang.Droid.Resource.Styleable.TextInputLayout;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_android_hint = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_android_hint;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_android_textColorHint = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_android_textColorHint;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_counterEnabled = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_counterEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_counterMaxLength = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_counterMaxLength;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_counterTextAppearance = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_errorEnabled = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_errorEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_errorTextAppearance = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_hintAnimationEnabled = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_hintEnabled = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_hintEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_hintTextAppearance = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_passwordToggleContentDescription = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_passwordToggleContentDescription;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_passwordToggleDrawable = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_passwordToggleDrawable;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_passwordToggleEnabled = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_passwordToggleEnabled;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_passwordToggleTint = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_passwordToggleTint;
+			global::AiForms.Dialogs.Resource.Styleable.TextInputLayout_passwordToggleTintMode = global::Hanyang.Droid.Resource.Styleable.TextInputLayout_passwordToggleTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar = global::Hanyang.Droid.Resource.Styleable.Toolbar;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_android_gravity = global::Hanyang.Droid.Resource.Styleable.Toolbar_android_gravity;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_android_minHeight = global::Hanyang.Droid.Resource.Styleable.Toolbar_android_minHeight;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_buttonGravity = global::Hanyang.Droid.Resource.Styleable.Toolbar_buttonGravity;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_collapseContentDescription = global::Hanyang.Droid.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_collapseIcon = global::Hanyang.Droid.Resource.Styleable.Toolbar_collapseIcon;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetEnd = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetLeft = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetRight = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetRight;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetStart = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetStart;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::Hanyang.Droid.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_logo = global::Hanyang.Droid.Resource.Styleable.Toolbar_logo;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_logoDescription = global::Hanyang.Droid.Resource.Styleable.Toolbar_logoDescription;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_maxButtonHeight = global::Hanyang.Droid.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_navigationContentDescription = global::Hanyang.Droid.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_navigationIcon = global::Hanyang.Droid.Resource.Styleable.Toolbar_navigationIcon;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_popupTheme = global::Hanyang.Droid.Resource.Styleable.Toolbar_popupTheme;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_subtitle = global::Hanyang.Droid.Resource.Styleable.Toolbar_subtitle;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_subtitleTextAppearance = global::Hanyang.Droid.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_subtitleTextColor = global::Hanyang.Droid.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_title = global::Hanyang.Droid.Resource.Styleable.Toolbar_title;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMargin = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMargin;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMarginBottom = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMarginEnd = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMargins = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMargins;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMarginStart = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMarginStart;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleMarginTop = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleMarginTop;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleTextAppearance = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::AiForms.Dialogs.Resource.Styleable.Toolbar_titleTextColor = global::Hanyang.Droid.Resource.Styleable.Toolbar_titleTextColor;
+			global::AiForms.Dialogs.Resource.Styleable.View = global::Hanyang.Droid.Resource.Styleable.View;
+			global::AiForms.Dialogs.Resource.Styleable.ViewBackgroundHelper = global::Hanyang.Droid.Resource.Styleable.ViewBackgroundHelper;
+			global::AiForms.Dialogs.Resource.Styleable.ViewBackgroundHelper_android_background = global::Hanyang.Droid.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::AiForms.Dialogs.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::Hanyang.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::AiForms.Dialogs.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::Hanyang.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat = global::Hanyang.Droid.Resource.Styleable.ViewStubCompat;
+			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_id = global::Hanyang.Droid.Resource.Styleable.ViewStubCompat_android_id;
+			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Hanyang.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::AiForms.Dialogs.Resource.Styleable.ViewStubCompat_android_layout = global::Hanyang.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::AiForms.Dialogs.Resource.Styleable.View_android_focusable = global::Hanyang.Droid.Resource.Styleable.View_android_focusable;
+			global::AiForms.Dialogs.Resource.Styleable.View_android_theme = global::Hanyang.Droid.Resource.Styleable.View_android_theme;
+			global::AiForms.Dialogs.Resource.Styleable.View_paddingEnd = global::Hanyang.Droid.Resource.Styleable.View_paddingEnd;
+			global::AiForms.Dialogs.Resource.Styleable.View_paddingStart = global::Hanyang.Droid.Resource.Styleable.View_paddingStart;
+			global::AiForms.Dialogs.Resource.Styleable.View_theme = global::Hanyang.Droid.Resource.Styleable.View_theme;
 			global::LabelHtml.Forms.Plugin.Resource.Animation.abc_fade_in = global::Hanyang.Droid.Resource.Animation.abc_fade_in;
 			global::LabelHtml.Forms.Plugin.Resource.Animation.abc_fade_out = global::Hanyang.Droid.Resource.Animation.abc_fade_out;
 			global::LabelHtml.Forms.Plugin.Resource.Animation.abc_grow_fade_in_from_bottom = global::Hanyang.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -10605,6 +12557,12 @@ namespace Hanyang.Droid
 			// aapt resource value: 0x7F010013
 			public const int ExitToRight = 2130771987;
 			
+			// aapt resource value: 0x7F010014
+			public const int extra_dialog_enter = 2130771988;
+			
+			// aapt resource value: 0x7F010015
+			public const int extra_dialog_exit = 2130771989;
+			
 			static Animation()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -14204,343 +16162,349 @@ namespace Hanyang.Droid
 			public const int list_item = 2131230824;
 			
 			// aapt resource value: 0x7F080069
-			public const int main_appbar = 2131230825;
+			public const int loading_message = 2131230825;
 			
 			// aapt resource value: 0x7F08006A
-			public const int main_tablayout = 2131230826;
+			public const int main_appbar = 2131230826;
 			
 			// aapt resource value: 0x7F08006B
-			public const int main_toolbar = 2131230827;
+			public const int main_tablayout = 2131230827;
 			
 			// aapt resource value: 0x7F08006C
-			public const int main_viewpager = 2131230828;
+			public const int main_toolbar = 2131230828;
 			
 			// aapt resource value: 0x7F08006D
-			public const int masked = 2131230829;
+			public const int main_viewpager = 2131230829;
 			
 			// aapt resource value: 0x7F08006E
-			public const int media_actions = 2131230830;
+			public const int masked = 2131230830;
 			
 			// aapt resource value: 0x7F08006F
-			public const int message = 2131230831;
+			public const int media_actions = 2131230831;
+			
+			// aapt resource value: 0x7F080070
+			public const int message = 2131230832;
 			
 			// aapt resource value: 0x7F080003
 			public const int META = 2131230723;
 			
-			// aapt resource value: 0x7F080070
-			public const int middle = 2131230832;
-			
 			// aapt resource value: 0x7F080071
-			public const int mini = 2131230833;
+			public const int middle = 2131230833;
 			
 			// aapt resource value: 0x7F080072
-			public const int mtrl_child_content_container = 2131230834;
+			public const int mini = 2131230834;
 			
 			// aapt resource value: 0x7F080073
-			public const int mtrl_internal_children_alpha_tag = 2131230835;
+			public const int mtrl_child_content_container = 2131230835;
 			
 			// aapt resource value: 0x7F080074
-			public const int multiply = 2131230836;
+			public const int mtrl_internal_children_alpha_tag = 2131230836;
 			
 			// aapt resource value: 0x7F080075
-			public const int navigation_header_container = 2131230837;
+			public const int multiply = 2131230837;
 			
 			// aapt resource value: 0x7F080076
-			public const int never = 2131230838;
+			public const int navigation_header_container = 2131230838;
 			
 			// aapt resource value: 0x7F080077
-			public const int none = 2131230839;
+			public const int never = 2131230839;
 			
 			// aapt resource value: 0x7F080078
-			public const int normal = 2131230840;
+			public const int none = 2131230840;
 			
 			// aapt resource value: 0x7F080079
-			public const int notification_background = 2131230841;
+			public const int normal = 2131230841;
 			
 			// aapt resource value: 0x7F08007A
-			public const int notification_main_column = 2131230842;
+			public const int notification_background = 2131230842;
 			
 			// aapt resource value: 0x7F08007B
-			public const int notification_main_column_container = 2131230843;
+			public const int notification_main_column = 2131230843;
 			
 			// aapt resource value: 0x7F08007C
-			public const int outline = 2131230844;
+			public const int notification_main_column_container = 2131230844;
 			
 			// aapt resource value: 0x7F08007D
-			public const int parallax = 2131230845;
+			public const int outline = 2131230845;
 			
 			// aapt resource value: 0x7F08007E
-			public const int parentPanel = 2131230846;
+			public const int parallax = 2131230846;
 			
 			// aapt resource value: 0x7F08007F
-			public const int parent_matrix = 2131230847;
+			public const int parentPanel = 2131230847;
 			
 			// aapt resource value: 0x7F080080
-			public const int pin = 2131230848;
+			public const int parent_matrix = 2131230848;
 			
 			// aapt resource value: 0x7F080081
-			public const int progressBar = 2131230849;
+			public const int pin = 2131230849;
 			
 			// aapt resource value: 0x7F080082
-			public const int progress_circular = 2131230850;
+			public const int progress = 2131230850;
 			
 			// aapt resource value: 0x7F080083
-			public const int progress_horizontal = 2131230851;
+			public const int progressBar = 2131230851;
 			
 			// aapt resource value: 0x7F080084
-			public const int radio = 2131230852;
+			public const int progress_circular = 2131230852;
 			
 			// aapt resource value: 0x7F080085
-			public const int right = 2131230853;
+			public const int progress_horizontal = 2131230853;
 			
 			// aapt resource value: 0x7F080086
-			public const int right_icon = 2131230854;
+			public const int radio = 2131230854;
 			
 			// aapt resource value: 0x7F080087
-			public const int right_side = 2131230855;
+			public const int right = 2131230855;
 			
 			// aapt resource value: 0x7F080088
-			public const int save_image_matrix = 2131230856;
+			public const int right_icon = 2131230856;
 			
 			// aapt resource value: 0x7F080089
-			public const int save_non_transition_alpha = 2131230857;
+			public const int right_side = 2131230857;
 			
 			// aapt resource value: 0x7F08008A
-			public const int save_scale_type = 2131230858;
+			public const int save_image_matrix = 2131230858;
 			
 			// aapt resource value: 0x7F08008B
-			public const int screen = 2131230859;
+			public const int save_non_transition_alpha = 2131230859;
 			
 			// aapt resource value: 0x7F08008C
-			public const int scroll = 2131230860;
-			
-			// aapt resource value: 0x7F080090
-			public const int scrollable = 2131230864;
+			public const int save_scale_type = 2131230860;
 			
 			// aapt resource value: 0x7F08008D
-			public const int scrollIndicatorDown = 2131230861;
+			public const int screen = 2131230861;
 			
 			// aapt resource value: 0x7F08008E
-			public const int scrollIndicatorUp = 2131230862;
-			
-			// aapt resource value: 0x7F08008F
-			public const int scrollView = 2131230863;
-			
-			// aapt resource value: 0x7F080091
-			public const int search_badge = 2131230865;
+			public const int scroll = 2131230862;
 			
 			// aapt resource value: 0x7F080092
-			public const int search_bar = 2131230866;
+			public const int scrollable = 2131230866;
+			
+			// aapt resource value: 0x7F08008F
+			public const int scrollIndicatorDown = 2131230863;
+			
+			// aapt resource value: 0x7F080090
+			public const int scrollIndicatorUp = 2131230864;
+			
+			// aapt resource value: 0x7F080091
+			public const int scrollView = 2131230865;
 			
 			// aapt resource value: 0x7F080093
-			public const int search_button = 2131230867;
+			public const int search_badge = 2131230867;
 			
 			// aapt resource value: 0x7F080094
-			public const int search_close_btn = 2131230868;
+			public const int search_bar = 2131230868;
 			
 			// aapt resource value: 0x7F080095
-			public const int search_edit_frame = 2131230869;
+			public const int search_button = 2131230869;
 			
 			// aapt resource value: 0x7F080096
-			public const int search_go_btn = 2131230870;
+			public const int search_close_btn = 2131230870;
 			
 			// aapt resource value: 0x7F080097
-			public const int search_mag_icon = 2131230871;
+			public const int search_edit_frame = 2131230871;
 			
 			// aapt resource value: 0x7F080098
-			public const int search_plate = 2131230872;
+			public const int search_go_btn = 2131230872;
 			
 			// aapt resource value: 0x7F080099
-			public const int search_src_text = 2131230873;
+			public const int search_mag_icon = 2131230873;
 			
 			// aapt resource value: 0x7F08009A
-			public const int search_voice_btn = 2131230874;
-			
-			// aapt resource value: 0x7F08009C
-			public const int selected = 2131230876;
+			public const int search_plate = 2131230874;
 			
 			// aapt resource value: 0x7F08009B
-			public const int select_dialog_listview = 2131230875;
+			public const int search_src_text = 2131230875;
 			
-			// aapt resource value: 0x7F08009D
-			public const int shellcontent_appbar = 2131230877;
+			// aapt resource value: 0x7F08009C
+			public const int search_voice_btn = 2131230876;
 			
 			// aapt resource value: 0x7F08009E
-			public const int shellcontent_toolbar = 2131230878;
+			public const int selected = 2131230878;
+			
+			// aapt resource value: 0x7F08009D
+			public const int select_dialog_listview = 2131230877;
+			
+			// aapt resource value: 0x7F08009F
+			public const int shellcontent_appbar = 2131230879;
+			
+			// aapt resource value: 0x7F0800A0
+			public const int shellcontent_toolbar = 2131230880;
 			
 			// aapt resource value: 0x7F080004
 			public const int SHIFT = 2131230724;
 			
-			// aapt resource value: 0x7F08009F
-			public const int shortcut = 2131230879;
-			
-			// aapt resource value: 0x7F0800A0
-			public const int showCustom = 2131230880;
-			
 			// aapt resource value: 0x7F0800A1
-			public const int showHome = 2131230881;
+			public const int shortcut = 2131230881;
 			
 			// aapt resource value: 0x7F0800A2
-			public const int showTitle = 2131230882;
+			public const int showCustom = 2131230882;
 			
 			// aapt resource value: 0x7F0800A3
-			public const int sliding_tabs = 2131230883;
+			public const int showHome = 2131230883;
 			
 			// aapt resource value: 0x7F0800A4
-			public const int smallLabel = 2131230884;
+			public const int showTitle = 2131230884;
 			
 			// aapt resource value: 0x7F0800A5
-			public const int snackbar_action = 2131230885;
+			public const int sliding_tabs = 2131230885;
 			
 			// aapt resource value: 0x7F0800A6
-			public const int snackbar_text = 2131230886;
+			public const int smallLabel = 2131230886;
 			
 			// aapt resource value: 0x7F0800A7
-			public const int snap = 2131230887;
+			public const int snackbar_action = 2131230887;
 			
 			// aapt resource value: 0x7F0800A8
-			public const int snapMargins = 2131230888;
+			public const int snackbar_text = 2131230888;
 			
 			// aapt resource value: 0x7F0800A9
-			public const int spacer = 2131230889;
+			public const int snap = 2131230889;
 			
 			// aapt resource value: 0x7F0800AA
-			public const int split_action_bar = 2131230890;
+			public const int snapMargins = 2131230890;
 			
 			// aapt resource value: 0x7F0800AB
-			public const int src_atop = 2131230891;
+			public const int spacer = 2131230891;
 			
 			// aapt resource value: 0x7F0800AC
-			public const int src_in = 2131230892;
+			public const int split_action_bar = 2131230892;
 			
 			// aapt resource value: 0x7F0800AD
-			public const int src_over = 2131230893;
+			public const int src_atop = 2131230893;
 			
 			// aapt resource value: 0x7F0800AE
-			public const int standard = 2131230894;
+			public const int src_in = 2131230894;
 			
 			// aapt resource value: 0x7F0800AF
-			public const int start = 2131230895;
+			public const int src_over = 2131230895;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int status_bar_latest_event_content = 2131230896;
+			public const int standard = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int stretch = 2131230897;
+			public const int start = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
-			public const int submenuarrow = 2131230898;
+			public const int status_bar_latest_event_content = 2131230898;
 			
 			// aapt resource value: 0x7F0800B3
-			public const int submit_area = 2131230899;
+			public const int stretch = 2131230899;
+			
+			// aapt resource value: 0x7F0800B4
+			public const int submenuarrow = 2131230900;
+			
+			// aapt resource value: 0x7F0800B5
+			public const int submit_area = 2131230901;
 			
 			// aapt resource value: 0x7F080005
 			public const int SYM = 2131230725;
 			
-			// aapt resource value: 0x7F0800B4
-			public const int tabMode = 2131230900;
-			
-			// aapt resource value: 0x7F0800B5
-			public const int tag_transition_group = 2131230901;
-			
 			// aapt resource value: 0x7F0800B6
-			public const int tag_unhandled_key_event_manager = 2131230902;
+			public const int tabMode = 2131230902;
 			
 			// aapt resource value: 0x7F0800B7
-			public const int tag_unhandled_key_listeners = 2131230903;
+			public const int tag_transition_group = 2131230903;
 			
 			// aapt resource value: 0x7F0800B8
-			public const int text = 2131230904;
+			public const int tag_unhandled_key_event_manager = 2131230904;
 			
 			// aapt resource value: 0x7F0800B9
-			public const int text2 = 2131230905;
-			
-			// aapt resource value: 0x7F0800BE
-			public const int textinput_counter = 2131230910;
-			
-			// aapt resource value: 0x7F0800BF
-			public const int textinput_error = 2131230911;
-			
-			// aapt resource value: 0x7F0800C0
-			public const int textinput_helper_text = 2131230912;
+			public const int tag_unhandled_key_listeners = 2131230905;
 			
 			// aapt resource value: 0x7F0800BA
-			public const int textSpacerNoButtons = 2131230906;
+			public const int text = 2131230906;
 			
 			// aapt resource value: 0x7F0800BB
-			public const int textSpacerNoTitle = 2131230907;
+			public const int text2 = 2131230907;
 			
-			// aapt resource value: 0x7F0800BC
-			public const int textStart = 2131230908;
-			
-			// aapt resource value: 0x7F0800BD
-			public const int text_input_password_toggle = 2131230909;
+			// aapt resource value: 0x7F0800C0
+			public const int textinput_counter = 2131230912;
 			
 			// aapt resource value: 0x7F0800C1
-			public const int time = 2131230913;
+			public const int textinput_error = 2131230913;
 			
 			// aapt resource value: 0x7F0800C2
-			public const int title = 2131230914;
+			public const int textinput_helper_text = 2131230914;
+			
+			// aapt resource value: 0x7F0800BC
+			public const int textSpacerNoButtons = 2131230908;
+			
+			// aapt resource value: 0x7F0800BD
+			public const int textSpacerNoTitle = 2131230909;
+			
+			// aapt resource value: 0x7F0800BE
+			public const int textStart = 2131230910;
+			
+			// aapt resource value: 0x7F0800BF
+			public const int text_input_password_toggle = 2131230911;
 			
 			// aapt resource value: 0x7F0800C3
-			public const int titleDividerNoCustom = 2131230915;
+			public const int time = 2131230915;
 			
 			// aapt resource value: 0x7F0800C4
-			public const int title_template = 2131230916;
+			public const int title = 2131230916;
 			
 			// aapt resource value: 0x7F0800C5
-			public const int toolbar = 2131230917;
+			public const int titleDividerNoCustom = 2131230917;
 			
 			// aapt resource value: 0x7F0800C6
-			public const int top = 2131230918;
+			public const int title_template = 2131230918;
 			
 			// aapt resource value: 0x7F0800C7
-			public const int topPanel = 2131230919;
+			public const int toolbar = 2131230919;
 			
 			// aapt resource value: 0x7F0800C8
-			public const int touch_outside = 2131230920;
+			public const int top = 2131230920;
 			
 			// aapt resource value: 0x7F0800C9
-			public const int transition_current_scene = 2131230921;
+			public const int topPanel = 2131230921;
 			
 			// aapt resource value: 0x7F0800CA
-			public const int transition_layout_save = 2131230922;
+			public const int touch_outside = 2131230922;
 			
 			// aapt resource value: 0x7F0800CB
-			public const int transition_position = 2131230923;
+			public const int transition_current_scene = 2131230923;
 			
 			// aapt resource value: 0x7F0800CC
-			public const int transition_scene_layoutid_cache = 2131230924;
+			public const int transition_layout_save = 2131230924;
 			
 			// aapt resource value: 0x7F0800CD
-			public const int transition_transform = 2131230925;
+			public const int transition_position = 2131230925;
 			
 			// aapt resource value: 0x7F0800CE
-			public const int uniform = 2131230926;
+			public const int transition_scene_layoutid_cache = 2131230926;
 			
 			// aapt resource value: 0x7F0800CF
-			public const int unlabeled = 2131230927;
+			public const int transition_transform = 2131230927;
 			
 			// aapt resource value: 0x7F0800D0
-			public const int up = 2131230928;
+			public const int uniform = 2131230928;
 			
 			// aapt resource value: 0x7F0800D1
-			public const int useLogo = 2131230929;
+			public const int unlabeled = 2131230929;
 			
 			// aapt resource value: 0x7F0800D2
-			public const int view_offset_helper = 2131230930;
+			public const int up = 2131230930;
 			
 			// aapt resource value: 0x7F0800D3
-			public const int visible = 2131230931;
+			public const int useLogo = 2131230931;
 			
 			// aapt resource value: 0x7F0800D4
-			public const int wide = 2131230932;
+			public const int view_offset_helper = 2131230932;
 			
 			// aapt resource value: 0x7F0800D5
-			public const int withText = 2131230933;
+			public const int visible = 2131230933;
 			
 			// aapt resource value: 0x7F0800D6
-			public const int wrap_content = 2131230934;
+			public const int wide = 2131230934;
+			
+			// aapt resource value: 0x7F0800D7
+			public const int withText = 2131230935;
+			
+			// aapt resource value: 0x7F0800D8
+			public const int wrap_content = 2131230936;
 			
 			static Id()
 			{
@@ -14780,82 +16744,85 @@ namespace Hanyang.Droid
 			public const int FlyoutContent = 2131427373;
 			
 			// aapt resource value: 0x7F0B002E
-			public const int mtrl_layout_snackbar = 2131427374;
+			public const int LoadingDialogLayout = 2131427374;
 			
 			// aapt resource value: 0x7F0B002F
-			public const int mtrl_layout_snackbar_include = 2131427375;
+			public const int mtrl_layout_snackbar = 2131427375;
 			
 			// aapt resource value: 0x7F0B0030
-			public const int notification_action = 2131427376;
+			public const int mtrl_layout_snackbar_include = 2131427376;
 			
 			// aapt resource value: 0x7F0B0031
-			public const int notification_action_tombstone = 2131427377;
+			public const int notification_action = 2131427377;
 			
 			// aapt resource value: 0x7F0B0032
-			public const int notification_media_action = 2131427378;
+			public const int notification_action_tombstone = 2131427378;
 			
 			// aapt resource value: 0x7F0B0033
-			public const int notification_media_cancel_action = 2131427379;
+			public const int notification_media_action = 2131427379;
 			
 			// aapt resource value: 0x7F0B0034
-			public const int notification_template_big_media = 2131427380;
+			public const int notification_media_cancel_action = 2131427380;
 			
 			// aapt resource value: 0x7F0B0035
-			public const int notification_template_big_media_custom = 2131427381;
+			public const int notification_template_big_media = 2131427381;
 			
 			// aapt resource value: 0x7F0B0036
-			public const int notification_template_big_media_narrow = 2131427382;
+			public const int notification_template_big_media_custom = 2131427382;
 			
 			// aapt resource value: 0x7F0B0037
-			public const int notification_template_big_media_narrow_custom = 2131427383;
+			public const int notification_template_big_media_narrow = 2131427383;
 			
 			// aapt resource value: 0x7F0B0038
-			public const int notification_template_custom_big = 2131427384;
+			public const int notification_template_big_media_narrow_custom = 2131427384;
 			
 			// aapt resource value: 0x7F0B0039
-			public const int notification_template_icon_group = 2131427385;
+			public const int notification_template_custom_big = 2131427385;
 			
 			// aapt resource value: 0x7F0B003A
-			public const int notification_template_lines_media = 2131427386;
+			public const int notification_template_icon_group = 2131427386;
 			
 			// aapt resource value: 0x7F0B003B
-			public const int notification_template_media = 2131427387;
+			public const int notification_template_lines_media = 2131427387;
 			
 			// aapt resource value: 0x7F0B003C
-			public const int notification_template_media_custom = 2131427388;
+			public const int notification_template_media = 2131427388;
 			
 			// aapt resource value: 0x7F0B003D
-			public const int notification_template_part_chronometer = 2131427389;
+			public const int notification_template_media_custom = 2131427389;
 			
 			// aapt resource value: 0x7F0B003E
-			public const int notification_template_part_time = 2131427390;
+			public const int notification_template_part_chronometer = 2131427390;
 			
 			// aapt resource value: 0x7F0B003F
-			public const int RootLayout = 2131427391;
+			public const int notification_template_part_time = 2131427391;
 			
 			// aapt resource value: 0x7F0B0040
-			public const int select_dialog_item_material = 2131427392;
+			public const int RootLayout = 2131427392;
 			
 			// aapt resource value: 0x7F0B0041
-			public const int select_dialog_multichoice_material = 2131427393;
+			public const int select_dialog_item_material = 2131427393;
 			
 			// aapt resource value: 0x7F0B0042
-			public const int select_dialog_singlechoice_material = 2131427394;
+			public const int select_dialog_multichoice_material = 2131427394;
 			
 			// aapt resource value: 0x7F0B0043
-			public const int ShellContent = 2131427395;
+			public const int select_dialog_singlechoice_material = 2131427395;
 			
 			// aapt resource value: 0x7F0B0044
-			public const int SplashScreen = 2131427396;
+			public const int ShellContent = 2131427396;
 			
 			// aapt resource value: 0x7F0B0045
-			public const int support_simple_spinner_dropdown_item = 2131427397;
+			public const int SplashScreen = 2131427397;
 			
 			// aapt resource value: 0x7F0B0046
-			public const int Tabbar = 2131427398;
+			public const int support_simple_spinner_dropdown_item = 2131427398;
 			
 			// aapt resource value: 0x7F0B0047
-			public const int Toolbar = 2131427399;
+			public const int Tabbar = 2131427399;
+			
+			// aapt resource value: 0x7F0B0048
+			public const int Toolbar = 2131427400;
 			
 			static Layout()
 			{
@@ -15131,37 +17098,40 @@ namespace Hanyang.Droid
 			public const int hide_bottom_view_on_scroll_behavior = 2131624009;
 			
 			// aapt resource value: 0x7F0E004A
-			public const int mtrl_chip_close_icon_content_description = 2131624010;
+			public const int library_name = 2131624010;
 			
 			// aapt resource value: 0x7F0E004B
-			public const int password_toggle_content_description = 2131624011;
+			public const int mtrl_chip_close_icon_content_description = 2131624011;
 			
 			// aapt resource value: 0x7F0E004C
-			public const int path_password_eye = 2131624012;
+			public const int password_toggle_content_description = 2131624012;
 			
 			// aapt resource value: 0x7F0E004D
-			public const int path_password_eye_mask_strike_through = 2131624013;
+			public const int path_password_eye = 2131624013;
 			
 			// aapt resource value: 0x7F0E004E
-			public const int path_password_eye_mask_visible = 2131624014;
+			public const int path_password_eye_mask_strike_through = 2131624014;
 			
 			// aapt resource value: 0x7F0E004F
-			public const int path_password_strike_through = 2131624015;
+			public const int path_password_eye_mask_visible = 2131624015;
 			
 			// aapt resource value: 0x7F0E0050
-			public const int project_id = 2131624016;
+			public const int path_password_strike_through = 2131624016;
 			
 			// aapt resource value: 0x7F0E0051
-			public const int search_menu_title = 2131624017;
+			public const int project_id = 2131624017;
 			
 			// aapt resource value: 0x7F0E0052
-			public const int sfcalendar_inlineviewalldaytext = 2131624018;
+			public const int search_menu_title = 2131624018;
 			
 			// aapt resource value: 0x7F0E0053
-			public const int sfcalendar_inlineviewnoappointmenttext = 2131624019;
+			public const int sfcalendar_inlineviewalldaytext = 2131624019;
 			
 			// aapt resource value: 0x7F0E0054
-			public const int status_bar_notification_info_overflow = 2131624020;
+			public const int sfcalendar_inlineviewnoappointmenttext = 2131624020;
+			
+			// aapt resource value: 0x7F0E0055
+			public const int status_bar_notification_info_overflow = 2131624021;
 			
 			static String()
 			{
@@ -15770,926 +17740,932 @@ namespace Hanyang.Droid
 			// aapt resource value: 0x7F0F00C5
 			public const int CardView_Light = 2131689669;
 			
-			// aapt resource value: 0x7F0F01F7
-			public const int collectionViewScrollBars = 2131689975;
+			// aapt resource value: 0x7F0F01F9
+			public const int collectionViewScrollBars = 2131689977;
 			
-			// aapt resource value: 0x7F0F01F8
-			public const int collectionViewTheme = 2131689976;
+			// aapt resource value: 0x7F0F01FA
+			public const int collectionViewTheme = 2131689978;
 			
 			// aapt resource value: 0x7F0F00C6
-			public const int MainTheme = 2131689670;
+			public const int ExtraDialogAnimSet = 2131689670;
 			
 			// aapt resource value: 0x7F0F00C7
-			public const int MainTheme_Base = 2131689671;
+			public const int MainTheme = 2131689671;
 			
 			// aapt resource value: 0x7F0F00C8
-			public const int Platform_AppCompat = 2131689672;
+			public const int MainTheme_Base = 2131689672;
 			
 			// aapt resource value: 0x7F0F00C9
-			public const int Platform_AppCompat_Light = 2131689673;
+			public const int NoDimDialogFragmentStyle = 2131689673;
 			
 			// aapt resource value: 0x7F0F00CA
-			public const int Platform_MaterialComponents = 2131689674;
+			public const int Platform_AppCompat = 2131689674;
 			
 			// aapt resource value: 0x7F0F00CB
-			public const int Platform_MaterialComponents_Dialog = 2131689675;
+			public const int Platform_AppCompat_Light = 2131689675;
 			
 			// aapt resource value: 0x7F0F00CC
-			public const int Platform_MaterialComponents_Light = 2131689676;
+			public const int Platform_MaterialComponents = 2131689676;
 			
 			// aapt resource value: 0x7F0F00CD
-			public const int Platform_MaterialComponents_Light_Dialog = 2131689677;
+			public const int Platform_MaterialComponents_Dialog = 2131689677;
 			
 			// aapt resource value: 0x7F0F00CE
-			public const int Platform_ThemeOverlay_AppCompat = 2131689678;
+			public const int Platform_MaterialComponents_Light = 2131689678;
 			
 			// aapt resource value: 0x7F0F00CF
-			public const int Platform_ThemeOverlay_AppCompat_Dark = 2131689679;
+			public const int Platform_MaterialComponents_Light_Dialog = 2131689679;
 			
 			// aapt resource value: 0x7F0F00D0
-			public const int Platform_ThemeOverlay_AppCompat_Light = 2131689680;
+			public const int Platform_ThemeOverlay_AppCompat = 2131689680;
 			
 			// aapt resource value: 0x7F0F00D1
-			public const int Platform_V21_AppCompat = 2131689681;
+			public const int Platform_ThemeOverlay_AppCompat_Dark = 2131689681;
 			
 			// aapt resource value: 0x7F0F00D2
-			public const int Platform_V21_AppCompat_Light = 2131689682;
+			public const int Platform_ThemeOverlay_AppCompat_Light = 2131689682;
 			
 			// aapt resource value: 0x7F0F00D3
-			public const int Platform_V25_AppCompat = 2131689683;
+			public const int Platform_V21_AppCompat = 2131689683;
 			
 			// aapt resource value: 0x7F0F00D4
-			public const int Platform_V25_AppCompat_Light = 2131689684;
+			public const int Platform_V21_AppCompat_Light = 2131689684;
 			
 			// aapt resource value: 0x7F0F00D5
-			public const int Platform_Widget_AppCompat_Spinner = 2131689685;
+			public const int Platform_V25_AppCompat = 2131689685;
 			
 			// aapt resource value: 0x7F0F00D6
-			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131689686;
+			public const int Platform_V25_AppCompat_Light = 2131689686;
 			
 			// aapt resource value: 0x7F0F00D7
-			public const int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131689687;
+			public const int Platform_Widget_AppCompat_Spinner = 2131689687;
 			
 			// aapt resource value: 0x7F0F00D8
-			public const int RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131689688;
+			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131689688;
 			
 			// aapt resource value: 0x7F0F00D9
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131689689;
+			public const int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131689689;
 			
 			// aapt resource value: 0x7F0F00DA
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131689690;
+			public const int RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131689690;
 			
 			// aapt resource value: 0x7F0F00DB
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut = 2131689691;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131689691;
 			
 			// aapt resource value: 0x7F0F00DC
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = 2131689692;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131689692;
 			
 			// aapt resource value: 0x7F0F00DD
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131689693;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut = 2131689693;
 			
 			// aapt resource value: 0x7F0F00DE
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = 2131689694;
-			
-			// aapt resource value: 0x7F0F00E4
-			public const int RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131689700;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = 2131689694;
 			
 			// aapt resource value: 0x7F0F00DF
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown = 2131689695;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131689695;
 			
 			// aapt resource value: 0x7F0F00E0
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131689696;
-			
-			// aapt resource value: 0x7F0F00E1
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131689697;
-			
-			// aapt resource value: 0x7F0F00E2
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131689698;
-			
-			// aapt resource value: 0x7F0F00E3
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131689699;
-			
-			// aapt resource value: 0x7F0F00E5
-			public const int RtlUnderlay_Widget_AppCompat_ActionButton = 2131689701;
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = 2131689696;
 			
 			// aapt resource value: 0x7F0F00E6
-			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131689702;
+			public const int RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131689702;
+			
+			// aapt resource value: 0x7F0F00E1
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown = 2131689697;
+			
+			// aapt resource value: 0x7F0F00E2
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131689698;
+			
+			// aapt resource value: 0x7F0F00E3
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131689699;
+			
+			// aapt resource value: 0x7F0F00E4
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131689700;
+			
+			// aapt resource value: 0x7F0F00E5
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131689701;
 			
 			// aapt resource value: 0x7F0F00E7
-			public const int TextAppearance_AppCompat = 2131689703;
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton = 2131689703;
 			
 			// aapt resource value: 0x7F0F00E8
-			public const int TextAppearance_AppCompat_Body1 = 2131689704;
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131689704;
 			
 			// aapt resource value: 0x7F0F00E9
-			public const int TextAppearance_AppCompat_Body2 = 2131689705;
+			public const int TextAppearance_AppCompat = 2131689705;
 			
 			// aapt resource value: 0x7F0F00EA
-			public const int TextAppearance_AppCompat_Button = 2131689706;
+			public const int TextAppearance_AppCompat_Body1 = 2131689706;
 			
 			// aapt resource value: 0x7F0F00EB
-			public const int TextAppearance_AppCompat_Caption = 2131689707;
+			public const int TextAppearance_AppCompat_Body2 = 2131689707;
 			
 			// aapt resource value: 0x7F0F00EC
-			public const int TextAppearance_AppCompat_Display1 = 2131689708;
+			public const int TextAppearance_AppCompat_Button = 2131689708;
 			
 			// aapt resource value: 0x7F0F00ED
-			public const int TextAppearance_AppCompat_Display2 = 2131689709;
+			public const int TextAppearance_AppCompat_Caption = 2131689709;
 			
 			// aapt resource value: 0x7F0F00EE
-			public const int TextAppearance_AppCompat_Display3 = 2131689710;
+			public const int TextAppearance_AppCompat_Display1 = 2131689710;
 			
 			// aapt resource value: 0x7F0F00EF
-			public const int TextAppearance_AppCompat_Display4 = 2131689711;
+			public const int TextAppearance_AppCompat_Display2 = 2131689711;
 			
 			// aapt resource value: 0x7F0F00F0
-			public const int TextAppearance_AppCompat_Headline = 2131689712;
+			public const int TextAppearance_AppCompat_Display3 = 2131689712;
 			
 			// aapt resource value: 0x7F0F00F1
-			public const int TextAppearance_AppCompat_Inverse = 2131689713;
+			public const int TextAppearance_AppCompat_Display4 = 2131689713;
 			
 			// aapt resource value: 0x7F0F00F2
-			public const int TextAppearance_AppCompat_Large = 2131689714;
+			public const int TextAppearance_AppCompat_Headline = 2131689714;
 			
 			// aapt resource value: 0x7F0F00F3
-			public const int TextAppearance_AppCompat_Large_Inverse = 2131689715;
+			public const int TextAppearance_AppCompat_Inverse = 2131689715;
 			
 			// aapt resource value: 0x7F0F00F4
-			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131689716;
+			public const int TextAppearance_AppCompat_Large = 2131689716;
 			
 			// aapt resource value: 0x7F0F00F5
-			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131689717;
+			public const int TextAppearance_AppCompat_Large_Inverse = 2131689717;
 			
 			// aapt resource value: 0x7F0F00F6
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131689718;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131689718;
 			
 			// aapt resource value: 0x7F0F00F7
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131689719;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131689719;
 			
 			// aapt resource value: 0x7F0F00F8
-			public const int TextAppearance_AppCompat_Medium = 2131689720;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131689720;
 			
 			// aapt resource value: 0x7F0F00F9
-			public const int TextAppearance_AppCompat_Medium_Inverse = 2131689721;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131689721;
 			
 			// aapt resource value: 0x7F0F00FA
-			public const int TextAppearance_AppCompat_Menu = 2131689722;
+			public const int TextAppearance_AppCompat_Medium = 2131689722;
 			
 			// aapt resource value: 0x7F0F00FB
-			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131689723;
+			public const int TextAppearance_AppCompat_Medium_Inverse = 2131689723;
 			
 			// aapt resource value: 0x7F0F00FC
-			public const int TextAppearance_AppCompat_SearchResult_Title = 2131689724;
+			public const int TextAppearance_AppCompat_Menu = 2131689724;
 			
 			// aapt resource value: 0x7F0F00FD
-			public const int TextAppearance_AppCompat_Small = 2131689725;
+			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131689725;
 			
 			// aapt resource value: 0x7F0F00FE
-			public const int TextAppearance_AppCompat_Small_Inverse = 2131689726;
+			public const int TextAppearance_AppCompat_SearchResult_Title = 2131689726;
 			
 			// aapt resource value: 0x7F0F00FF
-			public const int TextAppearance_AppCompat_Subhead = 2131689727;
+			public const int TextAppearance_AppCompat_Small = 2131689727;
 			
 			// aapt resource value: 0x7F0F0100
-			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131689728;
+			public const int TextAppearance_AppCompat_Small_Inverse = 2131689728;
 			
 			// aapt resource value: 0x7F0F0101
-			public const int TextAppearance_AppCompat_Title = 2131689729;
+			public const int TextAppearance_AppCompat_Subhead = 2131689729;
 			
 			// aapt resource value: 0x7F0F0102
-			public const int TextAppearance_AppCompat_Title_Inverse = 2131689730;
+			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131689730;
 			
 			// aapt resource value: 0x7F0F0103
-			public const int TextAppearance_AppCompat_Tooltip = 2131689731;
+			public const int TextAppearance_AppCompat_Title = 2131689731;
 			
 			// aapt resource value: 0x7F0F0104
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131689732;
+			public const int TextAppearance_AppCompat_Title_Inverse = 2131689732;
 			
 			// aapt resource value: 0x7F0F0105
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131689733;
+			public const int TextAppearance_AppCompat_Tooltip = 2131689733;
 			
 			// aapt resource value: 0x7F0F0106
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131689734;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131689734;
 			
 			// aapt resource value: 0x7F0F0107
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131689735;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131689735;
 			
 			// aapt resource value: 0x7F0F0108
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131689736;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131689736;
 			
 			// aapt resource value: 0x7F0F0109
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131689737;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131689737;
 			
 			// aapt resource value: 0x7F0F010A
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131689738;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131689738;
 			
 			// aapt resource value: 0x7F0F010B
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131689739;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131689739;
 			
 			// aapt resource value: 0x7F0F010C
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131689740;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131689740;
 			
 			// aapt resource value: 0x7F0F010D
-			public const int TextAppearance_AppCompat_Widget_Button = 2131689741;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131689741;
 			
 			// aapt resource value: 0x7F0F010E
-			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131689742;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131689742;
 			
 			// aapt resource value: 0x7F0F010F
-			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131689743;
+			public const int TextAppearance_AppCompat_Widget_Button = 2131689743;
 			
 			// aapt resource value: 0x7F0F0110
-			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131689744;
+			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131689744;
 			
 			// aapt resource value: 0x7F0F0111
-			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131689745;
+			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131689745;
 			
 			// aapt resource value: 0x7F0F0112
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131689746;
+			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131689746;
 			
 			// aapt resource value: 0x7F0F0113
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131689747;
+			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131689747;
 			
 			// aapt resource value: 0x7F0F0114
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131689748;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131689748;
 			
 			// aapt resource value: 0x7F0F0115
-			public const int TextAppearance_AppCompat_Widget_Switch = 2131689749;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131689749;
 			
 			// aapt resource value: 0x7F0F0116
-			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131689750;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131689750;
 			
 			// aapt resource value: 0x7F0F0117
-			public const int TextAppearance_Compat_Notification = 2131689751;
+			public const int TextAppearance_AppCompat_Widget_Switch = 2131689751;
 			
 			// aapt resource value: 0x7F0F0118
-			public const int TextAppearance_Compat_Notification_Info = 2131689752;
+			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131689752;
 			
 			// aapt resource value: 0x7F0F0119
-			public const int TextAppearance_Compat_Notification_Info_Media = 2131689753;
+			public const int TextAppearance_Compat_Notification = 2131689753;
 			
 			// aapt resource value: 0x7F0F011A
-			public const int TextAppearance_Compat_Notification_Line2 = 2131689754;
+			public const int TextAppearance_Compat_Notification_Info = 2131689754;
 			
 			// aapt resource value: 0x7F0F011B
-			public const int TextAppearance_Compat_Notification_Line2_Media = 2131689755;
+			public const int TextAppearance_Compat_Notification_Info_Media = 2131689755;
 			
 			// aapt resource value: 0x7F0F011C
-			public const int TextAppearance_Compat_Notification_Media = 2131689756;
+			public const int TextAppearance_Compat_Notification_Line2 = 2131689756;
 			
 			// aapt resource value: 0x7F0F011D
-			public const int TextAppearance_Compat_Notification_Time = 2131689757;
+			public const int TextAppearance_Compat_Notification_Line2_Media = 2131689757;
 			
 			// aapt resource value: 0x7F0F011E
-			public const int TextAppearance_Compat_Notification_Time_Media = 2131689758;
+			public const int TextAppearance_Compat_Notification_Media = 2131689758;
 			
 			// aapt resource value: 0x7F0F011F
-			public const int TextAppearance_Compat_Notification_Title = 2131689759;
+			public const int TextAppearance_Compat_Notification_Time = 2131689759;
 			
 			// aapt resource value: 0x7F0F0120
-			public const int TextAppearance_Compat_Notification_Title_Media = 2131689760;
+			public const int TextAppearance_Compat_Notification_Time_Media = 2131689760;
 			
 			// aapt resource value: 0x7F0F0121
-			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131689761;
+			public const int TextAppearance_Compat_Notification_Title = 2131689761;
 			
 			// aapt resource value: 0x7F0F0122
-			public const int TextAppearance_Design_Counter = 2131689762;
+			public const int TextAppearance_Compat_Notification_Title_Media = 2131689762;
 			
 			// aapt resource value: 0x7F0F0123
-			public const int TextAppearance_Design_Counter_Overflow = 2131689763;
+			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131689763;
 			
 			// aapt resource value: 0x7F0F0124
-			public const int TextAppearance_Design_Error = 2131689764;
+			public const int TextAppearance_Design_Counter = 2131689764;
 			
 			// aapt resource value: 0x7F0F0125
-			public const int TextAppearance_Design_HelperText = 2131689765;
+			public const int TextAppearance_Design_Counter_Overflow = 2131689765;
 			
 			// aapt resource value: 0x7F0F0126
-			public const int TextAppearance_Design_Hint = 2131689766;
+			public const int TextAppearance_Design_Error = 2131689766;
 			
 			// aapt resource value: 0x7F0F0127
-			public const int TextAppearance_Design_Snackbar_Message = 2131689767;
+			public const int TextAppearance_Design_HelperText = 2131689767;
 			
 			// aapt resource value: 0x7F0F0128
-			public const int TextAppearance_Design_Tab = 2131689768;
+			public const int TextAppearance_Design_Hint = 2131689768;
 			
 			// aapt resource value: 0x7F0F0129
-			public const int TextAppearance_MaterialComponents_Body1 = 2131689769;
+			public const int TextAppearance_Design_Snackbar_Message = 2131689769;
 			
 			// aapt resource value: 0x7F0F012A
-			public const int TextAppearance_MaterialComponents_Body2 = 2131689770;
+			public const int TextAppearance_Design_Tab = 2131689770;
 			
 			// aapt resource value: 0x7F0F012B
-			public const int TextAppearance_MaterialComponents_Button = 2131689771;
+			public const int TextAppearance_MaterialComponents_Body1 = 2131689771;
 			
 			// aapt resource value: 0x7F0F012C
-			public const int TextAppearance_MaterialComponents_Caption = 2131689772;
+			public const int TextAppearance_MaterialComponents_Body2 = 2131689772;
 			
 			// aapt resource value: 0x7F0F012D
-			public const int TextAppearance_MaterialComponents_Chip = 2131689773;
+			public const int TextAppearance_MaterialComponents_Button = 2131689773;
 			
 			// aapt resource value: 0x7F0F012E
-			public const int TextAppearance_MaterialComponents_Headline1 = 2131689774;
+			public const int TextAppearance_MaterialComponents_Caption = 2131689774;
 			
 			// aapt resource value: 0x7F0F012F
-			public const int TextAppearance_MaterialComponents_Headline2 = 2131689775;
+			public const int TextAppearance_MaterialComponents_Chip = 2131689775;
 			
 			// aapt resource value: 0x7F0F0130
-			public const int TextAppearance_MaterialComponents_Headline3 = 2131689776;
+			public const int TextAppearance_MaterialComponents_Headline1 = 2131689776;
 			
 			// aapt resource value: 0x7F0F0131
-			public const int TextAppearance_MaterialComponents_Headline4 = 2131689777;
+			public const int TextAppearance_MaterialComponents_Headline2 = 2131689777;
 			
 			// aapt resource value: 0x7F0F0132
-			public const int TextAppearance_MaterialComponents_Headline5 = 2131689778;
+			public const int TextAppearance_MaterialComponents_Headline3 = 2131689778;
 			
 			// aapt resource value: 0x7F0F0133
-			public const int TextAppearance_MaterialComponents_Headline6 = 2131689779;
+			public const int TextAppearance_MaterialComponents_Headline4 = 2131689779;
 			
 			// aapt resource value: 0x7F0F0134
-			public const int TextAppearance_MaterialComponents_Overline = 2131689780;
+			public const int TextAppearance_MaterialComponents_Headline5 = 2131689780;
 			
 			// aapt resource value: 0x7F0F0135
-			public const int TextAppearance_MaterialComponents_Subtitle1 = 2131689781;
+			public const int TextAppearance_MaterialComponents_Headline6 = 2131689781;
 			
 			// aapt resource value: 0x7F0F0136
-			public const int TextAppearance_MaterialComponents_Subtitle2 = 2131689782;
+			public const int TextAppearance_MaterialComponents_Overline = 2131689782;
 			
 			// aapt resource value: 0x7F0F0137
-			public const int TextAppearance_MaterialComponents_Tab = 2131689783;
+			public const int TextAppearance_MaterialComponents_Subtitle1 = 2131689783;
 			
 			// aapt resource value: 0x7F0F0138
-			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131689784;
+			public const int TextAppearance_MaterialComponents_Subtitle2 = 2131689784;
 			
 			// aapt resource value: 0x7F0F0139
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131689785;
+			public const int TextAppearance_MaterialComponents_Tab = 2131689785;
 			
 			// aapt resource value: 0x7F0F013A
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131689786;
-			
-			// aapt resource value: 0x7F0F016B
-			public const int ThemeOverlay_AppCompat = 2131689835;
-			
-			// aapt resource value: 0x7F0F016C
-			public const int ThemeOverlay_AppCompat_ActionBar = 2131689836;
-			
-			// aapt resource value: 0x7F0F016D
-			public const int ThemeOverlay_AppCompat_Dark = 2131689837;
-			
-			// aapt resource value: 0x7F0F016E
-			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131689838;
-			
-			// aapt resource value: 0x7F0F016F
-			public const int ThemeOverlay_AppCompat_Dialog = 2131689839;
-			
-			// aapt resource value: 0x7F0F0170
-			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131689840;
-			
-			// aapt resource value: 0x7F0F0171
-			public const int ThemeOverlay_AppCompat_Light = 2131689841;
-			
-			// aapt resource value: 0x7F0F0172
-			public const int ThemeOverlay_MaterialComponents = 2131689842;
-			
-			// aapt resource value: 0x7F0F0173
-			public const int ThemeOverlay_MaterialComponents_ActionBar = 2131689843;
-			
-			// aapt resource value: 0x7F0F0174
-			public const int ThemeOverlay_MaterialComponents_Dark = 2131689844;
-			
-			// aapt resource value: 0x7F0F0175
-			public const int ThemeOverlay_MaterialComponents_Dark_ActionBar = 2131689845;
-			
-			// aapt resource value: 0x7F0F0176
-			public const int ThemeOverlay_MaterialComponents_Dialog = 2131689846;
-			
-			// aapt resource value: 0x7F0F0177
-			public const int ThemeOverlay_MaterialComponents_Dialog_Alert = 2131689847;
-			
-			// aapt resource value: 0x7F0F0178
-			public const int ThemeOverlay_MaterialComponents_Light = 2131689848;
-			
-			// aapt resource value: 0x7F0F0179
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText = 2131689849;
-			
-			// aapt resource value: 0x7F0F017A
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = 2131689850;
-			
-			// aapt resource value: 0x7F0F017B
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689851;
-			
-			// aapt resource value: 0x7F0F017C
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = 2131689852;
-			
-			// aapt resource value: 0x7F0F017D
-			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689853;
+			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131689786;
 			
 			// aapt resource value: 0x7F0F013B
-			public const int Theme_AppCompat = 2131689787;
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131689787;
 			
 			// aapt resource value: 0x7F0F013C
-			public const int Theme_AppCompat_CompactMenu = 2131689788;
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131689788;
 			
-			// aapt resource value: 0x7F0F013D
-			public const int Theme_AppCompat_DayNight = 2131689789;
+			// aapt resource value: 0x7F0F016D
+			public const int ThemeOverlay_AppCompat = 2131689837;
 			
-			// aapt resource value: 0x7F0F013E
-			public const int Theme_AppCompat_DayNight_DarkActionBar = 2131689790;
+			// aapt resource value: 0x7F0F016E
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131689838;
 			
-			// aapt resource value: 0x7F0F013F
-			public const int Theme_AppCompat_DayNight_Dialog = 2131689791;
+			// aapt resource value: 0x7F0F016F
+			public const int ThemeOverlay_AppCompat_Dark = 2131689839;
 			
-			// aapt resource value: 0x7F0F0142
-			public const int Theme_AppCompat_DayNight_DialogWhenLarge = 2131689794;
+			// aapt resource value: 0x7F0F0170
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131689840;
 			
-			// aapt resource value: 0x7F0F0140
-			public const int Theme_AppCompat_DayNight_Dialog_Alert = 2131689792;
+			// aapt resource value: 0x7F0F0171
+			public const int ThemeOverlay_AppCompat_Dialog = 2131689841;
 			
-			// aapt resource value: 0x7F0F0141
-			public const int Theme_AppCompat_DayNight_Dialog_MinWidth = 2131689793;
+			// aapt resource value: 0x7F0F0172
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131689842;
 			
-			// aapt resource value: 0x7F0F0143
-			public const int Theme_AppCompat_DayNight_NoActionBar = 2131689795;
+			// aapt resource value: 0x7F0F0173
+			public const int ThemeOverlay_AppCompat_Light = 2131689843;
 			
-			// aapt resource value: 0x7F0F0144
-			public const int Theme_AppCompat_Dialog = 2131689796;
+			// aapt resource value: 0x7F0F0174
+			public const int ThemeOverlay_MaterialComponents = 2131689844;
 			
-			// aapt resource value: 0x7F0F0147
-			public const int Theme_AppCompat_DialogWhenLarge = 2131689799;
+			// aapt resource value: 0x7F0F0175
+			public const int ThemeOverlay_MaterialComponents_ActionBar = 2131689845;
 			
-			// aapt resource value: 0x7F0F0145
-			public const int Theme_AppCompat_Dialog_Alert = 2131689797;
+			// aapt resource value: 0x7F0F0176
+			public const int ThemeOverlay_MaterialComponents_Dark = 2131689846;
 			
-			// aapt resource value: 0x7F0F0146
-			public const int Theme_AppCompat_Dialog_MinWidth = 2131689798;
+			// aapt resource value: 0x7F0F0177
+			public const int ThemeOverlay_MaterialComponents_Dark_ActionBar = 2131689847;
 			
-			// aapt resource value: 0x7F0F0148
-			public const int Theme_AppCompat_Light = 2131689800;
+			// aapt resource value: 0x7F0F0178
+			public const int ThemeOverlay_MaterialComponents_Dialog = 2131689848;
 			
-			// aapt resource value: 0x7F0F0149
-			public const int Theme_AppCompat_Light_DarkActionBar = 2131689801;
+			// aapt resource value: 0x7F0F0179
+			public const int ThemeOverlay_MaterialComponents_Dialog_Alert = 2131689849;
 			
-			// aapt resource value: 0x7F0F014A
-			public const int Theme_AppCompat_Light_Dialog = 2131689802;
+			// aapt resource value: 0x7F0F017A
+			public const int ThemeOverlay_MaterialComponents_Light = 2131689850;
 			
-			// aapt resource value: 0x7F0F014D
-			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131689805;
+			// aapt resource value: 0x7F0F017B
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText = 2131689851;
 			
-			// aapt resource value: 0x7F0F014B
-			public const int Theme_AppCompat_Light_Dialog_Alert = 2131689803;
+			// aapt resource value: 0x7F0F017C
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = 2131689852;
 			
-			// aapt resource value: 0x7F0F014C
-			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131689804;
-			
-			// aapt resource value: 0x7F0F014E
-			public const int Theme_AppCompat_Light_NoActionBar = 2131689806;
-			
-			// aapt resource value: 0x7F0F014F
-			public const int Theme_AppCompat_NoActionBar = 2131689807;
-			
-			// aapt resource value: 0x7F0F0150
-			public const int Theme_Design = 2131689808;
-			
-			// aapt resource value: 0x7F0F0151
-			public const int Theme_Design_BottomSheetDialog = 2131689809;
-			
-			// aapt resource value: 0x7F0F0152
-			public const int Theme_Design_Light = 2131689810;
-			
-			// aapt resource value: 0x7F0F0153
-			public const int Theme_Design_Light_BottomSheetDialog = 2131689811;
-			
-			// aapt resource value: 0x7F0F0154
-			public const int Theme_Design_Light_NoActionBar = 2131689812;
-			
-			// aapt resource value: 0x7F0F0155
-			public const int Theme_Design_NoActionBar = 2131689813;
-			
-			// aapt resource value: 0x7F0F0156
-			public const int Theme_MaterialComponents = 2131689814;
-			
-			// aapt resource value: 0x7F0F0157
-			public const int Theme_MaterialComponents_BottomSheetDialog = 2131689815;
-			
-			// aapt resource value: 0x7F0F0158
-			public const int Theme_MaterialComponents_Bridge = 2131689816;
-			
-			// aapt resource value: 0x7F0F0159
-			public const int Theme_MaterialComponents_CompactMenu = 2131689817;
-			
-			// aapt resource value: 0x7F0F015A
-			public const int Theme_MaterialComponents_Dialog = 2131689818;
-			
-			// aapt resource value: 0x7F0F015D
-			public const int Theme_MaterialComponents_DialogWhenLarge = 2131689821;
-			
-			// aapt resource value: 0x7F0F015B
-			public const int Theme_MaterialComponents_Dialog_Alert = 2131689819;
-			
-			// aapt resource value: 0x7F0F015C
-			public const int Theme_MaterialComponents_Dialog_MinWidth = 2131689820;
-			
-			// aapt resource value: 0x7F0F015E
-			public const int Theme_MaterialComponents_Light = 2131689822;
-			
-			// aapt resource value: 0x7F0F015F
-			public const int Theme_MaterialComponents_Light_BottomSheetDialog = 2131689823;
-			
-			// aapt resource value: 0x7F0F0160
-			public const int Theme_MaterialComponents_Light_Bridge = 2131689824;
-			
-			// aapt resource value: 0x7F0F0161
-			public const int Theme_MaterialComponents_Light_DarkActionBar = 2131689825;
-			
-			// aapt resource value: 0x7F0F0162
-			public const int Theme_MaterialComponents_Light_DarkActionBar_Bridge = 2131689826;
-			
-			// aapt resource value: 0x7F0F0163
-			public const int Theme_MaterialComponents_Light_Dialog = 2131689827;
-			
-			// aapt resource value: 0x7F0F0166
-			public const int Theme_MaterialComponents_Light_DialogWhenLarge = 2131689830;
-			
-			// aapt resource value: 0x7F0F0164
-			public const int Theme_MaterialComponents_Light_Dialog_Alert = 2131689828;
-			
-			// aapt resource value: 0x7F0F0165
-			public const int Theme_MaterialComponents_Light_Dialog_MinWidth = 2131689829;
-			
-			// aapt resource value: 0x7F0F0167
-			public const int Theme_MaterialComponents_Light_NoActionBar = 2131689831;
-			
-			// aapt resource value: 0x7F0F0168
-			public const int Theme_MaterialComponents_Light_NoActionBar_Bridge = 2131689832;
-			
-			// aapt resource value: 0x7F0F0169
-			public const int Theme_MaterialComponents_NoActionBar = 2131689833;
-			
-			// aapt resource value: 0x7F0F016A
-			public const int Theme_MaterialComponents_NoActionBar_Bridge = 2131689834;
+			// aapt resource value: 0x7F0F017D
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689853;
 			
 			// aapt resource value: 0x7F0F017E
-			public const int Widget_AppCompat_ActionBar = 2131689854;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = 2131689854;
 			
 			// aapt resource value: 0x7F0F017F
-			public const int Widget_AppCompat_ActionBar_Solid = 2131689855;
+			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689855;
+			
+			// aapt resource value: 0x7F0F013D
+			public const int Theme_AppCompat = 2131689789;
+			
+			// aapt resource value: 0x7F0F013E
+			public const int Theme_AppCompat_CompactMenu = 2131689790;
+			
+			// aapt resource value: 0x7F0F013F
+			public const int Theme_AppCompat_DayNight = 2131689791;
+			
+			// aapt resource value: 0x7F0F0140
+			public const int Theme_AppCompat_DayNight_DarkActionBar = 2131689792;
+			
+			// aapt resource value: 0x7F0F0141
+			public const int Theme_AppCompat_DayNight_Dialog = 2131689793;
+			
+			// aapt resource value: 0x7F0F0144
+			public const int Theme_AppCompat_DayNight_DialogWhenLarge = 2131689796;
+			
+			// aapt resource value: 0x7F0F0142
+			public const int Theme_AppCompat_DayNight_Dialog_Alert = 2131689794;
+			
+			// aapt resource value: 0x7F0F0143
+			public const int Theme_AppCompat_DayNight_Dialog_MinWidth = 2131689795;
+			
+			// aapt resource value: 0x7F0F0145
+			public const int Theme_AppCompat_DayNight_NoActionBar = 2131689797;
+			
+			// aapt resource value: 0x7F0F0146
+			public const int Theme_AppCompat_Dialog = 2131689798;
+			
+			// aapt resource value: 0x7F0F0149
+			public const int Theme_AppCompat_DialogWhenLarge = 2131689801;
+			
+			// aapt resource value: 0x7F0F0147
+			public const int Theme_AppCompat_Dialog_Alert = 2131689799;
+			
+			// aapt resource value: 0x7F0F0148
+			public const int Theme_AppCompat_Dialog_MinWidth = 2131689800;
+			
+			// aapt resource value: 0x7F0F014A
+			public const int Theme_AppCompat_Light = 2131689802;
+			
+			// aapt resource value: 0x7F0F014B
+			public const int Theme_AppCompat_Light_DarkActionBar = 2131689803;
+			
+			// aapt resource value: 0x7F0F014C
+			public const int Theme_AppCompat_Light_Dialog = 2131689804;
+			
+			// aapt resource value: 0x7F0F014F
+			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131689807;
+			
+			// aapt resource value: 0x7F0F014D
+			public const int Theme_AppCompat_Light_Dialog_Alert = 2131689805;
+			
+			// aapt resource value: 0x7F0F014E
+			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131689806;
+			
+			// aapt resource value: 0x7F0F0150
+			public const int Theme_AppCompat_Light_NoActionBar = 2131689808;
+			
+			// aapt resource value: 0x7F0F0151
+			public const int Theme_AppCompat_NoActionBar = 2131689809;
+			
+			// aapt resource value: 0x7F0F0152
+			public const int Theme_Design = 2131689810;
+			
+			// aapt resource value: 0x7F0F0153
+			public const int Theme_Design_BottomSheetDialog = 2131689811;
+			
+			// aapt resource value: 0x7F0F0154
+			public const int Theme_Design_Light = 2131689812;
+			
+			// aapt resource value: 0x7F0F0155
+			public const int Theme_Design_Light_BottomSheetDialog = 2131689813;
+			
+			// aapt resource value: 0x7F0F0156
+			public const int Theme_Design_Light_NoActionBar = 2131689814;
+			
+			// aapt resource value: 0x7F0F0157
+			public const int Theme_Design_NoActionBar = 2131689815;
+			
+			// aapt resource value: 0x7F0F0158
+			public const int Theme_MaterialComponents = 2131689816;
+			
+			// aapt resource value: 0x7F0F0159
+			public const int Theme_MaterialComponents_BottomSheetDialog = 2131689817;
+			
+			// aapt resource value: 0x7F0F015A
+			public const int Theme_MaterialComponents_Bridge = 2131689818;
+			
+			// aapt resource value: 0x7F0F015B
+			public const int Theme_MaterialComponents_CompactMenu = 2131689819;
+			
+			// aapt resource value: 0x7F0F015C
+			public const int Theme_MaterialComponents_Dialog = 2131689820;
+			
+			// aapt resource value: 0x7F0F015F
+			public const int Theme_MaterialComponents_DialogWhenLarge = 2131689823;
+			
+			// aapt resource value: 0x7F0F015D
+			public const int Theme_MaterialComponents_Dialog_Alert = 2131689821;
+			
+			// aapt resource value: 0x7F0F015E
+			public const int Theme_MaterialComponents_Dialog_MinWidth = 2131689822;
+			
+			// aapt resource value: 0x7F0F0160
+			public const int Theme_MaterialComponents_Light = 2131689824;
+			
+			// aapt resource value: 0x7F0F0161
+			public const int Theme_MaterialComponents_Light_BottomSheetDialog = 2131689825;
+			
+			// aapt resource value: 0x7F0F0162
+			public const int Theme_MaterialComponents_Light_Bridge = 2131689826;
+			
+			// aapt resource value: 0x7F0F0163
+			public const int Theme_MaterialComponents_Light_DarkActionBar = 2131689827;
+			
+			// aapt resource value: 0x7F0F0164
+			public const int Theme_MaterialComponents_Light_DarkActionBar_Bridge = 2131689828;
+			
+			// aapt resource value: 0x7F0F0165
+			public const int Theme_MaterialComponents_Light_Dialog = 2131689829;
+			
+			// aapt resource value: 0x7F0F0168
+			public const int Theme_MaterialComponents_Light_DialogWhenLarge = 2131689832;
+			
+			// aapt resource value: 0x7F0F0166
+			public const int Theme_MaterialComponents_Light_Dialog_Alert = 2131689830;
+			
+			// aapt resource value: 0x7F0F0167
+			public const int Theme_MaterialComponents_Light_Dialog_MinWidth = 2131689831;
+			
+			// aapt resource value: 0x7F0F0169
+			public const int Theme_MaterialComponents_Light_NoActionBar = 2131689833;
+			
+			// aapt resource value: 0x7F0F016A
+			public const int Theme_MaterialComponents_Light_NoActionBar_Bridge = 2131689834;
+			
+			// aapt resource value: 0x7F0F016B
+			public const int Theme_MaterialComponents_NoActionBar = 2131689835;
+			
+			// aapt resource value: 0x7F0F016C
+			public const int Theme_MaterialComponents_NoActionBar_Bridge = 2131689836;
 			
 			// aapt resource value: 0x7F0F0180
-			public const int Widget_AppCompat_ActionBar_TabBar = 2131689856;
+			public const int Widget_AppCompat_ActionBar = 2131689856;
 			
 			// aapt resource value: 0x7F0F0181
-			public const int Widget_AppCompat_ActionBar_TabText = 2131689857;
+			public const int Widget_AppCompat_ActionBar_Solid = 2131689857;
 			
 			// aapt resource value: 0x7F0F0182
-			public const int Widget_AppCompat_ActionBar_TabView = 2131689858;
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131689858;
 			
 			// aapt resource value: 0x7F0F0183
-			public const int Widget_AppCompat_ActionButton = 2131689859;
+			public const int Widget_AppCompat_ActionBar_TabText = 2131689859;
 			
 			// aapt resource value: 0x7F0F0184
-			public const int Widget_AppCompat_ActionButton_CloseMode = 2131689860;
+			public const int Widget_AppCompat_ActionBar_TabView = 2131689860;
 			
 			// aapt resource value: 0x7F0F0185
-			public const int Widget_AppCompat_ActionButton_Overflow = 2131689861;
+			public const int Widget_AppCompat_ActionButton = 2131689861;
 			
 			// aapt resource value: 0x7F0F0186
-			public const int Widget_AppCompat_ActionMode = 2131689862;
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131689862;
 			
 			// aapt resource value: 0x7F0F0187
-			public const int Widget_AppCompat_ActivityChooserView = 2131689863;
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131689863;
 			
 			// aapt resource value: 0x7F0F0188
-			public const int Widget_AppCompat_AutoCompleteTextView = 2131689864;
+			public const int Widget_AppCompat_ActionMode = 2131689864;
 			
 			// aapt resource value: 0x7F0F0189
-			public const int Widget_AppCompat_Button = 2131689865;
-			
-			// aapt resource value: 0x7F0F018F
-			public const int Widget_AppCompat_ButtonBar = 2131689871;
-			
-			// aapt resource value: 0x7F0F0190
-			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131689872;
+			public const int Widget_AppCompat_ActivityChooserView = 2131689865;
 			
 			// aapt resource value: 0x7F0F018A
-			public const int Widget_AppCompat_Button_Borderless = 2131689866;
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131689866;
 			
 			// aapt resource value: 0x7F0F018B
-			public const int Widget_AppCompat_Button_Borderless_Colored = 2131689867;
-			
-			// aapt resource value: 0x7F0F018C
-			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131689868;
-			
-			// aapt resource value: 0x7F0F018D
-			public const int Widget_AppCompat_Button_Colored = 2131689869;
-			
-			// aapt resource value: 0x7F0F018E
-			public const int Widget_AppCompat_Button_Small = 2131689870;
+			public const int Widget_AppCompat_Button = 2131689867;
 			
 			// aapt resource value: 0x7F0F0191
-			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131689873;
+			public const int Widget_AppCompat_ButtonBar = 2131689873;
 			
 			// aapt resource value: 0x7F0F0192
-			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131689874;
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131689874;
+			
+			// aapt resource value: 0x7F0F018C
+			public const int Widget_AppCompat_Button_Borderless = 2131689868;
+			
+			// aapt resource value: 0x7F0F018D
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131689869;
+			
+			// aapt resource value: 0x7F0F018E
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131689870;
+			
+			// aapt resource value: 0x7F0F018F
+			public const int Widget_AppCompat_Button_Colored = 2131689871;
+			
+			// aapt resource value: 0x7F0F0190
+			public const int Widget_AppCompat_Button_Small = 2131689872;
 			
 			// aapt resource value: 0x7F0F0193
-			public const int Widget_AppCompat_CompoundButton_Switch = 2131689875;
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131689875;
 			
 			// aapt resource value: 0x7F0F0194
-			public const int Widget_AppCompat_DrawerArrowToggle = 2131689876;
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131689876;
 			
 			// aapt resource value: 0x7F0F0195
-			public const int Widget_AppCompat_DropDownItem_Spinner = 2131689877;
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131689877;
 			
 			// aapt resource value: 0x7F0F0196
-			public const int Widget_AppCompat_EditText = 2131689878;
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131689878;
 			
 			// aapt resource value: 0x7F0F0197
-			public const int Widget_AppCompat_ImageButton = 2131689879;
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131689879;
 			
 			// aapt resource value: 0x7F0F0198
-			public const int Widget_AppCompat_Light_ActionBar = 2131689880;
+			public const int Widget_AppCompat_EditText = 2131689880;
 			
 			// aapt resource value: 0x7F0F0199
-			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131689881;
+			public const int Widget_AppCompat_ImageButton = 2131689881;
 			
 			// aapt resource value: 0x7F0F019A
-			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131689882;
+			public const int Widget_AppCompat_Light_ActionBar = 2131689882;
 			
 			// aapt resource value: 0x7F0F019B
-			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131689883;
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131689883;
 			
 			// aapt resource value: 0x7F0F019C
-			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131689884;
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131689884;
 			
 			// aapt resource value: 0x7F0F019D
-			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131689885;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131689885;
 			
 			// aapt resource value: 0x7F0F019E
-			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131689886;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131689886;
 			
 			// aapt resource value: 0x7F0F019F
-			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131689887;
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131689887;
 			
 			// aapt resource value: 0x7F0F01A0
-			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131689888;
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131689888;
 			
 			// aapt resource value: 0x7F0F01A1
-			public const int Widget_AppCompat_Light_ActionButton = 2131689889;
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131689889;
 			
 			// aapt resource value: 0x7F0F01A2
-			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131689890;
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131689890;
 			
 			// aapt resource value: 0x7F0F01A3
-			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131689891;
+			public const int Widget_AppCompat_Light_ActionButton = 2131689891;
 			
 			// aapt resource value: 0x7F0F01A4
-			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131689892;
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131689892;
 			
 			// aapt resource value: 0x7F0F01A5
-			public const int Widget_AppCompat_Light_ActivityChooserView = 2131689893;
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131689893;
 			
 			// aapt resource value: 0x7F0F01A6
-			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131689894;
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131689894;
 			
 			// aapt resource value: 0x7F0F01A7
-			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131689895;
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131689895;
 			
 			// aapt resource value: 0x7F0F01A8
-			public const int Widget_AppCompat_Light_ListPopupWindow = 2131689896;
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131689896;
 			
 			// aapt resource value: 0x7F0F01A9
-			public const int Widget_AppCompat_Light_ListView_DropDown = 2131689897;
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131689897;
 			
 			// aapt resource value: 0x7F0F01AA
-			public const int Widget_AppCompat_Light_PopupMenu = 2131689898;
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131689898;
 			
 			// aapt resource value: 0x7F0F01AB
-			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131689899;
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131689899;
 			
 			// aapt resource value: 0x7F0F01AC
-			public const int Widget_AppCompat_Light_SearchView = 2131689900;
+			public const int Widget_AppCompat_Light_PopupMenu = 2131689900;
 			
 			// aapt resource value: 0x7F0F01AD
-			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131689901;
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131689901;
 			
 			// aapt resource value: 0x7F0F01AE
-			public const int Widget_AppCompat_ListMenuView = 2131689902;
+			public const int Widget_AppCompat_Light_SearchView = 2131689902;
 			
 			// aapt resource value: 0x7F0F01AF
-			public const int Widget_AppCompat_ListPopupWindow = 2131689903;
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131689903;
 			
 			// aapt resource value: 0x7F0F01B0
-			public const int Widget_AppCompat_ListView = 2131689904;
+			public const int Widget_AppCompat_ListMenuView = 2131689904;
 			
 			// aapt resource value: 0x7F0F01B1
-			public const int Widget_AppCompat_ListView_DropDown = 2131689905;
+			public const int Widget_AppCompat_ListPopupWindow = 2131689905;
 			
 			// aapt resource value: 0x7F0F01B2
-			public const int Widget_AppCompat_ListView_Menu = 2131689906;
+			public const int Widget_AppCompat_ListView = 2131689906;
 			
 			// aapt resource value: 0x7F0F01B3
-			public const int Widget_AppCompat_PopupMenu = 2131689907;
+			public const int Widget_AppCompat_ListView_DropDown = 2131689907;
 			
 			// aapt resource value: 0x7F0F01B4
-			public const int Widget_AppCompat_PopupMenu_Overflow = 2131689908;
+			public const int Widget_AppCompat_ListView_Menu = 2131689908;
 			
 			// aapt resource value: 0x7F0F01B5
-			public const int Widget_AppCompat_PopupWindow = 2131689909;
+			public const int Widget_AppCompat_PopupMenu = 2131689909;
 			
 			// aapt resource value: 0x7F0F01B6
-			public const int Widget_AppCompat_ProgressBar = 2131689910;
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131689910;
 			
 			// aapt resource value: 0x7F0F01B7
-			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131689911;
+			public const int Widget_AppCompat_PopupWindow = 2131689911;
 			
 			// aapt resource value: 0x7F0F01B8
-			public const int Widget_AppCompat_RatingBar = 2131689912;
+			public const int Widget_AppCompat_ProgressBar = 2131689912;
 			
 			// aapt resource value: 0x7F0F01B9
-			public const int Widget_AppCompat_RatingBar_Indicator = 2131689913;
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131689913;
 			
 			// aapt resource value: 0x7F0F01BA
-			public const int Widget_AppCompat_RatingBar_Small = 2131689914;
+			public const int Widget_AppCompat_RatingBar = 2131689914;
 			
 			// aapt resource value: 0x7F0F01BB
-			public const int Widget_AppCompat_SearchView = 2131689915;
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131689915;
 			
 			// aapt resource value: 0x7F0F01BC
-			public const int Widget_AppCompat_SearchView_ActionBar = 2131689916;
+			public const int Widget_AppCompat_RatingBar_Small = 2131689916;
 			
 			// aapt resource value: 0x7F0F01BD
-			public const int Widget_AppCompat_SeekBar = 2131689917;
+			public const int Widget_AppCompat_SearchView = 2131689917;
 			
 			// aapt resource value: 0x7F0F01BE
-			public const int Widget_AppCompat_SeekBar_Discrete = 2131689918;
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131689918;
 			
 			// aapt resource value: 0x7F0F01BF
-			public const int Widget_AppCompat_Spinner = 2131689919;
+			public const int Widget_AppCompat_SeekBar = 2131689919;
 			
 			// aapt resource value: 0x7F0F01C0
-			public const int Widget_AppCompat_Spinner_DropDown = 2131689920;
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131689920;
 			
 			// aapt resource value: 0x7F0F01C1
-			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131689921;
+			public const int Widget_AppCompat_Spinner = 2131689921;
 			
 			// aapt resource value: 0x7F0F01C2
-			public const int Widget_AppCompat_Spinner_Underlined = 2131689922;
+			public const int Widget_AppCompat_Spinner_DropDown = 2131689922;
 			
 			// aapt resource value: 0x7F0F01C3
-			public const int Widget_AppCompat_TextView_SpinnerItem = 2131689923;
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131689923;
 			
 			// aapt resource value: 0x7F0F01C4
-			public const int Widget_AppCompat_Toolbar = 2131689924;
+			public const int Widget_AppCompat_Spinner_Underlined = 2131689924;
 			
 			// aapt resource value: 0x7F0F01C5
-			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131689925;
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131689925;
 			
 			// aapt resource value: 0x7F0F01C6
-			public const int Widget_Compat_NotificationActionContainer = 2131689926;
+			public const int Widget_AppCompat_Toolbar = 2131689926;
 			
 			// aapt resource value: 0x7F0F01C7
-			public const int Widget_Compat_NotificationActionText = 2131689927;
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131689927;
 			
 			// aapt resource value: 0x7F0F01C8
-			public const int Widget_Design_AppBarLayout = 2131689928;
+			public const int Widget_Compat_NotificationActionContainer = 2131689928;
 			
 			// aapt resource value: 0x7F0F01C9
-			public const int Widget_Design_BottomNavigationView = 2131689929;
+			public const int Widget_Compat_NotificationActionText = 2131689929;
 			
 			// aapt resource value: 0x7F0F01CA
-			public const int Widget_Design_BottomSheet_Modal = 2131689930;
+			public const int Widget_Design_AppBarLayout = 2131689930;
 			
 			// aapt resource value: 0x7F0F01CB
-			public const int Widget_Design_CollapsingToolbar = 2131689931;
+			public const int Widget_Design_BottomNavigationView = 2131689931;
 			
 			// aapt resource value: 0x7F0F01CC
-			public const int Widget_Design_FloatingActionButton = 2131689932;
+			public const int Widget_Design_BottomSheet_Modal = 2131689932;
 			
 			// aapt resource value: 0x7F0F01CD
-			public const int Widget_Design_NavigationView = 2131689933;
+			public const int Widget_Design_CollapsingToolbar = 2131689933;
 			
 			// aapt resource value: 0x7F0F01CE
-			public const int Widget_Design_ScrimInsetsFrameLayout = 2131689934;
+			public const int Widget_Design_FloatingActionButton = 2131689934;
 			
 			// aapt resource value: 0x7F0F01CF
-			public const int Widget_Design_Snackbar = 2131689935;
+			public const int Widget_Design_NavigationView = 2131689935;
 			
 			// aapt resource value: 0x7F0F01D0
-			public const int Widget_Design_TabLayout = 2131689936;
+			public const int Widget_Design_ScrimInsetsFrameLayout = 2131689936;
 			
 			// aapt resource value: 0x7F0F01D1
-			public const int Widget_Design_TextInputLayout = 2131689937;
+			public const int Widget_Design_Snackbar = 2131689937;
 			
 			// aapt resource value: 0x7F0F01D2
-			public const int Widget_MaterialComponents_BottomAppBar = 2131689938;
+			public const int Widget_Design_TabLayout = 2131689938;
 			
 			// aapt resource value: 0x7F0F01D3
-			public const int Widget_MaterialComponents_BottomAppBar_Colored = 2131689939;
+			public const int Widget_Design_TextInputLayout = 2131689939;
 			
 			// aapt resource value: 0x7F0F01D4
-			public const int Widget_MaterialComponents_BottomNavigationView = 2131689940;
+			public const int Widget_MaterialComponents_BottomAppBar = 2131689940;
 			
 			// aapt resource value: 0x7F0F01D5
-			public const int Widget_MaterialComponents_BottomNavigationView_Colored = 2131689941;
+			public const int Widget_MaterialComponents_BottomAppBar_Colored = 2131689941;
 			
 			// aapt resource value: 0x7F0F01D6
-			public const int Widget_MaterialComponents_BottomSheet_Modal = 2131689942;
+			public const int Widget_MaterialComponents_BottomNavigationView = 2131689942;
 			
 			// aapt resource value: 0x7F0F01D7
-			public const int Widget_MaterialComponents_Button = 2131689943;
+			public const int Widget_MaterialComponents_BottomNavigationView_Colored = 2131689943;
 			
 			// aapt resource value: 0x7F0F01D8
-			public const int Widget_MaterialComponents_Button_Icon = 2131689944;
+			public const int Widget_MaterialComponents_BottomSheet_Modal = 2131689944;
 			
 			// aapt resource value: 0x7F0F01D9
-			public const int Widget_MaterialComponents_Button_OutlinedButton = 2131689945;
+			public const int Widget_MaterialComponents_Button = 2131689945;
 			
 			// aapt resource value: 0x7F0F01DA
-			public const int Widget_MaterialComponents_Button_OutlinedButton_Icon = 2131689946;
+			public const int Widget_MaterialComponents_Button_Icon = 2131689946;
 			
 			// aapt resource value: 0x7F0F01DB
-			public const int Widget_MaterialComponents_Button_TextButton = 2131689947;
+			public const int Widget_MaterialComponents_Button_OutlinedButton = 2131689947;
 			
 			// aapt resource value: 0x7F0F01DC
-			public const int Widget_MaterialComponents_Button_TextButton_Dialog = 2131689948;
+			public const int Widget_MaterialComponents_Button_OutlinedButton_Icon = 2131689948;
 			
 			// aapt resource value: 0x7F0F01DD
-			public const int Widget_MaterialComponents_Button_TextButton_Dialog_Icon = 2131689949;
+			public const int Widget_MaterialComponents_Button_TextButton = 2131689949;
 			
 			// aapt resource value: 0x7F0F01DE
-			public const int Widget_MaterialComponents_Button_TextButton_Icon = 2131689950;
+			public const int Widget_MaterialComponents_Button_TextButton_Dialog = 2131689950;
 			
 			// aapt resource value: 0x7F0F01DF
-			public const int Widget_MaterialComponents_Button_UnelevatedButton = 2131689951;
+			public const int Widget_MaterialComponents_Button_TextButton_Dialog_Icon = 2131689951;
 			
 			// aapt resource value: 0x7F0F01E0
-			public const int Widget_MaterialComponents_Button_UnelevatedButton_Icon = 2131689952;
+			public const int Widget_MaterialComponents_Button_TextButton_Icon = 2131689952;
 			
 			// aapt resource value: 0x7F0F01E1
-			public const int Widget_MaterialComponents_CardView = 2131689953;
-			
-			// aapt resource value: 0x7F0F01E6
-			public const int Widget_MaterialComponents_ChipGroup = 2131689958;
+			public const int Widget_MaterialComponents_Button_UnelevatedButton = 2131689953;
 			
 			// aapt resource value: 0x7F0F01E2
-			public const int Widget_MaterialComponents_Chip_Action = 2131689954;
+			public const int Widget_MaterialComponents_Button_UnelevatedButton_Icon = 2131689954;
 			
 			// aapt resource value: 0x7F0F01E3
-			public const int Widget_MaterialComponents_Chip_Choice = 2131689955;
-			
-			// aapt resource value: 0x7F0F01E4
-			public const int Widget_MaterialComponents_Chip_Entry = 2131689956;
-			
-			// aapt resource value: 0x7F0F01E5
-			public const int Widget_MaterialComponents_Chip_Filter = 2131689957;
-			
-			// aapt resource value: 0x7F0F01E7
-			public const int Widget_MaterialComponents_FloatingActionButton = 2131689959;
+			public const int Widget_MaterialComponents_CardView = 2131689955;
 			
 			// aapt resource value: 0x7F0F01E8
-			public const int Widget_MaterialComponents_NavigationView = 2131689960;
+			public const int Widget_MaterialComponents_ChipGroup = 2131689960;
+			
+			// aapt resource value: 0x7F0F01E4
+			public const int Widget_MaterialComponents_Chip_Action = 2131689956;
+			
+			// aapt resource value: 0x7F0F01E5
+			public const int Widget_MaterialComponents_Chip_Choice = 2131689957;
+			
+			// aapt resource value: 0x7F0F01E6
+			public const int Widget_MaterialComponents_Chip_Entry = 2131689958;
+			
+			// aapt resource value: 0x7F0F01E7
+			public const int Widget_MaterialComponents_Chip_Filter = 2131689959;
 			
 			// aapt resource value: 0x7F0F01E9
-			public const int Widget_MaterialComponents_Snackbar = 2131689961;
+			public const int Widget_MaterialComponents_FloatingActionButton = 2131689961;
 			
 			// aapt resource value: 0x7F0F01EA
-			public const int Widget_MaterialComponents_Snackbar_FullWidth = 2131689962;
+			public const int Widget_MaterialComponents_NavigationView = 2131689962;
 			
 			// aapt resource value: 0x7F0F01EB
-			public const int Widget_MaterialComponents_TabLayout = 2131689963;
+			public const int Widget_MaterialComponents_Snackbar = 2131689963;
 			
 			// aapt resource value: 0x7F0F01EC
-			public const int Widget_MaterialComponents_TabLayout_Colored = 2131689964;
+			public const int Widget_MaterialComponents_Snackbar_FullWidth = 2131689964;
 			
 			// aapt resource value: 0x7F0F01ED
-			public const int Widget_MaterialComponents_TextInputEditText_FilledBox = 2131689965;
+			public const int Widget_MaterialComponents_TabLayout = 2131689965;
 			
 			// aapt resource value: 0x7F0F01EE
-			public const int Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689966;
+			public const int Widget_MaterialComponents_TabLayout_Colored = 2131689966;
 			
 			// aapt resource value: 0x7F0F01EF
-			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox = 2131689967;
+			public const int Widget_MaterialComponents_TextInputEditText_FilledBox = 2131689967;
 			
 			// aapt resource value: 0x7F0F01F0
-			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689968;
+			public const int Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = 2131689968;
 			
 			// aapt resource value: 0x7F0F01F1
-			public const int Widget_MaterialComponents_TextInputLayout_FilledBox = 2131689969;
+			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox = 2131689969;
 			
 			// aapt resource value: 0x7F0F01F2
-			public const int Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = 2131689970;
+			public const int Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131689970;
 			
 			// aapt resource value: 0x7F0F01F3
-			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox = 2131689971;
+			public const int Widget_MaterialComponents_TextInputLayout_FilledBox = 2131689971;
 			
 			// aapt resource value: 0x7F0F01F4
-			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = 2131689972;
+			public const int Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = 2131689972;
 			
 			// aapt resource value: 0x7F0F01F5
-			public const int Widget_MaterialComponents_Toolbar = 2131689973;
+			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox = 2131689973;
 			
 			// aapt resource value: 0x7F0F01F6
-			public const int Widget_Support_CoordinatorLayout = 2131689974;
+			public const int Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = 2131689974;
+			
+			// aapt resource value: 0x7F0F01F7
+			public const int Widget_MaterialComponents_Toolbar = 2131689975;
+			
+			// aapt resource value: 0x7F0F01F8
+			public const int Widget_Support_CoordinatorLayout = 2131689976;
 			
 			static Style()
 			{
