@@ -111,68 +111,70 @@ namespace Hanyang.Pages
                     {
                         try
                         {
-                            for (int i = 0; i < 10; i++)
-                            {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
-                            }
+                            var per = 0;
+                            var ran = new Random();
 
-                            Loading.Instance.SetMessage("로컬 파일을 읽는 중입니다 ...");
+                            for (; per < 10; per++)
+                            {
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
+                            }
 
                             // 데이터 정보 파일 읽기
+                            Loading.Instance.SetMessage("로컬 파일을 읽는 중입니다 ...");
                             var controller = new JsonController("data_info");
-                            for (int i = 10; i < 15; i++)
+                            for (; per < 15; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
+
                             var json = controller.ReadString();
-                            for (int i = 15; i < 20; i++)
+                            for (; per < 20; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             if (json != null)
                                 dataInfo = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
-                            for (int i = 20; i < 30; i++)
+                            for (; per < 30; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             Loading.Instance.SetMessage("데이터를 가져오는 중입니다 ...");
                             await GetData();
-                            for (int i = 30; i < 50; i++)
+                            for (; per < 50; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             Loading.Instance.SetMessage("게시글을 가져오는 중입니다 ...");
                             await GetArticle();
-                            for (int i = 50; i < 70; i++)
+                            for (; per < 70; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             Loading.Instance.SetMessage("UI를 초기화하는 중입니다 ...");
                             InitUI();
-                            for (int i = 70; i < 90; i++)
+                            for (; per < 90; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             #region 앱 정보 가져오기
                             Loading.Instance.SetMessage("앱 정보를 가져오는 중입니다 ...");
-
                             var appInfo = GetAppInfo();
-                            for (int i = 90; i < 99; i++)
+                            for (; per < 99; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
 
                             if (appInfo != null && appInfo["Version"] != App.Version)
@@ -203,11 +205,12 @@ namespace Hanyang.Pages
 
                             Loading.Instance.SetMessage("로딩이 완료되었습니다.");
 
-                            for (int i = 95; i < 100; i++)
+                            for (; per < 100; per++)
                             {
-                                await Task.Delay(10);
-                                progress.Report((i + 1) * 0.01d);
+                                await Task.Delay(ran.Next(5, 21));
+                                progress.Report((per + 1) * 0.01d);
                             }
+                            await Task.Delay(250);
                         }
                         catch (Exception e)
                         {
@@ -535,8 +538,8 @@ namespace Hanyang.Pages
 
                                 if (schoolNoticeChange || schoolNewsletterChange || appNoticeChange)
                                 {
-                                    var result = await DisplayAlert("최신 데이터 발견",
-                                        "최신 데이터를 발견하였습니다.\n" +
+                                    var result = await DisplayAlert("최신 게시글 발견",
+                                        "최신 게시글을 발견하였습니다.\n" +
                                         (schoolNoticeChange ? "\n- 공지사항 : " + serverDataInfo["SchoolNotice"]["Size"] : "") +
                                         (schoolNewsletterChange ? "\n- 가정통신문 : " + serverDataInfo["SchoolNewsletter"]["Size"] : "") +
                                         (appNoticeChange ? "\n- 앱 공지사항 : " + serverDataInfo["AppNotice"]["Size"] : ""), "다운로드", "취소");

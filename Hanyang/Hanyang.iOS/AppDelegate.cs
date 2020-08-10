@@ -1,8 +1,6 @@
 ﻿#region API 참조
 using Foundation;
 
-using LabelHtml.Forms.Plugin.iOS;
-
 using UIKit;
 #endregion
 
@@ -18,7 +16,6 @@ namespace Hanyang.iOS
 
             AiForms.Dialogs.Dialogs.Init();
 
-            HtmlLabelRenderer.Initialize();
             global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());

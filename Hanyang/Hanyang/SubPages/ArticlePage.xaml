@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:htmlLabel="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              mc:Ignorable="d"
              BackgroundColor="White"
              x:Class="Hanyang.SubPages.ArticlePage">
@@ -41,7 +41,7 @@
                          HeightRequest="2"
                          HorizontalOptions="FillAndExpand"/>
 
-            <Label Text="⊙ 첨부파일 다운로드는 현재 준비 중입니다.&#10;⊙ 첨부파일은 웹에서 다운로드해 주시기 바랍니다.&#10;⊙ 사진은 인터넷에 연결된 상태에서만 보입니다."
+            <Label x:Name="Desc"
                    TextColor="Gray"
                    Margin="15,0"
                    FontSize="14"/>
@@ -50,12 +50,11 @@
                          HeightRequest="1"
                          HorizontalOptions="FillAndExpand"/>
 
-            <ScrollView x:Name="Scroll"
-                        Margin="10,0"
-                        VerticalOptions="FillAndExpand">
-                <htmlLabel:HtmlLabel x:Name="ArticleContents"
-                                     TextColor="Black"/>
-            </ScrollView>
+            <WebView x:Name="WebView"
+                     Margin="1,0"
+                     android:WebView.DisplayZoomControls="False"
+                     android:WebView.EnableZoomControls="True"
+                     VerticalOptions="FillAndExpand"/>
 
             <BoxView x:Name="ViewWebLine"
                      BackgroundColor="Black" 

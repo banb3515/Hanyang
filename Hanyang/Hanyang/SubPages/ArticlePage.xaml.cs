@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 #endregion
@@ -52,10 +53,18 @@ namespace Hanyang.SubPages
             #region UI 설정
             Title = title;
 
+            var descText = "⊙ 첨부파일은 웹에서 다운로드해 주시기 바랍니다.";
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                descText += "\n⊙ 사진은 인터넷에 연결된 상태에서만 보입니다.";
+            Desc.Text = descText;
+
             ArticleTitle.Text = article["Title"];
             ArticleWriter.Text = article["Name"];
             ArticleDate.Text = article["Date"];
-            ArticleContents.Text = article["Content"];
+
+            var htmlSource = new HtmlWebViewSource();
+            htmlSource.Html = article["Content"];
+            WebView.Source = htmlSource;
 
             if(Title == "앱 공지사항")
             {
@@ -76,7 +85,7 @@ namespace Hanyang.SubPages
             if (!task)
             {
                 task = true;
-                await Scroll.ScrollToAsync(0, 0, true);
+                await WebView.EvaluateJavaScriptAsync("window.scrollTo(0, 0)");
                 task = false;
             }
         }

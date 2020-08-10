@@ -1,6 +1,6 @@
 ﻿#region API 참조
 using ByteSizeLib;
-
+using HtmlAgilityPack;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,7 +31,7 @@ namespace WebServer
         #region 변수
         public static ILogger Logger { get; set; } // Logger - 로그 기록
 
-        public const string VERSION = "0.9.2"; // 앱 버전
+        public const string VERSION = "1.0.0"; // 앱 버전
 
         private const string FCM_TOKEN = "AAAAypSgklo:APA91bHqNp_jlDP9BOUohMYfszAAygCrg9Kc0ONhNNJp_41wHb0WOpDMX8gDSgdUrq8wT8xou0whdflUdba4ma1-ZMTwfVTjWXUMLhnzsPFsR1ODsBSxXv7MhUwAaTAkGCzWNERhUoSZ";
 
@@ -697,7 +697,7 @@ namespace WebServer
                                 { "Name", name },
                                 { "Date", date },
                                 { "Title", title },
-                                { "Content", content.Replace("\"", "'") }
+                                { "Content", BodyToHTML(ImageSize(content.Replace("\"", "'"))) }
                             };
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항 (" + title + ")");
@@ -791,7 +791,7 @@ namespace WebServer
                                 { "Name", name },
                                 { "Date", date },
                                 { "Title", title },
-                                { "Content", content.Replace("\"", "'") }
+                                { "Content", BodyToHTML(ImageSize(content.Replace("\"", "'"))) }
                             };
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 가정통신문 (" + title + ")");
@@ -826,6 +826,70 @@ namespace WebServer
         #endregion
 
         #region 급식 알림 보내기
+        #endregion
+
+        #region HTML 사진 사이즈 조정
+        private static string ImageSize(string body)
+        {
+            // 이미지/스타일 태그에 있는 사이즈 속성 삭제
+            try
+            {
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(body);
+
+                var imgs = doc.DocumentNode.SelectNodes("//img");
+                if (imgs != null)
+                {
+                    foreach (var img in imgs)
+                    {
+                        if (img.Attributes["width"] != null)
+                            img.Attributes["width"].Remove();
+                        if (img.Attributes["height"] != null)
+                            img.Attributes["height"].Remove();
+                    }
+                }
+
+                var styles = doc.DocumentNode.SelectNodes("//img[@style]");
+                if (styles != null)
+                {
+                    foreach (var style in styles)
+                    {
+                        HtmlAttribute att = style.Attributes["style"];
+
+                        string newStyles = "";
+                        foreach (var entries in att.Value.Split(';'))
+                        {
+                            var values = entries.Trim().Split(':');
+                            switch (values[0].ToLower())
+                            {
+                                case "width":
+                                case "height":
+                                    break;
+                                default:
+                                    newStyles += string.Join(":", values) + ";";
+                                    break;
+                            }
+                        }
+
+                        att.Value = newStyles;
+                    }
+                }
+
+                return doc.DocumentNode.OuterHtml;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+        #endregion
+
+        #region Body To HTML
+        private static string BodyToHTML(string body)
+        {
+            var styleHtml = @"img { width: 100%; }";
+            return $@"<html><head><style>{styleHtml}</style></head><body>{body}</body></html>";
+        }
         #endregion
 
         #region Json 비교
