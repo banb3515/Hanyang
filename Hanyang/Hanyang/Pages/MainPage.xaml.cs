@@ -55,12 +55,54 @@ namespace Hanyang.Pages
         {
             try
             {
+                #region 로딩 제외 후 테스트
+                /*
+                var controller = new JsonController("data_info");
+                var json = controller.ReadString();
+
+                if (json != null)
+                    dataInfo = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+                InitUI();
+
+                await GetData();
+                await GetArticle();
+
+                var appInfo = GetAppInfo();
+
+                if (appInfo != null && appInfo["Version"] != App.Version)
+                {
+                    var store = "";
+                    var uri = "";
+
+                    switch (Device.RuntimePlatform)
+                    {
+                        case Device.Android:
+                            store = "Google Play 스토어";
+                            uri = "market://details?id=io.github.banb3515.hanyang";
+                            break;
+                        case Device.iOS:
+                            store = "앱 스토어";
+                            uri = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=io.github.banb3515.hanyang&amp;onlyLatestVersion=true&amp;pageNumber=0&amp;sortOrdering=1&amp;type=Purple+Software";
+                            break;
+                    }
+
+                    var result = await DisplayAlert("업데이트", "최신 버전(v" + appInfo["Version"] + ")으로 업데이트할 수 있습니다.\n\n" +
+                        "※ 업데이트 내용\n" + appInfo["UpdateContent"] + "\n\n" +
+                        "[이동] 버튼 클릭 시 " + store + "로 이동합니다.", "이동", "취소");
+
+                    if (result)
+                        await Launcher.OpenAsync(new Uri(uri));
+                }
+                */
+                #endregion
+
                 Configurations.LoadingConfig = new LoadingConfig
                 {
                     IndicatorColor = Color.White,
                     OverlayColor = Color.Black,
                     Opacity = 0.75,
-                    DefaultMessage = "데이터를 가져오는 중 입니다...\n잠시만 기다려주세요.",
+                    DefaultMessage = "잠시만 기다려주세요 ...",
                 };
 
                 Device.BeginInvokeOnMainThread(async () =>
@@ -75,49 +117,48 @@ namespace Hanyang.Pages
                                 progress.Report((i + 1) * 0.01d);
                             }
 
-                            try
-                            {
-                                // 데이터 정보 파일 읽기
-                                var controller = new JsonController("data_info");
-                                for (int i = 10; i < 15; i++)
-                                {
-                                    await Task.Delay(10);
-                                    progress.Report((i + 1) * 0.01d);
-                                }
-                                var json = controller.ReadString();
-                                for (int i = 15; i < 20; i++)
-                                {
-                                    await Task.Delay(10);
-                                    progress.Report((i + 1) * 0.01d);
-                                }
+                            Loading.Instance.SetMessage("로컬 파일을 읽는 중입니다 ...");
 
-                                if (json != null)
-                                    dataInfo = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
-                                for (int i = 20; i < 30; i++)
-                                {
-                                    await Task.Delay(10);
-                                    progress.Report((i + 1) * 0.01d);
-                                }
-                            }
-                            catch (Exception e)
+                            // 데이터 정보 파일 읽기
+                            var controller = new JsonController("data_info");
+                            for (int i = 10; i < 15; i++)
                             {
-                                _ = ErrorAlert("알 수 없는 오류 (MainPage)", "알 수 없는 오류가 발생했습니다:\n" + e.Message);
+                                await Task.Delay(10);
+                                progress.Report((i + 1) * 0.01d);
+                            }
+                            var json = controller.ReadString();
+                            for (int i = 15; i < 20; i++)
+                            {
+                                await Task.Delay(10);
+                                progress.Report((i + 1) * 0.01d);
                             }
 
-                            InitUI();
+                            if (json != null)
+                                dataInfo = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+                            for (int i = 20; i < 30; i++)
+                            {
+                                await Task.Delay(10);
+                                progress.Report((i + 1) * 0.01d);
+                            }
+
+                            Loading.Instance.SetMessage("데이터를 가져오는 중입니다 ...");
+                            await GetData();
                             for (int i = 30; i < 50; i++)
                             {
                                 await Task.Delay(10);
                                 progress.Report((i + 1) * 0.01d);
                             }
 
-                            await GetData();
+                            Loading.Instance.SetMessage("게시글을 가져오는 중입니다 ...");
+                            await GetArticle();
                             for (int i = 50; i < 70; i++)
                             {
                                 await Task.Delay(10);
                                 progress.Report((i + 1) * 0.01d);
                             }
-                            await GetArticle();
+
+                            Loading.Instance.SetMessage("UI를 초기화하는 중입니다 ...");
+                            InitUI();
                             for (int i = 70; i < 90; i++)
                             {
                                 await Task.Delay(10);
@@ -125,6 +166,8 @@ namespace Hanyang.Pages
                             }
 
                             #region 앱 정보 가져오기
+                            Loading.Instance.SetMessage("앱 정보를 가져오는 중입니다 ...");
+
                             var appInfo = GetAppInfo();
                             for (int i = 90; i < 99; i++)
                             {
@@ -158,13 +201,18 @@ namespace Hanyang.Pages
                             }
                             #endregion
 
+                            Loading.Instance.SetMessage("로딩이 완료되었습니다.");
+
                             for (int i = 95; i < 100; i++)
                             {
                                 await Task.Delay(10);
                                 progress.Report((i + 1) * 0.01d);
                             }
                         }
-                        catch (Exception) { }
+                        catch (Exception e)
+                        {
+                            _ = ErrorAlert("로딩", "알 수 없는 오류가 발생했습니다:\n" + e.Message);
+                        }
                     });
                 });
             }
@@ -177,34 +225,28 @@ namespace Hanyang.Pages
         {
             try
             {
-                JsonController controller = null;
                 string timetableJson = null;
-                string lunchMenuJson = null;
-                string schoolScheduleJson = null;
-                string schoolNoticeJson = null;
-                string schoolNewsletterJson = null;
-                string appNoticeJson = null;
 
                 if (App.Class != 0)
                 {
-                    controller = new JsonController("timetable-" + App.GetClassName());
-                    timetableJson = controller.ReadString();
+                    var timetableCtrl = new JsonController("timetable-" + App.GetClassName());
+                    timetableJson = timetableCtrl.ReadString();
                 }
 
-                controller = new JsonController("lunch_menu");
-                lunchMenuJson = controller.ReadString();
+                var lunchMenuCtrl = new JsonController("lunch_menu");
+                var lunchMenuJson = lunchMenuCtrl.ReadString();
 
-                controller = new JsonController("school_schedule");
-                schoolScheduleJson = controller.ReadString();
+                var schoolScheduleCtrl = new JsonController("school_schedule");
+                var schoolScheduleJson = schoolScheduleCtrl.ReadString();
 
-                controller = new JsonController("school_notice");
-                schoolNoticeJson = controller.ReadString();
+                var schoolNoticeCtrl = new JsonController("school_notice");
+                var schoolNoticeJson = schoolNoticeCtrl.ReadString();
 
-                controller = new JsonController("school_newsletter");
-                schoolNewsletterJson = controller.ReadString();
+                var schoolNewsletterCtrl = new JsonController("school_newsletter");
+                var schoolNewsletterJson = schoolNewsletterCtrl.ReadString();
 
-                controller = new JsonController("app_notice");
-                appNoticeJson = controller.ReadString();
+                var appNoticeCtrl = new JsonController("app_notice");
+                var appNoticeJson = appNoticeCtrl.ReadString();
 
                 #region 시간표 파일 읽기
                 if (timetableJson != null)
@@ -507,13 +549,13 @@ namespace Hanyang.Pages
                                     var appNoticeT = "";
 
                                     if (schoolNoticeChange)
-                                        schoolNoticeT = GetTimetable();
+                                        schoolNoticeT = GetSchoolNotice();
 
                                     if (schoolNewsletterChange)
-                                        schoolNewsletterT = GetLunchMenu();
+                                        schoolNewsletterT = GetSchoolNewsletter();
 
                                     if (appNoticeChange)
-                                        appNoticeT = GetSchoolSchedule();
+                                        appNoticeT = GetAppNotice();
 
                                     if (schoolNoticeT != "" || schoolNewsletterT != "" || appNoticeT != "")
                                     {

@@ -19,7 +19,7 @@ namespace Hanyang
     public partial class App : Application
     {
         #region 변수
-        public static string Version { get; } = "0.9.0"; // 앱 버전
+        public static string Version { get; } = "0.9.2"; // 앱 버전
 
         // 한양이 WebServer API 키
         public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";

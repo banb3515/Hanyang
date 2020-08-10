@@ -134,6 +134,9 @@ namespace Hanyang.Pages
         #region 시간표 보기
         public async Task ViewScheduleAnimation(Timetable arg = null)
         {
+            if (view != "schedule")
+                return;
+
             Button button = null;
 
             switch (viewDOW)

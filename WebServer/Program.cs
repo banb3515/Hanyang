@@ -31,7 +31,7 @@ namespace WebServer
         #region 변수
         public static ILogger Logger { get; set; } // Logger - 로그 기록
 
-        public const string VERSION = "0.9.0"; // 앱 버전
+        public const string VERSION = "0.9.2"; // 앱 버전
 
         private const string FCM_TOKEN = "AAAAypSgklo:APA91bHqNp_jlDP9BOUohMYfszAAygCrg9Kc0ONhNNJp_41wHb0WOpDMX8gDSgdUrq8wT8xou0whdflUdba4ma1-ZMTwfVTjWXUMLhnzsPFsR1ODsBSxXv7MhUwAaTAkGCzWNERhUoSZ";
 
@@ -529,6 +529,9 @@ namespace WebServer
                             var day = data["AA_YMD"].ToString().Substring(6);
                             var list = new List<string>();
 
+                            if (data["EVENT_NM"].ToString().Trim() == "토요휴업일")
+                                continue;
+
                             if (ssData.Data.ContainsKey(day))
                             {
                                 list = ssData.Data[day];
@@ -694,7 +697,7 @@ namespace WebServer
                                 { "Name", name },
                                 { "Date", date },
                                 { "Title", title },
-                                { "Content", content }
+                                { "Content", content.Replace("\"", "'") }
                             };
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항 (" + title + ")");
@@ -788,7 +791,7 @@ namespace WebServer
                                 { "Name", name },
                                 { "Date", date },
                                 { "Title", title },
-                                { "Content", content }
+                                { "Content", content.Replace("\"", "'") }
                             };
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 가정통신문 (" + title + ")");
