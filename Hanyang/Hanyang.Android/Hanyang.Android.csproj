@@ -48,6 +48,7 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>

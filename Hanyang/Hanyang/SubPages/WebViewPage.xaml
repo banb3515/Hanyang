@@ -20,12 +20,14 @@
                          BackgroundColor="Transparent"
                          Clicked="GoBack_Clicked"
                          Margin="0,0,2,0"
+                         Opacity="0.5"
                          Source="arrow_left.png"/>
             <ImageButton x:Name="GoForward" 
                          WidthRequest="45"
                          BackgroundColor="Transparent"
                          Clicked="GoForward_Clicked"
                          Margin="2,0,0,0"
+                         Opacity="0.5"
                          Source="arrow_right.png"/>
         </StackLayout>
     </Grid>

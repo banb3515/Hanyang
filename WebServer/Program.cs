@@ -31,6 +31,8 @@ namespace WebServer
         #region 변수
         public static ILogger Logger { get; set; } // Logger - 로그 기록
 
+        public const string VERSION = "0.9.0"; // 앱 버전
+
         private const string FCM_TOKEN = "AAAAypSgklo:APA91bHqNp_jlDP9BOUohMYfszAAygCrg9Kc0ONhNNJp_41wHb0WOpDMX8gDSgdUrq8wT8xou0whdflUdba4ma1-ZMTwfVTjWXUMLhnzsPFsR1ODsBSxXv7MhUwAaTAkGCzWNERhUoSZ";
 
         // API KEY 값
@@ -99,7 +101,7 @@ namespace WebServer
 
             AppInfo = new Dictionary<string, string>
             {
-                { "Version", "1.0" }, // 앱 버전
+                { "Version", VERSION }, // 앱 버전
                 { "UpdateContent", "☞ 한양이 앱이 출시되었습니다." } // 업데이트 내용
             };
 
@@ -109,9 +111,9 @@ namespace WebServer
             AppNotice.Add("1", new Dictionary<string, string> 
             {
                 { "Name", "한양이" },
-                { "Date", "2020-08-01" },
+                { "Date", "2020-08-10" },
                 { "Title", "한양이 앱 테스트 버전" },
-                { "Content", "<p>한양이 앱 테스트 버전입니다.</p>" },
+                { "Content", "<p>한양이 앱 테스트 버전(v" + VERSION + ")입니다.</p>" },
             });
 
             DataInfo.Add("AppNotice", new Dictionary<string, string> 
@@ -393,7 +395,7 @@ namespace WebServer
             {
                 Logger.LogError("<Server> 시간표 가져오기: 오류 (" + e.Message + ")");
             }
-            return Timetable;
+            return null;
         }
         #endregion
 
@@ -469,7 +471,7 @@ namespace WebServer
             {
                 Logger.LogError("<Server> 급식 메뉴 가져오기: 오류 (" + e.Message + ")");
             }
-            return LunchMenu;
+            return null;
         }
         #endregion
 
@@ -549,7 +551,7 @@ namespace WebServer
             {
                 Logger.LogError("<Server> 학사 일정 가져오기: 오류 (" + e.Message + ")");
             }
-            return SchoolSchedule;
+            return null;
         }
         #endregion
 
@@ -654,7 +656,6 @@ namespace WebServer
 
                 var flag = true;
                 var page = 1;
-                var index = 1;
 
                 driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
 
@@ -680,6 +681,8 @@ namespace WebServer
                                 break;
                             }
 
+                            var number = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]").Text;
+
                             driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[2]/a").Click();
                             var name = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[1]/div").Text;
                             var date = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[2]/div").Text;
@@ -696,7 +699,7 @@ namespace WebServer
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항 (" + title + ")");
 
-                            datas.Add(index++.ToString(), data);
+                            datas.Add(number, data);
 
                             driver.Navigate().Back();
                             driver.FindElementByXPath("//*[@id=\"baseFrm_200483\"]/div/p/a").Click(); // 공지사항 보기 버튼 클릭
@@ -721,7 +724,7 @@ namespace WebServer
             {
                 Logger.LogInformation("<Server> 학교 공지사항 가져오기: 오류 (" + e.Message + ")");
             }
-            return SchoolNotice;
+            return null;
         }
         #endregion
 
@@ -747,7 +750,6 @@ namespace WebServer
 
                 var flag = true;
                 var page = 1;
-                var index = 1;
 
                 driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // 가정통신문 보기 버튼 클릭
 
@@ -773,6 +775,8 @@ namespace WebServer
                                 break;
                             }
 
+                            var number = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[1]").Text;
+
                             driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[" + line + "]/td[2]/a").Click();
                             var name = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[1]/div").Text;
                             var date = driver.FindElementByXPath("//*[@id=\"board_area\"]/table/tbody/tr[1]/td[2]/div").Text;
@@ -789,7 +793,7 @@ namespace WebServer
 
                             Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 가정통신문 (" + title + ")");
 
-                            datas.Add(index++.ToString(), data);
+                            datas.Add(number, data);
 
                             driver.Navigate().Back();
                             driver.FindElementByXPath("//*[@id=\"baseFrm_200484\"]/div/p/a").Click(); // 가정통신문 보기 버튼 클릭
@@ -814,7 +818,7 @@ namespace WebServer
             {
                 Logger.LogInformation("<Server> 가정통신문 가져오기: 오류 (" + e.Message + ")");
             }
-            return SchoolNewsletter;
+            return null;
         }
         #endregion
 
