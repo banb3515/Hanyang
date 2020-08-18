@@ -33,10 +33,8 @@ namespace WebServer
 
         public const string VERSION = "1.0.0"; // 앱 버전
 
-        private const string FCM_TOKEN = "AAAAypSgklo:APA91bHqNp_jlDP9BOUohMYfszAAygCrg9Kc0ONhNNJp_41wHb0WOpDMX8gDSgdUrq8wT8xou0whdflUdba4ma1-ZMTwfVTjWXUMLhnzsPFsR1ODsBSxXv7MhUwAaTAkGCzWNERhUoSZ";
-
         // API KEY 값
-        public const string API_KEY = "3tcPgoxHf2XZboJWuoF3mOX2ZV2OXlfbunUpFvjUvBORUeYWZBApTsYh6PbBXyweF4iPO1wZXLoKXOCrykHMVTrBWvwEcWIOzl1a1CzswHEQvGTWp3hMJEMbFZtqxXcI";
+        public const string API_KEY = "{YOUR_API_KEY}";
 
         #region API 요청 값
         public static Dictionary<string, string> AppInfo { get; set; } // 앱 정보
@@ -57,7 +55,7 @@ namespace WebServer
         #endregion
 
         #region NEIS API
-        private const string NEIS_API_KEY = "KEY=762281280e4943e58669a6b02991a67c&"; // API 키
+        private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // API 키
         private const string TIMETABLE_URL = "https://open.neis.go.kr/hub/hisTimetable?"; // 시간표 API URL
         private const string LUNCH_MENU_URL = "https://open.neis.go.kr/hub/mealServiceDietInfo?"; // 급식 일정 API URL
         private const string SCHOOL_SCHEDULE_URL = "https://open.neis.go.kr/hub/SchoolSchedule?"; // 학교 일정 API URL
@@ -571,8 +569,6 @@ namespace WebServer
                     Logger.LogInformation("<Server> 학교 홈페이지 크롤링: 학교 공지사항을 가져옵니다.");
                     var tmpSchoolNotice = GetSchoolNotice();
 
-                    await Task.Delay(500);
-
                     Logger.LogInformation("<Server> 가정통신문 크롤링: 학교 공지사항을 가져옵니다.");
                     var tmpSchoolNewsletter = GetSchoolNewsletter();
 
@@ -600,6 +596,8 @@ namespace WebServer
                             DataInfo["SchoolNotice"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNotice)).ToString());
                         }
                     }
+                    else
+                        continue;
 
                     if (tmpSchoolNewsletter != null)
                     {
@@ -625,6 +623,8 @@ namespace WebServer
                             DataInfo["SchoolNewsletter"].Add("Size", ByteSize.FromBytes(GetJsonByteLength(tmpSchoolNewsletter)).ToString());
                         }
                     }
+                    else
+                        continue;
                 }
                 catch (Exception e)
                 {
@@ -823,9 +823,6 @@ namespace WebServer
             }
             return null;
         }
-        #endregion
-
-        #region 급식 알림 보내기
         #endregion
 
         #region HTML 사진 사이즈 조정
