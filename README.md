@@ -38,7 +38,8 @@
 > - 스크린샷
 >
 > - 시연 영상
-> - <iframe width="303" height="640" src="https://www.youtube.com/embed/2rMCJMG5Ohc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="303" height="640" src="https://www.youtube.com/embed/2rMCJMG5Ohc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
