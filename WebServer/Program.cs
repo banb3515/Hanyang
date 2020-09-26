@@ -54,7 +54,7 @@ namespace WebServer
         public static Dictionary<string, Dictionary<string, string>> AppNotice { get; set; } // 앱 공지사항
         #endregion
 
-        #region NEIS API
+        #region 나이스 API
         private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // API 키
         private const string TIMETABLE_URL = "https://open.neis.go.kr/hub/hisTimetable?"; // 시간표 API URL
         private const string LUNCH_MENU_URL = "https://open.neis.go.kr/hub/mealServiceDietInfo?"; // 급식 일정 API URL
