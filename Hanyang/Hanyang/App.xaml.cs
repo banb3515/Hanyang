@@ -22,9 +22,9 @@ namespace Hanyang
         public static string Version { get; } = "1.0.0"; // 앱 버전
 
         // 한양이 WebServer API 키
-        public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo=";
+        public const string API_KEY = "{YOUR_API_KEY}";
 
-        public static string ServerUrl { get; } = "http://3.34.53.147/"; // 서버 URL
+        public static string ServerUrl { get; } = "http://{YOUR_SERVER_DOMAIN}/"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 

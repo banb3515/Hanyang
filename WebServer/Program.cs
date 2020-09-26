@@ -34,7 +34,7 @@ namespace WebServer
         public const string VERSION = "1.0.0"; // 앱 버전
 
         // 한양이 WebServer API 키
-        public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo=";
+        public const string API_KEY = "{YOUR_API_KEY}";
 
         #region API 요청 값
         public static Dictionary<string, string> AppInfo { get; set; } // 앱 정보

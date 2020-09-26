@@ -72,17 +72,23 @@
 >
 >    ```
 >    // 한양이 WebServer API 키
->    public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo="; // 변경 - 서버 키 값과 동일해야함
+>    // ex) public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo=";
+>    public const string API_KEY = "{YOUR_API_KEY}"; // 변경 - 서버 키 값과 동일해야함
 >
 >    // 서버 URL
->    public static string ServerUrl { get; } = "http://3.34.53.147/"; // 변경 - ex) http://{Server IP}/
+>    // ex) public static string ServerUrl { get; } = "http://3.34.53.147/";
+>    public static string ServerUrl { get; } = "http://{YOUR_SERVER_DOMAIN}/"; // 변경
 >    ```
 >
 > 9. WebServer 프로젝트 > Program.cs > #region 변수
 >
 >    ```
 >    // 한양이 WebServer API 키
->    public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo="; // 변경 - 클라이언트 키 값과 동일해야함
+>    // ex) public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo=";
+>    public const string API_KEY = "{YOUR_API_KEY}"; // 변경 - 클라이언트 키 값과 동일해야함
+>
+>    // NEIS API -> API 키
+>    // private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // 나이스 Open API 사이트에서 발급받은 API 키
 >    ```
 >
 > 10. WebServer 게시
