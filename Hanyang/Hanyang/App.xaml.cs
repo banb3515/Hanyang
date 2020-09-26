@@ -98,18 +98,17 @@ namespace Hanyang
         public App()
         {
             // Syncfusion 라이선스 키
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzIxNDcyQDMxMzgyZTMyMmUzMFBtUlVqRXZOamx0bUYrY0llanFSR09ZbnBHSmpONVcvcDJDM0Y3NGI2am89");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("{YOUR_SYNCFUSION_LICENSE_KEY}");
 
             InitSetting();
             GetProfile();
 
             InitializeComponent();
 
-            //if (Setup)
-            //    MainPage = new MainPage();
-            //else
-            //    MainPage = new SetupPage();
-            MainPage = new MainPage();
+            if (Setup)
+                MainPage = new MainPage();
+            else
+                MainPage = new SetupPage();
         }
         #endregion
 

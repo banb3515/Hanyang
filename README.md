@@ -68,7 +68,7 @@
 > 5. 서버에 [Chrome](https://www.google.com/chrome/) 설치
 > 6. 서버에 [Selenium Server](https://www.selenium.dev/downloads/), [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/downloads) 설치
 > 7. Selenium Server 파일과 Chrome Driver를 같은 경로에 두고 Selenium Server 실행 **[CMD 창 > java -jar {File Name}.jar]**
-> 8. 공용 프로젝트 > App.xaml.cs > #region 변수
+> 8. 공용 프로젝트 > App.xaml.cs
 >
 >    ```
 >    // 한양이 WebServer API 키
@@ -78,9 +78,15 @@
 >    // 서버 URL
 >    // ex) public static string ServerUrl { get; } = "http://3.34.53.147/";
 >    public static string ServerUrl { get; } = "http://{YOUR_SERVER_DOMAIN}/"; // 변경
+>
+>    // Syncfusion 라이선스 키
+>    // ex) Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzIxNDcyQDMxMzgyZTMyMmUzMFBtUlVqRXZOamx0bUYrY0llanFSR09ZbnBHSmpONVcvcDJDM0Y3NGI2am82");
+>    Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("{YOUR_SYNCFUSION_LICENSE_KEY}"); // Syncfusion 버전에 맞는 라이선스 키 사용
 >    ```
 >
-> 9. WebServer 프로젝트 > Program.cs > #region 변수
+>    - [Syncfusion 라이선스 키 발급](https://www.syncfusion.com/account/downloads) -> Get License Key 클릭
+>
+> 9. WebServer 프로젝트 > Program.cs
 >
 >    ```
 >    // 한양이 WebServer API 키
