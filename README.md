@@ -97,4 +97,4 @@
 
 ---
 
-<center><h3>iOS <span style="color: #FFA7A7;">미개발</span></h3></center>
+<h3 align="center">iOS 미개발</h3>
