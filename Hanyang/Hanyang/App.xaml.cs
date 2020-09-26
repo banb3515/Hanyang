@@ -22,9 +22,9 @@ namespace Hanyang
         public static string Version { get; } = "1.0.0"; // 앱 버전
 
         // 한양이 WebServer API 키
-        public const string API_KEY = "{YOUR_API_KEY}";
+        public const string API_KEY = "IWcusufuaYOcq5t/8tXC+6cJcrF5Y8zjoS915vG47yo=";
 
-        public static string ServerUrl { get; } = "{YOUR_WEB_SERVER_URL}"; // 서버 URL
+        public static string ServerUrl { get; } = "http://3.34.53.147/"; // 서버 URL
 
         public static string NewestVersion { get; set; } // 최신 버전
 
@@ -98,17 +98,18 @@ namespace Hanyang
         public App()
         {
             // Syncfusion 라이선스 키
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("{YOUR_SYNCFUSION_LICENSE_KEY}");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzIxNDcyQDMxMzgyZTMyMmUzMFBtUlVqRXZOamx0bUYrY0llanFSR09ZbnBHSmpONVcvcDJDM0Y3NGI2am89");
 
             InitSetting();
             GetProfile();
 
             InitializeComponent();
 
-            if (Setup)
-                MainPage = new MainPage();
-            else
-                MainPage = new SetupPage();
+            //if (Setup)
+            //    MainPage = new MainPage();
+            //else
+            //    MainPage = new SetupPage();
+            MainPage = new MainPage();
         }
         #endregion
 

@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.OS;
 
 using Rg.Plugins.Popup.Services;
+using Android.Content.Res;
+using Android.Util;
 #endregion
 
 namespace Hanyang.Droid.Activitys
@@ -15,8 +17,11 @@ namespace Hanyang.Droid.Activitys
         private static MainActivity instance;
 
         #region OnCreate
+        [System.Obsolete]
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            initFontScale();
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -26,10 +31,10 @@ namespace Hanyang.Droid.Activitys
 
             AiForms.Dialogs.Dialogs.Init(this);
 
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
 
             instance = this;
@@ -70,6 +75,20 @@ namespace Hanyang.Droid.Activitys
             }
 
             base.OnBackPressed();
+        }
+        #endregion
+
+        #region 폰트 크기 초기화
+        [System.Obsolete]
+        private void initFontScale()
+        {
+            Configuration configuration = Resources.Configuration;
+            configuration.FontScale = (float)1.0;
+            //0.85 small, 1 standard, 1.15 big，1.3 more bigger ，1.45 supper big 
+            DisplayMetrics metrics = new DisplayMetrics();
+            WindowManager.DefaultDisplay.GetMetrics(metrics);
+            metrics.ScaledDensity = configuration.FontScale * metrics.Density;
+            BaseContext.Resources.UpdateConfiguration(configuration, metrics);
         }
         #endregion
 

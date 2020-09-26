@@ -11,14 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AiForms.Dialogs" Version="1.0.7" />
+    <PackageReference Include="AiForms.Dialogs" Version="1.0.8" />
     <PackageReference Include="ByteSize" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
-    <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.46" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.5" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.59" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1179" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
   </ItemGroup>
 
   <ItemGroup>
