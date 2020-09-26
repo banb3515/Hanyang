@@ -98,6 +98,8 @@
 >    private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // 나이스 Open API 사이트에서 발급받은 API 키
 >    ```
 >
+>    - [나이스 API 키 발급](https://open.neis.go.kr/portal/mainPage.do) -> 로그인 후 마이페이지 -> 인증키 발급 클릭
+>
 > 10. WebServer 게시
 > 11. APK 배포
 
