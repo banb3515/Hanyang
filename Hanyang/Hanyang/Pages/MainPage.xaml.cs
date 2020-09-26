@@ -43,7 +43,7 @@ namespace Hanyang.Pages
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             InitializeComponent();
 
-            //LoadingData();
+            LoadingData();
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
