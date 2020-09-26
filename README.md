@@ -38,8 +38,8 @@
 > - 스크린샷
 >
 > - 시연 영상
-
-<iframe width="303" height="640" src="https://www.youtube.com/embed/2rMCJMG5Ohc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+>
+>   [![한양이 시연 영상](http://img.youtube.com/vi/2rMCJMG5Ohc/3.jpg)](https://youtu.be/2rMCJMG5Ohc?t=0s)
 
 ---
 
