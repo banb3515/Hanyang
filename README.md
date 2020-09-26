@@ -88,7 +88,8 @@
 >    public const string API_KEY = "{YOUR_API_KEY}"; // 변경 - 클라이언트 키 값과 동일해야함
 >
 >    // NEIS API -> API 키
->    // private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // 나이스 Open API 사이트에서 발급받은 API 키
+>    // ex) private const string NEIS_API_KEY = "KEY=762281280e4943e58669a6b02991a67c&";
+>    private const string NEIS_API_KEY = "KEY={YOUR_NEIS_API_KEY}&"; // 나이스 Open API 사이트에서 발급받은 API 키
 >    ```
 >
 > 10. WebServer 게시
