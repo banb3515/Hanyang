@@ -39,7 +39,7 @@
 >
 > - 시연 영상
 >
->   [![한양이 시연 영상](http://img.youtube.com/vi/2rMCJMG5Ohc/3.jpg)](https://youtu.be/2rMCJMG5Ohc?t=0s)
+>   [![한양이 시연 영상](https://github.com/banb3515/Hanyang/blob/master/Screenshots/Thumbnail.png?raw=true)](https://youtu.be/2rMCJMG5Ohc?t=0s)
 
 ---
 
