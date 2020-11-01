@@ -36,7 +36,8 @@
 > ### **스크린샷 (시연 영상)**
 >
 > - 스크린샷  
->   ![한양이 스크린샷1](https://github.com/banb3515/Hanyang/blob/master/Screenshots/Screenshot1.png?raw=true)  
+>   ![한양이 스크린샷1](https://github.com/banb3515/Hanyang/blob/master/Screenshots/Screenshot1.png?raw=true)
+> 
 >   ![한양이 스크린샷2](https://github.com/banb3515/Hanyang/blob/master/Screenshots/Screenshot2.png?raw=true)
 > - 시연 영상  
 >   [![한양이 시연 영상](https://github.com/banb3515/Hanyang/blob/master/Screenshots/Thumbnail.png?raw=true)](https://youtu.be/2rMCJMG5Ohc?t=0s)
