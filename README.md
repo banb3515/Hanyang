@@ -1,7 +1,4 @@
-# **(Old) 한양이 (Hanyang)**
-### **신버전 개발 중입니다.**
-### [New-Hanyang](https://github.com/banb3515/New-Hanyang)
-
+# **한양이 앱 (Hanyang App)**
 > ## **목차**
 >
 > 1. [한양이란?](#한양이란)
